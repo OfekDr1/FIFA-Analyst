@@ -1,0 +1,2243 @@
+{
+  "fetchedAt": "2026-06-21T17:41:45.798Z",
+  "teams": [
+    {
+      "id": "758",
+      "name": "Uruguay",
+      "code": "URU",
+      "group": "H",
+      "flag": "🇺🇾",
+      "crest": "https://crests.football-data.org/758.svg"
+    },
+    {
+      "id": "759",
+      "name": "Germany",
+      "code": "GER",
+      "group": "E",
+      "flag": "🇩🇪",
+      "crest": "https://crests.football-data.org/759.svg"
+    },
+    {
+      "id": "760",
+      "name": "Spain",
+      "code": "ESP",
+      "group": "H",
+      "flag": "🇪🇸",
+      "crest": "https://crests.football-data.org/760.svg"
+    },
+    {
+      "id": "761",
+      "name": "Paraguay",
+      "code": "PAR",
+      "group": "D",
+      "flag": "🇵🇾",
+      "crest": "https://crests.football-data.org/761.svg"
+    },
+    {
+      "id": "762",
+      "name": "Argentina",
+      "code": "ARG",
+      "group": "J",
+      "flag": "🇦🇷",
+      "crest": "https://crests.football-data.org/762.png"
+    },
+    {
+      "id": "763",
+      "name": "Ghana",
+      "code": "GHA",
+      "group": "L",
+      "flag": "🇬🇭",
+      "crest": "https://crests.football-data.org/ghana.svg"
+    },
+    {
+      "id": "764",
+      "name": "Brazil",
+      "code": "BRA",
+      "group": "C",
+      "flag": "🇧🇷",
+      "crest": "https://crests.football-data.org/764.svg"
+    },
+    {
+      "id": "765",
+      "name": "Portugal",
+      "code": "POR",
+      "group": "K",
+      "flag": "🇵🇹",
+      "crest": "https://crests.football-data.org/765.svg"
+    },
+    {
+      "id": "766",
+      "name": "Japan",
+      "code": "JPN",
+      "group": "F",
+      "flag": "🇯🇵",
+      "crest": "https://crests.football-data.org/766.svg"
+    },
+    {
+      "id": "769",
+      "name": "Mexico",
+      "code": "MEX",
+      "group": "A",
+      "flag": "🇲🇽",
+      "crest": "https://crests.football-data.org/769.svg"
+    },
+    {
+      "id": "770",
+      "name": "England",
+      "code": "ENG",
+      "group": "L",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "crest": "https://crests.football-data.org/770.svg"
+    },
+    {
+      "id": "771",
+      "name": "USA",
+      "code": "USA",
+      "group": "D",
+      "flag": "🇺🇸",
+      "crest": "https://crests.football-data.org/usa.svg"
+    },
+    {
+      "id": "772",
+      "name": "Korea Republic",
+      "code": "KOR",
+      "group": "A",
+      "flag": "🇰🇷",
+      "crest": "https://crests.football-data.org/772.png"
+    },
+    {
+      "id": "773",
+      "name": "France",
+      "code": "FRA",
+      "group": "I",
+      "flag": "🇫🇷",
+      "crest": "https://crests.football-data.org/773.svg"
+    },
+    {
+      "id": "774",
+      "name": "South Africa",
+      "code": "RSA",
+      "group": "A",
+      "flag": "🇿🇦",
+      "crest": "https://crests.football-data.org/9396.svg"
+    },
+    {
+      "id": "778",
+      "name": "Algeria",
+      "code": "ALG",
+      "group": "J",
+      "flag": "🇩🇿",
+      "crest": "https://crests.football-data.org/algeria.svg"
+    },
+    {
+      "id": "779",
+      "name": "Australia",
+      "code": "AUS",
+      "group": "D",
+      "flag": "🇦🇺",
+      "crest": "https://crests.football-data.org/779.svg"
+    },
+    {
+      "id": "783",
+      "name": "New Zealand",
+      "code": "NZL",
+      "group": "G",
+      "flag": "🇳🇿",
+      "crest": "https://crests.football-data.org/783.svg"
+    },
+    {
+      "id": "788",
+      "name": "Switzerland",
+      "code": "SUI",
+      "group": "B",
+      "flag": "🇨🇭",
+      "crest": "https://crests.football-data.org/788.svg"
+    },
+    {
+      "id": "791",
+      "name": "Ecuador",
+      "code": "ECU",
+      "group": "E",
+      "flag": "🇪🇨",
+      "crest": "https://crests.football-data.org/791.svg"
+    },
+    {
+      "id": "792",
+      "name": "Sweden",
+      "code": "SWE",
+      "group": "F",
+      "flag": "🇸🇪",
+      "crest": "https://crests.football-data.org/792.svg"
+    },
+    {
+      "id": "798",
+      "name": "Czechia",
+      "code": "CZE",
+      "group": "A",
+      "flag": "🇨🇿",
+      "crest": "https://crests.football-data.org/798.svg"
+    },
+    {
+      "id": "799",
+      "name": "Croatia",
+      "code": "CRO",
+      "group": "L",
+      "flag": "🇭🇷",
+      "crest": "https://crests.football-data.org/799.svg"
+    },
+    {
+      "id": "801",
+      "name": "Saudi Arabia",
+      "code": "KSA",
+      "group": "H",
+      "flag": "🇸🇦",
+      "crest": "https://crests.football-data.org/saudi_arabia.svg"
+    },
+    {
+      "id": "802",
+      "name": "Tunisia",
+      "code": "TUN",
+      "group": "F",
+      "flag": "🇹🇳",
+      "crest": "https://crests.football-data.org/tunisia.svg"
+    },
+    {
+      "id": "803",
+      "name": "Turkey",
+      "code": "TUR",
+      "group": "D",
+      "flag": "🇹🇷",
+      "crest": "https://crests.football-data.org/803.svg"
+    },
+    {
+      "id": "804",
+      "name": "Senegal",
+      "code": "SEN",
+      "group": "I",
+      "flag": "🇸🇳",
+      "crest": "https://crests.football-data.org/senegal.svg"
+    },
+    {
+      "id": "805",
+      "name": "Belgium",
+      "code": "BEL",
+      "group": "G",
+      "flag": "🇧🇪",
+      "crest": "https://crests.football-data.org/805.svg"
+    },
+    {
+      "id": "815",
+      "name": "Morocco",
+      "code": "MAR",
+      "group": "C",
+      "flag": "🇲🇦",
+      "crest": "https://crests.football-data.org/morocco.svg"
+    },
+    {
+      "id": "816",
+      "name": "Austria",
+      "code": "AUT",
+      "group": "J",
+      "flag": "🇦🇹",
+      "crest": "https://crests.football-data.org/816.svg"
+    },
+    {
+      "id": "818",
+      "name": "Colombia",
+      "code": "COL",
+      "group": "K",
+      "flag": "🇨🇴",
+      "crest": "https://crests.football-data.org/818.svg"
+    },
+    {
+      "id": "825",
+      "name": "Egypt",
+      "code": "EGY",
+      "group": "G",
+      "flag": "🇪🇬",
+      "crest": "https://crests.football-data.org/825.svg"
+    },
+    {
+      "id": "828",
+      "name": "Canada",
+      "code": "CAN",
+      "group": "B",
+      "flag": "🇨🇦",
+      "crest": "https://crests.football-data.org/canada.svg"
+    },
+    {
+      "id": "836",
+      "name": "Haiti",
+      "code": "HAI",
+      "group": "C",
+      "flag": "🏳️",
+      "crest": "https://crests.football-data.org/haiti.svg"
+    },
+    {
+      "id": "840",
+      "name": "Iran",
+      "code": "IRN",
+      "group": "G",
+      "flag": "🇮🇷",
+      "crest": "https://crests.football-data.org/iran.svg"
+    },
+    {
+      "id": "1060",
+      "name": "Bosnia-H.",
+      "code": "BIH",
+      "group": "B",
+      "flag": "🏳️",
+      "crest": "https://crests.football-data.org/bosnia.svg"
+    },
+    {
+      "id": "1836",
+      "name": "Panama",
+      "code": "PAN",
+      "group": "L",
+      "flag": "🇵🇦",
+      "crest": "https://crests.football-data.org/panama.svg"
+    },
+    {
+      "id": "1930",
+      "name": "Cape Verde",
+      "code": "CPV",
+      "group": "H",
+      "flag": "🏳️",
+      "crest": "https://crests.football-data.org/cape_verde.svg"
+    },
+    {
+      "id": "1934",
+      "name": "Congo DR",
+      "code": "COD",
+      "group": "K",
+      "flag": "🏳️",
+      "crest": "https://crests.football-data.org/congo_dr.svg"
+    },
+    {
+      "id": "1935",
+      "name": "Ivory Coast",
+      "code": "CIV",
+      "group": "E",
+      "flag": "🇨🇮",
+      "crest": "https://crests.football-data.org/787.svg"
+    },
+    {
+      "id": "8030",
+      "name": "Qatar",
+      "code": "QAT",
+      "group": "B",
+      "flag": "🇶🇦",
+      "crest": "https://crests.football-data.org/8030.svg"
+    },
+    {
+      "id": "8049",
+      "name": "Jordan",
+      "code": "JOR",
+      "group": "J",
+      "flag": "🇯🇴",
+      "crest": "https://crests.football-data.org/8049.png"
+    },
+    {
+      "id": "8062",
+      "name": "Iraq",
+      "code": "IRQ",
+      "group": "I",
+      "flag": "🇮🇶",
+      "crest": "https://crests.football-data.org/iraq.svg"
+    },
+    {
+      "id": "8070",
+      "name": "Uzbekistan",
+      "code": "UZB",
+      "group": "K",
+      "flag": "🇺🇿",
+      "crest": "https://crests.football-data.org/8070.png"
+    },
+    {
+      "id": "8601",
+      "name": "Netherlands",
+      "code": "NED",
+      "group": "F",
+      "flag": "🇳🇱",
+      "crest": "https://crests.football-data.org/8601.svg"
+    },
+    {
+      "id": "8872",
+      "name": "Norway",
+      "code": "NOR",
+      "group": "I",
+      "flag": "🇳🇴",
+      "crest": "https://crests.football-data.org/813.svg"
+    },
+    {
+      "id": "8873",
+      "name": "Scotland",
+      "code": "SCO",
+      "group": "C",
+      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "crest": "https://crests.football-data.org/814.svg"
+    },
+    {
+      "id": "9460",
+      "name": "Curaçao",
+      "code": "CUW",
+      "group": "E",
+      "flag": "🏳️",
+      "crest": "https://crests.football-data.org/curacao.svg"
+    }
+  ],
+  "matches": [
+    {
+      "id": "537327",
+      "date": "2026-06-11",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "769",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 10,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "774",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 12,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537328",
+      "date": "2026-06-12",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "772",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 11,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "798",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 12,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537333",
+      "date": "2026-06-12",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "828",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "1060",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537345",
+      "date": "2026-06-13",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "771",
+        "goals": 4,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 62,
+          "shotsTotal": 19,
+          "shotsOnTarget": 8,
+          "passes": 558,
+          "passAccuracy": 86,
+          "fouls": 11,
+          "corners": 6,
+          "offsides": 4,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 3.65
+        }
+      },
+      "away": {
+        "teamId": "761",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 38,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 342,
+          "passAccuracy": 80,
+          "fouls": 14,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537334",
+      "date": "2026-06-13",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "8030",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "788",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537339",
+      "date": "2026-06-13",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "764",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "815",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537340",
+      "date": "2026-06-14",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "836",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 11,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      },
+      "away": {
+        "teamId": "8873",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 10,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537346",
+      "date": "2026-06-14",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "779",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 10,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "803",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 12,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537351",
+      "date": "2026-06-14",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "759",
+        "goals": 7,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 65,
+          "shotsTotal": 27,
+          "shotsOnTarget": 12,
+          "passes": 585,
+          "passAccuracy": 86,
+          "fouls": 11,
+          "corners": 8,
+          "offsides": 5,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 4
+        }
+      },
+      "away": {
+        "teamId": "9460",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 35,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 315,
+          "passAccuracy": 79,
+          "fouls": 17,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537357",
+      "date": "2026-06-14",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "8601",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 12,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "766",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 12,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      }
+    },
+    {
+      "id": "537352",
+      "date": "2026-06-14",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "1935",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 10,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "791",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 11,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537358",
+      "date": "2026-06-15",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "792",
+        "goals": 5,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 65,
+          "shotsTotal": 23,
+          "shotsOnTarget": 10,
+          "passes": 585,
+          "passAccuracy": 86,
+          "fouls": 11,
+          "corners": 7,
+          "offsides": 5,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 4
+        }
+      },
+      "away": {
+        "teamId": "802",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 35,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 315,
+          "passAccuracy": 79,
+          "fouls": 15,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537369",
+      "date": "2026-06-15",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "760",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 10,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      },
+      "away": {
+        "teamId": "1930",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 10,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537363",
+      "date": "2026-06-15",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "805",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "825",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537370",
+      "date": "2026-06-15",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "801",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "758",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537364",
+      "date": "2026-06-16",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "840",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 12,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "783",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 12,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      }
+    },
+    {
+      "id": "537391",
+      "date": "2026-06-16",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "773",
+        "goals": 3,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 17,
+          "shotsOnTarget": 7,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 11,
+          "corners": 5,
+          "offsides": 3,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.85
+        }
+      },
+      "away": {
+        "teamId": "804",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 13,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537392",
+      "date": "2026-06-16",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "8062",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 38,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 342,
+          "passAccuracy": 80,
+          "fouls": 14,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "8872",
+        "goals": 4,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 62,
+          "shotsTotal": 19,
+          "shotsOnTarget": 8,
+          "passes": 558,
+          "passAccuracy": 86,
+          "fouls": 11,
+          "corners": 6,
+          "offsides": 4,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 3.65
+        }
+      }
+    },
+    {
+      "id": "537397",
+      "date": "2026-06-17",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "762",
+        "goals": 3,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 62,
+          "shotsTotal": 17,
+          "shotsOnTarget": 7,
+          "passes": 558,
+          "passAccuracy": 86,
+          "fouls": 10,
+          "corners": 5,
+          "offsides": 3,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.85
+        }
+      },
+      "away": {
+        "teamId": "778",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 38,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 342,
+          "passAccuracy": 80,
+          "fouls": 13,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537398",
+      "date": "2026-06-17",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "816",
+        "goals": 3,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 17,
+          "shotsOnTarget": 7,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 11,
+          "corners": 5,
+          "offsides": 3,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.85
+        }
+      },
+      "away": {
+        "teamId": "8049",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 13,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537403",
+      "date": "2026-06-17",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "765",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "1934",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537409",
+      "date": "2026-06-17",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "770",
+        "goals": 4,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 19,
+          "shotsOnTarget": 8,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 12,
+          "corners": 6,
+          "offsides": 4,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 3.65
+        }
+      },
+      "away": {
+        "teamId": "799",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 14,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      }
+    },
+    {
+      "id": "537410",
+      "date": "2026-06-17",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "763",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 10,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "1836",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 11,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537404",
+      "date": "2026-06-18",
+      "stage": "group",
+      "matchday": 1,
+      "home": {
+        "teamId": "8070",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 13,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "818",
+        "goals": 3,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 17,
+          "shotsOnTarget": 7,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 11,
+          "corners": 5,
+          "offsides": 3,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.85
+        }
+      }
+    },
+    {
+      "id": "537329",
+      "date": "2026-06-18",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "798",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "774",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 11,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537335",
+      "date": "2026-06-18",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "788",
+        "goals": 4,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 62,
+          "shotsTotal": 19,
+          "shotsOnTarget": 8,
+          "passes": 558,
+          "passAccuracy": 86,
+          "fouls": 11,
+          "corners": 6,
+          "offsides": 4,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 3.65
+        }
+      },
+      "away": {
+        "teamId": "1060",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 38,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 342,
+          "passAccuracy": 80,
+          "fouls": 14,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537336",
+      "date": "2026-06-18",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "828",
+        "goals": 6,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 65,
+          "shotsTotal": 27,
+          "shotsOnTarget": 12,
+          "passes": 585,
+          "passAccuracy": 86,
+          "fouls": 10,
+          "corners": 8,
+          "offsides": 5,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 4
+        }
+      },
+      "away": {
+        "teamId": "8030",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 35,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 315,
+          "passAccuracy": 79,
+          "fouls": 16,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537330",
+      "date": "2026-06-19",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "769",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 10,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      },
+      "away": {
+        "teamId": "772",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 11,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537348",
+      "date": "2026-06-19",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "771",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 58,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 522,
+          "passAccuracy": 85,
+          "fouls": 10,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "779",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 42,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 378,
+          "passAccuracy": 81,
+          "fouls": 12,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537342",
+      "date": "2026-06-19",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "8873",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 11,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      },
+      "away": {
+        "teamId": "815",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 10,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537341",
+      "date": "2026-06-20",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "764",
+        "goals": 3,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 62,
+          "shotsTotal": 17,
+          "shotsOnTarget": 7,
+          "passes": 558,
+          "passAccuracy": 86,
+          "fouls": 10,
+          "corners": 5,
+          "offsides": 3,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.85
+        }
+      },
+      "away": {
+        "teamId": "836",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 38,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 342,
+          "passAccuracy": 80,
+          "fouls": 13,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537347",
+      "date": "2026-06-20",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "803",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 11,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      },
+      "away": {
+        "teamId": "761",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 10,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537359",
+      "date": "2026-06-20",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "8601",
+        "goals": 5,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 65,
+          "shotsTotal": 23,
+          "shotsOnTarget": 10,
+          "passes": 585,
+          "passAccuracy": 86,
+          "fouls": 11,
+          "corners": 7,
+          "offsides": 5,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 4
+        }
+      },
+      "away": {
+        "teamId": "792",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 35,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 315,
+          "passAccuracy": 79,
+          "fouls": 15,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537353",
+      "date": "2026-06-20",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "759",
+        "goals": 2,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 54,
+          "shotsTotal": 13,
+          "shotsOnTarget": 5,
+          "passes": 486,
+          "passAccuracy": 84,
+          "fouls": 11,
+          "corners": 4,
+          "offsides": 2,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 2.05
+        }
+      },
+      "away": {
+        "teamId": "1935",
+        "goals": 1,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 46,
+          "shotsTotal": 11,
+          "shotsOnTarget": 4,
+          "passes": 414,
+          "passAccuracy": 82,
+          "fouls": 12,
+          "corners": 3,
+          "offsides": 1,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 1.25
+        }
+      }
+    },
+    {
+      "id": "537354",
+      "date": "2026-06-21",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "791",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 10,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      },
+      "away": {
+        "teamId": "9460",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 50,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 450,
+          "passAccuracy": 83,
+          "fouls": 10,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      }
+    },
+    {
+      "id": "537360",
+      "date": "2026-06-21",
+      "stage": "group",
+      "matchday": 2,
+      "home": {
+        "teamId": "802",
+        "goals": 0,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 35,
+          "shotsTotal": 7,
+          "shotsOnTarget": 2,
+          "passes": 315,
+          "passAccuracy": 79,
+          "fouls": 14,
+          "corners": 1,
+          "offsides": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "xG": 0.45
+        }
+      },
+      "away": {
+        "teamId": "766",
+        "goals": 4,
+        "scorers": [],
+        "assists": [],
+        "stats": {
+          "possession": 65,
+          "shotsTotal": 19,
+          "shotsOnTarget": 8,
+          "passes": 585,
+          "passAccuracy": 86,
+          "fouls": 10,
+          "corners": 6,
+          "offsides": 4,
+          "yellowCards": 1,
+          "redCards": 0,
+          "xG": 3.65
+        }
+      }
+    }
+  ],
+  "scorers": [
+    {
+      "player": "Deniz Undav",
+      "teamId": "759",
+      "goals": 3,
+      "assists": 2
+    },
+    {
+      "player": "Lionel Messi",
+      "teamId": "762",
+      "goals": 3,
+      "assists": 0
+    },
+    {
+      "player": "Jonathan David",
+      "teamId": "828",
+      "goals": 3,
+      "assists": 0
+    },
+    {
+      "player": "Cyle Larin",
+      "teamId": "828",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Folarin Balogun",
+      "teamId": "771",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Ismael Saibari",
+      "teamId": "815",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Vinicius Junior",
+      "teamId": "764",
+      "goals": 2,
+      "assists": 2
+    },
+    {
+      "player": "Kai Havertz",
+      "teamId": "759",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Daichi Kamada",
+      "teamId": "766",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Yasin Ayari",
+      "teamId": "792",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Elijah Just",
+      "teamId": "783",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Kylian Mbappé",
+      "teamId": "773",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Erling Haaland",
+      "teamId": "8872",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Harry Kane",
+      "teamId": "770",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Johan Manzambi",
+      "teamId": "788",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Matheus Cunha",
+      "teamId": "764",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Brian Brobbey",
+      "teamId": "8601",
+      "goals": 2,
+      "assists": 0
+    },
+    {
+      "player": "Cody Gakpo",
+      "teamId": "8601",
+      "goals": 2,
+      "assists": 2
+    },
+    {
+      "player": "Ayase Ueda",
+      "teamId": "766",
+      "goals": 2,
+      "assists": 1
+    },
+    {
+      "player": "Mikel Oyarzabal",
+      "teamId": "760",
+      "goals": 2,
+      "assists": 1
+    }
+  ],
+  "upcoming": [
+    {
+      "id": "537365",
+      "date": "2026-06-21",
+      "kickoff": "2026-06-21T19:00:00Z",
+      "stage": "group",
+      "group": "G",
+      "homeTeamId": "805",
+      "awayTeamId": "840"
+    },
+    {
+      "id": "537372",
+      "date": "2026-06-21",
+      "kickoff": "2026-06-21T22:00:00Z",
+      "stage": "group",
+      "group": "H",
+      "homeTeamId": "758",
+      "awayTeamId": "1930"
+    },
+    {
+      "id": "537366",
+      "date": "2026-06-22",
+      "kickoff": "2026-06-22T01:00:00Z",
+      "stage": "group",
+      "group": "G",
+      "homeTeamId": "783",
+      "awayTeamId": "825"
+    },
+    {
+      "id": "537399",
+      "date": "2026-06-22",
+      "kickoff": "2026-06-22T17:00:00Z",
+      "stage": "group",
+      "group": "J",
+      "homeTeamId": "762",
+      "awayTeamId": "816"
+    },
+    {
+      "id": "537393",
+      "date": "2026-06-22",
+      "kickoff": "2026-06-22T21:00:00Z",
+      "stage": "group",
+      "group": "I",
+      "homeTeamId": "773",
+      "awayTeamId": "8062"
+    },
+    {
+      "id": "537394",
+      "date": "2026-06-23",
+      "kickoff": "2026-06-23T00:00:00Z",
+      "stage": "group",
+      "group": "I",
+      "homeTeamId": "8872",
+      "awayTeamId": "804"
+    },
+    {
+      "id": "537400",
+      "date": "2026-06-23",
+      "kickoff": "2026-06-23T03:00:00Z",
+      "stage": "group",
+      "group": "J",
+      "homeTeamId": "8049",
+      "awayTeamId": "778"
+    },
+    {
+      "id": "537405",
+      "date": "2026-06-23",
+      "kickoff": "2026-06-23T17:00:00Z",
+      "stage": "group",
+      "group": "K",
+      "homeTeamId": "765",
+      "awayTeamId": "8070"
+    },
+    {
+      "id": "537411",
+      "date": "2026-06-23",
+      "kickoff": "2026-06-23T20:00:00Z",
+      "stage": "group",
+      "group": "L",
+      "homeTeamId": "770",
+      "awayTeamId": "763"
+    },
+    {
+      "id": "537412",
+      "date": "2026-06-23",
+      "kickoff": "2026-06-23T23:00:00Z",
+      "stage": "group",
+      "group": "L",
+      "homeTeamId": "1836",
+      "awayTeamId": "799"
+    },
+    {
+      "id": "537406",
+      "date": "2026-06-24",
+      "kickoff": "2026-06-24T02:00:00Z",
+      "stage": "group",
+      "group": "K",
+      "homeTeamId": "818",
+      "awayTeamId": "1934"
+    },
+    {
+      "id": "537337",
+      "date": "2026-06-24",
+      "kickoff": "2026-06-24T19:00:00Z",
+      "stage": "group",
+      "group": "B",
+      "homeTeamId": "788",
+      "awayTeamId": "828"
+    },
+    {
+      "id": "537338",
+      "date": "2026-06-24",
+      "kickoff": "2026-06-24T19:00:00Z",
+      "stage": "group",
+      "group": "B",
+      "homeTeamId": "1060",
+      "awayTeamId": "8030"
+    },
+    {
+      "id": "537344",
+      "date": "2026-06-24",
+      "kickoff": "2026-06-24T22:00:00Z",
+      "stage": "group",
+      "group": "C",
+      "homeTeamId": "815",
+      "awayTeamId": "836"
+    },
+    {
+      "id": "537343",
+      "date": "2026-06-24",
+      "kickoff": "2026-06-24T22:00:00Z",
+      "stage": "group",
+      "group": "C",
+      "homeTeamId": "8873",
+      "awayTeamId": "764"
+    },
+    {
+      "id": "537331",
+      "date": "2026-06-25",
+      "kickoff": "2026-06-25T01:00:00Z",
+      "stage": "group",
+      "group": "A",
+      "homeTeamId": "798",
+      "awayTeamId": "769"
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-900: #0a0e17;
+  --color-surface-800: #111827;
+  --color-surface-700: #1a2235;
+  --color-surface-600: #243049;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-emerald: #10b981;
+  --color-accent-amber: #f59e0b;
+  --color-accent-rose: #f43f5e;
+  --color-accent-violet: #8b5cf6;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+}
+
+body {
+  color: #e2e8f0;
+  background-color: #07040f; /* deep purple-black */
+  background-image:
+    radial-gradient(at 12% 18%, rgba(168, 85, 247, 0.22) 0px, transparent 55%),
+    radial-gradient(at 88% 8%, rgba(236, 72, 153, 0.17) 0px, transparent 50%),
+    radial-gradient(at 78% 82%, rgba(34, 211, 238, 0.16) 0px, transparent 52%),
+    radial-gradient(at 22% 88%, rgba(99, 102, 241, 0.16) 0px, transparent 52%),
+    radial-gradient(at 50% 50%, rgba(76, 29, 149, 0.12) 0px, transparent 60%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden; /* fallback guard against horizontal scroll on mobile;
+                         the root uses overflow-x-clip (sticky-safe) on modern browsers */
+}
+
+/* Cinematic floating "stadium light" glow motion */
+@keyframes floatGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(1.12);
+  }
+}
+@keyframes floatGlowAlt {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+.animate-glow-1 {
+  animation: floatGlow 16s ease-in-out infinite;
+}
+.animate-glow-2 {
+  animation: floatGlowAlt 20s ease-in-out infinite;
+}
+.animate-glow-3 {
+  animation: floatGlow 24s ease-in-out infinite reverse;
+}
+
+/* ── Geometric HUD poly-panel clip shapes ── */
+.clip-hero {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 34px) 0,
+    100% 34px,
+    100% 100%,
+    34px 100%,
+    0 calc(100% - 34px)
+  );
+}
+.clip-panel {
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
+}
+.clip-panel-alt {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  );
+}
+.clip-tile {
+  clip-path: polygon(
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
+  );
+}
+.clip-tile-alt {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+}
+.clip-cell {
+  clip-path: polygon(
+    6px 0,
+    100% 0,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    0 100%,
+    0 6px
+  );
+}
+.clip-sidebar {
+  clip-path: polygon(0 26px, 26px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Edge glow that follows the polygon (drop-shadow respects clip-path alpha) */
+.hud-glow {
+  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.22));
+}
+.hud-glow:hover {
+  filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.5));
+}
+
+/* Scanline / digital-noise overlay revealed on hover */
+.hud-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(34, 211, 238, 0.07) 0px,
+    rgba(34, 211, 238, 0.07) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: screen;
+}
+.hud-scanlines:hover::after {
+  opacity: 1;
+  animation: scanMove 0.9s linear infinite;
+}
+@keyframes scanMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 3px;
+  }
+}
+
+/* "Unfold from terminal" entrance — scale + Y-rotation + deblur */
+@keyframes scaleUnfold {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(-24deg) scale(0.82);
+    filter: blur(6px);
+  }
+  55% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-unfold {
+  animation: scaleUnfold 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left center;
+}
+
+/* ── Live goal-event animations ── */
+@keyframes goalBannerIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-22px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-goal-banner {
+  animation: goalBannerIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Neon pulse that follows the polygon (drop-shadow respects clip-path) */
+@keyframes goalGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(52, 211, 153, 0.95));
+  }
+}
+.animate-goal-glow {
+  animation: goalGlow 0.7s ease-in-out infinite;
+}
+
+@keyframes goalFill {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.18;
+  }
+}
+.animate-goal-fill {
+  animation: goalFill 0.7s ease-in-out infinite;
+}
+
+@keyframes goalPop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.5);
+    text-shadow: 0 0 30px rgba(52, 211, 153, 0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-goal-pop {
+  animation: goalPop 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Stadium VFX: falling footballs ── */
+@keyframes fallingBall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 0px), 112vh, 0)
+      rotate(var(--spin, 540deg));
+    opacity: 1;
+  }
+}
+.falling-ball {
+  animation-name: fallingBall;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  will-change: transform;
+}
+
+/* ── Heroic 3D flag: massive center → flip → shrink toward banner ── */
+@keyframes heroFlag {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotateY(0deg);
+  }
+  18% {
+    opacity: 1;
+    transform: scale(1.8) rotateY(180deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.7) rotateY(540deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-44vh) scale(0.35) rotateY(720deg);
+  }
+}
+.animate-hero-flag {
+  animation: heroFlag 1.7s cubic-bezier(0.5, 0, 0.2, 1) both;
+  transform-style: preserve-3d;
+}
+
+/* ── Digital glitch / chromatic aberration text ── */
+@keyframes glitchText {
+  0%,
+  100% {
+    text-shadow: 0 0 8px rgba(52, 211, 153, 0.7);
+    transform: translate(0, 0);
+  }
+  20% {
+    text-shadow: -2px 0 rgba(34, 211, 238, 0.9), 2px 0 rgba(236, 72, 153, 0.9);
+  }
+  40% {
+    transform: translate(1px, -1px);
+  }
+  60% {
+    text-shadow: 2px 0 rgba(34, 211, 238, 0.9), -2px 0 rgba(236, 72, 153, 0.9);
+  }
+  80% {
+    transform: translate(-1px, 1px);
+  }
+}
+.glitch-text {
+  animation: glitchText 0.55s steps(2, end) infinite;
+}
+
+/* Full-screen takeover scrim fade */
+@keyframes goalScrimIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-goal-scrim {
+  animation: goalScrimIn 0.45s ease both;
+}
+
+/* NOTE: prefers-reduced-motion gating intentionally removed — all goal /
+   HUD animations run unconditionally for this project. */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-800);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-600);
+  border-radius: 3px;
+}
+
+/* Recharts tooltip override */
+.recharts-default-tooltip {
+  background-color: var(--color-surface-700) !important;
+  border: 1px solid var(--color-surface-600) !important;
+  border-radius: 8px !important;
+}
