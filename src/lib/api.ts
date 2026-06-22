@@ -309,6 +309,7 @@ function mapMatch(raw: FdMatch): Match {
     date: raw.utcDate.split("T")[0],
     stage: mapStage(raw.stage),
     matchday: raw.matchday ?? 1,
+    status: "Finished",
     home: mapTeamResult(
       String(raw.homeTeam.id),
       homeGoals,

@@ -6,6 +6,7 @@ import {
   BarChart3,
   TrendingUp,
   Swords,
+  Target,
   Activity,
   Info,
 } from "lucide-react";
@@ -19,6 +20,7 @@ import { FormIndex } from "@/components/FormIndex";
 import { TeamStats } from "@/components/TeamStats";
 import { TournamentInsights } from "@/components/TournamentInsights";
 import { Predictions } from "@/components/Predictions";
+import { PredictionAccuracy } from "@/components/PredictionAccuracy";
 import { LiveMatchTracker } from "@/components/LiveMatchTracker";
 import { GoalCelebrationOverlay } from "@/components/GoalCelebrationOverlay";
 import { useLiveMatches } from "@/hooks/useLiveMatches";
@@ -28,6 +30,7 @@ const tabs = [
   { id: "stats", label: "Team Stats", icon: BarChart3 },
   { id: "insights", label: "Tournament Insights", icon: TrendingUp },
   { id: "predictions", label: "Predictions", icon: Swords },
+  { id: "accuracy", label: "Accuracy", icon: Target },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -182,6 +185,9 @@ export function DashboardShell({
               )}
               {activeTab === "predictions" && (
                 <Predictions teams={teams} matches={matches} upcoming={upcoming} />
+              )}
+              {activeTab === "accuracy" && (
+                <PredictionAccuracy teams={teams} matches={matches} />
               )}
             </main>
           </div>

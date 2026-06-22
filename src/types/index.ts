@@ -34,6 +34,7 @@ export interface Match {
   date: string; // ISO date
   stage: "group" | "round-of-16" | "quarter-final" | "semi-final" | "final";
   matchday: number;
+  status?: "Scheduled" | "Live" | "Finished"; // omitted ⇒ treated as Finished
   home: MatchTeamResult;
   away: MatchTeamResult;
 }
