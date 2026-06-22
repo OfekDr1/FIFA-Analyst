@@ -118,6 +118,89 @@ function clamp(v: number, lo: number, hi: number): number {
   return Math.max(lo, Math.min(hi, v));
 }
 
+// ─── Real-world momentum injection (public/team_momentum.json) ────
+//
+// momentum_score ∈ [0, 100] per team, from recent competitive form.
+// Loaded once at runtime via fetch (resilient: a missing/invalid file
+// just leaves everyone at the neutral default). Keyed by normalised
+// team name; unknown teams default to 50.
+//
+// The home/away momentum GAP becomes a multiplier on each side's λ,
+// self-capped to ±MAX_MOMENTUM_IMPACT via tanh.
+
+const DEFAULT_MOMENTUM = 50;
+const MAX_MOMENTUM_IMPACT = 0.2; // hard cap: ≤ 20% swing on λ
+const MOMENTUM_SCALE = 40; // point-gap that drives tanh toward the cap
+
+// ─── World Football Elo grounding ────────────────────────────────
+// Elo expected win probability gives a second, well-calibrated signal.
+// Gated behind the SAME applyMomentum flag so historical accuracy runs
+// (applyMomentum: false) don't leak current Elo onto past matches.
+const DEFAULT_ELO = 1500; // baseline for teams missing an Elo rating
+const MAX_ELO_IMPACT = 0.25; // hard cap: ≤ 25% swing on λ from Elo edge
+
+interface MomentumEntry {
+  team: string;
+  momentum_score: number;
+  elo?: number;
+}
+
+const momentumByName = new Map<string, number>();
+const eloByName = new Map<string, number>();
+let momentumLoaded = false;
+let momentumLoading: Promise<void> | null = null;
+
+/**
+ * Fetch and register the momentum scores. Idempotent and safe to call
+ * from any client component. Resolves once loaded (or once it has
+ * decided the file is unavailable). Call this, then recompute
+ * predictions, so the scores actually feed into λ.
+ */
+export function loadMomentumScores(): Promise<void> {
+  if (momentumLoaded) return Promise.resolve();
+  if (momentumLoading) return momentumLoading;
+
+  momentumLoading = fetch("/team_momentum.json", { cache: "force-cache" })
+    .then((res) => (res.ok ? res.json() : { teams: [] }))
+    .then((data: { teams?: MomentumEntry[] }) => {
+      for (const e of data.teams ?? []) {
+        if (!e || typeof e.team !== "string") continue;
+        const key = normalizeName(e.team);
+        if (typeof e.momentum_score === "number") {
+          momentumByName.set(key, e.momentum_score);
+        }
+        if (typeof e.elo === "number") {
+          eloByName.set(key, e.elo);
+        }
+      }
+      momentumLoaded = true;
+    })
+    .catch(() => {
+      // Missing/invalid file → everyone defaults to 50; predictions still work.
+      momentumLoaded = true;
+    });
+
+  return momentumLoading;
+}
+
+/** Public accessor for the UI — returns a team's momentum (default 50). */
+export function getMomentumScore(teamName: string): number {
+  return momentumByName.get(normalizeName(teamName)) ?? DEFAULT_MOMENTUM;
+}
+
+function getMomentum(team: Team): number {
+  return getMomentumScore(team.name);
+}
+
+/** Public accessor for the UI — returns a team's Elo (default 1500). */
+export function getEloRating(teamName: string): number {
+  return eloByName.get(normalizeName(teamName)) ?? DEFAULT_ELO;
+}
+
+function getElo(team: Team): number {
+  return getEloRating(team.name);
+}
+
 export interface MatchPrediction {
   homeTeam: { id: string; name: string; flag: string; crest?: string };
   awayTeam: { id: string; name: string; flag: string; crest?: string };
@@ -244,7 +327,8 @@ export function predictMatch(
   homeTeam: Team,
   awayTeam: Team,
   teams: Team[],
-  matches: Match[]
+  matches: Match[],
+  applyMomentum: boolean = true
 ): MatchPrediction {
   const strengths = calculateTeamStrengths(teams, matches);
   const homeStr = strengths.get(homeTeam.id)!;
@@ -278,14 +362,49 @@ export function predictMatch(
   const homeRankMult = 1 + RANK_SENSITIVITY * edge;
   const awayRankMult = 1 - RANK_SENSITIVITY * edge;
 
-  // Expected goals — form × opponent defense × tournament baseline × ranking
+  // ── Current-form signals (momentum + Elo), gated by applyMomentum ──
+  // Both reflect *present-day* strength, so historical accuracy runs
+  // (applyMomentum: false) skip them to avoid data leakage.
+  let momentumModifier = 0;
+  let eloModifier = 0;
+  if (applyMomentum) {
+    // Recent competitive form — nudge λ by the momentum gap (±20% cap)
+    const momentumGap = getMomentum(homeTeam) - getMomentum(awayTeam); // -100 … +100
+    momentumModifier = MAX_MOMENTUM_IMPACT * Math.tanh(momentumGap / MOMENTUM_SCALE);
+
+    // World Football Elo — expected win probability via the standard formula
+    const homeElo = getElo(homeTeam);
+    const awayElo = getElo(awayTeam);
+    const eloProbHome = 1 / (1 + Math.pow(10, (awayElo - homeElo) / 400));
+    // Map probability (0.5 = even) to a [-1, 1] edge, then cap the swing.
+    const eloEdge = 2 * eloProbHome - 1;
+    eloModifier = MAX_ELO_IMPACT * eloEdge;
+  }
+  const homeMomentumMult = 1 + momentumModifier; // hotter side: λ up
+  const awayMomentumMult = 1 - momentumModifier; // colder side: λ down
+  const homeEloMult = 1 + eloModifier; // Elo-favoured side: λ up
+  const awayEloMult = 1 - eloModifier;
+
+  // Expected goals — form × opponent defense × tournament baseline ×
+  // FIFA ranking × real-world momentum × Elo superiority
   const lambdaHome = clamp(
-    h.attack * a.defense * tournamentAvg * HOME_ADVANTAGE * homeRankMult,
+    h.attack *
+      a.defense *
+      tournamentAvg *
+      HOME_ADVANTAGE *
+      homeRankMult *
+      homeMomentumMult *
+      homeEloMult,
     0.15,
     4.5
   );
   const lambdaAway = clamp(
-    a.attack * h.defense * tournamentAvg * awayRankMult,
+    a.attack *
+      h.defense *
+      tournamentAvg *
+      awayRankMult *
+      awayMomentumMult *
+      awayEloMult,
     0.15,
     4.5
   );

@@ -37,9 +37,9 @@ const OUTCOME: Record<
   },
   trend: {
     label: "Trend",
-    color: "#22d3ee",
+    color: "#38bdf8", // sky blue — correct outcome, wrong scoreline
     icon: TrendingUp,
-    edge: "from-cyan-400/70 via-fuchsia-500/30 to-cyan-500/30",
+    edge: "from-sky-400/70 via-cyan-400/30 to-sky-500/30",
     glow: true,
   },
   miss: {
@@ -106,7 +106,7 @@ function PercentPanel({
   );
 }
 
-function AccuracyWidget({ stats }: { stats: AccuracyStats }) {
+export function AccuracyWidget({ stats }: { stats: AccuracyStats }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <PercentPanel
@@ -115,7 +115,7 @@ function AccuracyWidget({ stats }: { stats: AccuracyStats }) {
         label="Trend Accuracy · 1X2"
         value={stats.trendAccuracy}
         detail={`${stats.trendCount} of ${stats.total} results called correctly`}
-        color="#22d3ee"
+        color="#38bdf8"
         icon={TrendingUp}
       />
       <PercentPanel
@@ -214,6 +214,29 @@ function ReviewCard({ r, index }: { r: MatchPredictionReview; index: number }) {
   );
 }
 
+export function PastMatchesList({ reviews }: { reviews: MatchPredictionReview[] }) {
+  if (reviews.length === 0) {
+    return (
+      <div className="clip-tile bg-white/[0.02] border border-white/10 px-4 py-10 text-center text-sm text-slate-500">
+        No finished matches to grade yet.
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h3 className="text-sm font-bold text-slate-100 mb-4 uppercase tracking-wider">
+        Past Matches
+      </h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        {reviews.map((r, i) => (
+          <ReviewCard key={r.matchId} r={r} index={i} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function PredictionAccuracy({ teams, matches }: Props) {
   // Compute lazily — only when this tab is mounted. O(n²) but n is small.
   const stats = useMemo(() => evaluatePredictions(teams, matches), [teams, matches]);
@@ -241,16 +264,7 @@ export function PredictionAccuracy({ teams, matches }: Props) {
         <>
           <AccuracyWidget stats={stats} />
 
-          <div>
-            <h3 className="text-sm font-bold text-slate-100 mb-4 uppercase tracking-wider">
-              Past Matches
-            </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-              {stats.reviews.map((r, i) => (
-                <ReviewCard key={r.matchId} r={r} index={i} />
-              ))}
-            </div>
-          </div>
+          <PastMatchesList reviews={stats.reviews} />
 
           <div className="flex items-start gap-2.5 text-xs text-slate-500 rounded-xl bg-white/5 border border-white/10 p-4">
             <Info className="w-4 h-4 shrink-0 mt-0.5" />

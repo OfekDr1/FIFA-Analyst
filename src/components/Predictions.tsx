@@ -7,9 +7,12 @@ import {
   Sparkles,
   Info,
   CalendarClock,
+  Flame,
+  Shield,
 } from "lucide-react";
 import { Team, Match, UpcomingFixture } from "@/types";
-import { predictMatch } from "@/lib/predictions";
+import { predictMatch, getMomentumScore, getEloRating } from "@/lib/predictions";
+import { useMomentum } from "@/hooks/useMomentum";
 import { Crest, flagSources } from "@/components/Crest";
 import { Panel, PolyTile, VConnector, EDGE_ACTIVE, PANEL_BG } from "@/components/Hud";
 
@@ -81,6 +84,38 @@ function ProbabilityBar({
         <span style={{ color: COLOR_DRAW }}>Draw {draw.toFixed(1)}%</span>
         <span style={{ color: COLOR_AWAY }}>Away {away.toFixed(1)}%</span>
       </div>
+    </div>
+  );
+}
+
+// Color-coded recent-form badge. >=70 high (emerald), 40–69 average
+// (sky blue), <40 low (orange). Defaults to a neutral 50 gracefully.
+function MomentumBadge({ score }: { score: number }) {
+  const color = score >= 70 ? "#34d399" : score >= 40 ? "#38bdf8" : "#fb923c";
+  const tier = score >= 70 ? "High" : score >= 40 ? "Average" : "Low";
+  return (
+      <div
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border text-[11px] font-bold tabular-nums transition-colors duration-300"
+      style={{ color, borderColor: `${color}55`, boxShadow: `0 0 12px -5px ${color}` }}
+      title={`${tier} momentum — recent competitive form: ${score.toFixed(1)} / 100`}
+    >
+      <Flame className="w-3 h-3" style={{ color }} />
+      <span style={{ textShadow: `0 0 10px ${color}66` }}>{Math.round(score)}</span>
+    </div>
+  );
+}
+
+// World Football Elo chip — neon violet to sit beside the momentum flame.
+function EloBadge({ elo }: { elo: number }) {
+  const color = "#a78bfa"; // violet
+  return (
+    <div
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border text-[11px] font-bold tabular-nums transition-colors duration-300"
+      style={{ color, borderColor: `${color}55`, boxShadow: `0 0 12px -5px ${color}` }}
+      title={`World Football Elo rating: ${Math.round(elo)}`}
+    >
+      <Shield className="w-3 h-3" style={{ color }} />
+      <span style={{ textShadow: `0 0 10px ${color}66` }}>{Math.round(elo)}</span>
     </div>
   );
 }
@@ -316,10 +351,14 @@ export function Predictions({ teams, matches, upcoming }: Props) {
   const awayTeam = sorted.find((t) => t.id === awayId);
   const sameTeam = homeId === awayId;
 
+  // Loads /team_momentum.json once; flips true so the prediction recomputes.
+  const momentumReady = useMomentum();
+
   const prediction = useMemo(() => {
     if (!homeTeam || !awayTeam || sameTeam) return null;
     return predictMatch(homeTeam, awayTeam, teams, matches);
-  }, [homeTeam, awayTeam, sameTeam, teams, matches]);
+    // momentumReady intentionally in deps: recompute when scores arrive.
+  }, [homeTeam, awayTeam, sameTeam, teams, matches, momentumReady]);
 
   const swap = () => {
     setHomeId(awayId);
@@ -385,6 +424,12 @@ export function Predictions({ teams, matches, upcoming }: Props) {
                 {homeTeam && (
                   <Crest crest={homeTeam.crest} flag={homeTeam.flag} code={homeTeam.code} name={homeTeam.name} size={84} glow />
                 )}
+                {homeTeam && (
+                  <div className="flex flex-wrap items-center justify-center gap-1.5">
+                    <MomentumBadge score={getMomentumScore(homeTeam.name)} />
+                    <EloBadge elo={getEloRating(homeTeam.name)} />
+                  </div>
+                )}
                 <TeamSelect value={homeId} onChange={setHomeId} teams={sorted} />
               </div>
 
@@ -399,6 +444,12 @@ export function Predictions({ teams, matches, upcoming }: Props) {
               <div className="flex flex-col items-center gap-3">
                 {awayTeam && (
                   <Crest crest={awayTeam.crest} flag={awayTeam.flag} code={awayTeam.code} name={awayTeam.name} size={84} glow />
+                )}
+                {awayTeam && (
+                  <div className="flex flex-wrap items-center justify-center gap-1.5">
+                    <MomentumBadge score={getMomentumScore(awayTeam.name)} />
+                    <EloBadge elo={getEloRating(awayTeam.name)} />
+                  </div>
                 )}
                 <TeamSelect value={awayId} onChange={setAwayId} teams={sorted} />
               </div>

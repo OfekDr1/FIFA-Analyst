@@ -75,7 +75,9 @@ export function evaluatePredictions(
     // Only data available before this match — no leakage of its own result.
     const priorMatches = finished.filter((m) => m.date < match.date);
 
-    const prediction = predictMatch(homeTeam, awayTeam, teams, priorMatches);
+    // applyMomentum = false: momentum reflects *current* form, which wasn't
+    // knowable pre-kickoff — including it would leak future info into grades.
+    const prediction = predictMatch(homeTeam, awayTeam, teams, priorMatches, false);
     const top = prediction.mostLikelyScores[0];
     if (!top) continue;
 
