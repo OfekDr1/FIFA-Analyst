@@ -36,6 +36,7 @@ W_WIN_RATE = 0.60              # weight: results matter most
 W_GOAL_DIFF = 0.40             # weight: margin/quality of those results
 # Weights sum to 1.0 so the weighted blend of two 0–100 inputs stays 0–100.
 DEFAULT_ELO = 1500             # baseline when a team has no Elo rating
+DEFAULT_XG = 1.10              # tournament-baseline xG / xGA per 90 (missing teams)
 
 
 def normalize_name(name: str) -> str:
@@ -195,6 +196,50 @@ def attach_elo(team_stats: pd.DataFrame, elo: pd.DataFrame) -> pd.DataFrame:
     return ts
 
 
+# ── Expected Goals (underlying quality) ──────────────────────────────
+def load_xg(path: Path) -> pd.DataFrame:
+    """
+    Load `team_xg_stats.csv` (columns: team, xG_per_90, xGA_per_90).
+    Returns an empty frame if absent so the pipeline still runs (all
+    teams → DEFAULT_XG).
+    """
+    if not path.exists():
+        print(f"[xg] {path} not found — defaulting xG/xGA to {DEFAULT_XG}.")
+        return pd.DataFrame(columns=["team", "xG_per_90", "xGA_per_90"])
+
+    xg = pd.read_csv(path, usecols=["team", "xG_per_90", "xGA_per_90"]).copy()
+    xg["xG_per_90"] = pd.to_numeric(xg["xG_per_90"], errors="coerce")
+    xg["xGA_per_90"] = pd.to_numeric(xg["xGA_per_90"], errors="coerce")
+    return xg.dropna(subset=["team"])
+
+
+def attach_xg(team_stats: pd.DataFrame, xg: pd.DataFrame) -> pd.DataFrame:
+    """
+    Left-join xG/xGA onto the team-stats frame by (normalized) team name.
+    Teams missing from the CSV fall back to DEFAULT_XG (1.10) for both.
+    """
+    ts = team_stats.copy()
+    ts["_key"] = ts["team"].map(normalize_name)
+
+    if not xg.empty:
+        x = xg.copy()
+        x["_key"] = x["team"].map(normalize_name)
+        x = (
+            x[["_key", "xG_per_90", "xGA_per_90"]]
+            .dropna(subset=["_key"])
+            .drop_duplicates("_key")
+        )
+        ts = ts.merge(x, on="_key", how="left")  # LEFT JOIN
+    else:
+        ts["xG_per_90"] = np.nan
+        ts["xGA_per_90"] = np.nan
+
+    ts = ts.drop(columns="_key")
+    ts["xG_per_90"] = ts["xG_per_90"].fillna(DEFAULT_XG).round(2)
+    ts["xGA_per_90"] = ts["xGA_per_90"].fillna(DEFAULT_XG).round(2)
+    return ts
+
+
 # ── 5. Tidy + export ─────────────────────────────────────────────────
 def round_columns(g: pd.DataFrame) -> pd.DataFrame:
     rounding = {
@@ -220,6 +265,7 @@ def export_json(g: pd.DataFrame, output: Path, since: str) -> None:
             "exclude_tournaments": ["Friendly"],
             "min_matches": DEFAULT_MIN_MATCHES,
             "elo_baseline": DEFAULT_ELO,
+            "xg_baseline": DEFAULT_XG,
         },
         "weights": {"win_rate": W_WIN_RATE, "goal_difference": W_GOAL_DIFF},
         "count": len(teams),
@@ -240,7 +286,9 @@ def main() -> None:
                         help="Earliest match date to include (YYYY-MM-DD).")
     parser.add_argument("--min-matches", default=DEFAULT_MIN_MATCHES, type=int)
     parser.add_argument("--elo", default="elo_ratings.csv", type=Path,
-                        help="CSV with columns team,elo for Elo grounding.")
+                        help="CSV with columns country,rating,snapshot_date.")
+    parser.add_argument("--xg", default="team_xg_stats.csv", type=Path,
+                        help="CSV with columns team,xG_per_90,xGA_per_90.")
     args = parser.parse_args()
 
     df = load_and_filter(args.input, args.since)
@@ -250,6 +298,7 @@ def main() -> None:
     team_rows = to_team_perspective(df)
     agg = aggregate(team_rows, args.min_matches)
     agg = attach_elo(agg, load_elo(args.elo))  # left join + default 1500
+    agg = attach_xg(agg, load_xg(args.xg))     # left join + default 1.10
     agg.attrs["max_date"] = df["date"].max().date()
     agg = add_momentum(agg)
     agg = round_columns(agg)
@@ -260,8 +309,8 @@ def main() -> None:
           f"({df['date'].min().date()} → {df['date'].max().date()}).")
     print(f"Ranked {len(agg)} teams → {args.output}")
     print("\nTop 5 by momentum:")
-    print(agg[["rank", "team", "momentum_score", "elo", "win_rate",
-               "avg_goal_difference"]].head().to_string(index=False))
+    print(agg[["rank", "team", "momentum_score", "elo", "xG_per_90",
+               "xGA_per_90"]].head().to_string(index=False))
 
 
 if __name__ == "__main__":
