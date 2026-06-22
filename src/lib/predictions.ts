@@ -44,7 +44,6 @@ const MAX_GOALS = 7;
 
 const RANK_SCALE = 18; // larger ⇒ ranking gap matters less
 const RANK_SENSITIVITY = 0.45; // max ± fraction applied to λ from ranking
-const STRENGTH_PRIOR = 2.5; // shrink form strengths toward 1 (small-sample guard)
 const DEFAULT_RANK = 50; // unranked / unknown teams
 
 // Approximate current FIFA ranking positions for the top World Cup teams.
@@ -139,14 +138,22 @@ const MOMENTUM_SCALE = 40; // point-gap that drives tanh toward the cap
 const DEFAULT_ELO = 1500; // baseline for teams missing an Elo rating
 const MAX_ELO_IMPACT = 0.25; // hard cap: ≤ 25% swing on λ from Elo edge
 
+// ─── Underlying xG quality ───────────────────────────────────────
+// xG_per_90 / xGA_per_90 are blended 50/50 with historical goal rates
+// to form the BASE Poisson λ, regularising small-sample overconfidence.
+const DEFAULT_XG = 1.1; // tournament-baseline xG / xGA per 90
+
 interface MomentumEntry {
   team: string;
   momentum_score: number;
   elo?: number;
+  xG_per_90?: number;
+  xGA_per_90?: number;
 }
 
 const momentumByName = new Map<string, number>();
 const eloByName = new Map<string, number>();
+const xgByName = new Map<string, { xg: number; xga: number }>();
 let momentumLoaded = false;
 let momentumLoading: Promise<void> | null = null;
 
@@ -160,7 +167,7 @@ export function loadMomentumScores(): Promise<void> {
   if (momentumLoaded) return Promise.resolve();
   if (momentumLoading) return momentumLoading;
 
-  momentumLoading = fetch("/team_momentum.json", { cache: "force-cache" })
+  momentumLoading = fetch(`/team_momentum.json?t=${new Date().getTime()}`, { cache: "no-store" })
     .then((res) => (res.ok ? res.json() : { teams: [] }))
     .then((data: { teams?: MomentumEntry[] }) => {
       for (const e of data.teams ?? []) {
@@ -171,6 +178,12 @@ export function loadMomentumScores(): Promise<void> {
         }
         if (typeof e.elo === "number") {
           eloByName.set(key, e.elo);
+        }
+        if (typeof e.xG_per_90 === "number" || typeof e.xGA_per_90 === "number") {
+          xgByName.set(key, {
+            xg: typeof e.xG_per_90 === "number" ? e.xG_per_90 : DEFAULT_XG,
+            xga: typeof e.xGA_per_90 === "number" ? e.xGA_per_90 : DEFAULT_XG,
+          });
         }
       }
       momentumLoaded = true;
@@ -199,6 +212,15 @@ export function getEloRating(teamName: string): number {
 
 function getElo(team: Team): number {
   return getEloRating(team.name);
+}
+
+/** Public accessor for the UI — returns a team's xG/xGA per 90 (default 1.10). */
+export function getTeamXg(teamName: string): { xg: number; xga: number } {
+  return xgByName.get(normalizeName(teamName)) ?? { xg: DEFAULT_XG, xga: DEFAULT_XG };
+}
+
+function getXg(team: Team): { xg: number; xga: number } {
+  return getTeamXg(team.name);
 }
 
 export interface MatchPrediction {
@@ -328,8 +350,11 @@ export function predictMatch(
   awayTeam: Team,
   teams: Team[],
   matches: Match[],
-  applyMomentum: boolean = true
+  options: { applyModifiers?: boolean; applyXG?: boolean } = {}
 ): MatchPrediction {
+  // applyModifiers → momentum + Elo (temporary current-form signals)
+  // applyXG        → blend the underlying xG quality into the base λ
+  const { applyModifiers = true, applyXG = true } = options;
   const strengths = calculateTeamStrengths(teams, matches);
   const homeStr = strengths.get(homeTeam.id)!;
   const awayStr = strengths.get(awayTeam.id)!;
@@ -343,16 +368,25 @@ export function predictMatch(
   }
   const tournamentAvg = totalTeamGames > 0 ? totalGoals / totalTeamGames : 1.3;
 
-  // ── Shrink form strengths toward 1 to curb small-sample overfitting ──
-  const shrink = (s: TeamStrength) => {
-    const w = s.matchesPlayed / (s.matchesPlayed + STRENGTH_PRIOR);
-    return {
-      attack: 1 + (s.attackStrength - 1) * w,
-      defense: 1 + (s.defenseStrength - 1) * w,
-    };
-  };
-  const h = shrink(homeStr);
-  const a = shrink(awayStr);
+  // ── Base λ from team attack/defense rates ──
+  // The xG blend is gated independently by applyXG:
+  //   • applyXG = true  → blend historical goals 50/50 with xG
+  //     (regularises small-sample overconfidence on weak teams)
+  //   • applyXG = false → pure historical goals scored/conceded
+  const safeAvg = tournamentAvg > 0 ? tournamentAvg : 1.3;
+  const homeXg = getXg(homeTeam);
+  const awayXg = getXg(awayTeam);
+  const blend = (hist: number, xg: number) =>
+    applyXG ? 0.5 * hist + 0.5 * xg : hist;
+
+  const homeAttack = blend(homeStr.avgScored, homeXg.xg);
+  const homeDefense = blend(homeStr.avgConceded, homeXg.xga);
+  const awayAttack = blend(awayStr.avgScored, awayXg.xg);
+  const awayDefense = blend(awayStr.avgConceded, awayXg.xga);
+
+  // Dixon-Coles base: λ = teamAttack × oppDefense / leagueAvg
+  const baseHomeLambda = ((homeAttack * awayDefense) / safeAvg) * HOME_ADVANTAGE;
+  const baseAwayLambda = (awayAttack * homeDefense) / safeAvg;
 
   // ── FIFA ranking grounding: scale λ by the relative ranking gap ──
   const homeRank = getFifaRank(homeTeam);
@@ -362,12 +396,12 @@ export function predictMatch(
   const homeRankMult = 1 + RANK_SENSITIVITY * edge;
   const awayRankMult = 1 - RANK_SENSITIVITY * edge;
 
-  // ── Current-form signals (momentum + Elo), gated by applyMomentum ──
-  // Both reflect *present-day* strength, so historical accuracy runs
-  // (applyMomentum: false) skip them to avoid data leakage.
+  // ── Current-form modifiers (momentum + Elo), gated by applyModifiers ──
+  // Both reflect *present-day* form, so historical evaluation runs
+  // (applyModifiers: false) skip them to avoid data leakage.
   let momentumModifier = 0;
   let eloModifier = 0;
-  if (applyMomentum) {
+  if (applyModifiers) {
     // Recent competitive form — nudge λ by the momentum gap (±20% cap)
     const momentumGap = getMomentum(homeTeam) - getMomentum(awayTeam); // -100 … +100
     momentumModifier = MAX_MOMENTUM_IMPACT * Math.tanh(momentumGap / MOMENTUM_SCALE);
@@ -385,26 +419,14 @@ export function predictMatch(
   const homeEloMult = 1 + eloModifier; // Elo-favoured side: λ up
   const awayEloMult = 1 - eloModifier;
 
-  // Expected goals — form × opponent defense × tournament baseline ×
-  // FIFA ranking × real-world momentum × Elo superiority
+  // Final λ = xG-blended base × FIFA ranking × momentum × Elo
   const lambdaHome = clamp(
-    h.attack *
-      a.defense *
-      tournamentAvg *
-      HOME_ADVANTAGE *
-      homeRankMult *
-      homeMomentumMult *
-      homeEloMult,
+    baseHomeLambda * homeRankMult * homeMomentumMult * homeEloMult,
     0.15,
     4.5
   );
   const lambdaAway = clamp(
-    a.attack *
-      h.defense *
-      tournamentAvg *
-      awayRankMult *
-      awayMomentumMult *
-      awayEloMult,
+    baseAwayLambda * awayRankMult * awayMomentumMult * awayEloMult,
     0.15,
     4.5
   );

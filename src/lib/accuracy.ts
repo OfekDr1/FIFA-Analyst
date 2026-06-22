@@ -75,9 +75,13 @@ export function evaluatePredictions(
     // Only data available before this match — no leakage of its own result.
     const priorMatches = finished.filter((m) => m.date < match.date);
 
-    // applyMomentum = false: momentum reflects *current* form, which wasn't
-    // knowable pre-kickoff — including it would leak future info into grades.
-    const prediction = predictMatch(homeTeam, awayTeam, teams, priorMatches, false);
+    // Grade the xG-blended Poisson model (applyXG) but drop the temporary
+    // Elo/momentum modifiers, which reflect *current* form and weren't
+    // knowable pre-kickoff — including them would leak future info.
+    const prediction = predictMatch(homeTeam, awayTeam, teams, priorMatches, {
+      applyModifiers: false,
+      applyXG: true,
+    });
     const top = prediction.mostLikelyScores[0];
     if (!top) continue;
 

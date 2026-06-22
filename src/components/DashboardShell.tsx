@@ -21,6 +21,7 @@ import { TeamStats } from "@/components/TeamStats";
 import { TournamentInsights } from "@/components/TournamentInsights";
 import { Predictions } from "@/components/Predictions";
 import { PredictionAccuracy } from "@/components/PredictionAccuracy";
+import { CalibrationWidget } from "@/components/CalibrationWidget";
 import { LiveMatchTracker } from "@/components/LiveMatchTracker";
 import { GoalCelebrationOverlay } from "@/components/GoalCelebrationOverlay";
 import { useLiveMatches } from "@/hooks/useLiveMatches";
@@ -187,7 +188,10 @@ export function DashboardShell({
                 <Predictions teams={teams} matches={matches} upcoming={upcoming} />
               )}
               {activeTab === "accuracy" && (
-                <PredictionAccuracy teams={teams} matches={matches} />
+                <div className="space-y-10">
+                  <PredictionAccuracy teams={teams} matches={matches} />
+                  <CalibrationWidget teams={teams} matches={matches} />
+                </div>
               )}
             </main>
           </div>

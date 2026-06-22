@@ -11,7 +11,12 @@ import {
   Shield,
 } from "lucide-react";
 import { Team, Match, UpcomingFixture } from "@/types";
-import { predictMatch, getMomentumScore, getEloRating } from "@/lib/predictions";
+import {
+  predictMatch,
+  getMomentumScore,
+  getEloRating,
+  getTeamXg,
+} from "@/lib/predictions";
 import { useMomentum } from "@/hooks/useMomentum";
 import { Crest, flagSources } from "@/components/Crest";
 import { Panel, PolyTile, VConnector, EDGE_ACTIVE, PANEL_BG } from "@/components/Hud";
@@ -466,23 +471,36 @@ export function Predictions({ teams, matches, upcoming }: Props) {
                   {[
                     { team: prediction.homeTeam, xg: prediction.expectedGoals.home, color: COLOR_HOME, clip: "clip-tile" },
                     { team: prediction.awayTeam, xg: prediction.expectedGoals.away, color: COLOR_AWAY, clip: "clip-tile-alt" },
-                  ].map((d, i) => (
-                    <PolyTile key={i} clip={d.clip} delay={120 + i * 90} className="p-4 text-center">
-                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">
-                        Expected Goals λ
-                      </p>
-                      <p
-                        className="text-4xl font-extrabold font-mono tabular-nums"
-                        style={{ color: d.color, textShadow: `0 0 26px ${d.color}66` }}
-                      >
-                        {d.xg.toFixed(2)}
-                      </p>
-                      <div className="flex items-center justify-center gap-1.5 mt-2">
-                        <Crest crest={d.team.crest} flag={d.team.flag} name={d.team.name} size={18} />
-                        <span className="text-xs text-slate-400">{d.team.name}</span>
-                      </div>
-                    </PolyTile>
-                  ))}
+                  ].map((d, i) => {
+                    const u = getTeamXg(d.team.name);
+                    return (
+                      <PolyTile key={i} clip={d.clip} delay={120 + i * 90} className="p-4 text-center">
+                        <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">
+                          Expected Goals λ
+                        </p>
+                        <p
+                          className="text-4xl font-extrabold font-mono tabular-nums"
+                          style={{ color: d.color, textShadow: `0 0 26px ${d.color}66` }}
+                        >
+                          {d.xg.toFixed(2)}
+                        </p>
+                        <div className="flex items-center justify-center gap-1.5 mt-2">
+                          <Crest crest={d.team.crest} flag={d.team.flag} name={d.team.name} size={18} />
+                          <span className="text-xs text-slate-400">{d.team.name}</span>
+                        </div>
+                        {/* Underlying xG quality — the "true" attack/defense rate */}
+                        <div className="flex items-center justify-center gap-2.5 mt-2.5 pt-2.5 border-t border-white/5 text-[10px] font-mono">
+                          <span className="text-emerald-400" title="Underlying xG scored per 90">
+                            xG {u.xg.toFixed(2)}
+                          </span>
+                          <span className="text-white/15">|</span>
+                          <span className="text-rose-400" title="Underlying xG conceded (xGA) per 90">
+                            xGA {u.xga.toFixed(2)}
+                          </span>
+                        </div>
+                      </PolyTile>
+                    );
+                  })}
                 </div>
               </div>
             )}

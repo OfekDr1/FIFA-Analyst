@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T12:37:19+00:00",
+  "generated_at": "2026-06-22T14:53:41+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-06-18"
@@ -9,7 +9,8 @@
       "Friendly"
     ],
     "min_matches": 3,
-    "elo_baseline": 1500
+    "elo_baseline": 1500,
+    "xg_baseline": 1.1
   },
   "weights": {
     "win_rate": 0.6,
@@ -29,6 +30,8 @@
       "win_rate": 100.0,
       "avg_goal_difference": 3.33,
       "elo": 1500,
+      "xG_per_90": 0.4,
+      "xGA_per_90": 2.8,
       "momentum_score": 100.0,
       "rank": 1
     },
@@ -44,6 +47,8 @@
       "win_rate": 86.7,
       "avg_goal_difference": 2.87,
       "elo": 1912,
+      "xG_per_90": 1.65,
+      "xGA_per_90": 1.2,
       "momentum_score": 91.1,
       "rank": 2
     },
@@ -59,6 +64,8 @@
       "win_rate": 80.0,
       "avg_goal_difference": 3.2,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 88.0,
       "rank": 3
     },
@@ -74,6 +81,8 @@
       "win_rate": 85.2,
       "avg_goal_difference": 2.26,
       "elo": 1822,
+      "xG_per_90": 1.25,
+      "xGA_per_90": 0.85,
       "momentum_score": 86.2,
       "rank": 4
     },
@@ -89,6 +98,8 @@
       "win_rate": 70.6,
       "avg_goal_difference": 2.53,
       "elo": 1904,
+      "xG_per_90": 1.45,
+      "xGA_per_90": 1.15,
       "momentum_score": 79.2,
       "rank": 5
     },
@@ -104,6 +115,8 @@
       "win_rate": 68.8,
       "avg_goal_difference": 2.56,
       "elo": 1585,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 78.3,
       "rank": 6
     },
@@ -119,6 +132,8 @@
       "win_rate": 77.3,
       "avg_goal_difference": 1.77,
       "elo": 2020,
+      "xG_per_90": 1.95,
+      "xGA_per_90": 0.7,
       "momentum_score": 78.2,
       "rank": 7
     },
@@ -134,6 +149,8 @@
       "win_rate": 80.0,
       "avg_goal_difference": 1.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 76.9,
       "rank": 8
     },
@@ -149,6 +166,8 @@
       "win_rate": 75.0,
       "avg_goal_difference": 1.67,
       "elo": 2165,
+      "xG_per_90": 2.1,
+      "xGA_per_90": 0.8,
       "momentum_score": 76.1,
       "rank": 9
     },
@@ -164,6 +183,8 @@
       "win_rate": 70.6,
       "avg_goal_difference": 1.53,
       "elo": 1783,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 72.5,
       "rank": 10
     },
@@ -179,6 +200,8 @@
       "win_rate": 72.7,
       "avg_goal_difference": 1.32,
       "elo": 1878,
+      "xG_per_90": 1.3,
+      "xGA_per_90": 1.05,
       "momentum_score": 72.4,
       "rank": 11
     },
@@ -194,6 +217,8 @@
       "win_rate": 70.8,
       "avg_goal_difference": 1.42,
       "elo": 1743,
+      "xG_per_90": 1.35,
+      "xGA_per_90": 1.1,
       "momentum_score": 71.9,
       "rank": 12
     },
@@ -209,6 +234,8 @@
       "win_rate": 68.4,
       "avg_goal_difference": 1.58,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 71.6,
       "rank": 13
     },
@@ -224,6 +251,8 @@
       "win_rate": 69.2,
       "avg_goal_difference": 1.38,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 70.8,
       "rank": 14
     },
@@ -239,6 +268,8 @@
       "win_rate": 73.3,
       "avg_goal_difference": 1.0,
       "elo": 1860,
+      "xG_per_90": 1.3,
+      "xGA_per_90": 1.15,
       "momentum_score": 70.7,
       "rank": 15
     },
@@ -254,6 +285,8 @@
       "win_rate": 68.4,
       "avg_goal_difference": 1.37,
       "elo": 2113,
+      "xG_per_90": 2.25,
+      "xGA_per_90": 0.65,
       "momentum_score": 70.2,
       "rank": 16
     },
@@ -269,6 +302,8 @@
       "win_rate": 75.0,
       "avg_goal_difference": 0.75,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 70.0,
       "rank": 17
     },
@@ -284,6 +319,8 @@
       "win_rate": 63.6,
       "avg_goal_difference": 1.73,
       "elo": 1923,
+      "xG_per_90": 2.2,
+      "xGA_per_90": 1.05,
       "momentum_score": 69.7,
       "rank": 18
     },
@@ -299,6 +336,8 @@
       "win_rate": 64.3,
       "avg_goal_difference": 1.5,
       "elo": 1752,
+      "xG_per_90": 1.35,
+      "xGA_per_90": 1.25,
       "momentum_score": 68.6,
       "rank": 19
     },
@@ -314,6 +353,8 @@
       "win_rate": 75.0,
       "avg_goal_difference": 0.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 68.3,
       "rank": 20
     },
@@ -329,6 +370,8 @@
       "win_rate": 60.0,
       "avg_goal_difference": 1.7,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 67.3,
       "rank": 21
     },
@@ -344,6 +387,8 @@
       "win_rate": 63.6,
       "avg_goal_difference": 1.23,
       "elo": 1676,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 66.4,
       "rank": 22
     },
@@ -359,6 +404,8 @@
       "win_rate": 60.0,
       "avg_goal_difference": 1.4,
       "elo": 1532,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 65.3,
       "rank": 23
     },
@@ -374,6 +421,8 @@
       "win_rate": 62.5,
       "avg_goal_difference": 1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 64.2,
       "rank": 24
     },
@@ -389,6 +438,8 @@
       "win_rate": 63.6,
       "avg_goal_difference": 0.77,
       "elo": 1655,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 63.3,
       "rank": 25
     },
@@ -404,6 +455,8 @@
       "win_rate": 57.1,
       "avg_goal_difference": 1.33,
       "elo": 1827,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 63.2,
       "rank": 26
     },
@@ -419,6 +472,8 @@
       "win_rate": 52.9,
       "avg_goal_difference": 1.71,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 63.1,
       "rank": 27
     },
@@ -434,6 +489,8 @@
       "win_rate": 60.9,
       "avg_goal_difference": 0.96,
       "elo": 2081,
+      "xG_per_90": 2.15,
+      "xGA_per_90": 0.78,
       "momentum_score": 62.9,
       "rank": 28
     },
@@ -449,6 +506,8 @@
       "win_rate": 58.3,
       "avg_goal_difference": 1.08,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 62.2,
       "rank": 29
     },
@@ -464,6 +523,8 @@
       "win_rate": 63.6,
       "avg_goal_difference": 0.59,
       "elo": 1902,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 62.1,
       "rank": 30
     },
@@ -479,6 +540,8 @@
       "win_rate": 57.7,
       "avg_goal_difference": 1.12,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 62.1,
       "rank": 31
     },
@@ -494,6 +557,8 @@
       "win_rate": 62.5,
       "avg_goal_difference": 0.62,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 61.7,
       "rank": 32
     },
@@ -509,6 +574,8 @@
       "win_rate": 60.9,
       "avg_goal_difference": 0.74,
       "elo": 1737,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 61.4,
       "rank": 33
     },
@@ -524,6 +591,8 @@
       "win_rate": 57.9,
       "avg_goal_difference": 0.89,
       "elo": 1690,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 60.7,
       "rank": 34
     },
@@ -539,6 +608,8 @@
       "win_rate": 54.5,
       "avg_goal_difference": 1.18,
       "elo": 1984,
+      "xG_per_90": 2.05,
+      "xGA_per_90": 0.75,
       "momentum_score": 60.6,
       "rank": 35
     },
@@ -554,6 +625,8 @@
       "win_rate": 57.1,
       "avg_goal_difference": 0.79,
       "elo": 1721,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 59.5,
       "rank": 36
     },
@@ -569,6 +642,8 @@
       "win_rate": 53.3,
       "avg_goal_difference": 1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 58.7,
       "rank": 37
     },
@@ -584,6 +659,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 1.29,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 58.6,
       "rank": 38
     },
@@ -599,6 +676,8 @@
       "win_rate": 56.5,
       "avg_goal_difference": 0.65,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 58.3,
       "rank": 39
     },
@@ -614,6 +693,8 @@
       "win_rate": 53.3,
       "avg_goal_difference": 0.93,
       "elo": 1719,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 58.2,
       "rank": 40
     },
@@ -629,6 +710,8 @@
       "win_rate": 48.0,
       "avg_goal_difference": 1.4,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 58.1,
       "rank": 41
     },
@@ -644,6 +727,8 @@
       "win_rate": 47.8,
       "avg_goal_difference": 1.39,
       "elo": 1961,
+      "xG_per_90": 1.85,
+      "xGA_per_90": 0.9,
       "momentum_score": 58.0,
       "rank": 42
     },
@@ -659,6 +744,8 @@
       "win_rate": 52.6,
       "avg_goal_difference": 0.95,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.9,
       "rank": 43
     },
@@ -674,6 +761,8 @@
       "win_rate": 54.5,
       "avg_goal_difference": 0.77,
       "elo": 1636,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.9,
       "rank": 44
     },
@@ -689,6 +778,8 @@
       "win_rate": 53.3,
       "avg_goal_difference": 0.87,
       "elo": 1760,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.8,
       "rank": 45
     },
@@ -704,6 +795,8 @@
       "win_rate": 57.1,
       "avg_goal_difference": 0.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.6,
       "rank": 46
     },
@@ -719,6 +812,8 @@
       "win_rate": 54.5,
       "avg_goal_difference": 0.73,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.6,
       "rank": 47
     },
@@ -734,6 +829,8 @@
       "win_rate": 54.5,
       "avg_goal_difference": 0.73,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.6,
       "rank": 48
     },
@@ -749,6 +846,8 @@
       "win_rate": 57.1,
       "avg_goal_difference": 0.43,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 57.1,
       "rank": 49
     },
@@ -764,6 +863,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 1.0,
       "elo": 1436,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 56.7,
       "rank": 50
     },
@@ -779,6 +880,8 @@
       "win_rate": 54.5,
       "avg_goal_difference": 0.59,
       "elo": 1500,
+      "xG_per_90": 1.75,
+      "xGA_per_90": 0.85,
       "momentum_score": 56.7,
       "rank": 51
     },
@@ -794,6 +897,8 @@
       "win_rate": 56.2,
       "avg_goal_difference": 0.38,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 56.2,
       "rank": 52
     },
@@ -809,6 +914,8 @@
       "win_rate": 52.9,
       "avg_goal_difference": 0.65,
       "elo": 1727,
+      "xG_per_90": 0.95,
+      "xGA_per_90": 1.45,
       "momentum_score": 56.1,
       "rank": 53
     },
@@ -824,6 +931,8 @@
       "win_rate": 51.9,
       "avg_goal_difference": 0.7,
       "elo": 1689,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 55.8,
       "rank": 54
     },
@@ -839,6 +948,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 0.85,
       "elo": 1930,
+      "xG_per_90": 1.4,
+      "xGA_per_90": 1.1,
       "momentum_score": 55.7,
       "rank": 55
     },
@@ -854,6 +965,8 @@
       "win_rate": 53.3,
       "avg_goal_difference": 0.53,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 55.6,
       "rank": 56
     },
@@ -869,6 +982,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 0.83,
       "elo": 1503,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 55.6,
       "rank": 57
     },
@@ -884,6 +999,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 0.8,
       "elo": 1524,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 55.3,
       "rank": 58
     },
@@ -899,6 +1016,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 0.75,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 55.0,
       "rank": 59
     },
@@ -914,6 +1033,8 @@
       "win_rate": 47.4,
       "avg_goal_difference": 0.95,
       "elo": 1975,
+      "xG_per_90": 1.55,
+      "xGA_per_90": 0.95,
       "momentum_score": 54.7,
       "rank": 60
     },
@@ -929,6 +1050,8 @@
       "win_rate": 52.9,
       "avg_goal_difference": 0.24,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 53.3,
       "rank": 61
     },
@@ -944,6 +1067,8 @@
       "win_rate": 44.4,
       "avg_goal_difference": 0.89,
       "elo": 1784,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 52.6,
       "rank": 62
     },
@@ -959,6 +1084,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 0.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 52.2,
       "rank": 63
     },
@@ -974,6 +1101,8 @@
       "win_rate": 47.6,
       "avg_goal_difference": 0.52,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 52.1,
       "rank": 64
     },
@@ -989,6 +1118,8 @@
       "win_rate": 51.9,
       "avg_goal_difference": 0.11,
       "elo": 1607,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 51.9,
       "rank": 65
     },
@@ -1004,6 +1135,8 @@
       "win_rate": 36.4,
       "avg_goal_difference": 1.45,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 51.5,
       "rank": 66
     },
@@ -1019,6 +1152,8 @@
       "win_rate": 42.9,
       "avg_goal_difference": 0.86,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 51.4,
       "rank": 67
     },
@@ -1034,6 +1169,8 @@
       "win_rate": 46.2,
       "avg_goal_difference": 0.54,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 51.3,
       "rank": 68
     },
@@ -1049,6 +1186,8 @@
       "win_rate": 42.1,
       "avg_goal_difference": 0.89,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 51.2,
       "rank": 69
     },
@@ -1064,6 +1203,8 @@
       "win_rate": 45.5,
       "avg_goal_difference": 0.55,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 50.9,
       "rank": 70
     },
@@ -1079,6 +1220,8 @@
       "win_rate": 44.4,
       "avg_goal_difference": 0.61,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 50.7,
       "rank": 71
     },
@@ -1094,6 +1237,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": 0.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 50.0,
       "rank": 72
     },
@@ -1109,6 +1254,8 @@
       "win_rate": 46.7,
       "avg_goal_difference": 0.27,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 49.8,
       "rank": 73
     },
@@ -1124,6 +1271,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": -0.05,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 49.7,
       "rank": 74
     },
@@ -1139,6 +1288,8 @@
       "win_rate": 38.1,
       "avg_goal_difference": 0.95,
       "elo": 1867,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 49.2,
       "rank": 75
     },
@@ -1154,6 +1305,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": -0.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 48.9,
       "rank": 76
     },
@@ -1169,6 +1322,8 @@
       "win_rate": 47.4,
       "avg_goal_difference": 0.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 48.4,
       "rank": 77
     },
@@ -1184,6 +1339,8 @@
       "win_rate": 45.5,
       "avg_goal_difference": 0.09,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 47.9,
       "rank": 78
     },
@@ -1199,6 +1356,8 @@
       "win_rate": 40.9,
       "avg_goal_difference": 0.45,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 47.6,
       "rank": 79
     },
@@ -1214,6 +1373,8 @@
       "win_rate": 45.0,
       "avg_goal_difference": 0.05,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 47.3,
       "rank": 80
     },
@@ -1229,6 +1390,8 @@
       "win_rate": 43.8,
       "avg_goal_difference": 0.06,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 46.7,
       "rank": 81
     },
@@ -1244,6 +1407,8 @@
       "win_rate": 44.4,
       "avg_goal_difference": -0.06,
       "elo": 1767,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 46.3,
       "rank": 82
     },
@@ -1259,6 +1424,8 @@
       "win_rate": 38.9,
       "avg_goal_difference": 0.44,
       "elo": 1984,
+      "xG_per_90": 2.3,
+      "xGA_per_90": 0.6,
       "momentum_score": 46.3,
       "rank": 83
     },
@@ -1274,6 +1441,8 @@
       "win_rate": 36.8,
       "avg_goal_difference": 0.58,
       "elo": 1889,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 46.0,
       "rank": 84
     },
@@ -1289,6 +1458,8 @@
       "win_rate": 46.7,
       "avg_goal_difference": -0.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 45.8,
       "rank": 85
     },
@@ -1304,6 +1475,8 @@
       "win_rate": 38.1,
       "avg_goal_difference": 0.38,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 45.4,
       "rank": 86
     },
@@ -1319,6 +1492,8 @@
       "win_rate": 42.9,
       "avg_goal_difference": -0.05,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 45.4,
       "rank": 87
     },
@@ -1334,6 +1509,8 @@
       "win_rate": 37.5,
       "avg_goal_difference": 0.38,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 45.0,
       "rank": 88
     },
@@ -1349,6 +1526,8 @@
       "win_rate": 35.0,
       "avg_goal_difference": 0.55,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 44.7,
       "rank": 89
     },
@@ -1364,6 +1543,8 @@
       "win_rate": 41.7,
       "avg_goal_difference": -0.08,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 44.4,
       "rank": 90
     },
@@ -1379,6 +1560,8 @@
       "win_rate": 39.3,
       "avg_goal_difference": 0.11,
       "elo": 1568,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 44.3,
       "rank": 91
     },
@@ -1394,6 +1577,8 @@
       "win_rate": 50.0,
       "avg_goal_difference": -0.9,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 44.0,
       "rank": 92
     },
@@ -1409,6 +1594,8 @@
       "win_rate": 35.3,
       "avg_goal_difference": 0.41,
       "elo": 1933,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 43.9,
       "rank": 93
     },
@@ -1424,6 +1611,8 @@
       "win_rate": 44.4,
       "avg_goal_difference": -0.44,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 43.7,
       "rank": 94
     },
@@ -1439,6 +1628,8 @@
       "win_rate": 35.3,
       "avg_goal_difference": 0.29,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 43.1,
       "rank": 95
     },
@@ -1454,6 +1645,8 @@
       "win_rate": 43.8,
       "avg_goal_difference": -0.56,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 42.5,
       "rank": 96
     },
@@ -1469,6 +1662,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": 0.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 42.2,
       "rank": 97
     },
@@ -1484,6 +1679,8 @@
       "win_rate": 31.6,
       "avg_goal_difference": 0.47,
       "elo": 1892,
+      "xG_per_90": 1.6,
+      "xGA_per_90": 1.0,
       "momentum_score": 42.1,
       "rank": 98
     },
@@ -1499,6 +1696,8 @@
       "win_rate": 36.8,
       "avg_goal_difference": 0.0,
       "elo": 1549,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 42.1,
       "rank": 99
     },
@@ -1514,6 +1713,8 @@
       "win_rate": 38.5,
       "avg_goal_difference": -0.15,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 42.1,
       "rank": 100
     },
@@ -1529,6 +1730,8 @@
       "win_rate": 37.5,
       "avg_goal_difference": -0.12,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 41.7,
       "rank": 101
     },
@@ -1544,6 +1747,8 @@
       "win_rate": 40.0,
       "avg_goal_difference": -0.35,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 41.7,
       "rank": 102
     },
@@ -1559,6 +1764,8 @@
       "win_rate": 36.8,
       "avg_goal_difference": -0.16,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 41.1,
       "rank": 103
     },
@@ -1574,6 +1781,8 @@
       "win_rate": 35.7,
       "avg_goal_difference": -0.07,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 41.0,
       "rank": 104
     },
@@ -1589,6 +1798,8 @@
       "win_rate": 42.9,
       "avg_goal_difference": -0.71,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 41.0,
       "rank": 105
     },
@@ -1604,6 +1815,8 @@
       "win_rate": 37.5,
       "avg_goal_difference": -0.31,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 40.4,
       "rank": 106
     },
@@ -1619,6 +1832,8 @@
       "win_rate": 35.3,
       "avg_goal_difference": -0.12,
       "elo": 1833,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 40.4,
       "rank": 107
     },
@@ -1634,6 +1849,8 @@
       "win_rate": 35.7,
       "avg_goal_difference": -0.21,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 40.0,
       "rank": 108
     },
@@ -1649,6 +1866,8 @@
       "win_rate": 31.2,
       "avg_goal_difference": 0.12,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 39.6,
       "rank": 109
     },
@@ -1664,6 +1883,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.07,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 39.6,
       "rank": 110
     },
@@ -1679,6 +1900,8 @@
       "win_rate": 35.7,
       "avg_goal_difference": -0.29,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 39.5,
       "rank": 111
     },
@@ -1694,6 +1917,8 @@
       "win_rate": 29.2,
       "avg_goal_difference": 0.29,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 39.4,
       "rank": 112
     },
@@ -1709,6 +1934,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.11,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 39.3,
       "rank": 113
     },
@@ -1724,6 +1951,8 @@
       "win_rate": 38.5,
       "avg_goal_difference": -0.62,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 39.0,
       "rank": 114
     },
@@ -1739,6 +1968,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 38.9,
       "rank": 115
     },
@@ -1754,6 +1985,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 38.9,
       "rank": 116
     },
@@ -1769,6 +2002,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 38.9,
       "rank": 117
     },
@@ -1784,6 +2019,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.28,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 38.1,
       "rank": 118
     },
@@ -1799,6 +2036,8 @@
       "win_rate": 31.6,
       "avg_goal_difference": -0.16,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 37.9,
       "rank": 119
     },
@@ -1814,6 +2053,8 @@
       "win_rate": 30.4,
       "avg_goal_difference": -0.09,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 37.7,
       "rank": 120
     },
@@ -1829,6 +2070,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.39,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 37.4,
       "rank": 121
     },
@@ -1844,6 +2087,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -0.43,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 37.1,
       "rank": 122
     },
@@ -1859,6 +2104,8 @@
       "win_rate": 35.7,
       "avg_goal_difference": -0.64,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 37.1,
       "rank": 123
     },
@@ -1874,6 +2121,8 @@
       "win_rate": 38.5,
       "avg_goal_difference": -0.92,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 36.9,
       "rank": 124
     },
@@ -1889,6 +2138,8 @@
       "win_rate": 26.3,
       "avg_goal_difference": 0.05,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 36.1,
       "rank": 125
     },
@@ -1904,6 +2155,8 @@
       "win_rate": 35.7,
       "avg_goal_difference": -0.86,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 35.7,
       "rank": 126
     },
@@ -1919,6 +2172,8 @@
       "win_rate": 26.1,
       "avg_goal_difference": 0.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 35.7,
       "rank": 127
     },
@@ -1934,6 +2189,8 @@
       "win_rate": 28.6,
       "avg_goal_difference": -0.29,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 35.2,
       "rank": 128
     },
@@ -1949,6 +2206,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": 0.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 35.0,
       "rank": 129
     },
@@ -1964,6 +2223,8 @@
       "win_rate": 40.0,
       "avg_goal_difference": -1.4,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 34.7,
       "rank": 130
     },
@@ -1979,6 +2240,8 @@
       "win_rate": 29.4,
       "avg_goal_difference": -0.47,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 34.5,
       "rank": 131
     },
@@ -1994,6 +2257,8 @@
       "win_rate": 27.8,
       "avg_goal_difference": -0.33,
       "elo": 1594,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 34.4,
       "rank": 132
     },
@@ -2009,6 +2274,8 @@
       "win_rate": 30.0,
       "avg_goal_difference": -0.55,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 34.3,
       "rank": 133
     },
@@ -2024,6 +2291,8 @@
       "win_rate": 26.7,
       "avg_goal_difference": -0.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 33.8,
       "rank": 134
     },
@@ -2039,6 +2308,8 @@
       "win_rate": 31.2,
       "avg_goal_difference": -0.75,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 33.8,
       "rank": 135
     },
@@ -2054,6 +2325,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.2,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 33.7,
       "rank": 136
     },
@@ -2069,6 +2342,8 @@
       "win_rate": 30.0,
       "avg_goal_difference": -0.7,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 33.3,
       "rank": 137
     },
@@ -2084,6 +2359,8 @@
       "win_rate": 27.3,
       "avg_goal_difference": -0.45,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 33.3,
       "rank": 138
     },
@@ -2099,6 +2376,8 @@
       "win_rate": 26.1,
       "avg_goal_difference": -0.39,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 33.0,
       "rank": 139
     },
@@ -2114,6 +2393,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -1.11,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 32.6,
       "rank": 140
     },
@@ -2129,6 +2410,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -1.11,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 32.6,
       "rank": 141
     },
@@ -2144,6 +2427,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -1.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 32.2,
       "rank": 142
     },
@@ -2159,6 +2444,8 @@
       "win_rate": 28.6,
       "avg_goal_difference": -0.79,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 31.9,
       "rank": 143
     },
@@ -2174,6 +2461,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 31.7,
       "rank": 144
     },
@@ -2189,6 +2478,8 @@
       "win_rate": 27.3,
       "avg_goal_difference": -0.73,
       "elo": 1425,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 31.5,
       "rank": 145
     },
@@ -2204,6 +2495,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.56,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 31.2,
       "rank": 146
     },
@@ -2219,6 +2512,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -1.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 31.1,
       "rank": 147
     },
@@ -2234,6 +2529,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.62,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.8,
       "rank": 148
     },
@@ -2249,6 +2546,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -1.42,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.6,
       "rank": 149
     },
@@ -2264,6 +2563,8 @@
       "win_rate": 28.6,
       "avg_goal_difference": -1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.5,
       "rank": 150
     },
@@ -2279,6 +2580,8 @@
       "win_rate": 28.6,
       "avg_goal_difference": -1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.5,
       "rank": 151
     },
@@ -2294,6 +2597,8 @@
       "win_rate": 28.6,
       "avg_goal_difference": -1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.5,
       "rank": 152
     },
@@ -2309,6 +2614,8 @@
       "win_rate": 20.0,
       "avg_goal_difference": -0.25,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.3,
       "rank": 153
     },
@@ -2324,6 +2631,8 @@
       "win_rate": 26.3,
       "avg_goal_difference": -0.84,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.2,
       "rank": 154
     },
@@ -2339,6 +2648,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.75,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 30.0,
       "rank": 155
     },
@@ -2354,6 +2665,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.8,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 29.7,
       "rank": 156
     },
@@ -2369,6 +2682,8 @@
       "win_rate": 21.4,
       "avg_goal_difference": -0.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 29.5,
       "rank": 157
     },
@@ -2384,6 +2699,8 @@
       "win_rate": 33.3,
       "avg_goal_difference": -1.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.9,
       "rank": 158
     },
@@ -2399,6 +2716,8 @@
       "win_rate": 16.7,
       "avg_goal_difference": -0.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.9,
       "rank": 159
     },
@@ -2414,6 +2733,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -0.94,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.8,
       "rank": 160
     },
@@ -2429,6 +2750,8 @@
       "win_rate": 23.5,
       "avg_goal_difference": -0.82,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.6,
       "rank": 161
     },
@@ -2444,6 +2767,8 @@
       "win_rate": 18.8,
       "avg_goal_difference": -0.44,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.3,
       "rank": 162
     },
@@ -2459,6 +2784,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.3,
       "rank": 163
     },
@@ -2474,6 +2801,8 @@
       "win_rate": 21.4,
       "avg_goal_difference": -0.71,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 28.1,
       "rank": 164
     },
@@ -2489,6 +2818,8 @@
       "win_rate": 16.7,
       "avg_goal_difference": -0.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 27.8,
       "rank": 165
     },
@@ -2504,6 +2835,8 @@
       "win_rate": 21.4,
       "avg_goal_difference": -0.79,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 27.6,
       "rank": 166
     },
@@ -2519,6 +2852,8 @@
       "win_rate": 17.6,
       "avg_goal_difference": -0.47,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 27.5,
       "rank": 167
     },
@@ -2534,6 +2869,8 @@
       "win_rate": 20.0,
       "avg_goal_difference": -0.7,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 27.3,
       "rank": 168
     },
@@ -2549,6 +2886,8 @@
       "win_rate": 30.8,
       "avg_goal_difference": -1.69,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 27.2,
       "rank": 169
     },
@@ -2564,6 +2903,8 @@
       "win_rate": 20.0,
       "avg_goal_difference": -0.8,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 26.7,
       "rank": 170
     },
@@ -2579,6 +2920,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -1.25,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 26.7,
       "rank": 171
     },
@@ -2594,6 +2937,8 @@
       "win_rate": 16.7,
       "avg_goal_difference": -0.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 26.7,
       "rank": 172
     },
@@ -2609,6 +2954,8 @@
       "win_rate": 14.3,
       "avg_goal_difference": -0.36,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 26.2,
       "rank": 173
     },
@@ -2624,6 +2971,8 @@
       "win_rate": 16.7,
       "avg_goal_difference": -0.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 25.6,
       "rank": 174
     },
@@ -2639,6 +2988,8 @@
       "win_rate": 15.0,
       "avg_goal_difference": -0.7,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 24.3,
       "rank": 175
     },
@@ -2654,6 +3005,8 @@
       "win_rate": 12.5,
       "avg_goal_difference": -0.56,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 23.8,
       "rank": 176
     },
@@ -2669,6 +3022,8 @@
       "win_rate": 13.3,
       "avg_goal_difference": -0.73,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 23.1,
       "rank": 177
     },
@@ -2684,6 +3039,8 @@
       "win_rate": 16.7,
       "avg_goal_difference": -1.06,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 23.0,
       "rank": 178
     },
@@ -2699,6 +3056,8 @@
       "win_rate": 20.0,
       "avg_goal_difference": -1.4,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 22.7,
       "rank": 179
     },
@@ -2714,6 +3073,8 @@
       "win_rate": 21.4,
       "avg_goal_difference": -1.57,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 22.4,
       "rank": 180
     },
@@ -2729,6 +3090,8 @@
       "win_rate": 11.1,
       "avg_goal_difference": -0.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 22.2,
       "rank": 181
     },
@@ -2744,6 +3107,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -1.92,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 22.2,
       "rank": 182
     },
@@ -2759,6 +3124,8 @@
       "win_rate": 23.1,
       "avg_goal_difference": -1.77,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 22.1,
       "rank": 183
     },
@@ -2774,6 +3141,8 @@
       "win_rate": 10.0,
       "avg_goal_difference": -0.6,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 22.0,
       "rank": 184
     },
@@ -2789,6 +3158,8 @@
       "win_rate": 14.3,
       "avg_goal_difference": -1.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 21.9,
       "rank": 185
     },
@@ -2804,6 +3175,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -2.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 21.7,
       "rank": 186
     },
@@ -2819,6 +3192,8 @@
       "win_rate": 21.4,
       "avg_goal_difference": -1.79,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 21.0,
       "rank": 187
     },
@@ -2834,6 +3209,8 @@
       "win_rate": 11.8,
       "avg_goal_difference": -0.94,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 20.8,
       "rank": 188
     },
@@ -2849,6 +3226,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -2.25,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 20.0,
       "rank": 189
     },
@@ -2864,6 +3243,8 @@
       "win_rate": 10.0,
       "avg_goal_difference": -0.9,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 20.0,
       "rank": 190
     },
@@ -2879,6 +3260,8 @@
       "win_rate": 14.3,
       "avg_goal_difference": -1.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 18.6,
       "rank": 191
     },
@@ -2894,6 +3277,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -0.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 17.8,
       "rank": 192
     },
@@ -2909,6 +3294,8 @@
       "win_rate": 5.6,
       "avg_goal_difference": -0.83,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 17.8,
       "rank": 193
     },
@@ -2924,6 +3311,8 @@
       "win_rate": 12.5,
       "avg_goal_difference": -1.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 17.5,
       "rank": 194
     },
@@ -2939,6 +3328,8 @@
       "win_rate": 8.3,
       "avg_goal_difference": -1.17,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 17.2,
       "rank": 195
     },
@@ -2954,6 +3345,8 @@
       "win_rate": 25.0,
       "avg_goal_difference": -2.75,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 16.7,
       "rank": 196
     },
@@ -2969,6 +3362,8 @@
       "win_rate": 14.3,
       "avg_goal_difference": -1.79,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 16.7,
       "rank": 197
     },
@@ -2984,6 +3379,8 @@
       "win_rate": 11.1,
       "avg_goal_difference": -1.56,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 16.3,
       "rank": 198
     },
@@ -2999,6 +3396,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -0.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 15.6,
       "rank": 199
     },
@@ -3014,6 +3413,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -0.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 15.6,
       "rank": 200
     },
@@ -3029,6 +3430,8 @@
       "win_rate": 6.7,
       "avg_goal_difference": -1.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 15.1,
       "rank": 201
     },
@@ -3044,6 +3447,8 @@
       "win_rate": 12.5,
       "avg_goal_difference": -1.88,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 15.0,
       "rank": 202
     },
@@ -3059,6 +3464,8 @@
       "win_rate": 10.0,
       "avg_goal_difference": -1.7,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 14.7,
       "rank": 203
     },
@@ -3074,6 +3481,8 @@
       "win_rate": 11.1,
       "avg_goal_difference": -1.89,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 14.1,
       "rank": 204
     },
@@ -3089,6 +3498,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -0.91,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 13.9,
       "rank": 205
     },
@@ -3104,6 +3515,8 @@
       "win_rate": 7.1,
       "avg_goal_difference": -1.57,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 13.8,
       "rank": 206
     },
@@ -3119,6 +3532,8 @@
       "win_rate": 8.3,
       "avg_goal_difference": -2.0,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 11.7,
       "rank": 207
     },
@@ -3134,6 +3549,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.33,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 11.1,
       "rank": 208
     },
@@ -3149,6 +3566,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.42,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 10.6,
       "rank": 209
     },
@@ -3164,6 +3583,8 @@
       "win_rate": 16.7,
       "avg_goal_difference": -2.92,
       "elo": 1500,
+      "xG_per_90": 0.2,
+      "xGA_per_90": 3.5,
       "momentum_score": 10.6,
       "rank": 210
     },
@@ -3179,6 +3600,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 10.0,
       "rank": 211
     },
@@ -3194,6 +3617,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.5,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 10.0,
       "rank": 212
     },
@@ -3209,6 +3634,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.56,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 9.6,
       "rank": 213
     },
@@ -3224,6 +3651,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.57,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 9.5,
       "rank": 214
     },
@@ -3239,6 +3668,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -1.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 8.9,
       "rank": 215
     },
@@ -3254,6 +3685,8 @@
       "win_rate": 7.1,
       "avg_goal_difference": -2.57,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 7.1,
       "rank": 216
     },
@@ -3269,6 +3702,8 @@
       "win_rate": 8.3,
       "avg_goal_difference": -2.83,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 6.1,
       "rank": 217
     },
@@ -3284,6 +3719,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -2.44,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 3.7,
       "rank": 218
     },
@@ -3299,6 +3736,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -2.6,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 2.7,
       "rank": 219
     },
@@ -3314,6 +3753,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -2.8,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 1.3,
       "rank": 220
     },
@@ -3329,6 +3770,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -3.67,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 0.0,
       "rank": 221
     },
@@ -3344,6 +3787,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -5.25,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 0.0,
       "rank": 222
     },
@@ -3359,6 +3804,8 @@
       "win_rate": 0.0,
       "avg_goal_difference": -4.62,
       "elo": 1500,
+      "xG_per_90": 1.1,
+      "xGA_per_90": 1.1,
       "momentum_score": 0.0,
       "rank": 223
     }
