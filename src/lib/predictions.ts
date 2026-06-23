@@ -157,6 +157,66 @@ const xgByName = new Map<string, { xg: number; xga: number }>();
 let momentumLoaded = false;
 let momentumLoading: Promise<void> | null = null;
 
+// ─── Learned 1X2 model (multinomial logistic regression) — Option A ──
+// Coefficients trained in Python (compute_momentum.py) and applied here
+// as softmax(W·x + b). Replaces the hardcoded heuristic for live win
+// probabilities; null until loaded.
+interface MLModel {
+  type?: string;
+  features: string[];
+  means: number[];
+  stds: number[];
+  classes: string[]; // e.g. ["A", "D", "H"]
+  coef: number[][]; // [class][feature]
+  intercept: number[]; // [class]
+  metrics?: {
+    test_matches?: number;
+    accuracy?: number;
+    log_loss?: number;
+    brier?: number;
+    baseline_brier?: number;
+  };
+}
+let mlModel: MLModel | null = null;
+
+export interface ModelInfo {
+  active: boolean;
+  type?: string;
+  brier?: number;
+  baselineBrier?: number;
+  accuracy?: number;
+  testMatches?: number;
+}
+
+/** UI accessor: is the learned model live, and how did it test? */
+export function getModelInfo(): ModelInfo {
+  const m = mlModel;
+  if (!m) return { active: false };
+  return {
+    active: true,
+    type: m.type,
+    brier: m.metrics?.brier,
+    baselineBrier: m.metrics?.baseline_brier,
+    accuracy: m.metrics?.accuracy,
+    testMatches: m.metrics?.test_matches,
+  };
+}
+
+function isValidModel(m: unknown): m is MLModel {
+  if (!m || typeof m !== "object") return false;
+  const x = m as MLModel;
+  return (
+    Array.isArray(x.features) &&
+    Array.isArray(x.classes) &&
+    Array.isArray(x.coef) &&
+    Array.isArray(x.intercept) &&
+    Array.isArray(x.means) &&
+    Array.isArray(x.stds) &&
+    x.coef.length === x.classes.length &&
+    x.intercept.length === x.classes.length
+  );
+}
+
 /**
  * Fetch and register the momentum scores. Idempotent and safe to call
  * from any client component. Resolves once loaded (or once it has
@@ -169,7 +229,7 @@ export function loadMomentumScores(): Promise<void> {
 
   momentumLoading = fetch(`/team_momentum.json?t=${new Date().getTime()}`, { cache: "no-store" })
     .then((res) => (res.ok ? res.json() : { teams: [] }))
-    .then((data: { teams?: MomentumEntry[] }) => {
+    .then((data: { teams?: MomentumEntry[]; model?: unknown }) => {
       for (const e of data.teams ?? []) {
         if (!e || typeof e.team !== "string") continue;
         const key = normalizeName(e.team);
@@ -186,6 +246,7 @@ export function loadMomentumScores(): Promise<void> {
           });
         }
       }
+      mlModel = isValidModel(data.model) ? data.model : null;
       momentumLoaded = true;
     })
     .catch(() => {
@@ -221,6 +282,61 @@ export function getTeamXg(teamName: string): { xg: number; xga: number } {
 
 function getXg(team: Team): { xg: number; xga: number } {
   return getTeamXg(team.name);
+}
+
+// Home-minus-Away feature differences — must match the Python feature defs.
+function mlFeatureValue(name: string, homeTeam: Team, awayTeam: Team): number {
+  const hx = getTeamXg(homeTeam.name);
+  const ax = getTeamXg(awayTeam.name);
+  switch (name) {
+    case "elo_diff":
+      return getEloRating(homeTeam.name) - getEloRating(awayTeam.name);
+    case "momentum_diff":
+      return getMomentumScore(homeTeam.name) - getMomentumScore(awayTeam.name);
+    case "xg_diff":
+      return hx.xg - ax.xg;
+    case "xga_diff":
+      return hx.xga - ax.xga;
+    default:
+      return 0;
+  }
+}
+
+/**
+ * 1X2 win probabilities from the learned logistic-regression model:
+ * softmax(W·x_standardised + b). Returns null if no model is loaded so
+ * callers can fall back to the Poisson split.
+ */
+export function getOutcomeProbabilities(
+  homeTeam: Team,
+  awayTeam: Team
+): { home: number; draw: number; away: number } | null {
+  const m = mlModel;
+  if (!m) return null;
+
+  // Standardise features in the model's own feature order.
+  const x = m.features.map((f, j) => {
+    const raw = mlFeatureValue(f, homeTeam, awayTeam);
+    const std = m.stds[j] || 1;
+    return (raw - (m.means[j] ?? 0)) / std;
+  });
+
+  // Per-class logit, then numerically-stable softmax.
+  const logits = m.classes.map(
+    (_, k) => m.intercept[k] + x.reduce((s, xj, j) => s + (m.coef[k][j] ?? 0) * xj, 0)
+  );
+  const maxL = Math.max(...logits);
+  const exps = logits.map((l) => Math.exp(l - maxL));
+  const sum = exps.reduce((acc, v) => acc + v, 0) || 1;
+
+  const out = { home: 0, draw: 0, away: 0 };
+  m.classes.forEach((c, k) => {
+    const p = exps[k] / sum;
+    if (c === "H") out.home = p;
+    else if (c === "D") out.draw = p;
+    else if (c === "A") out.away = p;
+  });
+  return out;
 }
 
 export interface MatchPrediction {
@@ -452,6 +568,23 @@ export function predictMatch(
   draw /= total;
   awayWin /= total;
 
+  // ── Headline 1X2: prefer the learned ML model (live mode) ──
+  // The Poisson grid still drives expected goals + the scoreline heatmap,
+  // but the win/draw/away probabilities come from the trained model when
+  // available. Gated by applyModifiers so the leak-free historical
+  // evaluation keeps using the pure Poisson split.
+  let pHome = homeWin;
+  let pDraw = draw;
+  let pAway = awayWin;
+  if (applyModifiers) {
+    const ml = getOutcomeProbabilities(homeTeam, awayTeam);
+    if (ml) {
+      pHome = ml.home;
+      pDraw = ml.draw;
+      pAway = ml.away;
+    }
+  }
+
   // Top scorelines
   const scorelines: { home: number; away: number; probability: number }[] = [];
   for (let h = 0; h <= MAX_GOALS; h++) {
@@ -479,9 +612,9 @@ export function predictMatch(
       away: Math.round(lambdaAway * 100) / 100,
     },
     winProbability: {
-      home: Math.round(homeWin * 1000) / 10,
-      draw: Math.round(draw * 1000) / 10,
-      away: Math.round(awayWin * 1000) / 10,
+      home: Math.round(pHome * 1000) / 10,
+      draw: Math.round(pDraw * 1000) / 10,
+      away: Math.round(pAway * 1000) / 10,
     },
     mostLikelyScores: scorelines.slice(0, 6),
     scoreGrid: grid.map((row) => row.map((v) => Math.round((v / total) * 10000) / 100)),

@@ -9,6 +9,7 @@ import {
   CalendarClock,
   Flame,
   Shield,
+  Cpu,
 } from "lucide-react";
 import { Team, Match, UpcomingFixture } from "@/types";
 import {
@@ -16,6 +17,7 @@ import {
   getMomentumScore,
   getEloRating,
   getTeamXg,
+  getModelInfo,
 } from "@/lib/predictions";
 import { useMomentum } from "@/hooks/useMomentum";
 import { Crest, flagSources } from "@/components/Crest";
@@ -121,6 +123,43 @@ function EloBadge({ elo }: { elo: number }) {
     >
       <Shield className="w-3 h-3" style={{ color }} />
       <span style={{ textShadow: `0 0 10px ${color}66` }}>{Math.round(elo)}</span>
+    </div>
+  );
+}
+
+// "ML Active" status chip — shows the learned model is powering the 1X2
+// probabilities, with its out-of-sample Brier score. Hidden until loaded.
+function ModelChip() {
+  const info = getModelInfo();
+  if (!info.active) return null;
+
+  const tip =
+    `Win/draw/away from a trained logistic-regression model` +
+    (info.brier != null ? ` · Brier ${info.brier.toFixed(3)}` : "") +
+    (info.baselineBrier != null ? ` vs ${info.baselineBrier.toFixed(3)} baseline` : "") +
+    (info.accuracy != null ? ` · ${(info.accuracy * 100).toFixed(1)}% acc` : "") +
+    (info.testMatches != null ? ` · ${info.testMatches} test matches` : "");
+
+  return (
+    <div
+      title={tip}
+      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-xs font-bold shrink-0 cursor-help transition-colors duration-300"
+      style={{ boxShadow: "0 0 16px -6px rgba(52,211,153,0.8)" }}
+    >
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+      </span>
+      <Cpu className="w-3.5 h-3.5 text-emerald-300" />
+      <span className="text-emerald-300 uppercase tracking-wider">ML Active</span>
+      {info.brier != null && (
+        <>
+          <span className="text-white/15">|</span>
+          <span className="text-slate-200 font-mono tabular-nums">
+            Brier {info.brier.toFixed(3)}
+          </span>
+        </>
+      )}
     </div>
   );
 }
@@ -239,6 +278,26 @@ function Heatmap({
   );
 }
 
+// Formats a UTC kickoff string in the viewer's LOCAL timezone.
+// `timeZone` is omitted, so Intl uses the browser's zone (e.g. UTC+3),
+// and we force UTC parsing when the string carries no zone marker — so a
+// bare "2026-06-24T18:00:00" isn't misread as local time (no conversion).
+const KICKOFF_FORMAT: Intl.DateTimeFormatOptions = {
+  weekday: "short",
+  month: "short",
+  day: "numeric",
+  hour: "numeric",
+  minute: "2-digit",
+};
+
+function formatLocalKickoff(iso: string): string {
+  if (!iso) return "TBD";
+  const hasZone = /([zZ])$|[+-]\d{2}:?\d{2}$/.test(iso);
+  const date = new Date(hasZone ? iso : `${iso}Z`);
+  if (Number.isNaN(date.getTime())) return iso;
+  return new Intl.DateTimeFormat(undefined, KICKOFF_FORMAT).format(date);
+}
+
 function FixtureTimeline({
   fixtures,
   teams,
@@ -251,14 +310,6 @@ function FixtureTimeline({
   onSelect: (f: UpcomingFixture) => void;
 }) {
   const getTeam = (id: string) => teams.find((t) => t.id === id);
-  const fmt = (iso: string) =>
-    new Date(iso).toLocaleString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
 
   return (
     <Panel clip="clip-sidebar" interactive={false} delay={300} className="p-5">
@@ -309,7 +360,7 @@ function FixtureTimeline({
                       className={`relative w-full text-left ${clip} ${PANEL_BG} hud-scanlines p-3`}
                     >
                       <div className="flex items-center justify-between text-[10px] text-slate-500 mb-2.5">
-                        <span>{fmt(f.kickoff)}</span>
+                        <span>{formatLocalKickoff(f.kickoff)}</span>
                         <span className="uppercase tracking-wide">
                           {f.group ? `Group ${f.group}` : f.stage.replace("-", " ")}
                         </span>
@@ -387,17 +438,20 @@ export function Predictions({ teams, matches, upcoming }: Props) {
 
   return (
     <div className="space-y-8">
-      <div className="animate-unfold">
-        <h2 className="text-2xl font-extrabold tracking-tight flex items-center gap-2.5">
-          <Sparkles className="w-6 h-6 text-cyan-400" />
-          <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
-            Match Predictions
-          </span>
-        </h2>
-        <p className="text-sm text-slate-400 mt-1.5">
-          Poisson model grounded by FIFA ranking — pick a matchup or tap an
-          upcoming fixture.
-        </p>
+      <div className="animate-unfold flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="text-2xl font-extrabold tracking-tight flex items-center gap-2.5">
+            <Sparkles className="w-6 h-6 text-cyan-400" />
+            <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+              Match Predictions
+            </span>
+          </h2>
+          <p className="text-sm text-slate-400 mt-1.5">
+            Hybrid model — ML for win/draw/away, Poisson for exact scorelines.
+            Pick a matchup or tap an upcoming fixture.
+          </p>
+        </div>
+        <ModelChip />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-4 sm:gap-6 items-start">
