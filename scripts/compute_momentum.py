@@ -254,7 +254,9 @@ def round_columns(g: pd.DataFrame) -> pd.DataFrame:
     return g
 
 
-def export_json(g: pd.DataFrame, output: Path, since: str) -> None:
+def export_json(
+    g: pd.DataFrame, output: Path, since: str, model: dict | None = None
+) -> None:
     # to_json → json.loads converts numpy types to native Python types cleanly.
     teams = json.loads(g.to_json(orient="records"))
 
@@ -270,11 +272,129 @@ def export_json(g: pd.DataFrame, output: Path, since: str) -> None:
         "weights": {"win_rate": W_WIN_RATE, "goal_difference": W_GOAL_DIFF},
         "count": len(teams),
         "teams": teams,
+        # Learned 1X2 model (coefficients) for the TS engine — Option A.
+        "model": model,
     }
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
+
+
+# ── ML model: learn optimal 1X2 weights & minimise Brier ─────────────
+ML_FEATURES = ["elo_diff", "momentum_diff", "xg_diff", "xga_diff"]
+
+
+def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
+    """
+    Train a multinomial Logistic Regression to predict 1X2 outcomes from
+    Home-minus-Away feature differences (Elo, momentum, xG, xGA).
+
+    Returns a serialisable dict of learned coefficients + scaler params so
+    the TypeScript engine can apply softmax(W·x + b) at runtime (Option A).
+    Returns None if scikit-learn is unavailable or there's too little data.
+    """
+    try:
+        from sklearn.linear_model import LogisticRegression
+        from sklearn.preprocessing import StandardScaler
+        from sklearn.metrics import accuracy_score, log_loss
+    except ImportError:
+        print("[ml] scikit-learn not installed — skipping. `pip install scikit-learn`")
+        return None
+
+    # Index team stats by normalized name for O(1) per-team lookups.
+    by_key = team_stats.assign(_key=team_stats["team"].map(normalize_name))
+    by_key = by_key.drop_duplicates("_key").set_index("_key")
+
+    def feat(name: str, col: str, default: float) -> float:
+        key = normalize_name(name)
+        if key in by_key.index:
+            val = by_key.at[key, col]
+            return float(val) if pd.notna(val) else default
+        return default
+
+    # 2 & 3 — engineer features (X) and the outcome target (y) per match.
+    rows = []
+    for _, m in matches.iterrows():
+        h, a = m["home_team"], m["away_team"]
+        if m["home_score"] > m["away_score"]:
+            y = "H"
+        elif m["home_score"] < m["away_score"]:
+            y = "A"
+        else:
+            y = "D"
+        rows.append({
+            "date": m["date"],
+            "elo_diff": feat(h, "elo", DEFAULT_ELO) - feat(a, "elo", DEFAULT_ELO),
+            "momentum_diff": feat(h, "momentum_score", 50.0) - feat(a, "momentum_score", 50.0),
+            "xg_diff": feat(h, "xG_per_90", DEFAULT_XG) - feat(a, "xG_per_90", DEFAULT_XG),
+            "xga_diff": feat(h, "xGA_per_90", DEFAULT_XG) - feat(a, "xGA_per_90", DEFAULT_XG),
+            "y": y,
+        })
+
+    data = pd.DataFrame(rows).dropna(subset=ML_FEATURES + ["y"]).sort_values("date")
+    if len(data) < 50:
+        print(f"[ml] Only {len(data)} usable matches — too few to train; skipping.")
+        return None
+
+    X = data[ML_FEATURES].to_numpy(dtype=float)
+    y = data["y"].to_numpy()
+
+    # 5 — honest chronological split (train on the past, test on the future).
+    split = int(len(data) * 0.8)
+    X_tr, X_te, y_tr, y_te = X[:split], X[split:], y[:split], y[split:]
+
+    scaler = StandardScaler().fit(X_tr)
+    model = LogisticRegression(max_iter=1000, C=1.0)
+    model.fit(scaler.transform(X_tr), y_tr)
+
+    classes = list(model.classes_)              # alphabetical: ['A', 'D', 'H']
+    proba = model.predict_proba(scaler.transform(X_te))
+    preds = model.predict(scaler.transform(X_te))
+
+    # One-hot the test targets to score the probabilistic forecasts.
+    Y = np.zeros_like(proba)
+    for i, yy in enumerate(y_te):
+        Y[i, classes.index(yy)] = 1.0
+    brier = float(np.mean(np.sum((proba - Y) ** 2, axis=1)))
+
+    # Baseline = predict the train-set class frequencies for every match.
+    freq = pd.Series(y_tr).value_counts(normalize=True)
+    base = np.tile([freq.get(c, 0.0) for c in classes], (len(y_te), 1))
+    base_brier = float(np.mean(np.sum((base - Y) ** 2, axis=1)))
+
+    acc = accuracy_score(y_te, preds)
+    ll = log_loss(y_te, proba, labels=classes)
+
+    print("\n── ML 1X2 model — multinomial Logistic Regression ──")
+    print(f"  Train / test (chronological): {split} / {len(y_te)}")
+    print(f"  Accuracy:     {acc:.3f}")
+    print(f"  Log loss:     {ll:.3f}")
+    print(f"  Brier score:  {brier:.3f}   (baseline {base_brier:.3f}, "
+          f"{'better ✓' if brier < base_brier else 'no gain ✗'})")
+    print("  Learned weights (standardised features):")
+    for k, c in enumerate(classes):
+        terms = "  ".join(f"{f}={model.coef_[k][j]:+.3f}"
+                          for j, f in enumerate(ML_FEATURES))
+        print(f"    P({c}): b={model.intercept_[k]:+.3f}   {terms}")
+
+    return {
+        "type": "multinomial_logistic_regression",
+        "features": ML_FEATURES,
+        "means": [round(v, 6) for v in scaler.mean_.tolist()],
+        "stds": [round(v, 6) for v in scaler.scale_.tolist()],
+        "classes": classes,
+        "coef": [[round(v, 6) for v in row] for row in model.coef_.tolist()],
+        "intercept": [round(v, 6) for v in model.intercept_.tolist()],
+        "defaults": {"elo": DEFAULT_ELO, "momentum": 50.0, "xg": DEFAULT_XG, "xga": DEFAULT_XG},
+        "metrics": {
+            "test_matches": int(len(y_te)),
+            "accuracy": round(acc, 4),
+            "log_loss": round(ll, 4),
+            "brier": round(brier, 4),
+            "baseline_brier": round(base_brier, 4),
+        },
+    }
 
 
 # ── Orchestration ────────────────────────────────────────────────────
@@ -303,9 +423,16 @@ def main() -> None:
     agg = add_momentum(agg)
     agg = round_columns(agg)
 
-    export_json(agg, args.output, args.since)
+    # Train the ML 1X2 model on history + the engineered team features.
+    try:
+        model = train_prediction_model(df, agg)
+    except Exception as exc:  # never let modelling break the data export
+        print(f"[ml] Training failed ({exc}); exporting without a model.")
+        model = None
 
-    print(f"Processed {len(df)} competitive matches "
+    export_json(agg, args.output, args.since, model)
+
+    print(f"\nProcessed {len(df)} competitive matches "
           f"({df['date'].min().date()} → {df['date'].max().date()}).")
     print(f"Ranked {len(agg)} teams → {args.output}")
     print("\nTop 5 by momentum:")
