@@ -30,13 +30,17 @@ import pandas as pd
 
 # ── Tunable constants ────────────────────────────────────────────────
 DEFAULT_SINCE = "2024-06-01"   # "last 24 months" → June 2024 onwards
-DEFAULT_MIN_MATCHES = 3        # ignore teams with too few games (noisy)
-GD_CLIP = 3.0                  # clamp avg goal difference to ±3 before scaling
-W_WIN_RATE = 0.60              # weight: results matter most
-W_GOAL_DIFF = 0.40             # weight: margin/quality of those results
-# Weights sum to 1.0 so the weighted blend of two 0–100 inputs stays 0–100.
+DEFAULT_MIN_MATCHES = 5        # stricter: weed out tiny-sample outliers
 DEFAULT_ELO = 1500             # baseline when a team has no Elo rating
 DEFAULT_XG = 1.10              # tournament-baseline xG / xGA per 90 (missing teams)
+
+# Quality-weighted momentum (Elo-surprise)
+QM_RECENT = 10                 # consider each team's last N matches
+QM_DECAY = 0.85                # recency decay (most recent weighted ~1)
+
+# Rolling-form features
+GD_WINDOW = 5                  # rolling goal-difference window (matches)
+REST_DEFAULT = 14              # imputed rest days for a team's first match
 
 
 def normalize_name(name: str) -> str:
@@ -123,22 +127,70 @@ def aggregate(team_rows: pd.DataFrame, min_matches: int) -> pd.DataFrame:
     return g
 
 
-# ── 4. Momentum score ────────────────────────────────────────────────
+# ── 4. Quality-weighted momentum + rolling form ──────────────────────
+def attach_quality_momentum(team_stats: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
+    """
+    Replace naive win-rate momentum with an Elo-SURPRISE score: how much a
+    team over/under-performs its Elo expectation, recency-weighted over its
+    last QM_RECENT matches. Beating a much stronger side (low expectation)
+    spikes it; beating a 1500-Elo minnow barely moves it.
+
+    momentum_score ∈ [0, 100], where 50 = performing exactly to Elo.
+    """
+    elo_by = {
+        normalize_name(t): float(e)
+        for t, e in zip(team_stats["team"], team_stats["elo"])
+    }
+
+    def elo_of(name: str) -> float:
+        return elo_by.get(normalize_name(name), float(DEFAULT_ELO))
+
+    perf: dict[str, list[tuple]] = {}
+    for _, m in matches.iterrows():
+        h, a = m["home_team"], m["away_team"]
+        eh, ea = elo_of(h), elo_of(a)
+        exp_h = 1.0 / (1.0 + 10 ** ((ea - eh) / 400.0))  # Elo-expected score
+        res_h = (
+            1.0 if m["home_score"] > m["away_score"]
+            else 0.5 if m["home_score"] == m["away_score"]
+            else 0.0
+        )
+        # Performance vs expectation is zero-sum: away = −home.
+        perf.setdefault(normalize_name(h), []).append((m["date"], res_h - exp_h))
+        perf.setdefault(normalize_name(a), []).append((m["date"], (1 - res_h) - (1 - exp_h)))
+
+    scores: dict[str, float] = {}
+    for key, plist in perf.items():
+        plist.sort(key=lambda x: x[0])                 # oldest → newest
+        recent = plist[-QM_RECENT:]
+        n = len(recent)
+        num = sum(pv * (QM_DECAY ** (n - 1 - i)) for i, (_, pv) in enumerate(recent))
+        den = sum(QM_DECAY ** (n - 1 - i) for i in range(n))
+        avg = num / den if den else 0.0                # in [-1, 1]
+        scores[key] = round((avg + 1.0) / 2.0 * 100.0, 1)
+
+    ts = team_stats.copy()
+    ts["momentum_score"] = ts["team"].map(lambda t: scores.get(normalize_name(t), 50.0))
+    return ts
+
+
+def attach_gd_form(team_stats: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
+    """Each team's rolling goal difference over its most recent GD_WINDOW
+    matches (a current-form signal). Defaults to 0 for teams with no games."""
+    hist: dict[str, list[int]] = {}
+    for _, m in matches.sort_values("date").iterrows():
+        diff = int(m["home_score"] - m["away_score"])
+        hist.setdefault(normalize_name(m["home_team"]), []).append(diff)
+        hist.setdefault(normalize_name(m["away_team"]), []).append(-diff)
+    form = {k: float(sum(v[-GD_WINDOW:])) for k, v in hist.items()}
+
+    ts = team_stats.copy()
+    ts["gd_form"] = ts["team"].map(lambda t: form.get(normalize_name(t), 0.0))
+    return ts
+
+
 def add_momentum(g: pd.DataFrame) -> pd.DataFrame:
-    """
-    momentum_score ∈ [0, 100] = blend of two 0–100 sub-scores:
-
-        win_rate            already 0–100
-        gd_score            avg goal diff clamped to [-3, +3] then
-                            linearly mapped to 0–100 (0 GD → 50)
-
-        momentum = 0.60 * win_rate + 0.40 * gd_score
-    """
-    gd_clamped = g["avg_goal_difference"].clip(-GD_CLIP, GD_CLIP)
-    gd_score = (gd_clamped + GD_CLIP) / (2 * GD_CLIP) * 100.0  # → 0..100
-
-    g["momentum_score"] = W_WIN_RATE * g["win_rate"] + W_GOAL_DIFF * gd_score
-
+    """Sort by the (already-computed) momentum_score and assign ranks."""
     g = g.sort_values("momentum_score", ascending=False).reset_index(drop=True)
     g["rank"] = g.index + 1
     return g
@@ -248,9 +300,11 @@ def round_columns(g: pd.DataFrame) -> pd.DataFrame:
         "avg_goals_conceded": 2,
         "avg_goal_difference": 2,
         "momentum_score": 1,
+        "gd_form": 1,
     }
     for col, places in rounding.items():
-        g[col] = g[col].round(places)
+        if col in g.columns:
+            g[col] = g[col].round(places)
     return g
 
 
@@ -269,7 +323,7 @@ def export_json(
             "elo_baseline": DEFAULT_ELO,
             "xg_baseline": DEFAULT_XG,
         },
-        "weights": {"win_rate": W_WIN_RATE, "goal_difference": W_GOAL_DIFF},
+        "momentum": {"method": "elo_surprise", "recent": QM_RECENT, "decay": QM_DECAY},
         "count": len(teams),
         "teams": teams,
         # Learned 1X2 model (coefficients) for the TS engine — Option A.
@@ -282,29 +336,28 @@ def export_json(
 
 
 # ── ML model: learn optimal 1X2 weights & minimise Brier ─────────────
-ML_FEATURES = ["elo_diff", "momentum_diff", "xg_diff", "xga_diff"]
+ML_FEATURES = [
+    "elo_diff", "momentum_diff", "xg_diff", "xga_diff", "rest_diff", "gd_form_diff",
+    # Draw-awareness: |elo gap| encodes "evenness" (the U-shaped draw signal a
+    # linear model can't get from elo_diff alone); total_xg captures low-scoring
+    # (draw-prone) games. Calibration-preserving — no class weighting needed.
+    "abs_elo_diff", "total_xg",
+]
 
 
-def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
+def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.DataFrame:
     """
-    Train a multinomial Logistic Regression to predict 1X2 outcomes from
-    Home-minus-Away feature differences (Elo, momentum, xG, xGA).
+    Chronological, point-in-time feature frame — one row per match with the
+    ML_FEATURES diffs + the outcome y. Shared by training (compute_momentum)
+    and evaluation (evaluate_model) so the two can never drift apart.
 
-    Returns a serialisable dict of learned coefficients + scaler params so
-    the TypeScript engine can apply softmax(W·x + b) at runtime (Option A).
-    Returns None if scikit-learn is unavailable or there's too little data.
+    rest_diff and gd_form_diff are computed from matches STRICTLY BEFORE each
+    game (no leakage); the rest come from the team-level aggregates.
     """
-    try:
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.preprocessing import StandardScaler
-        from sklearn.metrics import accuracy_score, log_loss
-    except ImportError:
-        print("[ml] scikit-learn not installed — skipping. `pip install scikit-learn`")
-        return None
-
-    # Index team stats by normalized name for O(1) per-team lookups.
-    by_key = team_stats.assign(_key=team_stats["team"].map(normalize_name))
-    by_key = by_key.drop_duplicates("_key").set_index("_key")
+    by_key = (
+        team_stats.assign(_key=team_stats["team"].map(normalize_name))
+        .drop_duplicates("_key").set_index("_key")
+    )
 
     def feat(name: str, col: str, default: float) -> float:
         key = normalize_name(name)
@@ -313,86 +366,215 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
             return float(val) if pd.notna(val) else default
         return default
 
-    # 2 & 3 — engineer features (X) and the outcome target (y) per match.
+    last_played: dict[str, object] = {}
+    gd_hist: dict[str, list[int]] = {}
     rows = []
-    for _, m in matches.iterrows():
-        h, a = m["home_team"], m["away_team"]
-        if m["home_score"] > m["away_score"]:
-            y = "H"
-        elif m["home_score"] < m["away_score"]:
-            y = "A"
-        else:
-            y = "D"
+    for _, m in matches.sort_values("date").iterrows():
+        h, a, d = m["home_team"], m["away_team"], m["date"]
+        hs, as_ = m["home_score"], m["away_score"]
+        yv = "H" if hs > as_ else ("A" if hs < as_ else "D")
+
+        rest_h = (d - last_played[h]).days if h in last_played else REST_DEFAULT
+        rest_a = (d - last_played[a]).days if a in last_played else REST_DEFAULT
+        gd_h = float(sum(gd_hist.get(h, [])[-GD_WINDOW:]))
+        gd_a = float(sum(gd_hist.get(a, [])[-GD_WINDOW:]))
+
+        eh, ea = feat(h, "elo", DEFAULT_ELO), feat(a, "elo", DEFAULT_ELO)
+        xh, xa = feat(h, "xG_per_90", DEFAULT_XG), feat(a, "xG_per_90", DEFAULT_XG)
+
         rows.append({
-            "date": m["date"],
-            "elo_diff": feat(h, "elo", DEFAULT_ELO) - feat(a, "elo", DEFAULT_ELO),
+            "date": d,
+            "elo_diff": eh - ea,
             "momentum_diff": feat(h, "momentum_score", 50.0) - feat(a, "momentum_score", 50.0),
-            "xg_diff": feat(h, "xG_per_90", DEFAULT_XG) - feat(a, "xG_per_90", DEFAULT_XG),
+            "xg_diff": xh - xa,
             "xga_diff": feat(h, "xGA_per_90", DEFAULT_XG) - feat(a, "xGA_per_90", DEFAULT_XG),
-            "y": y,
+            "rest_diff": float(rest_h - rest_a),
+            "gd_form_diff": gd_h - gd_a,
+            "abs_elo_diff": abs(eh - ea),
+            "total_xg": xh + xa,
+            "y": yv,
         })
 
-    data = pd.DataFrame(rows).dropna(subset=ML_FEATURES + ["y"]).sort_values("date")
+        last_played[h] = d
+        last_played[a] = d
+        gd_hist.setdefault(h, []).append(int(hs - as_))
+        gd_hist.setdefault(a, []).append(int(as_ - hs))
+
+    return pd.DataFrame(rows).dropna(subset=ML_FEATURES + ["y"]).sort_values("date")
+
+
+def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
+    """
+    Predict 1X2 outcomes from Home-minus-Away feature diffs (Elo, momentum,
+    xG, xGA). Trains TWO candidates — a heavily-regularised XGBoost and a
+    Logistic Regression — scores both on a held-out chronological split, and
+    PRE-COMPUTES every matchup's win/draw/away probabilities from whichever
+    has the lower Brier. So we can never ship a model worse than the LR
+    baseline. The winner's probabilities are exported as a lookup:
+        { "home|away": [pHome, pDraw, pAway] }
+    Returns None if xgboost/scikit-learn or data are unavailable.
+    """
+    try:
+        from xgboost import XGBClassifier
+        from sklearn.linear_model import LogisticRegression
+        from sklearn.preprocessing import StandardScaler
+        from sklearn.pipeline import make_pipeline
+        from sklearn.metrics import accuracy_score, log_loss
+    except ImportError:
+        print("[ml] xgboost/scikit-learn missing — skipping. "
+              "`pip install xgboost scikit-learn`")
+        return None
+
+    # Point-in-time feature frame (shared with evaluate_model.py — no drift).
+    data = build_match_features(matches, team_stats)
     if len(data) < 50:
         print(f"[ml] Only {len(data)} usable matches — too few to train; skipping.")
         return None
 
-    X = data[ML_FEATURES].to_numpy(dtype=float)
-    y = data["y"].to_numpy()
+    # feat() helper for the deployment pre-compute (team-level; no fixture date).
+    by_key = (
+        team_stats.assign(_key=team_stats["team"].map(normalize_name))
+        .drop_duplicates("_key").set_index("_key")
+    )
 
-    # 5 — honest chronological split (train on the past, test on the future).
+    def feat(name: str, col: str, default: float) -> float:
+        key = normalize_name(name)
+        if key in by_key.index:
+            val = by_key.at[key, col]
+            return float(val) if pd.notna(val) else default
+        return default
+
+    X = data[ML_FEATURES].to_numpy(dtype=float)
+
+    # 4 — integer classes 0..K-1.  Home win=0, Draw=1, Away win=2.
+    y = data["y"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
+
+    # Honest chronological split (train on the past, test on the future).
     split = int(len(data) * 0.8)
     X_tr, X_te, y_tr, y_te = X[:split], X[split:], y[:split], y[split:]
 
-    scaler = StandardScaler().fit(X_tr)
-    model = LogisticRegression(max_iter=1000, C=1.0)
-    model.fit(scaler.transform(X_tr), y_tr)
+    # Reorder any model's predict_proba into fixed [Home(0), Draw(1), Away(2)]
+    # column order, using its own classes_ — this is the airtight guard
+    # against any Home/Away mix-up regardless of class ordering.
+    def to_hda(model, proba: np.ndarray) -> np.ndarray:
+        col = {int(c): i for i, c in enumerate(model.classes_)}
+        n = len(proba)
+        return np.column_stack([
+            proba[:, col[0]] if 0 in col else np.zeros(n),
+            proba[:, col[1]] if 1 in col else np.zeros(n),
+            proba[:, col[2]] if 2 in col else np.zeros(n),
+        ])
 
-    classes = list(model.classes_)              # alphabetical: ['A', 'D', 'H']
-    proba = model.predict_proba(scaler.transform(X_te))
-    preds = model.predict(scaler.transform(X_te))
+    def brier_of(proba_hda: np.ndarray, y_true: np.ndarray) -> float:
+        onehot = np.zeros((len(y_true), 3))
+        for i, c in enumerate(y_true):
+            onehot[i, int(c)] = 1.0
+        return float(np.mean(np.sum((proba_hda - onehot) ** 2, axis=1)))
 
-    # One-hot the test targets to score the probabilistic forecasts.
-    Y = np.zeros_like(proba)
-    for i, yy in enumerate(y_te):
-        Y[i, classes.index(yy)] = 1.0
-    brier = float(np.mean(np.sum((proba - Y) ** 2, axis=1)))
+    # 3 — HEAVILY regularised XGBoost (shallow trees, slow LR, strong
+    #     subsampling + L1/L2 + min_child_weight + gamma) for noisy data.
+    def build_xgb():
+        return XGBClassifier(
+            n_estimators=383,
+            learning_rate=0.11818,
+            max_depth=4,
+            min_child_weight=4,
+            subsample=0.86055,
+            colsample_bytree=0.64032,
+            gamma=1.28008,
+            reg_alpha=1.44657,
+            reg_lambda=0.11297,
+            eval_metric="mlogloss",
+            random_state=42,
+            n_jobs=2,
+        )
 
-    # Baseline = predict the train-set class frequencies for every match.
+    def build_lr():
+        return make_pipeline(
+            StandardScaler(), LogisticRegression(max_iter=1000, C=1.0)
+        )
+
+    candidates = {"xgboost": build_xgb, "logistic_regression": build_lr}
+    scored = {}
+    for tag, build in candidates.items():
+        clf = build()
+        clf.fit(X_tr, y_tr)
+        proba_hda = to_hda(clf, clf.predict_proba(X_te))
+        scored[tag] = brier_of(proba_hda, y_te)
+
+    # No-skill baseline (predict train class frequencies for everything).
     freq = pd.Series(y_tr).value_counts(normalize=True)
-    base = np.tile([freq.get(c, 0.0) for c in classes], (len(y_te), 1))
-    base_brier = float(np.mean(np.sum((base - Y) ** 2, axis=1)))
+    base = np.tile([freq.get(0, 0.0), freq.get(1, 0.0), freq.get(2, 0.0)], (len(y_te), 1))
+    base_brier = brier_of(base, y_te)
 
-    acc = accuracy_score(y_te, preds)
-    ll = log_loss(y_te, proba, labels=classes)
+    # Champion = lowest test Brier.
+    champ_tag = min(scored, key=scored.get)
+    champ = candidates[champ_tag]()
+    champ.fit(X_tr, y_tr)
+    champ_proba = to_hda(champ, champ.predict_proba(X_te))
+    champ_brier = scored[champ_tag]
+    champ_acc = float(accuracy_score(y_te, champ_proba.argmax(axis=1)))
+    champ_ll = float(log_loss(y_te, champ_proba, labels=[0, 1, 2]))
 
-    print("\n── ML 1X2 model — multinomial Logistic Regression ──")
-    print(f"  Train / test (chronological): {split} / {len(y_te)}")
-    print(f"  Accuracy:     {acc:.3f}")
-    print(f"  Log loss:     {ll:.3f}")
-    print(f"  Brier score:  {brier:.3f}   (baseline {base_brier:.3f}, "
-          f"{'better ✓' if brier < base_brier else 'no gain ✗'})")
-    print("  Learned weights (standardised features):")
-    for k, c in enumerate(classes):
-        terms = "  ".join(f"{f}={model.coef_[k][j]:+.3f}"
-                          for j, f in enumerate(ML_FEATURES))
-        print(f"    P({c}): b={model.intercept_[k]:+.3f}   {terms}")
+    print("\n── ML 1X2 model selection (held-out Brier) ──")
+    for tag, b in sorted(scored.items(), key=lambda kv: kv[1]):
+        mark = " ← champion" if tag == champ_tag else ""
+        print(f"  {tag:<22} Brier {b:.3f}{mark}")
+    print(f"  {'baseline (no-skill)':<22} Brier {base_brier:.3f}")
+    print(f"  Champion accuracy {champ_acc:.3f} · log-loss {champ_ll:.3f}")
+
+    # ── Refit champion on ALL data, pre-compute every matchup ──
+    final = candidates[champ_tag]()
+    final.fit(X, y)
+
+    teams_list = list(team_stats["team"])
+    tf = {
+        t: (
+            feat(t, "elo", DEFAULT_ELO),
+            feat(t, "momentum_score", 50.0),
+            feat(t, "xG_per_90", DEFAULT_XG),
+            feat(t, "xGA_per_90", DEFAULT_XG),
+            feat(t, "gd_form", 0.0),
+        )
+        for t in teams_list
+    }
+
+    # Feature order must match ML_FEATURES. At deployment there's no fixture
+    # date, so rest_diff = 0 (equal-rest assumption).
+    keys, feat_rows = [], []
+    for home in teams_list:
+        for away in teams_list:
+            if home == away:
+                continue
+            eh, mh, xh, xah, fh = tf[home]
+            ea, ma, xa, xaa, fa = tf[away]
+            # Order MUST match ML_FEATURES (rest_diff = 0 at deployment).
+            feat_rows.append([
+                eh - ea, mh - ma, xh - xa, xah - xaa, 0.0, fh - fa,
+                abs(eh - ea), xh + xa,
+            ])
+            keys.append(f"{normalize_name(home)}|{normalize_name(away)}")
+
+    matchups: dict[str, list[float]] = {}
+    if feat_rows:
+        p_all = to_hda(final, final.predict_proba(np.array(feat_rows, dtype=float)))
+        for key, p in zip(keys, p_all):
+            matchups[key] = [round(float(p[0]), 4), round(float(p[1]), 4), round(float(p[2]), 4)]
+    print(f"  Pre-computed {len(matchups)} matchups from '{champ_tag}' → JSON.")
 
     return {
-        "type": "multinomial_logistic_regression",
+        "type": f"{champ_tag}_precomputed",
         "features": ML_FEATURES,
-        "means": [round(v, 6) for v in scaler.mean_.tolist()],
-        "stds": [round(v, 6) for v in scaler.scale_.tolist()],
-        "classes": classes,
-        "coef": [[round(v, 6) for v in row] for row in model.coef_.tolist()],
-        "intercept": [round(v, 6) for v in model.intercept_.tolist()],
+        "classes": ["H", "D", "A"],  # column order of each matchup array
         "defaults": {"elo": DEFAULT_ELO, "momentum": 50.0, "xg": DEFAULT_XG, "xga": DEFAULT_XG},
+        "matchups": matchups,
         "metrics": {
             "test_matches": int(len(y_te)),
-            "accuracy": round(acc, 4),
-            "log_loss": round(ll, 4),
-            "brier": round(brier, 4),
+            "accuracy": round(champ_acc, 4),
+            "log_loss": round(champ_ll, 4),
+            "brier": round(champ_brier, 4),
             "baseline_brier": round(base_brier, 4),
+            "candidates": {k: round(v, 4) for k, v in scored.items()},
         },
     }
 
@@ -417,10 +599,12 @@ def main() -> None:
 
     team_rows = to_team_perspective(df)
     agg = aggregate(team_rows, args.min_matches)
-    agg = attach_elo(agg, load_elo(args.elo))  # left join + default 1500
-    agg = attach_xg(agg, load_xg(args.xg))     # left join + default 1.10
+    agg = attach_elo(agg, load_elo(args.elo))      # left join + default 1500
+    agg = attach_xg(agg, load_xg(args.xg))         # left join + default 1.10
+    agg = attach_quality_momentum(agg, df)         # Elo-surprise momentum (needs Elo)
+    agg = attach_gd_form(agg, df)                  # rolling goal-difference form
     agg.attrs["max_date"] = df["date"].max().date()
-    agg = add_momentum(agg)
+    agg = add_momentum(agg)                        # sort + rank by momentum_score
     agg = round_columns(agg)
 
     # Train the ML 1X2 model on history + the engineered team features.
@@ -435,9 +619,9 @@ def main() -> None:
     print(f"\nProcessed {len(df)} competitive matches "
           f"({df['date'].min().date()} → {df['date'].max().date()}).")
     print(f"Ranked {len(agg)} teams → {args.output}")
-    print("\nTop 5 by momentum:")
-    print(agg[["rank", "team", "momentum_score", "elo", "xG_per_90",
-               "xGA_per_90"]].head().to_string(index=False))
+    print("\nTop 5 by momentum (Elo-surprise):")
+    print(agg[["rank", "team", "momentum_score", "elo", "gd_form"]]
+          .head().to_string(index=False))
 
 
 if __name__ == "__main__":
