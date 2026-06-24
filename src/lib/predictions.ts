@@ -157,18 +157,15 @@ const xgByName = new Map<string, { xg: number; xga: number }>();
 let momentumLoaded = false;
 let momentumLoading: Promise<void> | null = null;
 
-// ─── Learned 1X2 model (multinomial logistic regression) — Option A ──
-// Coefficients trained in Python (compute_momentum.py) and applied here
-// as softmax(W·x + b). Replaces the hardcoded heuristic for live win
+// ─── Learned 1X2 model (XGBoost, pre-computed) — Option B ──
+// XGBoost trees have no linear coefficients to port, so Python pre-computes
+// the win/draw/away probabilities for every matchup and exports a lookup
+// keyed by normalised "home|away". Replaces the heuristic for live win
 // probabilities; null until loaded.
 interface MLModel {
   type?: string;
-  features: string[];
-  means: number[];
-  stds: number[];
-  classes: string[]; // e.g. ["A", "D", "H"]
-  coef: number[][]; // [class][feature]
-  intercept: number[]; // [class]
+  classes?: string[]; // outcome order of each matchup array: ["H", "D", "A"]
+  matchups: Record<string, number[]>; // "home|away" → [pHome, pDraw, pAway]
   metrics?: {
     test_matches?: number;
     accuracy?: number;
@@ -205,16 +202,7 @@ export function getModelInfo(): ModelInfo {
 function isValidModel(m: unknown): m is MLModel {
   if (!m || typeof m !== "object") return false;
   const x = m as MLModel;
-  return (
-    Array.isArray(x.features) &&
-    Array.isArray(x.classes) &&
-    Array.isArray(x.coef) &&
-    Array.isArray(x.intercept) &&
-    Array.isArray(x.means) &&
-    Array.isArray(x.stds) &&
-    x.coef.length === x.classes.length &&
-    x.intercept.length === x.classes.length
-  );
+  return !!x.matchups && typeof x.matchups === "object";
 }
 
 /**
@@ -284,28 +272,10 @@ function getXg(team: Team): { xg: number; xga: number } {
   return getTeamXg(team.name);
 }
 
-// Home-minus-Away feature differences — must match the Python feature defs.
-function mlFeatureValue(name: string, homeTeam: Team, awayTeam: Team): number {
-  const hx = getTeamXg(homeTeam.name);
-  const ax = getTeamXg(awayTeam.name);
-  switch (name) {
-    case "elo_diff":
-      return getEloRating(homeTeam.name) - getEloRating(awayTeam.name);
-    case "momentum_diff":
-      return getMomentumScore(homeTeam.name) - getMomentumScore(awayTeam.name);
-    case "xg_diff":
-      return hx.xg - ax.xg;
-    case "xga_diff":
-      return hx.xga - ax.xga;
-    default:
-      return 0;
-  }
-}
-
 /**
- * 1X2 win probabilities from the learned logistic-regression model:
- * softmax(W·x_standardised + b). Returns null if no model is loaded so
- * callers can fall back to the Poisson split.
+ * 1X2 win probabilities looked up from the pre-computed XGBoost table
+ * (keyed by normalised "home|away"). Returns null if the model isn't loaded
+ * or the matchup isn't in the table — callers fall back to the Poisson split.
  */
 export function getOutcomeProbabilities(
   homeTeam: Team,
@@ -314,29 +284,12 @@ export function getOutcomeProbabilities(
   const m = mlModel;
   if (!m) return null;
 
-  // Standardise features in the model's own feature order.
-  const x = m.features.map((f, j) => {
-    const raw = mlFeatureValue(f, homeTeam, awayTeam);
-    const std = m.stds[j] || 1;
-    return (raw - (m.means[j] ?? 0)) / std;
-  });
+  const key = `${normalizeName(homeTeam.name)}|${normalizeName(awayTeam.name)}`;
+  const p = m.matchups[key];
+  if (!p || p.length < 3) return null;
 
-  // Per-class logit, then numerically-stable softmax.
-  const logits = m.classes.map(
-    (_, k) => m.intercept[k] + x.reduce((s, xj, j) => s + (m.coef[k][j] ?? 0) * xj, 0)
-  );
-  const maxL = Math.max(...logits);
-  const exps = logits.map((l) => Math.exp(l - maxL));
-  const sum = exps.reduce((acc, v) => acc + v, 0) || 1;
-
-  const out = { home: 0, draw: 0, away: 0 };
-  m.classes.forEach((c, k) => {
-    const p = exps[k] / sum;
-    if (c === "H") out.home = p;
-    else if (c === "D") out.draw = p;
-    else if (c === "A") out.away = p;
-  });
-  return out;
+  const sum = p[0] + p[1] + p[2] || 1; // defensive renormalise
+  return { home: p[0] / sum, draw: p[1] / sum, away: p[2] / sum };
 }
 
 export interface MatchPrediction {
