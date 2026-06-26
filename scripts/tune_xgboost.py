@@ -36,6 +36,7 @@ try:
     from sklearn.linear_model import LogisticRegression
     from sklearn.preprocessing import StandardScaler
     from sklearn.pipeline import make_pipeline
+    from sklearn.ensemble import VotingClassifier
     from sklearn.model_selection import RandomizedSearchCV, TimeSeriesSplit
     from sklearn.metrics import accuracy_score, log_loss
 except ImportError:
@@ -158,7 +159,17 @@ def main() -> None:
     print(f"  CV Brier (mean over folds): {-search.best_score_:.4f}")
 
     # ── Head-to-head on the untouched chronological test set ──
-    lr = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, C=1.0))
+    def fresh_lr():
+        return make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, C=1.0))
+
+    def fresh_tuned_xgb():
+        # An UNFITTED clone of the winner (VotingClassifier refits its members).
+        return XGBClassifier(
+            **search.best_params_, eval_metric="mlogloss", tree_method="hist",
+            random_state=42, n_jobs=1,
+        )
+
+    lr = fresh_lr()
     lr.fit(X_tr, y_tr)
 
     default_xgb = XGBClassifier(
@@ -168,10 +179,18 @@ def main() -> None:
     )
     default_xgb.fit(X_tr, y_tr)
 
+    # Soft-vote ensemble: average LR's calibrated probs with tuned-XGB's sharper
+    # ones. Equal weights → leakage-free (no test-set weight search).
+    ensemble = VotingClassifier(
+        estimators=[("lr", fresh_lr()), ("xgb", fresh_tuned_xgb())], voting="soft",
+    )
+    ensemble.fit(X_tr, y_tr)
+
     table = {
         "Logistic Regression (champion)": test_metrics(lr, X_te, y_te),
-        "XGBoost (current default)": test_metrics(default_xgb, X_te, y_te),
+        "XGBoost (untuned baseline)": test_metrics(default_xgb, X_te, y_te),
         "XGBoost (TUNED)": test_metrics(search.best_estimator_, X_te, y_te),
+        "Ensemble (LR + tuned XGB)": test_metrics(ensemble, X_te, y_te),
     }
 
     print("\n── Hold-out test results ──")
@@ -179,18 +198,21 @@ def main() -> None:
     for name, mtr in table.items():
         print(f"  {name:<34}{mtr['brier']:>9.4f}{mtr['acc']:>8.3f}{mtr['logloss']:>10.4f}")
 
-    tuned = table["XGBoost (TUNED)"]["brier"]
     lr_brier = table["Logistic Regression (champion)"]["brier"]
+    challengers = {k: v["brier"] for k, v in table.items() if "Logistic" not in k}
+    best_name = min(challengers, key=challengers.get)
+    best_brier = challengers[best_name]
     print()
-    if tuned < lr_brier:
-        print(f"🏁 Ferrari wins! Tuned XGBoost {tuned:.4f} beats LR {lr_brier:.4f} "
-              f"(Δ {lr_brier - tuned:+.4f}).")
-        print("   → Paste these params into build_xgb() in compute_momentum.py.")
+    if best_brier < lr_brier:
+        print(f"🏁 {best_name} wins! {best_brier:.4f} beats LR {lr_brier:.4f} "
+              f"(Δ {lr_brier - best_brier:+.4f}).")
+        print("   → The Champion/Challenger in compute_momentum.py will adopt it "
+              "automatically once you recompute.")
     else:
-        print(f"🏁 LR still leads: {lr_brier:.4f} vs tuned XGBoost {tuned:.4f} "
-              f"(Δ {tuned - lr_brier:+.4f}).")
+        print(f"🏁 LR still leads: {lr_brier:.4f} (best challenger: {best_name} "
+              f"{best_brier:.4f}, Δ {best_brier - lr_brier:+.4f}).")
         print("   → On this much data, the linear model is genuinely hard to beat. "
-              "Consider more/better features over more tuning.")
+              "More data is the real unlock for the trees.")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 "use client";
 
+import MatchupAnalysis from "@/components/MatchupAnalysis";
 import { useMemo, useState } from "react";
 import {
   ArrowLeftRight,
@@ -565,6 +566,12 @@ export function Predictions({ teams, matches, upcoming }: Props) {
               </p>
             )}
           </Panel>
+
+          {homeTeam && awayTeam && (
+            <div className="mt-6">
+              <MatchupAnalysis home={homeTeam} away={awayTeam} />
+            </div>
+          )}
 
           {prediction && (
             <>

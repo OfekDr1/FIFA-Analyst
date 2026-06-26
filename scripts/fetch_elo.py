@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -80,11 +81,11 @@ ELO_CODE_MAP = {
     "IS": "Iceland", "IE": "Republic of Ireland", "IT": "Italy",
     "XK": "Kosovo", "LV": "Latvia", "LI": "Liechtenstein", "LT": "Lithuania",
     "LU": "Luxembourg", "MT": "Malta", "MD": "Moldova", "ME": "Montenegro",
-    "NL": "Netherlands", "MK": "North Macedonia", "NI": "Northern Ireland",
+    "NL": "Netherlands", "MK": "North Macedonia",
     "NO": "Norway", "PL": "Poland", "PT": "Portugal", "RO": "Romania",
-    "RU": "Russia", "SM": "San Marino", "SC": "Scotland", "RS": "Serbia",
+    "RU": "Russia", "SM": "San Marino", "RS": "Serbia",
     "SK": "Slovakia", "SI": "Slovenia", "ES": "Spain", "SE": "Sweden",
-    "CH": "Switzerland", "TR": "Turkey", "UA": "Ukraine", "WL": "Wales",
+    "CH": "Switzerland", "UA": "Ukraine",
     # CONMEBOL
     "AR": "Argentina", "BO": "Bolivia", "BR": "Brazil", "CL": "Chile",
     "CO": "Colombia", "EC": "Ecuador", "PY": "Paraguay", "PE": "Peru",
@@ -113,9 +114,37 @@ ELO_CODE_MAP = {
     "AE": "United Arab Emirates", "UZ": "Uzbekistan", "VN": "Vietnam",
     # OFC
     "NZ": "New Zealand",
+    # ── eloratings.net non-ISO / corrected codes (verified from World.tsv) ──
+    # eloratings uses its OWN codes for several teams; the naive ISO guess
+    # collided with real nations — ISO "SC" = Seychelles and "NI" = Nicaragua
+    # were silently relabeled as Scotland / Northern Ireland.
+    "SQ": "Scotland", "WA": "Wales", "EI": "Northern Ireland",
+    "TR": "Turkey", "KO": "Kosovo", "NM": "North Macedonia", "IL": "Israel",
+    # eloratings dirty data: "TW" is a DUPLICATE code for Nigeria — already
+    # mapped via ISO "NG" at the same 1767 rating. Aliasing it here is purely
+    # cosmetic (dedup keeps Nigeria once); verified on eloratings.net.
+    "TW": "Nigeria",
+    # Reclaim the ISO codes for their true owners:
+    "SC": "Seychelles", "NI": "Nicaragua",
 }
 
 OUTPUT_COLUMNS = ["country", "rating", "snapshot_date"]
+
+# Perennial sides that must always be present and reasonably rated. A miss — or
+# a rating below the floor — means a code mapping broke (the classic ISO
+# collision, e.g. "SC"=Seychelles being mislabeled Scotland). Floors sit well
+# below real values so only genuine breakage trips the guard.
+SANITY_FLOORS = {
+    "England": 1650, "Scotland": 1500, "Wales": 1450, "Northern Ireland": 1350,
+    "Republic of Ireland": 1400, "Spain": 1800, "France": 1750, "Brazil": 1800,
+    "Argentina": 1850, "Germany": 1650, "Italy": 1650, "Turkey": 1500,
+    "United States": 1450, "Mexico": 1450,
+}
+
+# Only ALERT on UNMAPPED codes rated at/above this — any team this strong could
+# plausibly be WC-relevant, so a miss is a real problem. The long tail of
+# sub-floor minnows (Aruba, Bermuda, …) is non-WC noise we deliberately mute.
+UNMAPPED_ALERT_FLOOR = 1450
 
 
 # ── Fetch ────────────────────────────────────────────────────────────
@@ -202,6 +231,54 @@ def map_name(token: str) -> str:
     return NAME_MAP.get(token, token)
 
 
+# ── Guardrail ────────────────────────────────────────────────────────
+def audit_ratings(rows: list[tuple[str, int]]) -> list[str]:
+    """Sanity-check parsed ratings BEFORE writing — surfaces the silent failure
+    modes that produced 'Scotland 1123': unmapped codes (real teams about to be
+    dropped as ALL-CAPS junk), collisions (two source tokens → one country), and
+    implausibly-low / missing majors (another nation's rating via a code clash).
+    Returns warning lines; never raises."""
+    resolved = [(map_name(tok), tok, rating) for tok, rating in rows]
+    warns: list[str] = []
+
+    # 1) Codes that didn't resolve leak through unchanged as 2–4 letter pseudo-
+    #    countries → a real team we're silently dropping. Only ALERT on ones
+    #    rated highly enough to plausibly be WC-relevant; the long tail of
+    #    sub-floor minnows (Aruba, Bermuda, …) is non-WC noise we mute.
+    unmapped_high = sorted({f"{tok}={rating}" for name, tok, rating in resolved
+                            if name == tok and re.fullmatch(r"[A-Za-z]{2,4}", name)
+                            and rating >= UNMAPPED_ALERT_FLOOR})
+    if unmapped_high:
+        warns.append(f"[audit] {len(unmapped_high)} UNMAPPED code(s) ≥{UNMAPPED_ALERT_FLOOR} "
+                     f"— likely real teams being dropped; verify & add to ELO_CODE_MAP: "
+                     f"{', '.join(unmapped_high)}")
+
+    # 2) Two source codes → one country. A genuine conflict carries DIFFERENT
+    #    ratings (one code is stealing another nation's label). Identical
+    #    ratings just mean eloratings listed the same team twice (dirty-but-
+    #    harmless, e.g. "NG" and "TW" both = Nigeria 1767) — not worth a warning.
+    seen: dict[str, dict[str, int]] = {}
+    for name, tok, rating in resolved:
+        seen.setdefault(name, {})[tok] = rating
+    for name, tok_ratings in sorted(seen.items()):
+        if len(tok_ratings) > 1 and len(set(tok_ratings.values())) > 1:
+            detail = ", ".join(f"{t}={r}" for t, r in sorted(tok_ratings.items()))
+            warns.append(f"[audit] COLLISION — '{name}' from conflicting codes "
+                         f"({detail}); one mapping is wrong.")
+
+    # 3) Perennial majors must be present and above a sane floor.
+    rating_by_name = {name: r for name, _, r in resolved}
+    for team, floor in SANITY_FLOORS.items():
+        r = rating_by_name.get(team)
+        if r is None:
+            warns.append(f"[audit] MISSING major '{team}' — its eloratings code "
+                         "likely changed or collided.")
+        elif r < floor:
+            warns.append(f"[audit] IMPLAUSIBLE '{team}'={r} (< floor {floor}) — "
+                         "probably another nation's rating via a code collision.")
+    return warns
+
+
 # ── Write ────────────────────────────────────────────────────────────
 def write_csv(rows: list[tuple[str, int]], path: Path, snapshot: str, append: bool) -> None:
     # Dedupe within this snapshot, keeping the first (highest list position).
@@ -241,6 +318,15 @@ def main() -> None:
     for name, rating in rows[:5]:
         arrow = f" → {map_name(name)}" if map_name(name) != name else ""
         print(f"        {name}{arrow}: {rating}")
+
+    # Guardrail: never silently ingest corruption again.
+    warnings = audit_ratings(rows)
+    for w in warnings:
+        print(w, file=sys.stderr)
+    if warnings:
+        print(f"[audit] {len(warnings)} warning(s) above — review before trusting this snapshot.")
+    else:
+        print("[audit] clean — no collisions, unmapped majors, or implausible ratings.")
 
     if len(rows) < args.min_teams:
         sys.exit(

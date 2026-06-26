@@ -149,11 +149,13 @@ interface MomentumEntry {
   elo?: number;
   xG_per_90?: number;
   xGA_per_90?: number;
+  gd_form?: number;
 }
 
 const momentumByName = new Map<string, number>();
 const eloByName = new Map<string, number>();
 const xgByName = new Map<string, { xg: number; xga: number }>();
+const gdFormByName = new Map<string, number>();
 let momentumLoaded = false;
 let momentumLoading: Promise<void> | null = null;
 
@@ -166,6 +168,9 @@ interface MLModel {
   type?: string;
   classes?: string[]; // outcome order of each matchup array: ["H", "D", "A"]
   matchups: Record<string, number[]>; // "home|away" → [pHome, pDraw, pAway]
+  // Sparse head-to-head GD table, keyed by canonical "lo|hi" (alphabetical),
+  // value = avg goal difference from the alphabetically-first team's view.
+  h2h?: Record<string, number>;
   metrics?: {
     test_matches?: number;
     accuracy?: number;
@@ -233,6 +238,9 @@ export function loadMomentumScores(): Promise<void> {
             xga: typeof e.xGA_per_90 === "number" ? e.xGA_per_90 : DEFAULT_XG,
           });
         }
+        if (typeof e.gd_form === "number") {
+          gdFormByName.set(key, e.gd_form);
+        }
       }
       mlModel = isValidModel(data.model) ? data.model : null;
       momentumLoaded = true;
@@ -270,6 +278,32 @@ export function getTeamXg(teamName: string): { xg: number; xga: number } {
 
 function getXg(team: Team): { xg: number; xga: number } {
   return getTeamXg(team.name);
+}
+
+/** Public accessor for the UI — a team's last-5 goal-difference form (default 0). */
+export function getGoalDiffForm(teamName: string): number {
+  return gdFormByName.get(normalizeName(teamName)) ?? 0;
+}
+
+/**
+ * Historical head-to-head goal difference oriented to `homeName`'s perspective
+ * (positive = home team has dominated the rivalry). `hasHistory` is false when
+ * the two teams have no recent meetings in the dataset — callers show a
+ * "first meeting" state rather than a misleading 0.
+ */
+export function getHeadToHead(
+  homeName: string,
+  awayName: string
+): { gd: number; hasHistory: boolean } {
+  const table = mlModel?.h2h;
+  if (!table) return { gd: 0, hasHistory: false };
+
+  const [lo, hi] = [normalizeName(homeName), normalizeName(awayName)].sort();
+  const avgLo = table[`${lo}|${hi}`];
+  if (typeof avgLo !== "number") return { gd: 0, hasHistory: false };
+
+  // Stored from the alphabetically-first team's view → flip if home is `hi`.
+  return { gd: normalizeName(homeName) === lo ? avgLo : -avgLo, hasHistory: true };
 }
 
 /**

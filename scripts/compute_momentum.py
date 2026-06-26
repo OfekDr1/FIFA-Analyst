@@ -42,6 +42,14 @@ QM_DECAY = 0.85                # recency decay (most recent weighted ~1)
 GD_WINDOW = 5                  # rolling goal-difference window (matches)
 REST_DEFAULT = 14              # imputed rest days for a team's first match
 
+# Head-to-head + match-context features
+H2H_WINDOW = 5                 # last N meetings between the two teams
+WC_IMPORTANCE = 3.0            # match_importance for the World Cup (deployment)
+
+# Interaction / edge-case features
+FATIGUE_WINDOW = 30            # rolling window (days) for schedule congestion
+UNDERDOG_GAP = 100             # Elo deficit that flags a home-hosting underdog
+
 
 def normalize_name(name: str) -> str:
     """Lowercase + strip accents/whitespace for a forgiving name join."""
@@ -338,11 +346,69 @@ def export_json(
 # ── ML model: learn optimal 1X2 weights & minimise Brier ─────────────
 ML_FEATURES = [
     "elo_diff", "momentum_diff", "xg_diff", "xga_diff", "rest_diff", "gd_form_diff",
-    # Draw-awareness: |elo gap| encodes "evenness" (the U-shaped draw signal a
-    # linear model can't get from elo_diff alone); total_xg captures low-scoring
-    # (draw-prone) games. Calibration-preserving — no class weighting needed.
+    # Draw-awareness: |elo gap| encodes "evenness"; total_xg captures low-scoring
+    # (draw-prone) games.
     "abs_elo_diff", "total_xg",
+    # Interaction-rich tree-food: venue, match stakes, head-to-head history.
+    "is_home_advantage", "match_importance", "h2h_gd",
+    # Non-linear interactions & edge cases the trees can branch on:
+    # multiplicative attack×defence clash, schedule congestion, host-underdog.
+    "attack_vs_defense", "fatigue_accumulation", "is_home_underdog",
 ]
+
+
+def _is_neutral_venue(val: object) -> bool:
+    return str(val).strip().lower() in ("true", "1", "yes", "t")
+
+
+def home_advantage(row) -> float:
+    """+1 if the home team actually hosts, -1 if the listed away team hosts,
+    0 on neutral ground. Uses the `neutral` flag, refined by `country`."""
+    if _is_neutral_venue(row.get("neutral", "")):
+        return 0.0
+    country = normalize_name(str(row.get("country", "")))
+    if country:
+        if country == normalize_name(row["home_team"]):
+            return 1.0
+        if country == normalize_name(row["away_team"]):
+            return -1.0
+    return 1.0  # not neutral, country unknown → assume nominal home team hosts
+
+
+def match_importance(tournament: object) -> float:
+    """Graded stakes (friendlies are filtered upstream, so this varies 1/2/3):
+    qualifiers = 2, continental / World-Cup finals = 3, else 1."""
+    t = str(tournament).lower()
+    if "friendly" in t:
+        return 0.0
+    if "qualif" in t:                      # checked first ("world cup qualification")
+        return 2.0
+    finals = ("world cup", "euro", "copa am", "copa américa",
+              "africa cup", "afcon", "asian cup", "gold cup")
+    if any(k in t for k in finals):
+        return 3.0
+    return 1.0                             # Nations League & other competitive
+
+
+def h2h_gd_table(matches: pd.DataFrame) -> dict:
+    """Final head-to-head average goal difference (last H2H_WINDOW meetings) per
+    canonical team pair, from the alphabetically-first team's view — for the
+    deployment pre-compute."""
+    hist: dict[tuple, list[int]] = {}
+    for _, m in matches.sort_values("date").iterrows():
+        lo, hi = sorted([normalize_name(m["home_team"]), normalize_name(m["away_team"])])
+        gd = m["home_score"] - m["away_score"]
+        hist.setdefault((lo, hi), []).append(int(gd if normalize_name(m["home_team"]) == lo else -gd))
+    return {pair: float(np.mean(v[-H2H_WINDOW:])) for pair, v in hist.items()}
+
+
+def h2h_for(table: dict, home: str, away: str) -> float:
+    """Look up the head-to-head GD oriented to `home`'s view (0 if no history)."""
+    lo, hi = sorted([normalize_name(home), normalize_name(away)])
+    avg_lo = table.get((lo, hi))
+    if avg_lo is None:
+        return 0.0
+    return avg_lo if normalize_name(home) == lo else -avg_lo
 
 
 def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.DataFrame:
@@ -368,6 +434,8 @@ def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.
 
     last_played: dict[str, object] = {}
     gd_hist: dict[str, list[int]] = {}
+    h2h_hist: dict[tuple, list[int]] = {}
+    played_dates: dict[str, list] = {}   # every team's prior match dates (congestion)
     rows = []
     for _, m in matches.sort_values("date").iterrows():
         h, a, d = m["home_team"], m["away_team"], m["date"]
@@ -379,19 +447,42 @@ def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.
         gd_h = float(sum(gd_hist.get(h, [])[-GD_WINDOW:]))
         gd_a = float(sum(gd_hist.get(a, [])[-GD_WINDOW:]))
 
+        # Schedule congestion: matches each side played in the last 30 days
+        # (point-in-time — played_dates only holds STRICTLY earlier games).
+        cong_h = sum(1 for pdt in played_dates.get(h, []) if (d - pdt).days <= FATIGUE_WINDOW)
+        cong_a = sum(1 for pdt in played_dates.get(a, []) if (d - pdt).days <= FATIGUE_WINDOW)
+
+        # Point-in-time head-to-head GD between these two teams (home's view).
+        lo, hi = sorted([normalize_name(h), normalize_name(a)])
+        past = h2h_hist.get((lo, hi), [])[-H2H_WINDOW:]
+        if past:
+            avg_lo = sum(past) / len(past)
+            h2h = avg_lo if normalize_name(h) == lo else -avg_lo
+        else:
+            h2h = 0.0
+
         eh, ea = feat(h, "elo", DEFAULT_ELO), feat(a, "elo", DEFAULT_ELO)
         xh, xa = feat(h, "xG_per_90", DEFAULT_XG), feat(a, "xG_per_90", DEFAULT_XG)
+        xah, xaa = feat(h, "xGA_per_90", DEFAULT_XG), feat(a, "xGA_per_90", DEFAULT_XG)
+        home_adv = home_advantage(m)
 
         rows.append({
             "date": d,
             "elo_diff": eh - ea,
             "momentum_diff": feat(h, "momentum_score", 50.0) - feat(a, "momentum_score", 50.0),
             "xg_diff": xh - xa,
-            "xga_diff": feat(h, "xGA_per_90", DEFAULT_XG) - feat(a, "xGA_per_90", DEFAULT_XG),
+            "xga_diff": xah - xaa,
             "rest_diff": float(rest_h - rest_a),
             "gd_form_diff": gd_h - gd_a,
             "abs_elo_diff": abs(eh - ea),
             "total_xg": xh + xa,
+            "is_home_advantage": home_adv,
+            "match_importance": match_importance(m.get("tournament", "")),
+            "h2h_gd": h2h,
+            # Non-linear interactions ↓
+            "attack_vs_defense": xh * xaa - xa * xah,         # multiplicative clash
+            "fatigue_accumulation": float(cong_h - cong_a),   # 30-day congestion gap
+            "is_home_underdog": 1.0 if (home_adv == 1.0 and eh <= ea - UNDERDOG_GAP) else 0.0,
             "y": yv,
         })
 
@@ -399,6 +490,11 @@ def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.
         last_played[a] = d
         gd_hist.setdefault(h, []).append(int(hs - as_))
         gd_hist.setdefault(a, []).append(int(as_ - hs))
+        h2h_hist.setdefault((lo, hi), []).append(
+            int((hs - as_) if normalize_name(h) == lo else (as_ - hs))
+        )
+        played_dates.setdefault(h, []).append(d)
+        played_dates.setdefault(a, []).append(d)
 
     return pd.DataFrame(rows).dropna(subset=ML_FEATURES + ["y"]).sort_values("date")
 
@@ -406,11 +502,11 @@ def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.
 def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
     """
     Predict 1X2 outcomes from Home-minus-Away feature diffs (Elo, momentum,
-    xG, xGA). Trains TWO candidates — a heavily-regularised XGBoost and a
-    Logistic Regression — scores both on a held-out chronological split, and
-    PRE-COMPUTES every matchup's win/draw/away probabilities from whichever
-    has the lower Brier. So we can never ship a model worse than the LR
-    baseline. The winner's probabilities are exported as a lookup:
+    xG, xGA). Trains THREE candidates — a tuned XGBoost, a Logistic
+    Regression, and their soft-vote ensemble — scores all on a held-out
+    chronological split, and PRE-COMPUTES every matchup's win/draw/away
+    probabilities from whichever has the lower Brier. So we can never ship a
+    model worse than the LR baseline. The winner's probabilities are a lookup:
         { "home|away": [pHome, pDraw, pAway] }
     Returns None if xgboost/scikit-learn or data are unavailable.
     """
@@ -419,6 +515,7 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
         from sklearn.linear_model import LogisticRegression
         from sklearn.preprocessing import StandardScaler
         from sklearn.pipeline import make_pipeline
+        from sklearn.ensemble import VotingClassifier
         from sklearn.metrics import accuracy_score, log_loss
     except ImportError:
         print("[ml] xgboost/scikit-learn missing — skipping. "
@@ -471,20 +568,22 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
             onehot[i, int(c)] = 1.0
         return float(np.mean(np.sum((proba_hda - onehot) ** 2, axis=1)))
 
-    # 3 — HEAVILY regularised XGBoost (shallow trees, slow LR, strong
-    #     subsampling + L1/L2 + min_child_weight + gamma) for noisy data.
+    # 3 — Tuned XGBoost: regularised (slow LR, strong subsampling + L1/L2 +
+    #     min_child_weight + gamma) for noisy data. Params from tune_xgboost.py
+    #     (RandomizedSearchCV optimising multiclass Brier).
     def build_xgb():
         return XGBClassifier(
-            n_estimators=383,
-            learning_rate=0.11818,
+            n_estimators=430,
+            learning_rate=0.02037,
             max_depth=4,
-            min_child_weight=4,
-            subsample=0.86055,
-            colsample_bytree=0.64032,
-            gamma=1.28008,
-            reg_alpha=1.44657,
-            reg_lambda=0.11297,
+            min_child_weight=11,
+            subsample=0.83391,
+            colsample_bytree=0.84832,
+            gamma=1.73707,
+            reg_alpha=0.14095,
+            reg_lambda=1.14485,
             eval_metric="mlogloss",
+            tree_method="hist",
             random_state=42,
             n_jobs=2,
         )
@@ -494,7 +593,20 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
             StandardScaler(), LogisticRegression(max_iter=1000, C=1.0)
         )
 
-    candidates = {"xgboost": build_xgb, "logistic_regression": build_lr}
+    def build_ensemble():
+        # Soft-vote: average LR's well-calibrated probs with XGB's sharper
+        # ones. Equal weights — no test-set weight search, so it stays
+        # leakage-free and can only win on genuinely decorrelated errors.
+        return VotingClassifier(
+            estimators=[("lr", build_lr()), ("xgb", build_xgb())],
+            voting="soft",
+        )
+
+    candidates = {
+        "xgboost": build_xgb,
+        "logistic_regression": build_lr,
+        "ensemble": build_ensemble,
+    }
     scored = {}
     for tag, build in candidates.items():
         clf = build()
@@ -526,6 +638,7 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
     # ── Refit champion on ALL data, pre-compute every matchup ──
     final = candidates[champ_tag]()
     final.fit(X, y)
+    h2h_table = h2h_gd_table(matches)
 
     teams_list = list(team_stats["team"])
     tf = {
@@ -548,10 +661,15 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
                 continue
             eh, mh, xh, xah, fh = tf[home]
             ea, ma, xa, xaa, fa = tf[away]
-            # Order MUST match ML_FEATURES (rest_diff = 0 at deployment).
+            # Order MUST match ML_FEATURES. Deployment is World Cup context:
+            # neutral venue → is_home_advantage = 0 (so is_home_underdog = 0),
+            # rest_diff = 0, no schedule → fatigue = 0. The attack×defence
+            # clash is matchup-specific and still differentiates.
             feat_rows.append([
                 eh - ea, mh - ma, xh - xa, xah - xaa, 0.0, fh - fa,
                 abs(eh - ea), xh + xa,
+                0.0, WC_IMPORTANCE, h2h_for(h2h_table, home, away),
+                xh * xaa - xa * xah, 0.0, 0.0,
             ])
             keys.append(f"{normalize_name(home)}|{normalize_name(away)}")
 
@@ -568,6 +686,9 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
         "classes": ["H", "D", "A"],  # column order of each matchup array
         "defaults": {"elo": DEFAULT_ELO, "momentum": 50.0, "xg": DEFAULT_XG, "xga": DEFAULT_XG},
         "matchups": matchups,
+        # Sparse rivalry table for the UI deep-dive: canonical "lo|hi" → avg GD
+        # (from the alphabetically-first team's view). Only pairs that have met.
+        "h2h": {f"{lo}|{hi}": round(v, 2) for (lo, hi), v in h2h_table.items()},
         "metrics": {
             "test_matches": int(len(y_te)),
             "accuracy": round(champ_acc, 4),

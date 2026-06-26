@@ -73,11 +73,12 @@ def build_lr():
 
 
 def build_xgb():
+    # Tuned params — keep in sync with compute_momentum.py build_xgb().
     return XGBClassifier(
-        n_estimators=80, learning_rate=0.05, max_depth=2, min_child_weight=5,
-        subsample=0.8, colsample_bytree=0.8, gamma=1.0,
-        reg_alpha=0.5, reg_lambda=2.0,
-        eval_metric="mlogloss", random_state=42, n_jobs=2,
+        n_estimators=430, learning_rate=0.02037, max_depth=4, min_child_weight=11,
+        subsample=0.83391, colsample_bytree=0.84832, gamma=1.73707,
+        reg_alpha=0.14095, reg_lambda=1.14485,
+        eval_metric="mlogloss", tree_method="hist", random_state=42, n_jobs=2,
     )
 
 
