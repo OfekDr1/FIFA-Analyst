@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-26T12:43:13.831Z",
+  "fetchedAt": "2026-06-26T15:34:26.876Z",
   "teams": [
     {
       "id": "758",
@@ -3325,8 +3325,8 @@
       "kickoff": "2026-06-28T19:00:00Z",
       "stage": "group",
       "group": "",
-      "homeTeamId": "774",
-      "awayTeamId": "828"
+      "homeTeamId": "null",
+      "awayTeamId": "null"
     },
     {
       "id": "537423",
@@ -3334,8 +3334,8 @@
       "kickoff": "2026-06-29T17:00:00Z",
       "stage": "group",
       "group": "",
-      "homeTeamId": "764",
-      "awayTeamId": "766"
+      "homeTeamId": "null",
+      "awayTeamId": "null"
     },
     {
       "id": "537415",
@@ -3343,7 +3343,7 @@
       "kickoff": "2026-06-29T20:30:00Z",
       "stage": "group",
       "group": "",
-      "homeTeamId": "759",
+      "homeTeamId": "null",
       "awayTeamId": "null"
     },
     {
@@ -3352,8 +3352,8 @@
       "kickoff": "2026-06-30T01:00:00Z",
       "stage": "group",
       "group": "",
-      "homeTeamId": "8601",
-      "awayTeamId": "815"
+      "homeTeamId": "null",
+      "awayTeamId": "null"
     }
   ]
 }
