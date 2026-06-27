@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T16:44:53+00:00",
+  "generated_at": "2026-06-27T19:38:31+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-06-27"
@@ -228639,7 +228639,7 @@
       "brier": 0.463,
       "baseline_brier": 0.6379,
       "candidates": {
-        "xgboost": 0.4889,
+        "xgboost": 0.4887,
         "logistic_regression": 0.463,
         "ensemble": 0.4717
       }
