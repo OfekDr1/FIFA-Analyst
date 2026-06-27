@@ -1,25 +1,32 @@
 "use client";
 
 /**
- * RoadToTheFinal — a FiveThirtyEight-style advancement-probability matrix.
+ * RoadToTheFinal — a FiveThirtyEight-style LIVE advancement matrix.
  *
- * Reads public/tournament_sim.json (the Monte-Carlo output) and renders a
- * sortable heatmap: one row per team, one column per knockout stage, every cell
- * shaded by the % chance to reach that stage across the 10,000 simulations.
- * Click any column header to sort by it.
+ * Reads public/tournament_sim.json (the live Monte-Carlo output) and renders a
+ * sortable heatmap: one row per team, a column per knockout stage, every cell
+ * shaded by the % chance to reach that stage. Now conditioned on reality —
+ * shows current points / GD, fades eliminated teams, badges qualified ones, and
+ * stamps the data "as of" the last played match. Click any header to sort.
  *
  * Self-contained — fetches its own data, so it can be dropped anywhere.
  */
 
 import { useEffect, useMemo, useState } from "react";
-import { ChevronUp, ChevronDown, Trophy, Dice5 } from "lucide-react";
+import { ChevronUp, ChevronDown, Trophy, Dice5, CheckCircle2 } from "lucide-react";
 import { Crest } from "@/components/Crest";
 import { flagUrl } from "@/data/flagCodes";
+
+type Status = "eliminated" | "qualified" | "active";
 
 interface SimTeam {
   team: string;
   group: string;
   elo: number;
+  played?: number;
+  points?: number;
+  gd?: number;
+  status?: Status;
   reach_r32: number;
   reach_r16: number;
   reach_qf: number;
@@ -29,15 +36,20 @@ interface SimTeam {
 }
 interface SimData {
   generated_at: string;
+  as_of?: string | null;
   simulations: number;
+  locked?: { group_matches: number; knockout_matches: number };
   format: string;
   teams: SimTeam[];
 }
 
-type SortKey = keyof Pick<
-  SimTeam,
-  "reach_r32" | "reach_r16" | "reach_qf" | "reach_sf" | "reach_final" | "win" | "elo"
-> | "team";
+type SortKey =
+  | keyof Pick<
+      SimTeam,
+      | "reach_r32" | "reach_r16" | "reach_qf" | "reach_sf" | "reach_final"
+      | "win" | "elo" | "points" | "gd"
+    >
+  | "team";
 
 const STAGE_COLS: { key: SortKey; label: string; hint: string }[] = [
   { key: "reach_r32", label: "R32", hint: "Reach the Round of 32" },
@@ -48,11 +60,23 @@ const STAGE_COLS: { key: SortKey; label: string; hint: string }[] = [
   { key: "win", label: "Champion", hint: "Win the World Cup" },
 ];
 
-// ── Cell formatting + heatmap ────────────────────────────────────────
+// ── Formatting + heatmap ─────────────────────────────────────────────
 function fmtPct(p: number): string {
   if (p >= 0.995) return ">99%";
   if (p < 0.005) return p > 0 ? "<1%" : "—";
   return `${Math.round(p * 100)}%`;
+}
+
+function fmtGd(gd: number): string {
+  return gd > 0 ? `+${gd}` : `${gd}`;
+}
+
+function fmtDate(s?: string | null): string | null {
+  if (!s) return null;
+  const d = new Date(s);
+  return isNaN(d.getTime())
+    ? s
+    : d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 }
 
 /** Sequential heat: faint at low odds → vivid cyan-to-emerald at high odds. */
@@ -65,6 +89,24 @@ function cellStyle(p: number): React.CSSProperties {
     color: p > 0.42 ? "#04121a" : "rgba(255,255,255,0.92)",
     fontWeight: p > 0.42 ? 700 : 500,
   };
+}
+
+// ── Status badge ─────────────────────────────────────────────────────
+function StatusBadge({ status }: { status?: Status }) {
+  if (status === "qualified")
+    return (
+      <span className="inline-flex items-center gap-0.5 rounded bg-emerald-400/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-emerald-300">
+        <CheckCircle2 className="h-2.5 w-2.5" />
+        Through
+      </span>
+    );
+  if (status === "eliminated")
+    return (
+      <span className="rounded bg-white/[0.06] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-rose-300/70">
+        Out
+      </span>
+    );
+  return null;
 }
 
 export default function RoadToTheFinal() {
@@ -85,7 +127,7 @@ export default function RoadToTheFinal() {
     if (!data?.teams) return [];
     const sorted = [...data.teams].sort((a, b) => {
       if (sortKey === "team") return a.team.localeCompare(b.team);
-      return (a[sortKey] as number) - (b[sortKey] as number);
+      return ((a[sortKey] ?? 0) as number) - ((b[sortKey] ?? 0) as number);
     });
     return asc ? sorted : sorted.reverse();
   }, [data, sortKey, asc]);
@@ -136,6 +178,11 @@ export default function RoadToTheFinal() {
     );
   }
 
+  const lockedTotal =
+    (data.locked?.group_matches ?? 0) + (data.locked?.knockout_matches ?? 0);
+  const isLive = lockedTotal > 0;
+  const asOf = fmtDate(data.as_of);
+
   return (
     <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#0c1120]/80 to-[#070a14]/90 backdrop-blur-xl">
       {/* Header */}
@@ -144,9 +191,19 @@ export default function RoadToTheFinal() {
           <h3 className="flex items-center gap-2 text-base font-bold text-white">
             <Trophy className="h-4 w-4 text-amber-300" />
             Road to the Final
+            {isLive && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-rose-300">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-rose-400" />
+                </span>
+                Live
+              </span>
+            )}
           </h3>
           <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-white/40">
-            Advancement odds · {data.simulations.toLocaleString()} simulations
+            {isLive ? `Conditioned on ${lockedTotal} played` : "Pre-tournament forecast"} ·{" "}
+            {data.simulations.toLocaleString()} sims
           </p>
         </div>
         {/* Heat legend */}
@@ -165,7 +222,7 @@ export default function RoadToTheFinal() {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse text-sm">
+        <table className="w-full min-w-[760px] border-collapse text-sm">
           <thead>
             <tr className="text-[11px] uppercase tracking-wider text-white/45">
               <th className="sticky left-0 z-20 bg-[#0a0e1a] px-3 py-3 text-left">
@@ -176,14 +233,20 @@ export default function RoadToTheFinal() {
                   Team <SortIcon k="team" />
                 </button>
               </th>
-              <th className="px-3 py-3 text-right">
-                <button
-                  onClick={() => toggleSort("elo")}
-                  className="ml-auto flex items-center gap-1 transition-colors hover:text-white"
-                >
-                  Elo <SortIcon k="elo" />
-                </button>
-              </th>
+              {([
+                { key: "points", label: "Pts", hint: "Current group points (locked from real results)" },
+                { key: "gd", label: "GD", hint: "Current goal difference" },
+                { key: "elo", label: "Elo", hint: "Elo rating" },
+              ] as { key: SortKey; label: string; hint: string }[]).map((c) => (
+                <th key={c.key} className="px-3 py-3 text-right" title={c.hint}>
+                  <button
+                    onClick={() => toggleSort(c.key)}
+                    className="ml-auto flex items-center gap-1 transition-colors hover:text-white"
+                  >
+                    {c.label} <SortIcon k={c.key} />
+                  </button>
+                </th>
+              ))}
               {STAGE_COLS.map((c) => (
                 <th key={c.key} className="px-2 py-3 text-center" title={c.hint}>
                   <button
@@ -199,48 +262,80 @@ export default function RoadToTheFinal() {
             </tr>
           </thead>
           <tbody>
-            {rows.map((t, i) => (
-              <tr
-                key={t.team}
-                className="border-t border-white/[0.06] transition-colors hover:bg-white/[0.03]"
-              >
-                {/* Team (sticky) */}
-                <td className="sticky left-0 z-10 bg-[#0a0e1a] px-3 py-2">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-5 text-right text-[11px] tabular-nums text-white/30">
-                      {i + 1}
-                    </span>
-                    <Crest crest={flagUrl(t.team)} name={t.team} code={t.group} size={22} />
-                    <span className="truncate font-medium text-white/90">{t.team}</span>
-                    <span className="ml-1 rounded bg-white/[0.06] px-1.5 py-0.5 text-[10px] font-semibold text-white/40">
-                      {t.group}
-                    </span>
-                  </div>
-                </td>
-                {/* Elo */}
-                <td className="px-3 py-2 text-right font-mono text-xs tabular-nums text-white/45">
-                  {t.elo}
-                </td>
-                {/* Stage heat cells */}
-                {STAGE_COLS.map((c) => (
+            {rows.map((t, i) => {
+              const out = t.status === "eliminated";
+              const through = t.status === "qualified";
+              return (
+                <tr
+                  key={t.team}
+                  className={`border-t border-white/[0.06] transition-colors hover:bg-white/[0.03] ${
+                    out ? "opacity-40" : ""
+                  }`}
+                >
+                  {/* Team (sticky) */}
                   <td
-                    key={c.key}
-                    className="px-2 py-2 text-center text-xs tabular-nums"
-                    style={cellStyle(t[c.key] as number)}
+                    className="sticky left-0 z-10 bg-[#0a0e1a] px-3 py-2"
+                    style={
+                      through
+                        ? { boxShadow: "inset 2px 0 0 rgba(52,211,153,0.6)" }
+                        : undefined
+                    }
                   >
-                    {fmtPct(t[c.key] as number)}
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-5 text-right text-[11px] tabular-nums text-white/30">
+                        {i + 1}
+                      </span>
+                      <Crest crest={flagUrl(t.team)} name={t.team} code={t.group} size={22} />
+                      <span className="truncate font-medium text-white/90">{t.team}</span>
+                      <span className="rounded bg-white/[0.06] px-1.5 py-0.5 text-[10px] font-semibold text-white/40">
+                        {t.group}
+                      </span>
+                      <StatusBadge status={t.status} />
+                    </div>
                   </td>
-                ))}
-              </tr>
-            ))}
+                  {/* Current standing */}
+                  <td
+                    className="px-3 py-2 text-right font-mono text-xs font-semibold tabular-nums text-white/80"
+                    title={`Played ${t.played ?? 0}`}
+                  >
+                    {t.points ?? 0}
+                  </td>
+                  <td className="px-3 py-2 text-right font-mono text-xs tabular-nums text-white/50">
+                    {fmtGd(t.gd ?? 0)}
+                  </td>
+                  <td className="px-3 py-2 text-right font-mono text-xs tabular-nums text-white/40">
+                    {t.elo}
+                  </td>
+                  {/* Stage heat cells */}
+                  {STAGE_COLS.map((c) => (
+                    <td
+                      key={c.key}
+                      className="px-2 py-2 text-center text-xs tabular-nums"
+                      style={cellStyle(t[c.key] as number)}
+                    >
+                      {fmtPct(t[c.key] as number)}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
 
-      <p className="border-t border-white/10 px-5 py-3 text-[10px] text-white/30">
-        Each cell = % of {data.simulations.toLocaleString()} Monte-Carlo runs in which the team
-        reached that stage. Updated {new Date(data.generated_at).toLocaleString()}.
-      </p>
+      {/* Footer */}
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-5 py-3 text-[10px] text-white/35">
+        <span>
+          {isLive
+            ? `Live forecast conditioned on ${lockedTotal} played match${lockedTotal === 1 ? "" : "es"} · only unplayed fixtures are simulated.`
+            : `Pre-tournament forecast · ${data.simulations.toLocaleString()} simulations.`}
+        </span>
+        <span className="font-medium text-white/50">
+          {asOf ? `Updated as of ${asOf}` : "No matches played yet"}
+          {" · recomputed "}
+          {new Date(data.generated_at).toLocaleString()}
+        </span>
+      </div>
     </div>
   );
 }

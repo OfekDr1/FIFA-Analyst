@@ -1,24 +1,231 @@
 team,xG_per_90,xGA_per_90
-Argentina,2.25,0.65
-France,2.15,0.78
-Brazil,2.30,0.60
-England,1.95,0.70
-Spain,2.10,0.80
-Portugal,2.05,0.75
-Netherlands,1.85,0.90
-Croatia,1.40,1.10
-Germany,2.20,1.05
-Italy,1.75,0.85
-Uruguay,1.60,1.00
-Colombia,1.55,0.95
-Japan,1.45,1.15
-Senegal,1.30,1.05
-Morocco,1.25,0.85
-Algeria,1.35,1.10
-Norway,1.65,1.20
-Uzbekistan,0.95,1.45
-South Korea,1.35,1.25
-USA,1.40,1.20
-Mexico,1.30,1.15
-Tamil Eelam,0.40,2.80
-San Marino,0.20,3.50
+Afghanistan,0.33,1.0
+Albania,0.83,1.0
+Algeria,2.04,0.81
+American Samoa,0.67,4.33
+Andorra,0.25,1.67
+Angola,1.06,0.76
+Anguilla,0.67,2.92
+Antigua and Barbuda,0.33,2.0
+Argentina,1.9,0.45
+Armenia,0.86,2.64
+Aruba,1.36,2.07
+Australia,1.95,0.47
+Austria,2.27,0.91
+Azerbaijan,0.93,2.5
+Bahamas,1.08,3.92
+Bahrain,1.0,1.43
+Bangladesh,0.86,1.86
+Barbados,2.21,2.43
+Belarus,0.58,1.75
+Belgium,2.0,1.05
+Belize,1.56,2.12
+Benin,1.1,1.15
+Bermuda,1.72,2.83
+Bhutan,0.4,3.0
+Bolivia,0.94,2.06
+Bonaire,1.0,1.7
+Bosnia and Herzegovina,1.39,1.72
+Botswana,0.74,1.58
+Brazil,1.42,0.84
+British Virgin Islands,1.17,1.67
+Brunei,0.67,2.33
+Bulgaria,1.19,1.94
+Burkina Faso,1.73,1.0
+Burundi,0.93,1.43
+Cambodia,1.5,1.67
+Cameroon,1.32,0.59
+Canada,1.68,0.89
+Cape Verde,1.11,1.11
+Cayman Islands,0.86,1.71
+Central African Republic,0.79,2.36
+Chad,0.36,1.86
+Chile,0.65,1.59
+China,0.71,1.71
+Colombia,1.95,0.95
+Comoros,0.91,1.3
+Congo,0.6,2.3
+Cook Islands,1.0,3.0
+Costa Rica,2.28,0.88
+Croatia,2.05,1.2
+Cuba,1.5,1.38
+Curacao,0.33,3.0
+Curaçao,2.14,1.14
+Cyprus,1.07,1.86
+Czech Republic,1.61,1.43
+DR Congo,1.26,0.57
+Denmark,1.7,1.15
+Djibouti,0.56,3.0
+Dominica,1.0,2.79
+Dominican Republic,2.71,1.0
+East Turkestan,2.33,3.67
+Ecuador,0.78,0.39
+Egypt,1.43,0.68
+El Salvador,1.14,1.19
+England,2.27,0.5
+Equatorial Guinea,0.88,1.35
+Estonia,0.95,1.75
+Eswatini,0.57,2.07
+Ethiopia,0.86,1.64
+Faroe Islands,1.0,1.17
+Fiji,1.61,2.0
+Finland,0.81,1.75
+France,1.87,0.91
+French Guiana,1.17,1.83
+Frøya,0.25,5.5
+Gabon,1.65,1.6
+Gambia,2.21,1.36
+Georgia,1.56,1.67
+Germany,2.83,0.91
+Ghana,1.72,0.89
+Gibraltar,0.58,2.58
+Gozo,1.0,1.67
+Greece,1.71,1.21
+Grenada,1.5,1.67
+Guadeloupe,1.36,1.27
+Guam,1.8,3.2
+Guatemala,1.76,1.24
+Guinea,1.25,0.88
+Guinea-Bissau,0.71,1.07
+Guyana,2.12,1.75
+Haiti,2.32,1.23
+Hitra,3.25,2.5
+Honduras,1.7,1.04
+Hong Kong,2.29,1.0
+Hungary,1.06,1.88
+Iceland,1.79,2.07
+India,0.27,1.18
+Indonesia,1.05,1.6
+Iran,1.69,0.88
+Iraq,1.11,1.0
+Isle of Man,4.6,1.4
+Israel,1.71,2.36
+Italy,2.0,1.41
+Ivory Coast,1.7,0.43
+Jamaica,1.37,1.1
+Japan,3.11,0.5
+Jersey,2.0,1.67
+Jordan,1.71,1.05
+Kazakhstan,0.75,1.75
+Kenya,1.21,1.16
+Kosovo,1.56,0.94
+Kuwait,0.85,1.55
+Kyrgyzstan,1.17,1.67
+Laos,1.11,3.0
+Latvia,0.61,1.67
+Lebanon,2.0,0.3
+Lesotho,0.71,1.71
+Liberia,1.0,1.56
+Libya,0.94,0.94
+Liechtenstein,0.36,2.93
+Lithuania,0.78,1.61
+Luxembourg,0.33,1.67
+Macau,0.4,3.2
+Madagascar,1.29,1.36
+Malawi,1.07,1.4
+Malaysia,2.08,0.69
+Maldives,0.5,2.0
+Mali,1.37,0.47
+Malta,0.5,1.75
+Marshall Islands,1.0,3.5
+Martinique,0.6,1.2
+Mauritania,0.47,1.27
+Mauritius,0.7,1.6
+Mexico,1.53,0.41
+Moldova,0.83,2.75
+Mongolia,0.75,2.75
+Montenegro,0.86,1.86
+Montserrat,0.6,2.0
+Morocco,2.59,0.33
+Mozambique,1.33,1.5
+Myanmar,1.33,2.75
+Namibia,0.62,1.19
+Nepal,0.57,2.14
+Netherlands,2.48,1.09
+New Caledonia,1.67,1.33
+New Zealand,3.11,0.94
+Nicaragua,1.12,1.44
+Niger,1.0,1.15
+Nigeria,1.81,0.69
+North Korea,1.17,1.83
+North Macedonia,1.53,1.0
+Northern Ireland,1.38,0.85
+Norway,3.69,0.94
+Oman,1.04,1.13
+Orkney,2.5,1.75
+Pakistan,0.8,1.5
+Palestine,0.82,1.29
+Panama,1.78,1.04
+Papua New Guinea,1.67,1.75
+Paraguay,1.05,1.25
+Peru,0.33,1.07
+Philippines,1.89,1.28
+Poland,1.58,1.74
+Portugal,2.18,1.0
+Puerto Rico,2.25,1.17
+Qatar,1.18,1.91
+Republic of Ireland,1.2,1.53
+Romania,2.0,1.05
+Rwanda,0.88,1.0
+Saint Kitts and Nevis,1.64,2.36
+Saint Lucia,1.08,2.77
+Saint Martin,1.6,1.6
+Saint Vincent and the Grenadines,1.81,1.75
+Samoa,0.88,3.62
+San Marino,0.58,3.5
+Saudi Arabia,1.18,1.07
+Scotland,1.32,1.32
+Senegal,1.87,0.65
+Serbia,0.84,1.0
+Seychelles,0.25,4.88
+Shetland,1.33,1.67
+Sierra Leone,1.2,1.27
+Singapore,1.23,1.85
+Sint Maarten,1.3,2.2
+Slovakia,1.21,1.21
+Slovenia,0.72,1.06
+Solomon Islands,1.14,2.64
+Somalia,0.22,1.78
+South Africa,1.76,0.95
+South Korea,1.88,0.71
+South Sudan,0.6,1.93
+Spain,2.54,0.88
+Sri Lanka,0.88,1.62
+Sudan,0.68,1.14
+Suriname,1.55,1.09
+Sweden,2.44,1.31
+Switzerland,1.75,1.15
+Syria,1.69,0.69
+São Tomé and Príncipe,0.62,2.5
+Tahiti,1.11,1.56
+Taiwan,1.11,2.67
+Tajikistan,1.45,0.91
+Tamil Eelam,3.67,0.33
+Tanzania,0.8,1.0
+Thailand,2.68,1.11
+Tibet,2.0,5.0
+Timor-Leste,0.85,2.62
+Togo,0.88,1.31
+Tonga,2.0,1.5
+Trinidad and Tobago,1.78,1.78
+Tunisia,1.58,1.21
+Turkey,1.8,1.36
+Turkmenistan,1.57,1.14
+Turks and Caicos Islands,1.0,2.17
+Uganda,1.35,1.12
+Ukraine,1.4,1.75
+United Arab Emirates,1.42,1.12
+United States,2.0,1.19
+United States Virgin Islands,1.75,2.38
+Uruguay,1.11,0.63
+Uzbekistan,1.33,0.83
+Vanuatu,1.31,2.23
+Venezuela,1.28,1.56
+Vietnam,2.4,1.07
+Wales,2.07,1.07
+Western Isles,1.5,2.0
+Yemen,2.55,1.09
+Ynys Môn,1.0,0.0
+Zambia,0.71,1.0
+Zanzibar,1.0,0.5
+Zimbabwe,0.9,1.15
