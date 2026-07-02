@@ -101,12 +101,34 @@ const FIFA_RANKINGS: Record<string, number> = {
   norway: 45,
 };
 
+// API / display short-names → the canonical results.csv names in
+// team_momentum.json. normalizeName() applies these AFTER lower-casing +
+// diacritic stripping, so a lookup resolves to real stats no matter which
+// source spelled the team (mirrors the backend fetch_*/TEAM_CODE_MAP maps).
+// Keys are already lower-cased + de-accented. Extend as new mismatches surface.
+const NAME_ALIASES: Record<string, string> = {
+  usa: "united states",
+  "united states of america": "united states",
+  "korea republic": "south korea",
+  "korea dpr": "north korea",
+  czechia: "czech republic",
+  "bosnia-h.": "bosnia and herzegovina",
+  bosnia: "bosnia and herzegovina",
+  "congo dr": "dr congo",
+  "ir iran": "iran",
+  china: "china pr",
+  turkiye: "turkey",
+  "cote d'ivoire": "ivory coast",
+  "cabo verde": "cape verde",
+};
+
 function normalizeName(name: string): string {
-  return name
+  const n = name
     .toLowerCase()
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "") // strip diacritics
     .trim();
+  return NAME_ALIASES[n] ?? n;
 }
 
 function getFifaRank(team: Team): number {
