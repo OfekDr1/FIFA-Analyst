@@ -50,6 +50,12 @@ WC_IMPORTANCE = 3.0            # match_importance for the World Cup (deployment)
 FATIGUE_WINDOW = 30            # rolling window (days) for schedule congestion
 UNDERDOG_GAP = 100             # Elo deficit that flags a home-hosting underdog
 
+# Wide-window ML training (point-in-time replay Elo — see compute_elo.py)
+DEFAULT_TRAIN_SINCE = "2015-01-01"  # ML window; earlier history is warm-up only
+HALF_LIFE_DAYS = 730                # sample-weight half-life (~2 years)
+RATE_WINDOW = 15                    # rolling goals-for/against window (matches)
+DEFAULT_RATE = 1.30                 # goals/90 prior for teams with no history
+
 
 def normalize_name(name: str) -> str:
     """Lowercase + strip accents/whitespace for a forgiving name join."""
@@ -345,10 +351,12 @@ def export_json(
 
 # ── ML model: learn optimal 1X2 weights & minimise Brier ─────────────
 ML_FEATURES = [
-    "elo_diff", "momentum_diff", "xg_diff", "xga_diff", "rest_diff", "gd_form_diff",
-    # Draw-awareness: |elo gap| encodes "evenness"; total_xg captures low-scoring
-    # (draw-prone) games.
-    "abs_elo_diff", "total_xg",
+    # ALL 100% point-in-time — replayed Elo + rolling state AS OF each kickoff
+    # (a 2016 match is described by 2016 values, never today's).
+    "elo_diff", "momentum_diff", "gf90_diff", "ga90_diff", "rest_diff", "gd_form_diff",
+    # Draw-awareness: |elo gap| encodes "evenness"; total scoring rate captures
+    # low-scoring (draw-prone) games.
+    "abs_elo_diff", "total_gf90",
     # Interaction-rich tree-food: venue, match stakes, head-to-head history.
     "is_home_advantage", "match_importance", "h2h_gd",
     # Non-linear interactions & edge cases the trees can branch on:
@@ -411,102 +419,193 @@ def h2h_for(table: dict, home: str, away: str) -> float:
     return avg_lo if normalize_name(home) == lo else -avg_lo
 
 
-def build_match_features(matches: pd.DataFrame, team_stats: pd.DataFrame) -> pd.DataFrame:
+def build_match_features(matches: pd.DataFrame, train_since: str = DEFAULT_TRAIN_SINCE):
     """
-    Chronological, point-in-time feature frame — one row per match with the
-    ML_FEATURES diffs + the outcome y. Shared by training (compute_momentum)
-    and evaluation (evaluate_model) so the two can never drift apart.
+    Chronological, 100%-point-in-time feature frame. `matches` must carry the
+    replay columns elo_h_pre / elo_a_pre (compute_elo.attach_replay_elo) — every
+    feature describes the match AS OF kickoff, never with today's values.
 
-    rest_diff and gd_form_diff are computed from matches STRICTLY BEFORE each
-    game (no leakage); the rest come from the team-level aggregates.
+    State (Elo-surprise momentum, rolling goal rates, rest, GD form, H2H,
+    congestion) accumulates over ALL rows, but feature rows are only emitted
+    from `train_since` onwards — earlier history is pure warm-up. Shared by
+    compute_momentum / evaluate_model / tune_xgboost so they can never drift.
+
+    Returns (frame, deploy_state): deploy_state carries each team's
+    end-of-history momentum / gf90 / ga90 / gd_form for the pre-compute, so
+    training and deployment use identical feature definitions.
     """
-    by_key = (
-        team_stats.assign(_key=team_stats["team"].map(normalize_name))
-        .drop_duplicates("_key").set_index("_key")
-    )
-
-    def feat(name: str, col: str, default: float) -> float:
-        key = normalize_name(name)
-        if key in by_key.index:
-            val = by_key.at[key, col]
-            return float(val) if pd.notna(val) else default
-        return default
-
+    since_ts = pd.Timestamp(train_since)
     last_played: dict[str, object] = {}
     gd_hist: dict[str, list[int]] = {}
     h2h_hist: dict[tuple, list[int]] = {}
-    played_dates: dict[str, list] = {}   # every team's prior match dates (congestion)
+    played_dates: dict[str, list] = {}
+    perf_hist: dict[str, list[float]] = {}            # Elo-surprise → momentum
+    rate_hist: dict[str, list[tuple[int, int]]] = {}  # (gf, ga) → rolling rates
     rows = []
+
+    def momentum_of(key: str) -> float:
+        """Point-in-time Elo-surprise momentum (same formula as the UI metric)."""
+        recent = perf_hist.get(key, [])[-QM_RECENT:]
+        if not recent:
+            return 50.0
+        n = len(recent)
+        num = sum(p * (QM_DECAY ** (n - 1 - i)) for i, p in enumerate(recent))
+        den = sum(QM_DECAY ** (n - 1 - i) for i in range(n))
+        return ((num / den) + 1.0) / 2.0 * 100.0
+
+    def rates_of(key: str) -> tuple[float, float]:
+        """Rolling real goals for/against per 90 over the last RATE_WINDOW."""
+        recent = rate_hist.get(key, [])[-RATE_WINDOW:]
+        if not recent:
+            return DEFAULT_RATE, DEFAULT_RATE
+        return (sum(gf for gf, _ in recent) / len(recent),
+                sum(ga for _, ga in recent) / len(recent))
+
     for _, m in matches.sort_values("date").iterrows():
         h, a, d = m["home_team"], m["away_team"], m["date"]
-        hs, as_ = m["home_score"], m["away_score"]
-        yv = "H" if hs > as_ else ("A" if hs < as_ else "D")
+        nh, na = normalize_name(h), normalize_name(a)
+        hs, as_ = int(m["home_score"]), int(m["away_score"])
+        eh, ea = float(m["elo_h_pre"]), float(m["elo_a_pre"])
+        lo, hi = sorted([nh, na])
 
-        rest_h = (d - last_played[h]).days if h in last_played else REST_DEFAULT
-        rest_a = (d - last_played[a]).days if a in last_played else REST_DEFAULT
-        gd_h = float(sum(gd_hist.get(h, [])[-GD_WINDOW:]))
-        gd_a = float(sum(gd_hist.get(a, [])[-GD_WINDOW:]))
+        if d >= since_ts:
+            yv = "H" if hs > as_ else ("A" if hs < as_ else "D")
+            rest_h = (d - last_played[nh]).days if nh in last_played else REST_DEFAULT
+            rest_a = (d - last_played[na]).days if na in last_played else REST_DEFAULT
+            gd_h = float(sum(gd_hist.get(nh, [])[-GD_WINDOW:]))
+            gd_a = float(sum(gd_hist.get(na, [])[-GD_WINDOW:]))
+            cong_h = sum(1 for pdt in played_dates.get(nh, []) if (d - pdt).days <= FATIGUE_WINDOW)
+            cong_a = sum(1 for pdt in played_dates.get(na, []) if (d - pdt).days <= FATIGUE_WINDOW)
 
-        # Schedule congestion: matches each side played in the last 30 days
-        # (point-in-time — played_dates only holds STRICTLY earlier games).
-        cong_h = sum(1 for pdt in played_dates.get(h, []) if (d - pdt).days <= FATIGUE_WINDOW)
-        cong_a = sum(1 for pdt in played_dates.get(a, []) if (d - pdt).days <= FATIGUE_WINDOW)
+            past = h2h_hist.get((lo, hi), [])[-H2H_WINDOW:]
+            if past:
+                avg_lo = sum(past) / len(past)
+                h2h = avg_lo if nh == lo else -avg_lo
+            else:
+                h2h = 0.0
 
-        # Point-in-time head-to-head GD between these two teams (home's view).
-        lo, hi = sorted([normalize_name(h), normalize_name(a)])
-        past = h2h_hist.get((lo, hi), [])[-H2H_WINDOW:]
-        if past:
-            avg_lo = sum(past) / len(past)
-            h2h = avg_lo if normalize_name(h) == lo else -avg_lo
-        else:
-            h2h = 0.0
+            gfh, gah = rates_of(nh)
+            gfa, gaa = rates_of(na)
+            home_adv = home_advantage(m)
 
-        eh, ea = feat(h, "elo", DEFAULT_ELO), feat(a, "elo", DEFAULT_ELO)
-        xh, xa = feat(h, "xG_per_90", DEFAULT_XG), feat(a, "xG_per_90", DEFAULT_XG)
-        xah, xaa = feat(h, "xGA_per_90", DEFAULT_XG), feat(a, "xGA_per_90", DEFAULT_XG)
-        home_adv = home_advantage(m)
+            rows.append({
+                "date": d,
+                # Metadata passthrough (NOT features) — lets scoreline models
+                # like Dixon-Coles train on the exact same rows/split.
+                "home_team": h, "away_team": a,
+                "home_score": hs, "away_score": as_,
+                "elo_diff": eh - ea,
+                "momentum_diff": momentum_of(nh) - momentum_of(na),
+                "gf90_diff": gfh - gfa,
+                "ga90_diff": gah - gaa,
+                "rest_diff": float(rest_h - rest_a),
+                "gd_form_diff": gd_h - gd_a,
+                "abs_elo_diff": abs(eh - ea),
+                "total_gf90": gfh + gfa,
+                "is_home_advantage": home_adv,
+                "match_importance": match_importance(m.get("tournament", "")),
+                "h2h_gd": h2h,
+                # Non-linear interactions ↓
+                "attack_vs_defense": gfh * gaa - gfa * gah,       # multiplicative clash
+                "fatigue_accumulation": float(cong_h - cong_a),   # 30-day congestion gap
+                "is_home_underdog": 1.0 if (home_adv == 1.0 and eh <= ea - UNDERDOG_GAP) else 0.0,
+                "y": yv,
+            })
 
-        rows.append({
-            "date": d,
-            "elo_diff": eh - ea,
-            "momentum_diff": feat(h, "momentum_score", 50.0) - feat(a, "momentum_score", 50.0),
-            "xg_diff": xh - xa,
-            "xga_diff": xah - xaa,
-            "rest_diff": float(rest_h - rest_a),
-            "gd_form_diff": gd_h - gd_a,
-            "abs_elo_diff": abs(eh - ea),
-            "total_xg": xh + xa,
-            "is_home_advantage": home_adv,
-            "match_importance": match_importance(m.get("tournament", "")),
-            "h2h_gd": h2h,
-            # Non-linear interactions ↓
-            "attack_vs_defense": xh * xaa - xa * xah,         # multiplicative clash
-            "fatigue_accumulation": float(cong_h - cong_a),   # 30-day congestion gap
-            "is_home_underdog": 1.0 if (home_adv == 1.0 and eh <= ea - UNDERDOG_GAP) else 0.0,
-            "y": yv,
-        })
+        # ── State updates (always — warm-up rows feed the state too) ──
+        exp_h = 1.0 / (1.0 + 10 ** ((ea - eh) / 400.0))
+        res_h = 1.0 if hs > as_ else 0.5 if hs == as_ else 0.0
+        perf_hist.setdefault(nh, []).append(res_h - exp_h)
+        perf_hist.setdefault(na, []).append((1 - res_h) - (1 - exp_h))
+        rate_hist.setdefault(nh, []).append((hs, as_))
+        rate_hist.setdefault(na, []).append((as_, hs))
+        last_played[nh] = d
+        last_played[na] = d
+        gd_hist.setdefault(nh, []).append(int(hs - as_))
+        gd_hist.setdefault(na, []).append(int(as_ - hs))
+        h2h_hist.setdefault((lo, hi), []).append(int((hs - as_) if nh == lo else (as_ - hs)))
+        played_dates.setdefault(nh, []).append(d)
+        played_dates.setdefault(na, []).append(d)
 
-        last_played[h] = d
-        last_played[a] = d
-        gd_hist.setdefault(h, []).append(int(hs - as_))
-        gd_hist.setdefault(a, []).append(int(as_ - hs))
-        h2h_hist.setdefault((lo, hi), []).append(
-            int((hs - as_) if normalize_name(h) == lo else (as_ - hs))
-        )
-        played_dates.setdefault(h, []).append(d)
-        played_dates.setdefault(a, []).append(d)
-
-    return pd.DataFrame(rows).dropna(subset=ML_FEATURES + ["y"]).sort_values("date")
+    state = {
+        "momentum": {k: momentum_of(k) for k in perf_hist},
+        "gf90": {k: rates_of(k)[0] for k in rate_hist},
+        "ga90": {k: rates_of(k)[1] for k in rate_hist},
+        "gd_form": {k: float(sum(v[-GD_WINDOW:])) for k, v in gd_hist.items()},
+    }
+    frame = pd.DataFrame(rows).dropna(subset=ML_FEATURES + ["y"]).sort_values("date")
+    return frame, state
 
 
-def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
+def prepare_training_data(input_path: Path, train_since: str = DEFAULT_TRAIN_SINCE):
     """
-    Predict 1X2 outcomes from Home-minus-Away feature diffs (Elo, momentum,
-    xG, xGA). Trains THREE candidates — a tuned XGBoost, a Logistic
-    Regression, and their soft-vote ensemble — scores all on a held-out
-    chronological split, and PRE-COMPUTES every matchup's win/draw/away
-    probabilities from whichever has the lower Brier. So we can never ship a
-    model worse than the LR baseline. The winner's probabilities are a lookup:
+    Full-history ML data pipeline: read ALL of results.csv, replay point-in-time
+    Elo across every match (friendlies included — they move ratings, at low K),
+    then build the point-in-time feature frame over COMPETITIVE matches only,
+    emitting rows from `train_since` (state warms up on everything earlier).
+
+    Returns (features_df, deploy_state, competitive_df); deploy_state includes
+    "elo" — the replay's end-of-history ratings.
+    """
+    from compute_elo import attach_replay_elo, load_history
+
+    df = load_history(input_path)
+    df, final_elo = attach_replay_elo(df)
+    tourn = df["tournament"].fillna("").str.strip().str.lower()
+    comp = df[tourn != "friendly"].reset_index(drop=True)
+    feats, state = build_match_features(comp, train_since=train_since)
+    state["elo"] = final_elo
+    return feats, state, comp
+
+
+def fit_weighted(model, X, y, sample_weight=None):
+    """Fit any candidate with optional sample weights, routing them correctly:
+    sklearn Pipelines need step-prefixed kwargs; bare estimators (XGBoost) and
+    SoftVote take sample_weight directly."""
+    if sample_weight is None:
+        model.fit(X, y)
+    elif hasattr(model, "steps"):  # sklearn Pipeline → route to the final step
+        model.fit(X, y, **{f"{model.steps[-1][0]}__sample_weight": sample_weight})
+    else:
+        model.fit(X, y, sample_weight=sample_weight)
+    return model
+
+
+class SoftVote:
+    """Equal-weight probability average of member models. Replaces sklearn's
+    VotingClassifier, which cannot route sample_weight into Pipeline members."""
+
+    def __init__(self, builders):
+        self.builders = builders
+
+    def fit(self, X, y, sample_weight=None):
+        self.models_ = [fit_weighted(b(), X, y, sample_weight) for b in self.builders]
+        self.classes_ = self.models_[0].classes_
+        return self
+
+    def predict_proba(self, X):
+        # float64 + renormalise: XGBoost emits float32 rows that miss 1.0 by
+        # ~1e-7, which trips sklearn's probability checks downstream.
+        p = np.mean([np.asarray(m.predict_proba(X), dtype=float) for m in self.models_], axis=0)
+        return p / p.sum(axis=1, keepdims=True)
+
+    def predict(self, X):
+        return self.classes_[np.argmax(self.predict_proba(X), axis=1)]
+
+
+def train_prediction_model(input_path: Path, team_stats: pd.DataFrame,
+                           train_since: str = DEFAULT_TRAIN_SINCE,
+                           half_life_days: float = HALF_LIFE_DAYS):
+    """
+    Predict 1X2 outcomes from 100%-point-in-time features (replayed Elo,
+    Elo-surprise momentum, rolling goal rates, form/rest/H2H/context) over a
+    WIDE training window (train_since →) with time-decay sample weights — a
+    decade of history stabilises the fit while recent matches dominate it.
+
+    Trains THREE candidates — tuned XGBoost, Logistic Regression, and their
+    soft-vote blend — scores all on a held-out recent-era test set (the most
+    recent 20% of the last-24-months window, so Brier stays comparable across
+    pipeline versions), and PRE-COMPUTES every matchup from the champion:
         { "home|away": [pHome, pDraw, pAway] }
     Returns None if xgboost/scikit-learn or data are unavailable.
     """
@@ -515,40 +614,38 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
         from sklearn.linear_model import LogisticRegression
         from sklearn.preprocessing import StandardScaler
         from sklearn.pipeline import make_pipeline
-        from sklearn.ensemble import VotingClassifier
         from sklearn.metrics import accuracy_score, log_loss
     except ImportError:
         print("[ml] xgboost/scikit-learn missing — skipping. "
               "`pip install xgboost scikit-learn`")
         return None
 
-    # Point-in-time feature frame (shared with evaluate_model.py — no drift).
-    data = build_match_features(matches, team_stats)
-    if len(data) < 50:
+    # Full-history point-in-time frame (shared with evaluate/tune — no drift).
+    data, state, comp = prepare_training_data(input_path, train_since)
+    if len(data) < 200:
         print(f"[ml] Only {len(data)} usable matches — too few to train; skipping.")
         return None
 
-    # feat() helper for the deployment pre-compute (team-level; no fixture date).
-    by_key = (
-        team_stats.assign(_key=team_stats["team"].map(normalize_name))
-        .drop_duplicates("_key").set_index("_key")
-    )
-
-    def feat(name: str, col: str, default: float) -> float:
-        key = normalize_name(name)
-        if key in by_key.index:
-            val = by_key.at[key, col]
-            return float(val) if pd.notna(val) else default
-        return default
-
     X = data[ML_FEATURES].to_numpy(dtype=float)
 
-    # 4 — integer classes 0..K-1.  Home win=0, Draw=1, Away win=2.
+    # Integer classes 0..K-1.  Home win=0, Draw=1, Away win=2.
     y = data["y"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
 
-    # Honest chronological split (train on the past, test on the future).
-    split = int(len(data) * 0.8)
+    # Test = most recent 20% of the modern era (last 24 months) — the same
+    # matches earlier pipeline versions tested on, so Brier stays comparable.
+    n_recent = int((data["date"] >= pd.Timestamp(DEFAULT_SINCE)).sum())
+    test_n = max(50, int(n_recent * 0.2))
+    split = len(data) - test_n
     X_tr, X_te, y_tr, y_te = X[:split], X[split:], y[:split], y[split:]
+
+    # Time-decay sample weights (half-life ≈ 2y): recent evidence dominates the
+    # fit; deep history regularises it. Test metrics stay unweighted.
+    age_days = (data["date"].max() - data["date"]).dt.days.to_numpy(dtype=float)
+    w = 0.5 ** (age_days / float(half_life_days))
+    w_tr = w[:split]
+    print(f"[ml] train {split} matches ({data['date'].iloc[0].date()} → "
+          f"{data['date'].iloc[split - 1].date()}, decay half-life {half_life_days:.0f}d) "
+          f"· test {test_n} most-recent")
 
     # Reorder any model's predict_proba into fixed [Home(0), Draw(1), Away(2)]
     # column order, using its own classes_ — this is the airtight guard
@@ -596,34 +693,65 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
     def build_ensemble():
         # Soft-vote: average LR's well-calibrated probs with XGB's sharper
         # ones. Equal weights — no test-set weight search, so it stays
-        # leakage-free and can only win on genuinely decorrelated errors.
-        return VotingClassifier(
-            estimators=[("lr", build_lr()), ("xgb", build_xgb())],
-            voting="soft",
-        )
+        # leakage-free. (Custom SoftVote: sklearn's VotingClassifier can't
+        # route sample_weight into Pipeline members.)
+        return SoftVote([build_lr, build_xgb])
 
     candidates = {
         "xgboost": build_xgb,
         "logistic_regression": build_lr,
         "ensemble": build_ensemble,
     }
-    scored = {}
+    scored, probas = {}, {}
     for tag, build in candidates.items():
-        clf = build()
-        clf.fit(X_tr, y_tr)
-        proba_hda = to_hda(clf, clf.predict_proba(X_te))
-        scored[tag] = brier_of(proba_hda, y_te)
+        clf = fit_weighted(build(), X_tr, y_tr, w_tr)
+        probas[tag] = to_hda(clf, clf.predict_proba(X_te))
+        scored[tag] = brier_of(probas[tag], y_te)
+
+    # ── Dixon-Coles goal model: trained on SCORELINES, not 1X2 labels — it
+    #    recovers the signal classifiers throw away (a 5-0 ≠ a 1-0) and prices
+    #    draws natively from the score grid. Trains on ALL matches INCLUDING
+    #    friendlies (at half weight): confederations rarely meet competitively,
+    #    so friendlies are the cross-conference glue that anchors CONMEBOL vs
+    #    UEFA etc. Strictly pre-test-date rows only — leak-free.
+    from compute_elo import load_history
+    from dixon_coles import DixonColes
+
+    META = ["home_team", "away_team", "home_score", "away_score", "is_home_advantage"]
+    rows_all = data[META]
+    full = load_history(input_path)
+    full_rows = pd.DataFrame({
+        "home_team": full["home_team"], "away_team": full["away_team"],
+        "home_score": full["home_score"], "away_score": full["away_score"],
+        "is_home_advantage": full.apply(home_advantage, axis=1),
+        "date": full["date"],
+        "friendly": full["tournament"].fillna("").str.strip().str.lower().eq("friendly"),
+    })
+    w_full = (0.5 ** ((full_rows["date"].max() - full_rows["date"]).dt.days.to_numpy(dtype=float)
+                      / float(half_life_days))
+              * np.where(full_rows["friendly"], 0.5, 1.0))
+    test_start = data["date"].iloc[split]
+    pre_test = (full_rows["date"] < test_start).to_numpy()
+
+    dc = DixonColes().fit(full_rows[pre_test], sample_weight=w_full[pre_test])
+    probas["dixon_coles"] = dc.predict_rows(rows_all.iloc[split:])
+    scored["dixon_coles"] = brier_of(probas["dixon_coles"], y_te)
+    print(f"[dc] home_adv {dc.home_adv_:+.3f} · rho {dc.rho_:+.4f} · {len(dc.teams_)} teams")
+
+    # Cross-family blend: feature-ensemble × goal-model, equal weights (no
+    # test-set weight search → leakage-free).
+    probas["dc_blend"] = 0.5 * (probas["ensemble"] + probas["dixon_coles"])
+    scored["dc_blend"] = brier_of(probas["dc_blend"], y_te)
 
     # No-skill baseline (predict train class frequencies for everything).
     freq = pd.Series(y_tr).value_counts(normalize=True)
     base = np.tile([freq.get(0, 0.0), freq.get(1, 0.0), freq.get(2, 0.0)], (len(y_te), 1))
     base_brier = brier_of(base, y_te)
 
-    # Champion = lowest test Brier.
+    # Champion = lowest test Brier (probas were retained for every candidate,
+    # so mixed families — classifiers, DC, blends — compete on equal footing).
     champ_tag = min(scored, key=scored.get)
-    champ = candidates[champ_tag]()
-    champ.fit(X_tr, y_tr)
-    champ_proba = to_hda(champ, champ.predict_proba(X_te))
+    champ_proba = probas[champ_tag]
     champ_brier = scored[champ_tag]
     champ_acc = float(accuracy_score(y_te, champ_proba.argmax(axis=1)))
     champ_ll = float(log_loss(y_te, champ_proba, labels=[0, 1, 2]))
@@ -635,30 +763,34 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
     print(f"  {'baseline (no-skill)':<22} Brier {base_brier:.3f}")
     print(f"  Champion accuracy {champ_acc:.3f} · log-loss {champ_ll:.3f}")
 
-    # ── Refit champion on ALL data, pre-compute every matchup ──
-    final = candidates[champ_tag]()
-    final.fit(X, y)
-    h2h_table = h2h_gd_table(matches)
+    # ── Refit the champion FAMILY on ALL data (weighted), pre-compute ──
+    h2h_table = h2h_gd_table(comp)
+
+    # Deployment features come from the SAME point-in-time state the training
+    # rows were built from, at end-of-history — train/deploy cannot diverge.
+    def sv(dic: dict, team: str, default: float) -> float:
+        return float(dic.get(normalize_name(team), default))
 
     teams_list = list(team_stats["team"])
     tf = {
         t: (
-            feat(t, "elo", DEFAULT_ELO),
-            feat(t, "momentum_score", 50.0),
-            feat(t, "xG_per_90", DEFAULT_XG),
-            feat(t, "xGA_per_90", DEFAULT_XG),
-            feat(t, "gd_form", 0.0),
+            sv(state["elo"], t, DEFAULT_ELO),
+            sv(state["momentum"], t, 50.0),
+            sv(state["gf90"], t, DEFAULT_RATE),
+            sv(state["ga90"], t, DEFAULT_RATE),
+            sv(state["gd_form"], t, 0.0),
         )
         for t in teams_list
     }
 
     # Feature order must match ML_FEATURES. At deployment there's no fixture
     # date, so rest_diff = 0 (equal-rest assumption).
-    keys, feat_rows = [], []
+    keys, feat_rows, pairs = [], [], []
     for home in teams_list:
         for away in teams_list:
             if home == away:
                 continue
+            pairs.append((home, away))
             eh, mh, xh, xah, fh = tf[home]
             ea, ma, xa, xaa, fa = tf[away]
             # Order MUST match ML_FEATURES. Deployment is World Cup context:
@@ -673,9 +805,25 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
             ])
             keys.append(f"{normalize_name(home)}|{normalize_name(away)}")
 
+    # Which model families does the champion need at deployment?
+    feat_tag = champ_tag if champ_tag in candidates else (
+        "ensemble" if champ_tag == "dc_blend" else None)
+    p_feat = p_dc = None
+    if feat_tag is not None and feat_rows:
+        final = fit_weighted(candidates[feat_tag](), X, y, w)
+        p_feat = to_hda(final, final.predict_proba(np.array(feat_rows, dtype=float)))
+    if champ_tag in ("dixon_coles", "dc_blend") and pairs:
+        dc_final = DixonColes().fit(full_rows, sample_weight=w_full)  # refit on ALL data
+        p_dc = dc_final.predict_pairs(
+            [h for h, _ in pairs], [a for _, a in pairs], adv=0.0)  # neutral WC venue
+
+    if p_feat is not None and p_dc is not None:
+        p_all = 0.5 * (p_feat + p_dc)
+    else:
+        p_all = p_feat if p_feat is not None else p_dc
+
     matchups: dict[str, list[float]] = {}
-    if feat_rows:
-        p_all = to_hda(final, final.predict_proba(np.array(feat_rows, dtype=float)))
+    if p_all is not None:
         for key, p in zip(keys, p_all):
             matchups[key] = [round(float(p[0]), 4), round(float(p[1]), 4), round(float(p[2]), 4)]
     print(f"  Pre-computed {len(matchups)} matchups from '{champ_tag}' → JSON.")
@@ -684,13 +832,16 @@ def train_prediction_model(matches: pd.DataFrame, team_stats: pd.DataFrame):
         "type": f"{champ_tag}_precomputed",
         "features": ML_FEATURES,
         "classes": ["H", "D", "A"],  # column order of each matchup array
-        "defaults": {"elo": DEFAULT_ELO, "momentum": 50.0, "xg": DEFAULT_XG, "xga": DEFAULT_XG},
+        "defaults": {"elo": DEFAULT_ELO, "momentum": 50.0, "rate": DEFAULT_RATE},
         "matchups": matchups,
         # Sparse rivalry table for the UI deep-dive: canonical "lo|hi" → avg GD
         # (from the alphabetically-first team's view). Only pairs that have met.
         "h2h": {f"{lo}|{hi}": round(v, 2) for (lo, hi), v in h2h_table.items()},
         "metrics": {
             "test_matches": int(len(y_te)),
+            "train_matches": int(split),
+            "train_since": train_since,
+            "half_life_days": float(half_life_days),
             "accuracy": round(champ_acc, 4),
             "log_loss": round(champ_ll, 4),
             "brier": round(champ_brier, 4),
@@ -712,6 +863,10 @@ def main() -> None:
                         help="CSV with columns country,rating,snapshot_date.")
     parser.add_argument("--xg", default="team_xg_stats.csv", type=Path,
                         help="CSV with columns team,xG_per_90,xGA_per_90.")
+    parser.add_argument("--train-since", default=DEFAULT_TRAIN_SINCE,
+                        help="ML training window start (earlier history is Elo/state warm-up).")
+    parser.add_argument("--half-life-days", default=HALF_LIFE_DAYS, type=float,
+                        help="Time-decay half-life for training sample weights.")
     args = parser.parse_args()
 
     df = load_and_filter(args.input, args.since)
@@ -728,9 +883,12 @@ def main() -> None:
     agg = add_momentum(agg)                        # sort + rank by momentum_score
     agg = round_columns(agg)
 
-    # Train the ML 1X2 model on history + the engineered team features.
+    # Train the ML 1X2 model on the FULL history (point-in-time replay Elo,
+    # wide window, time-decay weights) — independent of the display window.
     try:
-        model = train_prediction_model(df, agg)
+        model = train_prediction_model(args.input, agg,
+                                       train_since=args.train_since,
+                                       half_life_days=args.half_life_days)
     except Exception as exc:  # never let modelling break the data export
         print(f"[ml] Training failed ({exc}); exporting without a model.")
         model = None

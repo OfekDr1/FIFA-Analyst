@@ -1,33 +1,33 @@
 team,xG_per_90,xGA_per_90
 Afghanistan,0.33,1.0
 Albania,0.83,1.0
-Algeria,2.04,0.81
+Algeria,2.07,0.89
 American Samoa,0.67,4.33
 Andorra,0.25,1.67
 Angola,1.06,0.76
 Anguilla,0.67,2.92
 Antigua and Barbuda,0.33,2.0
-Argentina,1.9,0.45
+Argentina,1.95,0.48
 Armenia,0.86,2.64
 Aruba,1.36,2.07
 Australia,1.95,0.47
-Austria,2.27,0.91
+Austria,2.3,1.0
 Azerbaijan,0.93,2.5
 Bahamas,1.08,3.92
 Bahrain,1.0,1.43
 Bangladesh,0.86,1.86
 Barbados,2.21,2.43
 Belarus,0.58,1.75
-Belgium,2.0,1.05
+Belgium,2.17,1.09
 Belize,1.56,2.12
 Benin,1.1,1.15
 Bermuda,1.72,2.83
 Bhutan,0.4,3.0
 Bolivia,0.94,2.06
 Bonaire,1.0,1.7
-Bosnia and Herzegovina,1.39,1.72
+Bosnia and Herzegovina,1.32,1.74
 Botswana,0.74,1.58
-Brazil,1.42,0.84
+Brazil,1.45,0.85
 British Virgin Islands,1.17,1.67
 Brunei,0.67,2.33
 Bulgaria,1.19,1.94
@@ -35,8 +35,8 @@ Burkina Faso,1.73,1.0
 Burundi,0.93,1.43
 Cambodia,1.5,1.67
 Cameroon,1.32,0.59
-Canada,1.68,0.89
-Cape Verde,1.11,1.11
+Canada,1.65,0.85
+Cape Verde,1.05,1.05
 Cayman Islands,0.86,1.71
 Central African Republic,0.79,2.36
 Chad,0.36,1.86
@@ -53,16 +53,16 @@ Curacao,0.33,3.0
 Curaçao,2.14,1.14
 Cyprus,1.07,1.86
 Czech Republic,1.61,1.43
-DR Congo,1.26,0.57
+DR Congo,1.25,0.62
 Denmark,1.7,1.15
 Djibouti,0.56,3.0
 Dominica,1.0,2.79
 Dominican Republic,2.71,1.0
 East Turkestan,2.33,3.67
-Ecuador,0.78,0.39
-Egypt,1.43,0.68
+Ecuador,0.74,0.47
+Egypt,1.41,0.69
 El Salvador,1.14,1.19
-England,2.27,0.5
+England,2.26,0.52
 Equatorial Guinea,0.88,1.35
 Estonia,0.95,1.75
 Eswatini,0.57,2.07
@@ -70,13 +70,13 @@ Ethiopia,0.86,1.64
 Faroe Islands,1.0,1.17
 Fiji,1.61,2.0
 Finland,0.81,1.75
-France,1.87,0.91
+France,1.92,0.88
 French Guiana,1.17,1.83
 Frøya,0.25,5.5
 Gabon,1.65,1.6
 Gambia,2.21,1.36
 Georgia,1.56,1.67
-Germany,2.83,0.91
+Germany,2.88,1.08
 Ghana,1.72,0.89
 Gibraltar,0.58,2.58
 Gozo,1.0,1.67
@@ -96,16 +96,16 @@ Hungary,1.06,1.88
 Iceland,1.79,2.07
 India,0.27,1.18
 Indonesia,1.05,1.6
-Iran,1.69,0.88
+Iran,1.65,0.88
 Iraq,1.11,1.0
 Isle of Man,4.6,1.4
 Israel,1.71,2.36
 Italy,2.0,1.41
-Ivory Coast,1.7,0.43
+Ivory Coast,1.67,0.5
 Jamaica,1.37,1.1
-Japan,3.11,0.5
+Japan,3.0,0.58
 Jersey,2.0,1.67
-Jordan,1.71,1.05
+Jordan,1.68,1.14
 Kazakhstan,0.75,1.75
 Kenya,1.21,1.16
 Kosovo,1.56,0.94
@@ -131,33 +131,33 @@ Marshall Islands,1.0,3.5
 Martinique,0.6,1.2
 Mauritania,0.47,1.27
 Mauritius,0.7,1.6
-Mexico,1.53,0.41
+Mexico,1.56,0.39
 Moldova,0.83,2.75
 Mongolia,0.75,2.75
 Montenegro,0.86,1.86
 Montserrat,0.6,2.0
-Morocco,2.59,0.33
+Morocco,2.64,0.43
 Mozambique,1.33,1.5
 Myanmar,1.33,2.75
 Namibia,0.62,1.19
 Nepal,0.57,2.14
-Netherlands,2.48,1.09
+Netherlands,2.5,1.21
 New Caledonia,1.67,1.33
-New Zealand,3.11,0.94
+New Zealand,3.0,1.16
 Nicaragua,1.12,1.44
 Niger,1.0,1.15
 Nigeria,1.81,0.69
 North Korea,1.17,1.83
 North Macedonia,1.53,1.0
 Northern Ireland,1.38,0.85
-Norway,3.69,0.94
+Norway,3.59,0.94
 Oman,1.04,1.13
 Orkney,2.5,1.75
 Pakistan,0.8,1.5
 Palestine,0.82,1.29
 Panama,1.78,1.04
 Papua New Guinea,1.67,1.75
-Paraguay,1.05,1.25
+Paraguay,1.24,1.38
 Peru,0.33,1.07
 Philippines,1.89,1.28
 Poland,1.58,1.74
@@ -173,9 +173,9 @@ Saint Martin,1.6,1.6
 Saint Vincent and the Grenadines,1.81,1.75
 Samoa,0.88,3.62
 San Marino,0.58,3.5
-Saudi Arabia,1.18,1.07
+Saudi Arabia,1.14,1.03
 Scotland,1.32,1.32
-Senegal,1.87,0.65
+Senegal,1.88,0.75
 Serbia,0.84,1.0
 Seychelles,0.25,4.88
 Shetland,1.33,1.67
@@ -186,14 +186,14 @@ Slovakia,1.21,1.21
 Slovenia,0.72,1.06
 Solomon Islands,1.14,2.64
 Somalia,0.22,1.78
-South Africa,1.76,0.95
+South Africa,1.68,0.95
 South Korea,1.88,0.71
 South Sudan,0.6,1.93
-Spain,2.54,0.88
+Spain,2.48,0.84
 Sri Lanka,0.88,1.62
 Sudan,0.68,1.14
 Suriname,1.55,1.09
-Sweden,2.44,1.31
+Sweden,2.29,1.41
 Switzerland,1.75,1.15
 Syria,1.69,0.69
 São Tomé and Príncipe,0.62,2.5
@@ -215,9 +215,9 @@ Turks and Caicos Islands,1.0,2.17
 Uganda,1.35,1.12
 Ukraine,1.4,1.75
 United Arab Emirates,1.42,1.12
-United States,2.0,1.19
+United States,2.0,1.12
 United States Virgin Islands,1.75,2.38
-Uruguay,1.11,0.63
+Uruguay,1.05,0.65
 Uzbekistan,1.33,0.83
 Vanuatu,1.31,2.23
 Venezuela,1.28,1.56

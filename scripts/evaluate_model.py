@@ -54,13 +54,10 @@ except ImportError:
     pass  # seaborn is purely cosmetic here
 
 # Reuse the EXACT pipeline pieces from compute_momentum.py (single source of
-# truth — including the feature builder, so the two scripts can never drift).
+# truth — including the full-history feature prep, so scripts can never drift).
 from compute_momentum import (  # noqa: E402
-    load_and_filter, to_team_perspective, aggregate,
-    attach_elo, load_elo, attach_xg, load_xg,
-    attach_quality_momentum, attach_gd_form,
-    build_match_features, ML_FEATURES,
-    DEFAULT_SINCE, DEFAULT_MIN_MATCHES,
+    prepare_training_data, fit_weighted, ML_FEATURES,
+    DEFAULT_SINCE, DEFAULT_TRAIN_SINCE, HALF_LIFE_DAYS,
 )
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -83,25 +80,20 @@ def build_xgb():
 
 
 # ── Data + features (mirrors compute_momentum.train_prediction_model) ─
-def build_team_stats(args) -> tuple[pd.DataFrame, pd.DataFrame]:
-    df = load_and_filter(args.input, args.since)
-    if df.empty:
-        sys.exit("No competitive matches in the selected window.")
-    agg = aggregate(to_team_perspective(df), args.min_matches)
-    agg = attach_elo(agg, load_elo(args.elo))
-    agg = attach_xg(agg, load_xg(args.xg))
-    agg = attach_quality_momentum(agg, df)
-    agg = attach_gd_form(agg, df)
-    return df, agg
+def build_matrices(args):
+    """Full-history point-in-time frame + the production split & weights."""
+    feats, _state, _comp = prepare_training_data(args.input, args.train_since)
+    X = feats[ML_FEATURES].to_numpy(dtype=float)
+    y = feats["y"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
 
-
-def build_feature_matrix(matches: pd.DataFrame, team_stats: pd.DataFrame):
-    """Thin wrapper around compute_momentum.build_match_features so the exact
-    same features (including new ones) are always used."""
-    data = build_match_features(matches, team_stats)
-    X = data[ML_FEATURES].to_numpy(dtype=float)
-    y = data["y"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
-    return X, y
+    # Same recent-era test carve as production: most recent 20% of the last
+    # 24 months. Time-decay weights on the wide training window.
+    n_recent = int((feats["date"] >= pd.Timestamp(DEFAULT_SINCE)).sum())
+    test_n = max(50, int(n_recent * 0.2))
+    split = len(X) - test_n
+    age = (feats["date"].max() - feats["date"]).dt.days.to_numpy(dtype=float)
+    w_tr = (0.5 ** (age / HALF_LIFE_DAYS))[:split]
+    return X, y, split, w_tr
 
 
 # ── Metric helpers ───────────────────────────────────────────────────
@@ -138,21 +130,15 @@ def relative_importance(model) -> np.ndarray:
 def main() -> None:
     p = argparse.ArgumentParser(description="Diagnose the 1X2 models.")
     p.add_argument("--input", type=Path, default=SCRIPT_DIR / "results.csv")
-    p.add_argument("--since", default=DEFAULT_SINCE)
-    p.add_argument("--min-matches", type=int, default=DEFAULT_MIN_MATCHES)
-    p.add_argument("--elo", type=Path, default=SCRIPT_DIR / "elo_ratings.csv")
-    p.add_argument("--xg", type=Path, default=SCRIPT_DIR / "team_xg_stats.csv")
+    p.add_argument("--train-since", default=DEFAULT_TRAIN_SINCE,
+                   help="ML training window start (earlier history is warm-up).")
     p.add_argument("--out", type=Path, default=SCRIPT_DIR / "model_diagnostics.png")
     p.add_argument("--no-show", action="store_true", help="Save the figure but don't open a window.")
     args = p.parse_args()
 
-    df, team_stats = build_team_stats(args)
-    X, y = build_feature_matrix(df, team_stats)
-
-    # Same chronological 80/20 split as production.
-    split = int(len(X) * 0.8)
+    X, y, split, w_tr = build_matrices(args)
     X_tr, X_te, y_tr, y_te = X[:split], X[split:], y[:split], y[split:]
-    print(f"Matches: {len(X)}  |  train {split}  test {len(X_te)}  |  features {len(ML_FEATURES)}")
+    print(f"Matches: {len(X)}  |  train {split} (decayed)  test {len(X_te)}  |  features {len(ML_FEATURES)}")
 
     # Climatology baseline = train-set base rates of H/D/A.
     base_rates = np.array([(y_tr == k).mean() for k in range(3)])
@@ -163,7 +149,7 @@ def main() -> None:
     models = {"Logistic Regression": build_lr(), "XGBoost": build_xgb()}
     results = {}
     for name, model in models.items():
-        model.fit(X_tr, y_tr)
+        fit_weighted(model, X_tr, y_tr, w_tr)
         proba = to_hda(model, model.predict_proba(X_te))
         preds = proba.argmax(axis=1)
         bs = multiclass_brier(proba, y_te)

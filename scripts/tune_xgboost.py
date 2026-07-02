@@ -36,35 +36,17 @@ try:
     from sklearn.linear_model import LogisticRegression
     from sklearn.preprocessing import StandardScaler
     from sklearn.pipeline import make_pipeline
-    from sklearn.ensemble import VotingClassifier
     from sklearn.model_selection import RandomizedSearchCV, TimeSeriesSplit
     from sklearn.metrics import accuracy_score, log_loss
 except ImportError:
     sys.exit("Missing ML deps — run:  pip install xgboost scikit-learn")
 
 from compute_momentum import (  # noqa: E402
-    load_and_filter, to_team_perspective, aggregate,
-    attach_elo, load_elo, attach_xg, load_xg,
-    attach_quality_momentum, attach_gd_form,
-    build_match_features, ML_FEATURES,
-    DEFAULT_SINCE, DEFAULT_MIN_MATCHES,
+    prepare_training_data, fit_weighted, SoftVote, ML_FEATURES,
+    DEFAULT_SINCE, DEFAULT_TRAIN_SINCE, HALF_LIFE_DAYS,
 )
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-LR_TARGET = 0.446  # the score to beat
-
-
-# ── Data (mirrors evaluate_model.py) ─────────────────────────────────
-def build_team_stats(args) -> tuple[pd.DataFrame, pd.DataFrame]:
-    df = load_and_filter(args.input, args.since)
-    if df.empty:
-        sys.exit("No competitive matches in the selected window.")
-    agg = aggregate(to_team_perspective(df), args.min_matches)
-    agg = attach_elo(agg, load_elo(args.elo))
-    agg = attach_xg(agg, load_xg(args.xg))
-    agg = attach_quality_momentum(agg, df)
-    agg = attach_gd_form(agg, df)
-    return df, agg
 
 
 # ── Multiclass Brier (lower better) ──────────────────────────────────
@@ -103,22 +85,25 @@ def test_metrics(estimator, X_te, y_te) -> dict:
 def main() -> None:
     p = argparse.ArgumentParser(description="Tune XGBoost vs the LR champion.")
     p.add_argument("--input", type=Path, default=SCRIPT_DIR / "results.csv")
-    p.add_argument("--since", default=DEFAULT_SINCE)
-    p.add_argument("--min-matches", type=int, default=DEFAULT_MIN_MATCHES)
-    p.add_argument("--elo", type=Path, default=SCRIPT_DIR / "elo_ratings.csv")
-    p.add_argument("--xg", type=Path, default=SCRIPT_DIR / "team_xg_stats.csv")
+    p.add_argument("--train-since", default=DEFAULT_TRAIN_SINCE,
+                   help="ML training window start (earlier history is warm-up).")
     p.add_argument("--n-iter", type=int, default=80, help="Random configs to try.")
     p.add_argument("--cv", type=int, default=5, help="TimeSeriesSplit folds.")
     args = p.parse_args()
 
-    df, team_stats = build_team_stats(args)
-    data = build_match_features(df, team_stats)
-    X = data[ML_FEATURES].to_numpy(dtype=float)
-    y = data["y"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
+    feats, _state, _comp = prepare_training_data(args.input, args.train_since)
+    X = feats[ML_FEATURES].to_numpy(dtype=float)
+    y = feats["y"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
 
-    split = int(len(X) * 0.8)
+    # Production split: test = most recent 20% of the last-24-months era;
+    # time-decay sample weights over the wide training window.
+    n_recent = int((feats["date"] >= pd.Timestamp(DEFAULT_SINCE)).sum())
+    test_n = max(50, int(n_recent * 0.2))
+    split = len(X) - test_n
     X_tr, X_te, y_tr, y_te = X[:split], X[split:], y[:split], y[split:]
-    print(f"Matches {len(X)} | train {split} test {len(X_te)} | features {len(ML_FEATURES)}\n")
+    age = (feats["date"].max() - feats["date"]).dt.days.to_numpy(dtype=float)
+    w_tr = (0.5 ** (age / HALF_LIFE_DAYS))[:split]
+    print(f"Matches {len(X)} | train {split} (decayed) test {len(X_te)} | features {len(ML_FEATURES)}\n")
 
     # Search space: every knob that controls overfitting on noisy data.
     param_dist = {
@@ -150,7 +135,7 @@ def main() -> None:
     )
     print(f"Searching {args.n_iter} configs × {args.cv} time-folds "
           f"= {args.n_iter * args.cv} fits …\n")
-    search.fit(X_tr, y_tr)
+    search.fit(X_tr, y_tr, sample_weight=w_tr)
 
     print("\n── Best XGBoost configuration ──")
     for k, v in sorted(search.best_params_.items()):
@@ -169,22 +154,19 @@ def main() -> None:
             random_state=42, n_jobs=1,
         )
 
-    lr = fresh_lr()
-    lr.fit(X_tr, y_tr)
+    lr = fit_weighted(fresh_lr(), X_tr, y_tr, w_tr)
 
     default_xgb = XGBClassifier(
         n_estimators=80, learning_rate=0.05, max_depth=2, min_child_weight=5,
         subsample=0.8, colsample_bytree=0.8, gamma=1.0, reg_alpha=0.5,
         reg_lambda=2.0, eval_metric="mlogloss", random_state=42, n_jobs=2,
     )
-    default_xgb.fit(X_tr, y_tr)
+    default_xgb.fit(X_tr, y_tr, sample_weight=w_tr)
 
     # Soft-vote ensemble: average LR's calibrated probs with tuned-XGB's sharper
     # ones. Equal weights → leakage-free (no test-set weight search).
-    ensemble = VotingClassifier(
-        estimators=[("lr", fresh_lr()), ("xgb", fresh_tuned_xgb())], voting="soft",
-    )
-    ensemble.fit(X_tr, y_tr)
+    ensemble = SoftVote([fresh_lr, fresh_tuned_xgb])
+    ensemble.fit(X_tr, y_tr, sample_weight=w_tr)
 
     table = {
         "Logistic Regression (champion)": test_metrics(lr, X_te, y_te),
