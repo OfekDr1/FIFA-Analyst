@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T11:51:05+00:00",
+  "generated_at": "2026-07-08T19:44:36+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-07-07"
@@ -1434,7 +1434,7 @@
       "avg_goals_conceded": 1.86,
       "win_rate": 28.6,
       "avg_goal_difference": -1.0,
-      "elo": 1460,
+      "elo": 1461,
       "xG_per_90": 0.86,
       "xGA_per_90": 1.86,
       "momentum_score": 51.7,
@@ -2172,7 +2172,7 @@
       "avg_goals_conceded": 1.07,
       "win_rate": 13.3,
       "avg_goal_difference": -0.73,
-      "elo": 1699,
+      "elo": 1700,
       "xG_per_90": 0.33,
       "xGA_per_90": 1.07,
       "momentum_score": 48.3,
@@ -2442,7 +2442,7 @@
       "avg_goals_conceded": 0.88,
       "win_rate": 48.0,
       "avg_goal_difference": 1.4,
-      "elo": 1609,
+      "elo": 1608,
       "xG_per_90": 2.28,
       "xGA_per_90": 0.88,
       "momentum_score": 46.7,
@@ -2496,7 +2496,7 @@
       "avg_goals_conceded": 1.24,
       "win_rate": 47.6,
       "avg_goal_difference": 0.76,
-      "elo": 1882,
+      "elo": 1881,
       "xG_per_90": 2.05,
       "xGA_per_90": 1.2,
       "momentum_score": 46.4,
