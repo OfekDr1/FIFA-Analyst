@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T12:36:03+00:00",
+  "generated_at": "2026-07-13T19:38:39+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-07-12"
@@ -2478,10 +2478,10 @@
       "avg_goals_conceded": 1.24,
       "win_rate": 47.6,
       "avg_goal_difference": 0.76,
-      "elo": 1882,
+      "elo": 1881,
       "xG_per_90": 2.05,
       "xGA_per_90": 1.2,
-      "momentum_score": 46.5,
+      "momentum_score": 46.6,
       "gd_form": 3.0,
       "rank": 137
     },
