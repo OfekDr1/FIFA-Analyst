@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T19:22:43+00:00",
+  "generated_at": "2026-07-17T05:20:07+00:00",
   "as_of": "2026-07-15",
   "simulations": 10000,
   "locked": {
@@ -77,8 +77,8 @@
       "gd": 3,
       "status": "qualified",
       "reach_r32": 1.0,
-      "reach_r16": 0.765,
-      "reach_qf": 0.4849,
+      "reach_r16": 0.7651,
+      "reach_qf": 0.485,
       "reach_sf": 0.2918,
       "reach_final": 0.1261,
       "win": 0.0444
@@ -123,7 +123,7 @@
       "status": "qualified",
       "reach_r32": 1.0,
       "reach_r16": 0.7485,
-      "reach_qf": 0.3707,
+      "reach_qf": 0.3706,
       "reach_sf": 0.1416,
       "reach_final": 0.0513,
       "win": 0.0202
@@ -138,7 +138,7 @@
       "status": "qualified",
       "reach_r32": 1.0,
       "reach_r16": 0.7005,
-      "reach_qf": 0.3885,
+      "reach_qf": 0.3886,
       "reach_sf": 0.1227,
       "reach_final": 0.053,
       "win": 0.0168
@@ -228,7 +228,7 @@
       "status": "qualified",
       "reach_r32": 1.0,
       "reach_r16": 0.6519,
-      "reach_qf": 0.2951,
+      "reach_qf": 0.295,
       "reach_sf": 0.0987,
       "reach_final": 0.0316,
       "win": 0.0077
@@ -461,13 +461,13 @@
     {
       "team": "South Africa",
       "group": "A",
-      "elo": 1560,
+      "elo": 1559,
       "played": 3,
       "points": 4,
       "gd": -1,
       "status": "qualified",
       "reach_r32": 1.0,
-      "reach_r16": 0.2125,
+      "reach_r16": 0.2124,
       "reach_qf": 0.0505,
       "reach_sf": 0.0063,
       "reach_final": 0.0005,
