@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T11:47:05+00:00",
+  "generated_at": "2026-07-24T19:39:42+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-07-19"
@@ -66,10 +66,10 @@
       "avg_goals_conceded": 1.07,
       "win_rate": 80.0,
       "avg_goal_difference": 1.33,
-      "elo": 1353,
+      "elo": 1355,
       "xG_per_90": 2.4,
       "xGA_per_90": 1.07,
-      "momentum_score": 76.3,
+      "momentum_score": 76.2,
       "gd_form": 6.0,
       "rank": 3
     },
@@ -3831,7 +3831,7 @@
       "elo": 1500,
       "xG_per_90": 0.57,
       "xGA_per_90": 2.14,
-      "momentum_score": 19.7,
+      "momentum_score": 19.8,
       "gd_form": -7.0,
       "rank": 212
     }
