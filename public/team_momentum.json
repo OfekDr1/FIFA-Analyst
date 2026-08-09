@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T18:47:27+00:00",
+  "generated_at": "2026-08-09T03:48:46+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-07-19"
@@ -30,10 +30,10 @@
       "avg_goals_conceded": 0.69,
       "win_rate": 69.2,
       "avg_goal_difference": 1.38,
-      "elo": 1288,
+      "elo": 1295,
       "xG_per_90": 2.08,
       "xGA_per_90": 0.69,
-      "momentum_score": 80.0,
+      "momentum_score": 79.7,
       "gd_form": 14.0,
       "rank": 1
     },
@@ -69,7 +69,7 @@
       "elo": 1391,
       "xG_per_90": 2.4,
       "xGA_per_90": 1.07,
-      "momentum_score": 74.2,
+      "momentum_score": 74.3,
       "gd_form": 6.0,
       "rank": 3
     },
@@ -123,7 +123,7 @@
       "elo": 1288,
       "xG_per_90": 2.0,
       "xGA_per_90": 0.3,
-      "momentum_score": 68.6,
+      "momentum_score": 68.7,
       "gd_form": 8.0,
       "rank": 6
     },
@@ -195,7 +195,7 @@
       "elo": 1500,
       "xG_per_90": 1.89,
       "xGA_per_90": 1.28,
-      "momentum_score": 64.8,
+      "momentum_score": 64.9,
       "gd_form": 11.0,
       "rank": 10
     },
@@ -210,10 +210,10 @@
       "avg_goals_conceded": 1.11,
       "win_rate": 68.4,
       "avg_goal_difference": 1.58,
-      "elo": 1405,
+      "elo": 1409,
       "xG_per_90": 2.68,
       "xGA_per_90": 1.11,
-      "momentum_score": 64.2,
+      "momentum_score": 64.0,
       "gd_form": 13.0,
       "rank": 11
     },
@@ -3039,7 +3039,7 @@
       "elo": 1500,
       "xG_per_90": 1.5,
       "xGA_per_90": 1.67,
-      "momentum_score": 41.1,
+      "momentum_score": 41.2,
       "gd_form": -1.0,
       "rank": 168
     },
@@ -3453,7 +3453,7 @@
       "elo": 1500,
       "xG_per_90": 1.61,
       "xGA_per_90": 2.0,
-      "momentum_score": 34.2,
+      "momentum_score": 34.3,
       "gd_form": -22.0,
       "rank": 191
     },
@@ -3471,7 +3471,7 @@
       "elo": 1500,
       "xG_per_90": 0.88,
       "xGA_per_90": 1.62,
-      "momentum_score": 33.9,
+      "momentum_score": 34.0,
       "gd_form": -5.0,
       "rank": 192
     },
@@ -3723,7 +3723,7 @@
       "elo": 1500,
       "xG_per_90": 1.11,
       "xGA_per_90": 3.0,
-      "momentum_score": 26.8,
+      "momentum_score": 26.9,
       "gd_form": -13.0,
       "rank": 206
     },
@@ -3741,7 +3741,7 @@
       "elo": 1500,
       "xG_per_90": 0.85,
       "xGA_per_90": 2.62,
-      "momentum_score": 26.7,
+      "momentum_score": 26.8,
       "gd_form": -10.0,
       "rank": 207
     },
@@ -3813,7 +3813,7 @@
       "elo": 1500,
       "xG_per_90": 1.11,
       "xGA_per_90": 2.67,
-      "momentum_score": 20.6,
+      "momentum_score": 20.7,
       "gd_form": -12.0,
       "rank": 211
     },
@@ -3831,7 +3831,7 @@
       "elo": 1500,
       "xG_per_90": 0.57,
       "xGA_per_90": 2.14,
-      "momentum_score": 20.5,
+      "momentum_score": 20.6,
       "gd_form": -7.0,
       "rank": 212
     }
