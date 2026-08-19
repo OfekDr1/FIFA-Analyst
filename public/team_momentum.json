@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T10:35:05+00:00",
+  "generated_at": "2026-08-19T18:43:35+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-07-19"
@@ -30,10 +30,10 @@
       "avg_goals_conceded": 0.69,
       "win_rate": 69.2,
       "avg_goal_difference": 1.38,
-      "elo": 1265,
+      "elo": 1254,
       "xG_per_90": 2.08,
       "xGA_per_90": 0.69,
-      "momentum_score": 81.4,
+      "momentum_score": 82.0,
       "gd_form": 14.0,
       "rank": 1
     },
@@ -74,24 +74,6 @@
       "rank": 3
     },
     {
-      "team": "Vietnam",
-      "matches_played": 15,
-      "points": 37,
-      "wins": 12,
-      "draws": 1,
-      "losses": 2,
-      "avg_goals_scored": 2.4,
-      "avg_goals_conceded": 1.07,
-      "win_rate": 80.0,
-      "avg_goal_difference": 1.33,
-      "elo": 1421,
-      "xG_per_90": 2.4,
-      "xGA_per_90": 1.07,
-      "momentum_score": 71.8,
-      "gd_form": 6.0,
-      "rank": 4
-    },
-    {
       "team": "Spain",
       "matches_played": 30,
       "points": 78,
@@ -107,6 +89,24 @@
       "xGA_per_90": 0.84,
       "momentum_score": 71.2,
       "gd_form": 8.0,
+      "rank": 4
+    },
+    {
+      "team": "Vietnam",
+      "matches_played": 15,
+      "points": 37,
+      "wins": 12,
+      "draws": 1,
+      "losses": 2,
+      "avg_goals_scored": 2.4,
+      "avg_goals_conceded": 1.07,
+      "win_rate": 80.0,
+      "avg_goal_difference": 1.33,
+      "elo": 1432,
+      "xG_per_90": 2.4,
+      "xGA_per_90": 1.07,
+      "momentum_score": 71.0,
+      "gd_form": 6.0,
       "rank": 5
     },
     {
@@ -195,7 +195,7 @@
       "elo": 1391,
       "xG_per_90": 2.68,
       "xGA_per_90": 1.11,
-      "momentum_score": 65.4,
+      "momentum_score": 65.5,
       "gd_form": 13.0,
       "rank": 10
     },
@@ -2697,7 +2697,7 @@
       "elo": 1500,
       "xG_per_90": 1.33,
       "xGA_per_90": 2.75,
-      "momentum_score": 44.9,
+      "momentum_score": 45.0,
       "gd_form": -5.0,
       "rank": 149
     },
@@ -3723,7 +3723,7 @@
       "elo": 1500,
       "xG_per_90": 1.11,
       "xGA_per_90": 3.0,
-      "momentum_score": 27.2,
+      "momentum_score": 27.3,
       "gd_form": -13.0,
       "rank": 206
     },
@@ -3813,7 +3813,7 @@
       "elo": 1500,
       "xG_per_90": 0.57,
       "xGA_per_90": 2.14,
-      "momentum_score": 20.8,
+      "momentum_score": 20.9,
       "gd_form": -7.0,
       "rank": 211
     },
@@ -3831,7 +3831,7 @@
       "elo": 1500,
       "xG_per_90": 1.11,
       "xGA_per_90": 2.67,
-      "momentum_score": 20.3,
+      "momentum_score": 20.2,
       "gd_form": -12.0,
       "rank": 212
     }
@@ -3875,15 +3875,15 @@
         0.3082,
         0.2399
       ],
-      "malaysia|vietnam": [
-        0.3751,
-        0.339,
-        0.2859
-      ],
       "malaysia|spain": [
         0.0424,
         0.0667,
         0.8909
+      ],
+      "malaysia|vietnam": [
+        0.3751,
+        0.339,
+        0.2859
       ],
       "malaysia|lebanon": [
         0.4306,
@@ -4930,15 +4930,15 @@
         0.3109,
         0.4172
       ],
-      "turkmenistan|vietnam": [
-        0.3307,
-        0.2849,
-        0.3844
-      ],
       "turkmenistan|spain": [
         0.0299,
         0.0454,
         0.9247
+      ],
+      "turkmenistan|vietnam": [
+        0.3307,
+        0.2849,
+        0.3844
       ],
       "turkmenistan|lebanon": [
         0.2717,
@@ -5985,15 +5985,15 @@
         0.3233,
         0.2044
       ],
-      "tajikistan|vietnam": [
-        0.467,
-        0.2755,
-        0.2575
-      ],
       "tajikistan|spain": [
         0.0368,
         0.0607,
         0.9026
+      ],
+      "tajikistan|vietnam": [
+        0.467,
+        0.2755,
+        0.2575
       ],
       "tajikistan|lebanon": [
         0.3476,
@@ -7029,1061 +7029,6 @@
         0.7989,
         0.1571,
         0.044
-      ],
-      "vietnam|malaysia": [
-        0.3578,
-        0.2818,
-        0.3604
-      ],
-      "vietnam|turkmenistan": [
-        0.4416,
-        0.2935,
-        0.2648
-      ],
-      "vietnam|tajikistan": [
-        0.3273,
-        0.316,
-        0.3567
-      ],
-      "vietnam|spain": [
-        0.038,
-        0.0573,
-        0.9048
-      ],
-      "vietnam|lebanon": [
-        0.3934,
-        0.3002,
-        0.3064
-      ],
-      "vietnam|cuba": [
-        0.4558,
-        0.295,
-        0.2492
-      ],
-      "vietnam|guyana": [
-        0.3563,
-        0.2837,
-        0.36
-      ],
-      "vietnam|benin": [
-        0.3053,
-        0.3133,
-        0.3814
-      ],
-      "vietnam|thailand": [
-        0.3219,
-        0.2655,
-        0.4127
-      ],
-      "vietnam|philippines": [
-        0.5757,
-        0.2377,
-        0.1866
-      ],
-      "vietnam|isle of man": [
-        0.1734,
-        0.2131,
-        0.6134
-      ],
-      "vietnam|syria": [
-        0.2523,
-        0.2916,
-        0.456
-      ],
-      "vietnam|zambia": [
-        0.2959,
-        0.3122,
-        0.3919
-      ],
-      "vietnam|papua new guinea": [
-        0.3974,
-        0.3072,
-        0.2954
-      ],
-      "vietnam|madagascar": [
-        0.3357,
-        0.3077,
-        0.3566
-      ],
-      "vietnam|ghana": [
-        0.2048,
-        0.2601,
-        0.535
-      ],
-      "vietnam|kosovo": [
-        0.1507,
-        0.2494,
-        0.5999
-      ],
-      "vietnam|faroe islands": [
-        0.389,
-        0.3268,
-        0.2842
-      ],
-      "vietnam|scotland": [
-        0.1163,
-        0.1705,
-        0.7132
-      ],
-      "vietnam|puerto rico": [
-        0.56,
-        0.2574,
-        0.1826
-      ],
-      "vietnam|bulgaria": [
-        0.3549,
-        0.2705,
-        0.3746
-      ],
-      "vietnam|burkina faso": [
-        0.2213,
-        0.2709,
-        0.5078
-      ],
-      "vietnam|kazakhstan": [
-        0.3831,
-        0.2695,
-        0.3474
-      ],
-      "vietnam|kenya": [
-        0.3483,
-        0.2954,
-        0.3563
-      ],
-      "vietnam|yemen": [
-        0.6644,
-        0.2016,
-        0.134
-      ],
-      "vietnam|norway": [
-        0.0473,
-        0.08,
-        0.8727
-      ],
-      "vietnam|togo": [
-        0.3354,
-        0.3126,
-        0.352
-      ],
-      "vietnam|nigeria": [
-        0.1078,
-        0.1914,
-        0.7009
-      ],
-      "vietnam|sint maarten": [
-        0.6353,
-        0.2253,
-        0.1394
-      ],
-      "vietnam|azerbaijan": [
-        0.5571,
-        0.2459,
-        0.1969
-      ],
-      "vietnam|republic of ireland": [
-        0.1627,
-        0.2586,
-        0.5786
-      ],
-      "vietnam|kyrgyzstan": [
-        0.4,
-        0.3223,
-        0.2778
-      ],
-      "vietnam|australia": [
-        0.0658,
-        0.1216,
-        0.8126
-      ],
-      "vietnam|mexico": [
-        0.0546,
-        0.0857,
-        0.8597
-      ],
-      "vietnam|egypt": [
-        0.1181,
-        0.1612,
-        0.7207
-      ],
-      "vietnam|uganda": [
-        0.3228,
-        0.3079,
-        0.3693
-      ],
-      "vietnam|malta": [
-        0.5894,
-        0.2518,
-        0.1588
-      ],
-      "vietnam|saint martin": [
-        0.5784,
-        0.2444,
-        0.1771
-      ],
-      "vietnam|mozambique": [
-        0.3506,
-        0.3048,
-        0.3446
-      ],
-      "vietnam|morocco": [
-        0.0574,
-        0.0908,
-        0.8517
-      ],
-      "vietnam|england": [
-        0.0411,
-        0.0664,
-        0.8925
-      ],
-      "vietnam|uzbekistan": [
-        0.1158,
-        0.2388,
-        0.6454
-      ],
-      "vietnam|gambia": [
-        0.3252,
-        0.2802,
-        0.3946
-      ],
-      "vietnam|cyprus": [
-        0.5751,
-        0.2419,
-        0.183
-      ],
-      "vietnam|trinidad and tobago": [
-        0.3489,
-        0.2833,
-        0.3678
-      ],
-      "vietnam|switzerland": [
-        0.0695,
-        0.1,
-        0.8305
-      ],
-      "vietnam|estonia": [
-        0.4902,
-        0.2886,
-        0.2213
-      ],
-      "vietnam|united states": [
-        0.1249,
-        0.1705,
-        0.7046
-      ],
-      "vietnam|oman": [
-        0.2347,
-        0.3129,
-        0.4524
-      ],
-      "vietnam|cameroon": [
-        0.1792,
-        0.2646,
-        0.5562
-      ],
-      "vietnam|el salvador": [
-        0.3324,
-        0.3214,
-        0.3462
-      ],
-      "vietnam|iraq": [
-        0.1602,
-        0.2683,
-        0.5715
-      ],
-      "vietnam|namibia": [
-        0.4419,
-        0.3179,
-        0.2402
-      ],
-      "vietnam|indonesia": [
-        0.3385,
-        0.301,
-        0.3605
-      ],
-      "vietnam|sweden": [
-        0.1351,
-        0.1993,
-        0.6655
-      ],
-      "vietnam|hong kong": [
-        0.5844,
-        0.2407,
-        0.1748
-      ],
-      "vietnam|palestine": [
-        0.2785,
-        0.3017,
-        0.4198
-      ],
-      "vietnam|south africa": [
-        0.2152,
-        0.2741,
-        0.5107
-      ],
-      "vietnam|saudi arabia": [
-        0.1424,
-        0.2621,
-        0.5955
-      ],
-      "vietnam|libya": [
-        0.3101,
-        0.3108,
-        0.3792
-      ],
-      "vietnam|wales": [
-        0.1625,
-        0.2404,
-        0.5971
-      ],
-      "vietnam|guatemala": [
-        0.2366,
-        0.2702,
-        0.4931
-      ],
-      "vietnam|ivory coast": [
-        0.1155,
-        0.1947,
-        0.6898
-      ],
-      "vietnam|pakistan": [
-        0.8081,
-        0.1422,
-        0.0497
-      ],
-      "vietnam|dr congo": [
-        0.1548,
-        0.2607,
-        0.5845
-      ],
-      "vietnam|zimbabwe": [
-        0.2378,
-        0.3326,
-        0.4296
-      ],
-      "vietnam|new zealand": [
-        0.2306,
-        0.261,
-        0.5084
-      ],
-      "vietnam|cape verde": [
-        0.2199,
-        0.277,
-        0.5031
-      ],
-      "vietnam|bolivia": [
-        0.2063,
-        0.2582,
-        0.5355
-      ],
-      "vietnam|curacao": [
-        0.3302,
-        0.2849,
-        0.3849
-      ],
-      "vietnam|sierra leone": [
-        0.3505,
-        0.3093,
-        0.3402
-      ],
-      "vietnam|nicaragua": [
-        0.3376,
-        0.3185,
-        0.3439
-      ],
-      "vietnam|qatar": [
-        0.2789,
-        0.2901,
-        0.431
-      ],
-      "vietnam|mauritania": [
-        0.3933,
-        0.3335,
-        0.2731
-      ],
-      "vietnam|paraguay": [
-        0.1218,
-        0.1685,
-        0.7098
-      ],
-      "vietnam|rwanda": [
-        0.3856,
-        0.3267,
-        0.2877
-      ],
-      "vietnam|liechtenstein": [
-        0.8761,
-        0.0926,
-        0.0313
-      ],
-      "vietnam|montenegro": [
-        0.3713,
-        0.2892,
-        0.3395
-      ],
-      "vietnam|saint vincent and the grenadines": [
-        0.5674,
-        0.2595,
-        0.1731
-      ],
-      "vietnam|poland": [
-        0.1666,
-        0.245,
-        0.5884
-      ],
-      "vietnam|north macedonia": [
-        0.23,
-        0.2776,
-        0.4924
-      ],
-      "vietnam|bahrain": [
-        0.3184,
-        0.3039,
-        0.3776
-      ],
-      "vietnam|aruba": [
-        0.721,
-        0.1963,
-        0.0827
-      ],
-      "vietnam|northern ireland": [
-        0.2232,
-        0.2766,
-        0.5002
-      ],
-      "vietnam|congo": [
-        0.6194,
-        0.2254,
-        0.1552
-      ],
-      "vietnam|israel": [
-        0.2661,
-        0.2384,
-        0.4955
-      ],
-      "vietnam|bosnia and herzegovina": [
-        0.1852,
-        0.2865,
-        0.5284
-      ],
-      "vietnam|british virgin islands": [
-        0.8305,
-        0.1186,
-        0.0509
-      ],
-      "vietnam|finland": [
-        0.2873,
-        0.295,
-        0.4176
-      ],
-      "vietnam|san marino": [
-        0.8971,
-        0.0775,
-        0.0254
-      ],
-      "vietnam|slovenia": [
-        0.1689,
-        0.2697,
-        0.5614
-      ],
-      "vietnam|andorra": [
-        0.7559,
-        0.1819,
-        0.0622
-      ],
-      "vietnam|japan": [
-        0.0554,
-        0.0985,
-        0.8461
-      ],
-      "vietnam|tahiti": [
-        0.3366,
-        0.3048,
-        0.3587
-      ],
-      "vietnam|niger": [
-        0.3274,
-        0.3097,
-        0.363
-      ],
-      "vietnam|haiti": [
-        0.2318,
-        0.2753,
-        0.4929
-      ],
-      "vietnam|armenia": [
-        0.5151,
-        0.2754,
-        0.2095
-      ],
-      "vietnam|belarus": [
-        0.2933,
-        0.3075,
-        0.3992
-      ],
-      "vietnam|new caledonia": [
-        0.2852,
-        0.2897,
-        0.4251
-      ],
-      "vietnam|algeria": [
-        0.1364,
-        0.2187,
-        0.6449
-      ],
-      "vietnam|sudan": [
-        0.3414,
-        0.3279,
-        0.3307
-      ],
-      "vietnam|jamaica": [
-        0.2195,
-        0.271,
-        0.5094
-      ],
-      "vietnam|turks and caicos islands": [
-        0.8495,
-        0.112,
-        0.0385
-      ],
-      "vietnam|singapore": [
-        0.6656,
-        0.2097,
-        0.1247
-      ],
-      "vietnam|jordan": [
-        0.2226,
-        0.2739,
-        0.5035
-      ],
-      "vietnam|iceland": [
-        0.271,
-        0.2739,
-        0.4551
-      ],
-      "vietnam|vanuatu": [
-        0.4694,
-        0.2751,
-        0.2555
-      ],
-      "vietnam|kuwait": [
-        0.3592,
-        0.3152,
-        0.3256
-      ],
-      "vietnam|india": [
-        0.6635,
-        0.2418,
-        0.0947
-      ],
-      "vietnam|honduras": [
-        0.1882,
-        0.257,
-        0.5548
-      ],
-      "vietnam|albania": [
-        0.2122,
-        0.275,
-        0.5128
-      ],
-      "vietnam|cayman islands": [
-        0.8539,
-        0.1057,
-        0.0404
-      ],
-      "vietnam|mali": [
-        0.171,
-        0.249,
-        0.58
-      ],
-      "vietnam|united arab emirates": [
-        0.1814,
-        0.2717,
-        0.547
-      ],
-      "vietnam|guinea": [
-        0.2814,
-        0.2924,
-        0.4263
-      ],
-      "vietnam|peru": [
-        0.1537,
-        0.2647,
-        0.5817
-      ],
-      "vietnam|slovakia": [
-        0.1806,
-        0.2698,
-        0.5496
-      ],
-      "vietnam|dominican republic": [
-        0.3614,
-        0.2966,
-        0.3419
-      ],
-      "vietnam|venezuela": [
-        0.1495,
-        0.2288,
-        0.6216
-      ],
-      "vietnam|italy": [
-        0.1008,
-        0.1319,
-        0.7673
-      ],
-      "vietnam|serbia": [
-        0.1428,
-        0.2502,
-        0.607
-      ],
-      "vietnam|gabon": [
-        0.3354,
-        0.2968,
-        0.3678
-      ],
-      "vietnam|colombia": [
-        0.0682,
-        0.091,
-        0.8408
-      ],
-      "vietnam|china": [
-        0.2775,
-        0.3121,
-        0.4104
-      ],
-      "vietnam|suriname": [
-        0.2809,
-        0.2957,
-        0.4234
-      ],
-      "vietnam|moldova": [
-        0.6303,
-        0.2282,
-        0.1415
-      ],
-      "vietnam|belgium": [
-        0.0619,
-        0.0892,
-        0.8488
-      ],
-      "vietnam|argentina": [
-        0.0505,
-        0.0668,
-        0.8827
-      ],
-      "vietnam|croatia": [
-        0.1057,
-        0.1417,
-        0.7525
-      ],
-      "vietnam|canada": [
-        0.1295,
-        0.2039,
-        0.6667
-      ],
-      "vietnam|costa rica": [
-        0.1684,
-        0.2419,
-        0.5897
-      ],
-      "vietnam|lesotho": [
-        0.4547,
-        0.3214,
-        0.2238
-      ],
-      "vietnam|hungary": [
-        0.167,
-        0.2484,
-        0.5846
-      ],
-      "vietnam|guadeloupe": [
-        0.3323,
-        0.3064,
-        0.3613
-      ],
-      "vietnam|austria": [
-        0.1052,
-        0.1458,
-        0.749
-      ],
-      "vietnam|greece": [
-        0.148,
-        0.2464,
-        0.6056
-      ],
-      "vietnam|panama": [
-        0.1286,
-        0.2155,
-        0.6559
-      ],
-      "vietnam|united states virgin islands": [
-        0.8758,
-        0.0904,
-        0.0338
-      ],
-      "vietnam|denmark": [
-        0.099,
-        0.1322,
-        0.7689
-      ],
-      "vietnam|turkey": [
-        0.132,
-        0.1835,
-        0.6845
-      ],
-      "vietnam|angola": [
-        0.2783,
-        0.2963,
-        0.4253
-      ],
-      "vietnam|latvia": [
-        0.5722,
-        0.2608,
-        0.167
-      ],
-      "vietnam|romania": [
-        0.201,
-        0.2414,
-        0.5576
-      ],
-      "vietnam|ethiopia": [
-        0.4941,
-        0.2852,
-        0.2207
-      ],
-      "vietnam|lithuania": [
-        0.5989,
-        0.2427,
-        0.1583
-      ],
-      "vietnam|germany": [
-        0.072,
-        0.0947,
-        0.8333
-      ],
-      "vietnam|uruguay": [
-        0.0876,
-        0.1293,
-        0.7831
-      ],
-      "vietnam|myanmar": [
-        0.8393,
-        0.1223,
-        0.0384
-      ],
-      "vietnam|france": [
-        0.069,
-        0.0904,
-        0.8406
-      ],
-      "vietnam|liberia": [
-        0.4092,
-        0.3216,
-        0.2692
-      ],
-      "vietnam|senegal": [
-        0.1379,
-        0.2183,
-        0.6438
-      ],
-      "vietnam|south korea": [
-        0.1027,
-        0.2067,
-        0.6906
-      ],
-      "vietnam|tunisia": [
-        0.2489,
-        0.2767,
-        0.4744
-      ],
-      "vietnam|chile": [
-        0.1675,
-        0.2321,
-        0.6004
-      ],
-      "vietnam|equatorial guinea": [
-        0.4045,
-        0.3253,
-        0.2702
-      ],
-      "vietnam|ecuador": [
-        0.0932,
-        0.1477,
-        0.7591
-      ],
-      "vietnam|guam": [
-        0.9477,
-        0.0382,
-        0.0141
-      ],
-      "vietnam|seychelles": [
-        0.8818,
-        0.0898,
-        0.0283
-      ],
-      "vietnam|ukraine": [
-        0.145,
-        0.2119,
-        0.6431
-      ],
-      "vietnam|grenada": [
-        0.6506,
-        0.2206,
-        0.1287
-      ],
-      "vietnam|belize": [
-        0.6258,
-        0.2382,
-        0.1361
-      ],
-      "vietnam|luxembourg": [
-        0.3964,
-        0.3284,
-        0.2752
-      ],
-      "vietnam|czech republic": [
-        0.1835,
-        0.2637,
-        0.5529
-      ],
-      "vietnam|malawi": [
-        0.4109,
-        0.3143,
-        0.2747
-      ],
-      "vietnam|tanzania": [
-        0.4441,
-        0.2964,
-        0.2595
-      ],
-      "vietnam|netherlands": [
-        0.0785,
-        0.1068,
-        0.8147
-      ],
-      "vietnam|iran": [
-        0.0957,
-        0.1727,
-        0.7316
-      ],
-      "vietnam|brazil": [
-        0.0738,
-        0.0982,
-        0.828
-      ],
-      "vietnam|portugal": [
-        0.0686,
-        0.0941,
-        0.8373
-      ],
-      "vietnam|north korea": [
-        0.3158,
-        0.3177,
-        0.3665
-      ],
-      "vietnam|cambodia": [
-        0.8745,
-        0.0956,
-        0.0299
-      ],
-      "vietnam|guinea-bissau": [
-        0.5176,
-        0.2791,
-        0.2033
-      ],
-      "vietnam|anguilla": [
-        0.8918,
-        0.0794,
-        0.0289
-      ],
-      "vietnam|georgia": [
-        0.2104,
-        0.2619,
-        0.5277
-      ],
-      "vietnam|botswana": [
-        0.4694,
-        0.3116,
-        0.219
-      ],
-      "vietnam|eswatini": [
-        0.6175,
-        0.237,
-        0.1454
-      ],
-      "vietnam|saint kitts and nevis": [
-        0.7057,
-        0.1965,
-        0.0979
-      ],
-      "vietnam|mauritius": [
-        0.6948,
-        0.2251,
-        0.0801
-      ],
-      "vietnam|comoros": [
-        0.3528,
-        0.3107,
-        0.3365
-      ],
-      "vietnam|central african republic": [
-        0.5993,
-        0.2343,
-        0.1664
-      ],
-      "vietnam|afghanistan": [
-        0.7234,
-        0.2033,
-        0.0733
-      ],
-      "vietnam|barbados": [
-        0.8288,
-        0.1267,
-        0.0445
-      ],
-      "vietnam|samoa": [
-        0.7448,
-        0.1808,
-        0.0744
-      ],
-      "vietnam|bangladesh": [
-        0.8217,
-        0.1352,
-        0.0431
-      ],
-      "vietnam|south sudan": [
-        0.6754,
-        0.2204,
-        0.1042
-      ],
-      "vietnam|bonaire": [
-        0.7879,
-        0.16,
-        0.0521
-      ],
-      "vietnam|dominica": [
-        0.7794,
-        0.1608,
-        0.0598
-      ],
-      "vietnam|montserrat": [
-        0.7237,
-        0.1963,
-        0.08
-      ],
-      "vietnam|brunei": [
-        0.9026,
-        0.0719,
-        0.0255
-      ],
-      "vietnam|fiji": [
-        0.5238,
-        0.2738,
-        0.2024
-      ],
-      "vietnam|sri lanka": [
-        0.8336,
-        0.1244,
-        0.0421
-      ],
-      "vietnam|bermuda": [
-        0.6459,
-        0.2155,
-        0.1385
-      ],
-      "vietnam|sao tome and principe": [
-        0.7553,
-        0.1802,
-        0.0645
-      ],
-      "vietnam|martinique": [
-        0.3522,
-        0.3097,
-        0.3381
-      ],
-      "vietnam|chad": [
-        0.6922,
-        0.2185,
-        0.0894
-      ],
-      "vietnam|solomon islands": [
-        0.6126,
-        0.2215,
-        0.1659
-      ],
-      "vietnam|french guiana": [
-        0.4703,
-        0.2986,
-        0.2311
-      ],
-      "vietnam|gibraltar": [
-        0.7842,
-        0.1602,
-        0.0556
-      ],
-      "vietnam|saint lucia": [
-        0.7546,
-        0.1767,
-        0.0687
-      ],
-      "vietnam|antigua and barbuda": [
-        0.8263,
-        0.1288,
-        0.0449
-      ],
-      "vietnam|burundi": [
-        0.4973,
-        0.2859,
-        0.2169
-      ],
-      "vietnam|somalia": [
-        0.8354,
-        0.1235,
-        0.0411
-      ],
-      "vietnam|bahamas": [
-        0.9028,
-        0.0708,
-        0.0264
-      ],
-      "vietnam|djibouti": [
-        0.8425,
-        0.1174,
-        0.0401
-      ],
-      "vietnam|laos": [
-        0.928,
-        0.0552,
-        0.0168
-      ],
-      "vietnam|timor-leste": [
-        0.8931,
-        0.0782,
-        0.0287
-      ],
-      "vietnam|maldives": [
-        0.8671,
-        0.0988,
-        0.0341
-      ],
-      "vietnam|macau": [
-        0.9475,
-        0.0383,
-        0.0142
-      ],
-      "vietnam|bhutan": [
-        0.9055,
-        0.0688,
-        0.0257
-      ],
-      "vietnam|nepal": [
-        0.8645,
-        0.1038,
-        0.0317
-      ],
-      "vietnam|taiwan": [
-        0.8701,
-        0.0971,
-        0.0329
       ],
       "spain|malaysia": [
         0.9017,
@@ -9140,6 +8085,1061 @@
         0.0387,
         0.0227
       ],
+      "vietnam|malaysia": [
+        0.3578,
+        0.2818,
+        0.3604
+      ],
+      "vietnam|turkmenistan": [
+        0.4416,
+        0.2935,
+        0.2648
+      ],
+      "vietnam|tajikistan": [
+        0.3273,
+        0.316,
+        0.3567
+      ],
+      "vietnam|spain": [
+        0.038,
+        0.0573,
+        0.9048
+      ],
+      "vietnam|lebanon": [
+        0.3934,
+        0.3002,
+        0.3064
+      ],
+      "vietnam|cuba": [
+        0.4558,
+        0.295,
+        0.2492
+      ],
+      "vietnam|guyana": [
+        0.3563,
+        0.2837,
+        0.36
+      ],
+      "vietnam|benin": [
+        0.3053,
+        0.3133,
+        0.3814
+      ],
+      "vietnam|thailand": [
+        0.3219,
+        0.2655,
+        0.4127
+      ],
+      "vietnam|philippines": [
+        0.5757,
+        0.2377,
+        0.1866
+      ],
+      "vietnam|isle of man": [
+        0.1734,
+        0.2131,
+        0.6134
+      ],
+      "vietnam|syria": [
+        0.2523,
+        0.2916,
+        0.456
+      ],
+      "vietnam|zambia": [
+        0.2959,
+        0.3122,
+        0.3919
+      ],
+      "vietnam|papua new guinea": [
+        0.3974,
+        0.3072,
+        0.2954
+      ],
+      "vietnam|madagascar": [
+        0.3357,
+        0.3077,
+        0.3566
+      ],
+      "vietnam|ghana": [
+        0.2048,
+        0.2601,
+        0.535
+      ],
+      "vietnam|kosovo": [
+        0.1507,
+        0.2494,
+        0.5999
+      ],
+      "vietnam|faroe islands": [
+        0.389,
+        0.3268,
+        0.2842
+      ],
+      "vietnam|scotland": [
+        0.1163,
+        0.1705,
+        0.7132
+      ],
+      "vietnam|puerto rico": [
+        0.56,
+        0.2574,
+        0.1826
+      ],
+      "vietnam|bulgaria": [
+        0.3549,
+        0.2705,
+        0.3746
+      ],
+      "vietnam|burkina faso": [
+        0.2213,
+        0.2709,
+        0.5078
+      ],
+      "vietnam|kazakhstan": [
+        0.3831,
+        0.2695,
+        0.3474
+      ],
+      "vietnam|kenya": [
+        0.3483,
+        0.2954,
+        0.3563
+      ],
+      "vietnam|yemen": [
+        0.6644,
+        0.2016,
+        0.134
+      ],
+      "vietnam|norway": [
+        0.0473,
+        0.08,
+        0.8727
+      ],
+      "vietnam|togo": [
+        0.3354,
+        0.3126,
+        0.352
+      ],
+      "vietnam|nigeria": [
+        0.1078,
+        0.1914,
+        0.7009
+      ],
+      "vietnam|sint maarten": [
+        0.6353,
+        0.2253,
+        0.1394
+      ],
+      "vietnam|azerbaijan": [
+        0.5571,
+        0.2459,
+        0.1969
+      ],
+      "vietnam|republic of ireland": [
+        0.1627,
+        0.2586,
+        0.5786
+      ],
+      "vietnam|kyrgyzstan": [
+        0.4,
+        0.3223,
+        0.2778
+      ],
+      "vietnam|australia": [
+        0.0658,
+        0.1216,
+        0.8126
+      ],
+      "vietnam|mexico": [
+        0.0546,
+        0.0857,
+        0.8597
+      ],
+      "vietnam|egypt": [
+        0.1181,
+        0.1612,
+        0.7207
+      ],
+      "vietnam|uganda": [
+        0.3228,
+        0.3079,
+        0.3693
+      ],
+      "vietnam|malta": [
+        0.5894,
+        0.2518,
+        0.1588
+      ],
+      "vietnam|saint martin": [
+        0.5784,
+        0.2444,
+        0.1771
+      ],
+      "vietnam|mozambique": [
+        0.3506,
+        0.3048,
+        0.3446
+      ],
+      "vietnam|morocco": [
+        0.0574,
+        0.0908,
+        0.8517
+      ],
+      "vietnam|england": [
+        0.0411,
+        0.0664,
+        0.8925
+      ],
+      "vietnam|uzbekistan": [
+        0.1158,
+        0.2388,
+        0.6454
+      ],
+      "vietnam|gambia": [
+        0.3252,
+        0.2802,
+        0.3946
+      ],
+      "vietnam|cyprus": [
+        0.5751,
+        0.2419,
+        0.183
+      ],
+      "vietnam|trinidad and tobago": [
+        0.3489,
+        0.2833,
+        0.3678
+      ],
+      "vietnam|switzerland": [
+        0.0695,
+        0.1,
+        0.8305
+      ],
+      "vietnam|estonia": [
+        0.4902,
+        0.2886,
+        0.2213
+      ],
+      "vietnam|united states": [
+        0.1249,
+        0.1705,
+        0.7046
+      ],
+      "vietnam|oman": [
+        0.2347,
+        0.3129,
+        0.4524
+      ],
+      "vietnam|cameroon": [
+        0.1792,
+        0.2646,
+        0.5562
+      ],
+      "vietnam|el salvador": [
+        0.3324,
+        0.3214,
+        0.3462
+      ],
+      "vietnam|iraq": [
+        0.1602,
+        0.2683,
+        0.5715
+      ],
+      "vietnam|namibia": [
+        0.4419,
+        0.3179,
+        0.2402
+      ],
+      "vietnam|indonesia": [
+        0.3385,
+        0.301,
+        0.3605
+      ],
+      "vietnam|sweden": [
+        0.1351,
+        0.1993,
+        0.6655
+      ],
+      "vietnam|hong kong": [
+        0.5844,
+        0.2407,
+        0.1748
+      ],
+      "vietnam|palestine": [
+        0.2785,
+        0.3017,
+        0.4198
+      ],
+      "vietnam|south africa": [
+        0.2152,
+        0.2741,
+        0.5107
+      ],
+      "vietnam|saudi arabia": [
+        0.1424,
+        0.2621,
+        0.5955
+      ],
+      "vietnam|libya": [
+        0.3101,
+        0.3108,
+        0.3792
+      ],
+      "vietnam|wales": [
+        0.1625,
+        0.2404,
+        0.5971
+      ],
+      "vietnam|guatemala": [
+        0.2366,
+        0.2702,
+        0.4931
+      ],
+      "vietnam|ivory coast": [
+        0.1155,
+        0.1947,
+        0.6898
+      ],
+      "vietnam|pakistan": [
+        0.8081,
+        0.1422,
+        0.0497
+      ],
+      "vietnam|dr congo": [
+        0.1548,
+        0.2607,
+        0.5845
+      ],
+      "vietnam|zimbabwe": [
+        0.2378,
+        0.3326,
+        0.4296
+      ],
+      "vietnam|new zealand": [
+        0.2306,
+        0.261,
+        0.5084
+      ],
+      "vietnam|cape verde": [
+        0.2199,
+        0.277,
+        0.5031
+      ],
+      "vietnam|bolivia": [
+        0.2063,
+        0.2582,
+        0.5355
+      ],
+      "vietnam|curacao": [
+        0.3302,
+        0.2849,
+        0.3849
+      ],
+      "vietnam|sierra leone": [
+        0.3505,
+        0.3093,
+        0.3402
+      ],
+      "vietnam|nicaragua": [
+        0.3376,
+        0.3185,
+        0.3439
+      ],
+      "vietnam|qatar": [
+        0.2789,
+        0.2901,
+        0.431
+      ],
+      "vietnam|mauritania": [
+        0.3933,
+        0.3335,
+        0.2731
+      ],
+      "vietnam|paraguay": [
+        0.1218,
+        0.1685,
+        0.7098
+      ],
+      "vietnam|rwanda": [
+        0.3856,
+        0.3267,
+        0.2877
+      ],
+      "vietnam|liechtenstein": [
+        0.8761,
+        0.0926,
+        0.0313
+      ],
+      "vietnam|montenegro": [
+        0.3713,
+        0.2892,
+        0.3395
+      ],
+      "vietnam|saint vincent and the grenadines": [
+        0.5674,
+        0.2595,
+        0.1731
+      ],
+      "vietnam|poland": [
+        0.1666,
+        0.245,
+        0.5884
+      ],
+      "vietnam|north macedonia": [
+        0.23,
+        0.2776,
+        0.4924
+      ],
+      "vietnam|bahrain": [
+        0.3184,
+        0.3039,
+        0.3776
+      ],
+      "vietnam|aruba": [
+        0.721,
+        0.1963,
+        0.0827
+      ],
+      "vietnam|northern ireland": [
+        0.2232,
+        0.2766,
+        0.5002
+      ],
+      "vietnam|congo": [
+        0.6194,
+        0.2254,
+        0.1552
+      ],
+      "vietnam|israel": [
+        0.2661,
+        0.2384,
+        0.4955
+      ],
+      "vietnam|bosnia and herzegovina": [
+        0.1852,
+        0.2865,
+        0.5284
+      ],
+      "vietnam|british virgin islands": [
+        0.8305,
+        0.1186,
+        0.0509
+      ],
+      "vietnam|finland": [
+        0.2873,
+        0.295,
+        0.4176
+      ],
+      "vietnam|san marino": [
+        0.8971,
+        0.0775,
+        0.0254
+      ],
+      "vietnam|slovenia": [
+        0.1689,
+        0.2697,
+        0.5614
+      ],
+      "vietnam|andorra": [
+        0.7559,
+        0.1819,
+        0.0622
+      ],
+      "vietnam|japan": [
+        0.0554,
+        0.0985,
+        0.8461
+      ],
+      "vietnam|tahiti": [
+        0.3366,
+        0.3048,
+        0.3587
+      ],
+      "vietnam|niger": [
+        0.3274,
+        0.3097,
+        0.363
+      ],
+      "vietnam|haiti": [
+        0.2318,
+        0.2753,
+        0.4929
+      ],
+      "vietnam|armenia": [
+        0.5151,
+        0.2754,
+        0.2095
+      ],
+      "vietnam|belarus": [
+        0.2933,
+        0.3075,
+        0.3992
+      ],
+      "vietnam|new caledonia": [
+        0.2852,
+        0.2897,
+        0.4251
+      ],
+      "vietnam|algeria": [
+        0.1364,
+        0.2187,
+        0.6449
+      ],
+      "vietnam|sudan": [
+        0.3414,
+        0.3279,
+        0.3307
+      ],
+      "vietnam|jamaica": [
+        0.2195,
+        0.271,
+        0.5094
+      ],
+      "vietnam|turks and caicos islands": [
+        0.8495,
+        0.112,
+        0.0385
+      ],
+      "vietnam|singapore": [
+        0.6656,
+        0.2097,
+        0.1247
+      ],
+      "vietnam|jordan": [
+        0.2226,
+        0.2739,
+        0.5035
+      ],
+      "vietnam|iceland": [
+        0.271,
+        0.2739,
+        0.4551
+      ],
+      "vietnam|vanuatu": [
+        0.4694,
+        0.2751,
+        0.2555
+      ],
+      "vietnam|kuwait": [
+        0.3592,
+        0.3152,
+        0.3256
+      ],
+      "vietnam|india": [
+        0.6635,
+        0.2418,
+        0.0947
+      ],
+      "vietnam|honduras": [
+        0.1882,
+        0.257,
+        0.5548
+      ],
+      "vietnam|albania": [
+        0.2122,
+        0.275,
+        0.5128
+      ],
+      "vietnam|cayman islands": [
+        0.8539,
+        0.1057,
+        0.0404
+      ],
+      "vietnam|mali": [
+        0.171,
+        0.249,
+        0.58
+      ],
+      "vietnam|united arab emirates": [
+        0.1814,
+        0.2717,
+        0.547
+      ],
+      "vietnam|guinea": [
+        0.2814,
+        0.2924,
+        0.4263
+      ],
+      "vietnam|peru": [
+        0.1537,
+        0.2647,
+        0.5817
+      ],
+      "vietnam|slovakia": [
+        0.1806,
+        0.2698,
+        0.5496
+      ],
+      "vietnam|dominican republic": [
+        0.3614,
+        0.2966,
+        0.3419
+      ],
+      "vietnam|venezuela": [
+        0.1495,
+        0.2288,
+        0.6216
+      ],
+      "vietnam|italy": [
+        0.1008,
+        0.1319,
+        0.7673
+      ],
+      "vietnam|serbia": [
+        0.1428,
+        0.2502,
+        0.607
+      ],
+      "vietnam|gabon": [
+        0.3354,
+        0.2968,
+        0.3678
+      ],
+      "vietnam|colombia": [
+        0.0682,
+        0.091,
+        0.8408
+      ],
+      "vietnam|china": [
+        0.2775,
+        0.3121,
+        0.4104
+      ],
+      "vietnam|suriname": [
+        0.2809,
+        0.2957,
+        0.4234
+      ],
+      "vietnam|moldova": [
+        0.6303,
+        0.2282,
+        0.1415
+      ],
+      "vietnam|belgium": [
+        0.0619,
+        0.0892,
+        0.8488
+      ],
+      "vietnam|argentina": [
+        0.0505,
+        0.0668,
+        0.8827
+      ],
+      "vietnam|croatia": [
+        0.1057,
+        0.1417,
+        0.7525
+      ],
+      "vietnam|canada": [
+        0.1295,
+        0.2039,
+        0.6667
+      ],
+      "vietnam|costa rica": [
+        0.1684,
+        0.2419,
+        0.5897
+      ],
+      "vietnam|lesotho": [
+        0.4547,
+        0.3214,
+        0.2238
+      ],
+      "vietnam|hungary": [
+        0.167,
+        0.2484,
+        0.5846
+      ],
+      "vietnam|guadeloupe": [
+        0.3323,
+        0.3064,
+        0.3613
+      ],
+      "vietnam|austria": [
+        0.1052,
+        0.1458,
+        0.749
+      ],
+      "vietnam|greece": [
+        0.148,
+        0.2464,
+        0.6056
+      ],
+      "vietnam|panama": [
+        0.1286,
+        0.2155,
+        0.6559
+      ],
+      "vietnam|united states virgin islands": [
+        0.8758,
+        0.0904,
+        0.0338
+      ],
+      "vietnam|denmark": [
+        0.099,
+        0.1322,
+        0.7689
+      ],
+      "vietnam|turkey": [
+        0.132,
+        0.1835,
+        0.6845
+      ],
+      "vietnam|angola": [
+        0.2783,
+        0.2963,
+        0.4253
+      ],
+      "vietnam|latvia": [
+        0.5722,
+        0.2608,
+        0.167
+      ],
+      "vietnam|romania": [
+        0.201,
+        0.2414,
+        0.5576
+      ],
+      "vietnam|ethiopia": [
+        0.4941,
+        0.2852,
+        0.2207
+      ],
+      "vietnam|lithuania": [
+        0.5989,
+        0.2427,
+        0.1583
+      ],
+      "vietnam|germany": [
+        0.072,
+        0.0947,
+        0.8333
+      ],
+      "vietnam|uruguay": [
+        0.0876,
+        0.1293,
+        0.7831
+      ],
+      "vietnam|myanmar": [
+        0.8393,
+        0.1223,
+        0.0384
+      ],
+      "vietnam|france": [
+        0.069,
+        0.0904,
+        0.8406
+      ],
+      "vietnam|liberia": [
+        0.4092,
+        0.3216,
+        0.2692
+      ],
+      "vietnam|senegal": [
+        0.1379,
+        0.2183,
+        0.6438
+      ],
+      "vietnam|south korea": [
+        0.1027,
+        0.2067,
+        0.6906
+      ],
+      "vietnam|tunisia": [
+        0.2489,
+        0.2767,
+        0.4744
+      ],
+      "vietnam|chile": [
+        0.1675,
+        0.2321,
+        0.6004
+      ],
+      "vietnam|equatorial guinea": [
+        0.4045,
+        0.3253,
+        0.2702
+      ],
+      "vietnam|ecuador": [
+        0.0932,
+        0.1477,
+        0.7591
+      ],
+      "vietnam|guam": [
+        0.9477,
+        0.0382,
+        0.0141
+      ],
+      "vietnam|seychelles": [
+        0.8818,
+        0.0898,
+        0.0283
+      ],
+      "vietnam|ukraine": [
+        0.145,
+        0.2119,
+        0.6431
+      ],
+      "vietnam|grenada": [
+        0.6506,
+        0.2206,
+        0.1287
+      ],
+      "vietnam|belize": [
+        0.6258,
+        0.2382,
+        0.1361
+      ],
+      "vietnam|luxembourg": [
+        0.3964,
+        0.3284,
+        0.2752
+      ],
+      "vietnam|czech republic": [
+        0.1835,
+        0.2637,
+        0.5529
+      ],
+      "vietnam|malawi": [
+        0.4109,
+        0.3143,
+        0.2747
+      ],
+      "vietnam|tanzania": [
+        0.4441,
+        0.2964,
+        0.2595
+      ],
+      "vietnam|netherlands": [
+        0.0785,
+        0.1068,
+        0.8147
+      ],
+      "vietnam|iran": [
+        0.0957,
+        0.1727,
+        0.7316
+      ],
+      "vietnam|brazil": [
+        0.0738,
+        0.0982,
+        0.828
+      ],
+      "vietnam|portugal": [
+        0.0686,
+        0.0941,
+        0.8373
+      ],
+      "vietnam|north korea": [
+        0.3158,
+        0.3177,
+        0.3665
+      ],
+      "vietnam|cambodia": [
+        0.8745,
+        0.0956,
+        0.0299
+      ],
+      "vietnam|guinea-bissau": [
+        0.5176,
+        0.2791,
+        0.2033
+      ],
+      "vietnam|anguilla": [
+        0.8918,
+        0.0794,
+        0.0289
+      ],
+      "vietnam|georgia": [
+        0.2104,
+        0.2619,
+        0.5277
+      ],
+      "vietnam|botswana": [
+        0.4694,
+        0.3116,
+        0.219
+      ],
+      "vietnam|eswatini": [
+        0.6175,
+        0.237,
+        0.1454
+      ],
+      "vietnam|saint kitts and nevis": [
+        0.7057,
+        0.1965,
+        0.0979
+      ],
+      "vietnam|mauritius": [
+        0.6948,
+        0.2251,
+        0.0801
+      ],
+      "vietnam|comoros": [
+        0.3528,
+        0.3107,
+        0.3365
+      ],
+      "vietnam|central african republic": [
+        0.5993,
+        0.2343,
+        0.1664
+      ],
+      "vietnam|afghanistan": [
+        0.7234,
+        0.2033,
+        0.0733
+      ],
+      "vietnam|barbados": [
+        0.8288,
+        0.1267,
+        0.0445
+      ],
+      "vietnam|samoa": [
+        0.7448,
+        0.1808,
+        0.0744
+      ],
+      "vietnam|bangladesh": [
+        0.8217,
+        0.1352,
+        0.0431
+      ],
+      "vietnam|south sudan": [
+        0.6754,
+        0.2204,
+        0.1042
+      ],
+      "vietnam|bonaire": [
+        0.7879,
+        0.16,
+        0.0521
+      ],
+      "vietnam|dominica": [
+        0.7794,
+        0.1608,
+        0.0598
+      ],
+      "vietnam|montserrat": [
+        0.7237,
+        0.1963,
+        0.08
+      ],
+      "vietnam|brunei": [
+        0.9026,
+        0.0719,
+        0.0255
+      ],
+      "vietnam|fiji": [
+        0.5238,
+        0.2738,
+        0.2024
+      ],
+      "vietnam|sri lanka": [
+        0.8336,
+        0.1244,
+        0.0421
+      ],
+      "vietnam|bermuda": [
+        0.6459,
+        0.2155,
+        0.1385
+      ],
+      "vietnam|sao tome and principe": [
+        0.7553,
+        0.1802,
+        0.0645
+      ],
+      "vietnam|martinique": [
+        0.3522,
+        0.3097,
+        0.3381
+      ],
+      "vietnam|chad": [
+        0.6922,
+        0.2185,
+        0.0894
+      ],
+      "vietnam|solomon islands": [
+        0.6126,
+        0.2215,
+        0.1659
+      ],
+      "vietnam|french guiana": [
+        0.4703,
+        0.2986,
+        0.2311
+      ],
+      "vietnam|gibraltar": [
+        0.7842,
+        0.1602,
+        0.0556
+      ],
+      "vietnam|saint lucia": [
+        0.7546,
+        0.1767,
+        0.0687
+      ],
+      "vietnam|antigua and barbuda": [
+        0.8263,
+        0.1288,
+        0.0449
+      ],
+      "vietnam|burundi": [
+        0.4973,
+        0.2859,
+        0.2169
+      ],
+      "vietnam|somalia": [
+        0.8354,
+        0.1235,
+        0.0411
+      ],
+      "vietnam|bahamas": [
+        0.9028,
+        0.0708,
+        0.0264
+      ],
+      "vietnam|djibouti": [
+        0.8425,
+        0.1174,
+        0.0401
+      ],
+      "vietnam|laos": [
+        0.928,
+        0.0552,
+        0.0168
+      ],
+      "vietnam|timor-leste": [
+        0.8931,
+        0.0782,
+        0.0287
+      ],
+      "vietnam|maldives": [
+        0.8671,
+        0.0988,
+        0.0341
+      ],
+      "vietnam|macau": [
+        0.9475,
+        0.0383,
+        0.0142
+      ],
+      "vietnam|bhutan": [
+        0.9055,
+        0.0688,
+        0.0257
+      ],
+      "vietnam|nepal": [
+        0.8645,
+        0.1038,
+        0.0317
+      ],
+      "vietnam|taiwan": [
+        0.8701,
+        0.0971,
+        0.0329
+      ],
       "lebanon|malaysia": [
         0.328,
         0.3014,
@@ -9155,15 +9155,15 @@
         0.3275,
         0.3093
       ],
-      "lebanon|vietnam": [
-        0.3361,
-        0.3112,
-        0.3527
-      ],
       "lebanon|spain": [
         0.0337,
         0.057,
         0.9093
+      ],
+      "lebanon|vietnam": [
+        0.3361,
+        0.3112,
+        0.3527
       ],
       "lebanon|cuba": [
         0.4003,
@@ -10210,15 +10210,15 @@
         0.2956,
         0.3762
       ],
-      "cuba|vietnam": [
-        0.3079,
-        0.3012,
-        0.3909
-      ],
       "cuba|spain": [
         0.032,
         0.0508,
         0.9171
+      ],
+      "cuba|vietnam": [
+        0.3079,
+        0.3012,
+        0.3909
       ],
       "cuba|lebanon": [
         0.3301,
@@ -11265,15 +11265,15 @@
         0.2928,
         0.2692
       ],
-      "guyana|vietnam": [
-        0.379,
-        0.322,
-        0.299
-      ],
       "guyana|spain": [
         0.0354,
         0.0537,
         0.9109
+      ],
+      "guyana|vietnam": [
+        0.379,
+        0.322,
+        0.299
       ],
       "guyana|lebanon": [
         0.4449,
@@ -12320,15 +12320,15 @@
         0.2604,
         0.2212
       ],
-      "benin|vietnam": [
-        0.4693,
-        0.2829,
-        0.2478
-      ],
       "benin|spain": [
         0.0331,
         0.0571,
         0.9098
+      ],
+      "benin|vietnam": [
+        0.4693,
+        0.2829,
+        0.2478
       ],
       "benin|lebanon": [
         0.518,
@@ -13375,15 +13375,15 @@
         0.2676,
         0.2218
       ],
-      "thailand|vietnam": [
-        0.4494,
-        0.3106,
-        0.2399
-      ],
       "thailand|spain": [
         0.0411,
         0.068,
         0.8908
+      ],
+      "thailand|vietnam": [
+        0.4494,
+        0.3106,
+        0.2399
       ],
       "thailand|lebanon": [
         0.483,
@@ -14430,15 +14430,15 @@
         0.2712,
         0.4133
       ],
-      "philippines|vietnam": [
-        0.2586,
-        0.2956,
-        0.4458
-      ],
       "philippines|spain": [
         0.0353,
         0.0506,
         0.9141
+      ],
+      "philippines|vietnam": [
+        0.2586,
+        0.2956,
+        0.4458
       ],
       "philippines|lebanon": [
         0.298,
@@ -15485,15 +15485,15 @@
         0.2096,
         0.0944
       ],
-      "isle of man|vietnam": [
-        0.6704,
-        0.2296,
-        0.1
-      ],
       "isle of man|spain": [
         0.0504,
         0.0806,
         0.869
+      ],
+      "isle of man|vietnam": [
+        0.6704,
+        0.2296,
+        0.1
       ],
       "isle of man|lebanon": [
         0.6978,
@@ -16540,15 +16540,15 @@
         0.2751,
         0.208
       ],
-      "syria|vietnam": [
-        0.5664,
-        0.2482,
-        0.1854
-      ],
       "syria|spain": [
         0.0485,
         0.0692,
         0.8823
+      ],
+      "syria|vietnam": [
+        0.5664,
+        0.2482,
+        0.1854
       ],
       "syria|lebanon": [
         0.6093,
@@ -17595,15 +17595,15 @@
         0.2654,
         0.2103
       ],
-      "zambia|vietnam": [
-        0.4917,
-        0.2752,
-        0.2331
-      ],
       "zambia|spain": [
         0.0341,
         0.06,
         0.9059
+      ],
+      "zambia|vietnam": [
+        0.4917,
+        0.2752,
+        0.2331
       ],
       "zambia|lebanon": [
         0.5232,
@@ -18650,15 +18650,15 @@
         0.3057,
         0.3147
       ],
-      "papua new guinea|vietnam": [
-        0.3191,
-        0.2965,
-        0.3844
-      ],
       "papua new guinea|spain": [
         0.0318,
         0.0482,
         0.92
+      ],
+      "papua new guinea|vietnam": [
+        0.3191,
+        0.2965,
+        0.3844
       ],
       "papua new guinea|lebanon": [
         0.366,
@@ -19705,15 +19705,15 @@
         0.2772,
         0.2526
       ],
-      "madagascar|vietnam": [
-        0.4231,
-        0.3013,
-        0.2756
-      ],
       "madagascar|spain": [
         0.0337,
         0.0558,
         0.9105
+      ],
+      "madagascar|vietnam": [
+        0.4231,
+        0.3013,
+        0.2756
       ],
       "madagascar|lebanon": [
         0.4524,
@@ -20760,15 +20760,15 @@
         0.2243,
         0.1048
       ],
-      "ghana|vietnam": [
-        0.6442,
-        0.2323,
-        0.1235
-      ],
       "ghana|spain": [
         0.0522,
         0.0785,
         0.8693
+      ],
+      "ghana|vietnam": [
+        0.6442,
+        0.2323,
+        0.1235
       ],
       "ghana|lebanon": [
         0.668,
@@ -21815,15 +21815,15 @@
         0.1841,
         0.0773
       ],
-      "kosovo|vietnam": [
-        0.7337,
-        0.187,
-        0.0792
-      ],
       "kosovo|spain": [
         0.0417,
         0.0846,
         0.8738
+      ],
+      "kosovo|vietnam": [
+        0.7337,
+        0.187,
+        0.0792
       ],
       "kosovo|lebanon": [
         0.738,
@@ -22870,15 +22870,15 @@
         0.3171,
         0.3187
       ],
-      "faroe islands|vietnam": [
-        0.33,
-        0.304,
-        0.366
-      ],
       "faroe islands|spain": [
         0.0261,
         0.0482,
         0.9257
+      ],
+      "faroe islands|vietnam": [
+        0.33,
+        0.304,
+        0.366
       ],
       "faroe islands|lebanon": [
         0.3482,
@@ -23925,15 +23925,15 @@
         0.1201,
         0.054
       ],
-      "scotland|vietnam": [
-        0.8154,
-        0.1281,
-        0.0564
-      ],
       "scotland|spain": [
         0.0678,
         0.1269,
         0.8053
+      ],
+      "scotland|vietnam": [
+        0.8154,
+        0.1281,
+        0.0564
       ],
       "scotland|lebanon": [
         0.8253,
@@ -24980,15 +24980,15 @@
         0.2713,
         0.4413
       ],
-      "puerto rico|vietnam": [
-        0.2772,
-        0.2725,
-        0.4504
-      ],
       "puerto rico|spain": [
         0.0314,
         0.046,
         0.9226
+      ],
+      "puerto rico|vietnam": [
+        0.2772,
+        0.2725,
+        0.4504
       ],
       "puerto rico|lebanon": [
         0.2894,
@@ -26035,15 +26035,15 @@
         0.2653,
         0.2373
       ],
-      "bulgaria|vietnam": [
-        0.4321,
-        0.2938,
-        0.2741
-      ],
       "bulgaria|spain": [
         0.0259,
         0.0487,
         0.9254
+      ],
+      "bulgaria|vietnam": [
+        0.4321,
+        0.2938,
+        0.2741
       ],
       "bulgaria|lebanon": [
         0.4914,
@@ -27090,15 +27090,15 @@
         0.2363,
         0.1115
       ],
-      "burkina faso|vietnam": [
-        0.626,
-        0.2394,
-        0.1346
-      ],
       "burkina faso|spain": [
         0.0441,
         0.0759,
         0.88
+      ],
+      "burkina faso|vietnam": [
+        0.626,
+        0.2394,
+        0.1346
       ],
       "burkina faso|lebanon": [
         0.6546,
@@ -28145,15 +28145,15 @@
         0.3043,
         0.265
       ],
-      "kazakhstan|vietnam": [
-        0.3703,
-        0.3151,
-        0.3146
-      ],
       "kazakhstan|spain": [
         0.0308,
         0.0511,
         0.9182
+      ],
+      "kazakhstan|vietnam": [
+        0.3703,
+        0.3151,
+        0.3146
       ],
       "kazakhstan|lebanon": [
         0.3479,
@@ -29200,15 +29200,15 @@
         0.3051,
         0.2652
       ],
-      "kenya|vietnam": [
-        0.3596,
-        0.3231,
-        0.3173
-      ],
       "kenya|spain": [
         0.0339,
         0.0564,
         0.9097
+      ],
+      "kenya|vietnam": [
+        0.3596,
+        0.3231,
+        0.3173
       ],
       "kenya|lebanon": [
         0.4303,
@@ -30255,15 +30255,15 @@
         0.2906,
         0.4289
       ],
-      "yemen|vietnam": [
-        0.2004,
-        0.2871,
-        0.5125
-      ],
       "yemen|spain": [
         0.0345,
         0.0515,
         0.9139
+      ],
+      "yemen|vietnam": [
+        0.2004,
+        0.2871,
+        0.5125
       ],
       "yemen|lebanon": [
         0.2539,
@@ -31310,15 +31310,15 @@
         0.0838,
         0.0428
       ],
-      "norway|vietnam": [
-        0.8742,
-        0.0854,
-        0.0405
-      ],
       "norway|spain": [
         0.1161,
         0.2116,
         0.6723
+      ],
+      "norway|vietnam": [
+        0.8742,
+        0.0854,
+        0.0405
       ],
       "norway|lebanon": [
         0.8735,
@@ -32365,15 +32365,15 @@
         0.2984,
         0.2622
       ],
-      "togo|vietnam": [
-        0.3762,
-        0.3174,
-        0.3064
-      ],
       "togo|spain": [
         0.031,
         0.0521,
         0.9168
+      ],
+      "togo|vietnam": [
+        0.3762,
+        0.3174,
+        0.3064
       ],
       "togo|lebanon": [
         0.4339,
@@ -33420,15 +33420,15 @@
         0.1264,
         0.0561
       ],
-      "nigeria|vietnam": [
-        0.8129,
-        0.1341,
-        0.053
-      ],
       "nigeria|spain": [
         0.076,
         0.1249,
         0.7991
+      ],
+      "nigeria|vietnam": [
+        0.8129,
+        0.1341,
+        0.053
       ],
       "nigeria|lebanon": [
         0.8202,
@@ -34475,15 +34475,15 @@
         0.2574,
         0.5142
       ],
-      "sint maarten|vietnam": [
-        0.2054,
-        0.2479,
-        0.5467
-      ],
       "sint maarten|spain": [
         0.0284,
         0.0396,
         0.932
+      ],
+      "sint maarten|vietnam": [
+        0.2054,
+        0.2479,
+        0.5467
       ],
       "sint maarten|lebanon": [
         0.2188,
@@ -35530,15 +35530,15 @@
         0.2828,
         0.4285
       ],
-      "azerbaijan|vietnam": [
-        0.2656,
-        0.2778,
-        0.4567
-      ],
       "azerbaijan|spain": [
         0.0268,
         0.0397,
         0.9336
+      ],
+      "azerbaijan|vietnam": [
+        0.2656,
+        0.2778,
+        0.4567
       ],
       "azerbaijan|lebanon": [
         0.2862,
@@ -36585,15 +36585,15 @@
         0.192,
         0.0876
       ],
-      "republic of ireland|vietnam": [
-        0.687,
-        0.2175,
-        0.0955
-      ],
       "republic of ireland|spain": [
         0.0387,
         0.0804,
         0.8808
+      ],
+      "republic of ireland|vietnam": [
+        0.687,
+        0.2175,
+        0.0955
       ],
       "republic of ireland|lebanon": [
         0.7197,
@@ -37640,15 +37640,15 @@
         0.3047,
         0.3355
       ],
-      "kyrgyzstan|vietnam": [
-        0.32,
-        0.2964,
-        0.3836
-      ],
       "kyrgyzstan|spain": [
         0.0313,
         0.049,
         0.9197
+      ],
+      "kyrgyzstan|vietnam": [
+        0.32,
+        0.2964,
+        0.3836
       ],
       "kyrgyzstan|lebanon": [
         0.3361,
@@ -38695,15 +38695,15 @@
         0.0624,
         0.024
       ],
-      "australia|vietnam": [
-        0.8771,
-        0.0904,
-        0.0325
-      ],
       "australia|spain": [
         0.0785,
         0.1535,
         0.768
+      ],
+      "australia|vietnam": [
+        0.8771,
+        0.0904,
+        0.0325
       ],
       "australia|lebanon": [
         0.9061,
@@ -39750,15 +39750,15 @@
         0.0861,
         0.0396
       ],
-      "mexico|vietnam": [
-        0.8773,
-        0.0862,
-        0.0365
-      ],
       "mexico|spain": [
         0.1199,
         0.2324,
         0.6477
+      ],
+      "mexico|vietnam": [
+        0.8773,
+        0.0862,
+        0.0365
       ],
       "mexico|lebanon": [
         0.9336,
@@ -40805,15 +40805,15 @@
         0.116,
         0.0528
       ],
-      "egypt|vietnam": [
-        0.804,
-        0.1295,
-        0.0666
-      ],
       "egypt|spain": [
         0.0839,
         0.141,
         0.7751
+      ],
+      "egypt|vietnam": [
+        0.804,
+        0.1295,
+        0.0666
       ],
       "egypt|lebanon": [
         0.863,
@@ -41860,15 +41860,15 @@
         0.2634,
         0.2304
       ],
-      "uganda|vietnam": [
-        0.4399,
-        0.2979,
-        0.2622
-      ],
       "uganda|spain": [
         0.0342,
         0.057,
         0.9088
+      ],
+      "uganda|vietnam": [
+        0.4399,
+        0.2979,
+        0.2622
       ],
       "uganda|lebanon": [
         0.5068,
@@ -42915,15 +42915,15 @@
         0.2685,
         0.4634
       ],
-      "malta|vietnam": [
-        0.2403,
-        0.2612,
-        0.4986
-      ],
       "malta|spain": [
         0.0224,
         0.0356,
         0.9419
+      ],
+      "malta|vietnam": [
+        0.2403,
+        0.2612,
+        0.4986
       ],
       "malta|lebanon": [
         0.2626,
@@ -43970,15 +43970,15 @@
         0.2659,
         0.4748
       ],
-      "saint martin|vietnam": [
-        0.2382,
-        0.2636,
-        0.4982
-      ],
       "saint martin|spain": [
         0.0318,
         0.0457,
         0.9225
+      ],
+      "saint martin|vietnam": [
+        0.2382,
+        0.2636,
+        0.4982
       ],
       "saint martin|lebanon": [
         0.2616,
@@ -45025,15 +45025,15 @@
         0.2925,
         0.2696
       ],
-      "mozambique|vietnam": [
-        0.4044,
-        0.306,
-        0.2896
-      ],
       "mozambique|spain": [
         0.0323,
         0.052,
         0.9156
+      ],
+      "mozambique|vietnam": [
+        0.4044,
+        0.306,
+        0.2896
       ],
       "mozambique|lebanon": [
         0.4305,
@@ -46080,15 +46080,15 @@
         0.0897,
         0.0406
       ],
-      "morocco|vietnam": [
-        0.8663,
-        0.0941,
-        0.0396
-      ],
       "morocco|spain": [
         0.1343,
         0.2362,
         0.6295
+      ],
+      "morocco|vietnam": [
+        0.8663,
+        0.0941,
+        0.0396
       ],
       "morocco|lebanon": [
         0.8695,
@@ -47135,15 +47135,15 @@
         0.0712,
         0.0365
       ],
-      "england|vietnam": [
-        0.8962,
-        0.0695,
-        0.0343
-      ],
       "england|spain": [
         0.2529,
         0.2595,
         0.4876
+      ],
+      "england|vietnam": [
+        0.8962,
+        0.0695,
+        0.0343
       ],
       "england|lebanon": [
         0.8923,
@@ -48190,15 +48190,15 @@
         0.1315,
         0.0479
       ],
-      "uzbekistan|vietnam": [
-        0.7912,
-        0.1516,
-        0.0572
-      ],
       "uzbekistan|spain": [
         0.0562,
         0.0987,
         0.8451
+      ],
+      "uzbekistan|vietnam": [
+        0.7912,
+        0.1516,
+        0.0572
       ],
       "uzbekistan|lebanon": [
         0.7941,
@@ -49245,15 +49245,15 @@
         0.262,
         0.2222
       ],
-      "gambia|vietnam": [
-        0.4536,
-        0.3035,
-        0.2429
-      ],
       "gambia|spain": [
         0.0352,
         0.059,
         0.9058
+      ],
+      "gambia|vietnam": [
+        0.4536,
+        0.3035,
+        0.2429
       ],
       "gambia|lebanon": [
         0.5161,
@@ -50300,15 +50300,15 @@
         0.2951,
         0.4189
       ],
-      "cyprus|vietnam": [
-        0.2636,
-        0.2845,
-        0.4518
-      ],
       "cyprus|spain": [
         0.024,
         0.0391,
         0.9369
+      ],
+      "cyprus|vietnam": [
+        0.2636,
+        0.2845,
+        0.4518
       ],
       "cyprus|lebanon": [
         0.2808,
@@ -51355,15 +51355,15 @@
         0.2798,
         0.2688
       ],
-      "trinidad and tobago|vietnam": [
-        0.4246,
-        0.2926,
-        0.2828
-      ],
       "trinidad and tobago|spain": [
         0.0314,
         0.0527,
         0.9158
+      ],
+      "trinidad and tobago|vietnam": [
+        0.4246,
+        0.2926,
+        0.2828
       ],
       "trinidad and tobago|lebanon": [
         0.487,
@@ -52410,15 +52410,15 @@
         0.0903,
         0.0419
       ],
-      "switzerland|vietnam": [
-        0.8604,
-        0.0955,
-        0.0441
-      ],
       "switzerland|spain": [
         0.1148,
         0.2185,
         0.6667
+      ],
+      "switzerland|vietnam": [
+        0.8604,
+        0.0955,
+        0.0441
       ],
       "switzerland|lebanon": [
         0.8684,
@@ -53465,15 +53465,15 @@
         0.3008,
         0.3872
       ],
-      "estonia|vietnam": [
-        0.2894,
-        0.2865,
-        0.4241
-      ],
       "estonia|spain": [
         0.0234,
         0.0403,
         0.9363
+      ],
+      "estonia|vietnam": [
+        0.2894,
+        0.2865,
+        0.4241
       ],
       "estonia|lebanon": [
         0.3088,
@@ -54520,15 +54520,15 @@
         0.1235,
         0.0564
       ],
-      "united states|vietnam": [
-        0.804,
-        0.1349,
-        0.0611
-      ],
       "united states|spain": [
         0.0697,
         0.1208,
         0.8095
+      ],
+      "united states|vietnam": [
+        0.804,
+        0.1349,
+        0.0611
       ],
       "united states|lebanon": [
         0.8207,
@@ -55575,15 +55575,15 @@
         0.2733,
         0.2208
       ],
-      "oman|vietnam": [
-        0.6089,
-        0.2278,
-        0.1633
-      ],
       "oman|spain": [
         0.0345,
         0.0615,
         0.904
+      ],
+      "oman|vietnam": [
+        0.6089,
+        0.2278,
+        0.1633
       ],
       "oman|lebanon": [
         0.484,
@@ -56630,15 +56630,15 @@
         0.2098,
         0.0911
       ],
-      "cameroon|vietnam": [
-        0.6762,
-        0.2273,
-        0.0965
-      ],
       "cameroon|spain": [
         0.0532,
         0.0842,
         0.8627
+      ],
+      "cameroon|vietnam": [
+        0.6762,
+        0.2273,
+        0.0965
       ],
       "cameroon|lebanon": [
         0.6993,
@@ -57685,15 +57685,15 @@
         0.2955,
         0.2662
       ],
-      "el salvador|vietnam": [
-        0.3705,
-        0.3101,
-        0.3194
-      ],
       "el salvador|spain": [
         0.0318,
         0.0532,
         0.915
+      ],
+      "el salvador|vietnam": [
+        0.3705,
+        0.3101,
+        0.3194
       ],
       "el salvador|lebanon": [
         0.4372,
@@ -58740,15 +58740,15 @@
         0.1961,
         0.0844
       ],
-      "iraq|vietnam": [
-        0.6911,
-        0.2137,
-        0.0952
-      ],
       "iraq|spain": [
         0.0369,
         0.0759,
         0.8872
+      ],
+      "iraq|vietnam": [
+        0.6911,
+        0.2137,
+        0.0952
       ],
       "iraq|lebanon": [
         0.7018,
@@ -59795,15 +59795,15 @@
         0.3132,
         0.3532
       ],
-      "namibia|vietnam": [
-        0.3011,
-        0.3076,
-        0.3914
-      ],
       "namibia|spain": [
         0.0302,
         0.0496,
         0.9202
+      ],
+      "namibia|vietnam": [
+        0.3011,
+        0.3076,
+        0.3914
       ],
       "namibia|lebanon": [
         0.3209,
@@ -60850,15 +60850,15 @@
         0.3002,
         0.2732
       ],
-      "indonesia|vietnam": [
-        0.4134,
-        0.2991,
-        0.2874
-      ],
       "indonesia|spain": [
         0.0324,
         0.052,
         0.9156
+      ],
+      "indonesia|vietnam": [
+        0.4134,
+        0.2991,
+        0.2874
       ],
       "indonesia|lebanon": [
         0.4178,
@@ -61905,15 +61905,15 @@
         0.1331,
         0.0598
       ],
-      "sweden|vietnam": [
-        0.7747,
-        0.1561,
-        0.0692
-      ],
       "sweden|spain": [
         0.0594,
         0.1135,
         0.827
+      ],
+      "sweden|vietnam": [
+        0.7747,
+        0.1561,
+        0.0692
       ],
       "sweden|lebanon": [
         0.8076,
@@ -62960,15 +62960,15 @@
         0.2757,
         0.4847
       ],
-      "hong kong|vietnam": [
-        0.2162,
-        0.2715,
-        0.5123
-      ],
       "hong kong|spain": [
         0.0323,
         0.0468,
         0.9209
+      ],
+      "hong kong|vietnam": [
+        0.2162,
+        0.2715,
+        0.5123
       ],
       "hong kong|lebanon": [
         0.2341,
@@ -64015,15 +64015,15 @@
         0.2575,
         0.1932
       ],
-      "palestine|vietnam": [
-        0.5196,
-        0.2694,
-        0.211
-      ],
       "palestine|spain": [
         0.0349,
         0.0623,
         0.9028
+      ],
+      "palestine|vietnam": [
+        0.5196,
+        0.2694,
+        0.211
       ],
       "palestine|lebanon": [
         0.5246,
@@ -65070,15 +65070,15 @@
         0.2165,
         0.101
       ],
-      "south africa|vietnam": [
-        0.6484,
-        0.2381,
-        0.1135
-      ],
       "south africa|spain": [
         0.0344,
         0.0696,
         0.896
+      ],
+      "south africa|vietnam": [
+        0.6484,
+        0.2381,
+        0.1135
       ],
       "south africa|lebanon": [
         0.6685,
@@ -66125,15 +66125,15 @@
         0.2076,
         0.089
       ],
-      "saudi arabia|vietnam": [
-        0.7701,
-        0.1641,
-        0.0658
-      ],
       "saudi arabia|spain": [
         0.037,
         0.0762,
         0.8869
+      ],
+      "saudi arabia|vietnam": [
+        0.7701,
+        0.1641,
+        0.0658
       ],
       "saudi arabia|lebanon": [
         0.7526,
@@ -67180,15 +67180,15 @@
         0.2704,
         0.2212
       ],
-      "libya|vietnam": [
-        0.4407,
-        0.3053,
-        0.254
-      ],
       "libya|spain": [
         0.0336,
         0.0581,
         0.9083
+      ],
+      "libya|vietnam": [
+        0.4407,
+        0.3053,
+        0.254
       ],
       "libya|lebanon": [
         0.638,
@@ -68235,15 +68235,15 @@
         0.1941,
         0.0847
       ],
-      "wales|vietnam": [
-        0.7038,
-        0.2088,
-        0.0874
-      ],
       "wales|spain": [
         0.0438,
         0.0828,
         0.8734
+      ],
+      "wales|vietnam": [
+        0.7038,
+        0.2088,
+        0.0874
       ],
       "wales|lebanon": [
         0.7194,
@@ -69290,15 +69290,15 @@
         0.2428,
         0.1347
       ],
-      "guatemala|vietnam": [
-        0.5585,
-        0.2629,
-        0.1785
-      ],
       "guatemala|spain": [
         0.0375,
         0.0669,
         0.8956
+      ],
+      "guatemala|vietnam": [
+        0.5585,
+        0.2629,
+        0.1785
       ],
       "guatemala|lebanon": [
         0.6168,
@@ -70345,15 +70345,15 @@
         0.1262,
         0.0553
       ],
-      "ivory coast|vietnam": [
-        0.8074,
-        0.1389,
-        0.0537
-      ],
       "ivory coast|spain": [
         0.0862,
         0.1277,
         0.7861
+      ],
+      "ivory coast|vietnam": [
+        0.8074,
+        0.1389,
+        0.0537
       ],
       "ivory coast|lebanon": [
         0.8185,
@@ -71400,15 +71400,15 @@
         0.1966,
         0.7121
       ],
-      "pakistan|vietnam": [
-        0.1025,
-        0.1888,
-        0.7087
-      ],
       "pakistan|spain": [
         0.026,
         0.0319,
         0.9421
+      ],
+      "pakistan|vietnam": [
+        0.1025,
+        0.1888,
+        0.7087
       ],
       "pakistan|lebanon": [
         0.0738,
@@ -72455,15 +72455,15 @@
         0.1883,
         0.0827
       ],
-      "dr congo|vietnam": [
-        0.7161,
-        0.2002,
-        0.0837
-      ],
       "dr congo|spain": [
         0.052,
         0.0893,
         0.8587
+      ],
+      "dr congo|vietnam": [
+        0.7161,
+        0.2002,
+        0.0837
       ],
       "dr congo|lebanon": [
         0.7298,
@@ -73510,15 +73510,15 @@
         0.3029,
         0.2637
       ],
-      "zimbabwe|vietnam": [
-        0.5348,
-        0.2453,
-        0.2199
-      ],
       "zimbabwe|spain": [
         0.0335,
         0.0561,
         0.9104
+      ],
+      "zimbabwe|vietnam": [
+        0.5348,
+        0.2453,
+        0.2199
       ],
       "zimbabwe|lebanon": [
         0.4332,
@@ -74565,15 +74565,15 @@
         0.2193,
         0.1146
       ],
-      "new zealand|vietnam": [
-        0.6364,
-        0.2349,
-        0.1287
-      ],
       "new zealand|spain": [
         0.0284,
         0.0576,
         0.914
+      ],
+      "new zealand|vietnam": [
+        0.6364,
+        0.2349,
+        0.1287
       ],
       "new zealand|lebanon": [
         0.6597,
@@ -75620,15 +75620,15 @@
         0.2287,
         0.1104
       ],
-      "cape verde|vietnam": [
-        0.6136,
-        0.2441,
-        0.1422
-      ],
       "cape verde|spain": [
         0.0405,
         0.0714,
         0.8881
+      ],
+      "cape verde|vietnam": [
+        0.6136,
+        0.2441,
+        0.1422
       ],
       "cape verde|lebanon": [
         0.6601,
@@ -76675,15 +76675,15 @@
         0.22,
         0.1049
       ],
-      "bolivia|vietnam": [
-        0.6448,
-        0.2378,
-        0.1174
-      ],
       "bolivia|spain": [
         0.0323,
         0.0673,
         0.9004
+      ],
+      "bolivia|vietnam": [
+        0.6448,
+        0.2378,
+        0.1174
       ],
       "bolivia|lebanon": [
         0.6692,
@@ -77730,15 +77730,15 @@
         0.2499,
         0.2206
       ],
-      "curacao|vietnam": [
-        0.5023,
-        0.2533,
-        0.2445
-      ],
       "curacao|spain": [
         0.0322,
         0.0519,
         0.9159
+      ],
+      "curacao|vietnam": [
+        0.5023,
+        0.2533,
+        0.2445
       ],
       "curacao|lebanon": [
         0.5218,
@@ -78785,15 +78785,15 @@
         0.3023,
         0.2696
       ],
-      "sierra leone|vietnam": [
-        0.3517,
-        0.3229,
-        0.3254
-      ],
       "sierra leone|spain": [
         0.0331,
         0.0548,
         0.9121
+      ],
+      "sierra leone|vietnam": [
+        0.3517,
+        0.3229,
+        0.3254
       ],
       "sierra leone|lebanon": [
         0.4271,
@@ -79840,15 +79840,15 @@
         0.2902,
         0.2677
       ],
-      "nicaragua|vietnam": [
-        0.4099,
-        0.3031,
-        0.287
-      ],
       "nicaragua|spain": [
         0.0308,
         0.0501,
         0.9191
+      ],
+      "nicaragua|vietnam": [
+        0.4099,
+        0.3031,
+        0.287
       ],
       "nicaragua|lebanon": [
         0.4302,
@@ -80895,15 +80895,15 @@
         0.2437,
         0.2101
       ],
-      "qatar|vietnam": [
-        0.5771,
-        0.2292,
-        0.1938
-      ],
       "qatar|spain": [
         0.0308,
         0.0516,
         0.9176
+      ],
+      "qatar|vietnam": [
+        0.5771,
+        0.2292,
+        0.1938
       ],
       "qatar|lebanon": [
         0.5564,
@@ -81950,15 +81950,15 @@
         0.3229,
         0.3157
       ],
-      "mauritania|vietnam": [
-        0.3099,
-        0.3059,
-        0.3842
-      ],
       "mauritania|spain": [
         0.0303,
         0.051,
         0.9187
+      ],
+      "mauritania|vietnam": [
+        0.3099,
+        0.3059,
+        0.3842
       ],
       "mauritania|lebanon": [
         0.3546,
@@ -83005,15 +83005,15 @@
         0.1186,
         0.0581
       ],
-      "paraguay|vietnam": [
-        0.7969,
-        0.1326,
-        0.0705
-      ],
       "paraguay|spain": [
         0.068,
         0.1267,
         0.8053
+      ],
+      "paraguay|vietnam": [
+        0.7969,
+        0.1326,
+        0.0705
       ],
       "paraguay|lebanon": [
         0.8208,
@@ -84060,15 +84060,15 @@
         0.3156,
         0.3088
       ],
-      "rwanda|vietnam": [
-        0.3297,
-        0.3079,
-        0.3624
-      ],
       "rwanda|spain": [
         0.0312,
         0.0519,
         0.9168
+      ],
+      "rwanda|vietnam": [
+        0.3297,
+        0.3079,
+        0.3624
       ],
       "rwanda|lebanon": [
         0.3667,
@@ -85115,15 +85115,15 @@
         0.0912,
         0.8537
       ],
-      "liechtenstein|vietnam": [
-        0.0521,
-        0.0928,
-        0.8551
-      ],
       "liechtenstein|spain": [
         0.0155,
         0.0202,
         0.9643
+      ],
+      "liechtenstein|vietnam": [
+        0.0521,
+        0.0928,
+        0.8551
       ],
       "liechtenstein|lebanon": [
         0.0581,
@@ -86170,15 +86170,15 @@
         0.2744,
         0.2656
       ],
-      "montenegro|vietnam": [
-        0.4067,
-        0.2939,
-        0.2993
-      ],
       "montenegro|spain": [
         0.0295,
         0.0483,
         0.9222
+      ],
+      "montenegro|vietnam": [
+        0.4067,
+        0.2939,
+        0.2993
       ],
       "montenegro|lebanon": [
         0.4407,
@@ -87225,15 +87225,15 @@
         0.2777,
         0.4353
       ],
-      "saint vincent and the grenadines|vietnam": [
-        0.2525,
-        0.2781,
-        0.4694
-      ],
       "saint vincent and the grenadines|spain": [
         0.0308,
         0.0456,
         0.9237
+      ],
+      "saint vincent and the grenadines|vietnam": [
+        0.2525,
+        0.2781,
+        0.4694
       ],
       "saint vincent and the grenadines|lebanon": [
         0.2836,
@@ -88280,15 +88280,15 @@
         0.1934,
         0.0854
       ],
-      "poland|vietnam": [
-        0.6886,
-        0.2143,
-        0.0971
-      ],
       "poland|spain": [
         0.0368,
         0.0789,
         0.8844
+      ],
+      "poland|vietnam": [
+        0.6886,
+        0.2143,
+        0.0971
       ],
       "poland|lebanon": [
         0.7194,
@@ -89335,15 +89335,15 @@
         0.2375,
         0.1355
       ],
-      "north macedonia|vietnam": [
-        0.5801,
-        0.2495,
-        0.1705
-      ],
       "north macedonia|spain": [
         0.0306,
         0.062,
         0.9073
+      ],
+      "north macedonia|vietnam": [
+        0.5801,
+        0.2495,
+        0.1705
       ],
       "north macedonia|lebanon": [
         0.6248,
@@ -90390,15 +90390,15 @@
         0.2331,
         0.1794
       ],
-      "bahrain|vietnam": [
-        0.4526,
-        0.291,
-        0.2564
-      ],
       "bahrain|spain": [
         0.0336,
         0.0579,
         0.9085
+      ],
+      "bahrain|vietnam": [
+        0.4526,
+        0.291,
+        0.2564
       ],
       "bahrain|lebanon": [
         0.4778,
@@ -91445,15 +91445,15 @@
         0.2328,
         0.5805
       ],
-      "aruba|vietnam": [
-        0.1378,
-        0.2346,
-        0.6275
-      ],
       "aruba|spain": [
         0.028,
         0.0368,
         0.9352
+      ],
+      "aruba|vietnam": [
+        0.1378,
+        0.2346,
+        0.6275
       ],
       "aruba|lebanon": [
         0.1738,
@@ -92500,15 +92500,15 @@
         0.2377,
         0.1135
       ],
-      "northern ireland|vietnam": [
-        0.5981,
-        0.2485,
-        0.1534
-      ],
       "northern ireland|spain": [
         0.0339,
         0.068,
         0.898
+      ],
+      "northern ireland|vietnam": [
+        0.5981,
+        0.2485,
+        0.1534
       ],
       "northern ireland|lebanon": [
         0.6445,
@@ -93555,15 +93555,15 @@
         0.2734,
         0.4759
       ],
-      "congo|vietnam": [
-        0.2098,
-        0.2552,
-        0.535
-      ],
       "congo|spain": [
         0.0271,
         0.0397,
         0.9332
+      ],
+      "congo|vietnam": [
+        0.2098,
+        0.2552,
+        0.535
       ],
       "congo|lebanon": [
         0.2467,
@@ -94610,15 +94610,15 @@
         0.2176,
         0.1183
       ],
-      "israel|vietnam": [
-        0.6218,
-        0.2415,
-        0.1366
-      ],
       "israel|spain": [
         0.0274,
         0.0569,
         0.9157
+      ],
+      "israel|vietnam": [
+        0.6218,
+        0.2415,
+        0.1366
       ],
       "israel|lebanon": [
         0.6602,
@@ -95665,15 +95665,15 @@
         0.2372,
         0.1547
       ],
-      "bosnia and herzegovina|vietnam": [
-        0.702,
-        0.1777,
-        0.1203
-      ],
       "bosnia and herzegovina|spain": [
         0.0302,
         0.0585,
         0.9112
+      ],
+      "bosnia and herzegovina|vietnam": [
+        0.702,
+        0.1777,
+        0.1203
       ],
       "bosnia and herzegovina|lebanon": [
         0.6077,
@@ -96720,15 +96720,15 @@
         0.1607,
         0.7381
       ],
-      "british virgin islands|vietnam": [
-        0.0794,
-        0.141,
-        0.7796
-      ],
       "british virgin islands|spain": [
         0.0296,
         0.0378,
         0.9326
+      ],
+      "british virgin islands|vietnam": [
+        0.0794,
+        0.141,
+        0.7796
       ],
       "british virgin islands|lebanon": [
         0.0926,
@@ -97775,15 +97775,15 @@
         0.2657,
         0.1901
       ],
-      "finland|vietnam": [
-        0.5118,
-        0.2675,
-        0.2207
-      ],
       "finland|spain": [
         0.028,
         0.0552,
         0.9168
+      ],
+      "finland|vietnam": [
+        0.5118,
+        0.2675,
+        0.2207
       ],
       "finland|lebanon": [
         0.5326,
@@ -98830,15 +98830,15 @@
         0.0577,
         0.9065
       ],
-      "san marino|vietnam": [
-        0.0278,
-        0.0517,
-        0.9204
-      ],
       "san marino|spain": [
         0.0157,
         0.0196,
         0.9648
+      ],
+      "san marino|vietnam": [
+        0.0278,
+        0.0517,
+        0.9204
       ],
       "san marino|lebanon": [
         0.0341,
@@ -99885,15 +99885,15 @@
         0.2015,
         0.0899
       ],
-      "slovenia|vietnam": [
-        0.6718,
-        0.2257,
-        0.1025
-      ],
       "slovenia|spain": [
         0.0359,
         0.0775,
         0.8866
+      ],
+      "slovenia|vietnam": [
+        0.6718,
+        0.2257,
+        0.1025
       ],
       "slovenia|lebanon": [
         0.7005,
@@ -100940,15 +100940,15 @@
         0.2331,
         0.6413
       ],
-      "andorra|vietnam": [
-        0.113,
-        0.2103,
-        0.6766
-      ],
       "andorra|spain": [
         0.0276,
         0.037,
         0.9353
+      ],
+      "andorra|vietnam": [
+        0.113,
+        0.2103,
+        0.6766
       ],
       "andorra|lebanon": [
         0.1257,
@@ -101995,15 +101995,15 @@
         0.0573,
         0.0216
       ],
-      "japan|vietnam": [
-        0.8743,
-        0.0897,
-        0.036
-      ],
       "japan|spain": [
         0.1478,
         0.2268,
         0.6254
+      ],
+      "japan|vietnam": [
+        0.8743,
+        0.0897,
+        0.036
       ],
       "japan|lebanon": [
         0.8624,
@@ -103050,15 +103050,15 @@
         0.2936,
         0.2546
       ],
-      "tahiti|vietnam": [
-        0.4207,
-        0.3055,
-        0.2738
-      ],
       "tahiti|spain": [
         0.0255,
         0.0473,
         0.9272
+      ],
+      "tahiti|vietnam": [
+        0.4207,
+        0.3055,
+        0.2738
       ],
       "tahiti|lebanon": [
         0.4501,
@@ -104105,15 +104105,15 @@
         0.2981,
         0.2559
       ],
-      "niger|vietnam": [
-        0.4214,
-        0.3081,
-        0.2705
-      ],
       "niger|spain": [
         0.0327,
         0.0557,
         0.9116
+      ],
+      "niger|vietnam": [
+        0.4214,
+        0.3081,
+        0.2705
       ],
       "niger|lebanon": [
         0.4454,
@@ -105160,15 +105160,15 @@
         0.2396,
         0.1177
       ],
-      "haiti|vietnam": [
-        0.5955,
-        0.2525,
-        0.152
-      ],
       "haiti|spain": [
         0.0391,
         0.0705,
         0.8904
+      ],
+      "haiti|vietnam": [
+        0.5955,
+        0.2525,
+        0.152
       ],
       "haiti|lebanon": [
         0.642,
@@ -106215,15 +106215,15 @@
         0.2819,
         0.414
       ],
-      "armenia|vietnam": [
-        0.2734,
-        0.2686,
-        0.4579
-      ],
       "armenia|spain": [
         0.0182,
         0.0313,
         0.9505
+      ],
+      "armenia|vietnam": [
+        0.2734,
+        0.2686,
+        0.4579
       ],
       "armenia|lebanon": [
         0.3011,
@@ -107270,15 +107270,15 @@
         0.2597,
         0.2092
       ],
-      "belarus|vietnam": [
-        0.5039,
-        0.2627,
-        0.2334
-      ],
       "belarus|spain": [
         0.0263,
         0.0513,
         0.9224
+      ],
+      "belarus|vietnam": [
+        0.5039,
+        0.2627,
+        0.2334
       ],
       "belarus|lebanon": [
         0.5219,
@@ -108325,15 +108325,15 @@
         0.2466,
         0.1836
       ],
-      "new caledonia|vietnam": [
-        0.5515,
-        0.25,
-        0.1985
-      ],
       "new caledonia|spain": [
         0.0477,
         0.0666,
         0.8857
+      ],
+      "new caledonia|vietnam": [
+        0.5515,
+        0.25,
+        0.1985
       ],
       "new caledonia|lebanon": [
         0.5663,
@@ -109380,15 +109380,15 @@
         0.1284,
         0.0591
       ],
-      "algeria|vietnam": [
-        0.7774,
-        0.1523,
-        0.0703
-      ],
       "algeria|spain": [
         0.0499,
         0.1046,
         0.8455
+      ],
+      "algeria|vietnam": [
+        0.7774,
+        0.1523,
+        0.0703
       ],
       "algeria|lebanon": [
         0.8537,
@@ -110435,15 +110435,15 @@
         0.3052,
         0.2772
       ],
-      "sudan|vietnam": [
-        0.3569,
-        0.3147,
-        0.3283
-      ],
       "sudan|spain": [
         0.0308,
         0.0517,
         0.9176
+      ],
+      "sudan|vietnam": [
+        0.3569,
+        0.3147,
+        0.3283
       ],
       "sudan|lebanon": [
         0.4244,
@@ -111490,15 +111490,15 @@
         0.2439,
         0.1162
       ],
-      "jamaica|vietnam": [
-        0.5861,
-        0.2513,
-        0.1626
-      ],
       "jamaica|spain": [
         0.0437,
         0.0767,
         0.8796
+      ],
+      "jamaica|vietnam": [
+        0.5861,
+        0.2513,
+        0.1626
       ],
       "jamaica|lebanon": [
         0.638,
@@ -112545,15 +112545,15 @@
         0.1174,
         0.8122
       ],
-      "turks and caicos islands|vietnam": [
-        0.0615,
-        0.1082,
-        0.8303
-      ],
       "turks and caicos islands|spain": [
         0.0278,
         0.0334,
         0.9388
+      ],
+      "turks and caicos islands|vietnam": [
+        0.0615,
+        0.1082,
+        0.8303
       ],
       "turks and caicos islands|lebanon": [
         0.0707,
@@ -113600,15 +113600,15 @@
         0.2553,
         0.5142
       ],
-      "singapore|vietnam": [
-        0.1729,
-        0.2463,
-        0.5808
-      ],
       "singapore|spain": [
         0.0288,
         0.0392,
         0.932
+      ],
+      "singapore|vietnam": [
+        0.1729,
+        0.2463,
+        0.5808
       ],
       "singapore|lebanon": [
         0.2266,
@@ -114655,15 +114655,15 @@
         0.1829,
         0.0824
       ],
-      "jordan|vietnam": [
-        0.6336,
-        0.2422,
-        0.1243
-      ],
       "jordan|spain": [
         0.0401,
         0.0721,
         0.8879
+      ],
+      "jordan|vietnam": [
+        0.6336,
+        0.2422,
+        0.1243
       ],
       "jordan|lebanon": [
         0.7142,
@@ -115710,15 +115710,15 @@
         0.2399,
         0.1807
       ],
-      "iceland|vietnam": [
-        0.5367,
-        0.2614,
-        0.2019
-      ],
       "iceland|spain": [
         0.0325,
         0.0577,
         0.9097
+      ],
+      "iceland|vietnam": [
+        0.5367,
+        0.2614,
+        0.2019
       ],
       "iceland|lebanon": [
         0.5616,
@@ -116765,15 +116765,15 @@
         0.3022,
         0.3616
       ],
-      "vanuatu|vietnam": [
-        0.2905,
-        0.2835,
-        0.426
-      ],
       "vanuatu|spain": [
         0.0226,
         0.0364,
         0.941
+      ],
+      "vanuatu|vietnam": [
+        0.2905,
+        0.2835,
+        0.426
       ],
       "vanuatu|lebanon": [
         0.3153,
@@ -117820,15 +117820,15 @@
         0.3017,
         0.288
       ],
-      "kuwait|vietnam": [
-        0.346,
-        0.3093,
-        0.3447
-      ],
       "kuwait|spain": [
         0.0307,
         0.0485,
         0.9208
+      ],
+      "kuwait|vietnam": [
+        0.346,
+        0.3093,
+        0.3447
       ],
       "kuwait|lebanon": [
         0.4197,
@@ -118875,15 +118875,15 @@
         0.2712,
         0.5523
       ],
-      "india|vietnam": [
-        0.1722,
-        0.2577,
-        0.5701
-      ],
       "india|spain": [
         0.0283,
         0.0418,
         0.9299
+      ],
+      "india|vietnam": [
+        0.1722,
+        0.2577,
+        0.5701
       ],
       "india|lebanon": [
         0.1591,
@@ -119930,15 +119930,15 @@
         0.2131,
         0.0907
       ],
-      "honduras|vietnam": [
-        0.6685,
-        0.2315,
-        0.1
-      ],
       "honduras|spain": [
         0.0376,
         0.0781,
         0.8842
+      ],
+      "honduras|vietnam": [
+        0.6685,
+        0.2315,
+        0.1
       ],
       "honduras|lebanon": [
         0.696,
@@ -120985,15 +120985,15 @@
         0.2375,
         0.1052
       ],
-      "albania|vietnam": [
-        0.6092,
-        0.2507,
-        0.1401
-      ],
       "albania|spain": [
         0.0312,
         0.0682,
         0.9006
+      ],
+      "albania|vietnam": [
+        0.6092,
+        0.2507,
+        0.1401
       ],
       "albania|lebanon": [
         0.6512,
@@ -122040,15 +122040,15 @@
         0.1597,
         0.7512
       ],
-      "cayman islands|vietnam": [
-        0.0726,
-        0.1322,
-        0.7952
-      ],
       "cayman islands|spain": [
         0.0263,
         0.0326,
         0.9411
+      ],
+      "cayman islands|vietnam": [
+        0.0726,
+        0.1322,
+        0.7952
       ],
       "cayman islands|lebanon": [
         0.0892,
@@ -123095,15 +123095,15 @@
         0.206,
         0.0881
       ],
-      "mali|vietnam": [
-        0.7039,
-        0.207,
-        0.0891
-      ],
       "mali|spain": [
         0.0619,
         0.0936,
         0.8445
+      ],
+      "mali|vietnam": [
+        0.7039,
+        0.207,
+        0.0891
       ],
       "mali|lebanon": [
         0.7064,
@@ -124150,15 +124150,15 @@
         0.2408,
         0.1166
       ],
-      "united arab emirates|vietnam": [
-        0.6764,
-        0.21,
-        0.1135
-      ],
       "united arab emirates|spain": [
         0.0385,
         0.0712,
         0.8903
+      ],
+      "united arab emirates|vietnam": [
+        0.6764,
+        0.21,
+        0.1135
       ],
       "united arab emirates|lebanon": [
         0.6474,
@@ -125205,15 +125205,15 @@
         0.2663,
         0.196
       ],
-      "guinea|vietnam": [
-        0.5237,
-        0.2741,
-        0.2022
-      ],
       "guinea|spain": [
         0.0369,
         0.0659,
         0.8972
+      ],
+      "guinea|vietnam": [
+        0.5237,
+        0.2741,
+        0.2022
       ],
       "guinea|lebanon": [
         0.5369,
@@ -126260,15 +126260,15 @@
         0.1975,
         0.0819
       ],
-      "peru|vietnam": [
-        0.6944,
-        0.2114,
-        0.0941
-      ],
       "peru|spain": [
         0.0473,
         0.0921,
         0.8606
+      ],
+      "peru|vietnam": [
+        0.6944,
+        0.2114,
+        0.0941
       ],
       "peru|lebanon": [
         0.7058,
@@ -127315,15 +127315,15 @@
         0.2063,
         0.0939
       ],
-      "slovakia|vietnam": [
-        0.6672,
-        0.2254,
-        0.1074
-      ],
       "slovakia|spain": [
         0.0345,
         0.0726,
         0.893
+      ],
+      "slovakia|vietnam": [
+        0.6672,
+        0.2254,
+        0.1074
       ],
       "slovakia|lebanon": [
         0.6974,
@@ -128370,15 +128370,15 @@
         0.2863,
         0.2834
       ],
-      "dominican republic|vietnam": [
-        0.3782,
-        0.2981,
-        0.3237
-      ],
       "dominican republic|spain": [
         0.0373,
         0.0544,
         0.9083
+      ],
+      "dominican republic|vietnam": [
+        0.3782,
+        0.2981,
+        0.3237
       ],
       "dominican republic|lebanon": [
         0.4298,
@@ -129425,15 +129425,15 @@
         0.1559,
         0.0737
       ],
-      "venezuela|vietnam": [
-        0.7532,
-        0.1668,
-        0.08
-      ],
       "venezuela|spain": [
         0.0576,
         0.1002,
         0.8421
+      ],
+      "venezuela|vietnam": [
+        0.7532,
+        0.1668,
+        0.08
       ],
       "venezuela|lebanon": [
         0.7664,
@@ -130480,15 +130480,15 @@
         0.1129,
         0.05
       ],
-      "italy|vietnam": [
-        0.8104,
-        0.1263,
-        0.0633
-      ],
       "italy|spain": [
         0.0777,
         0.1542,
         0.768
+      ],
+      "italy|vietnam": [
+        0.8104,
+        0.1263,
+        0.0633
       ],
       "italy|lebanon": [
         0.8349,
@@ -131535,15 +131535,15 @@
         0.1554,
         0.0679
       ],
-      "serbia|vietnam": [
-        0.7073,
-        0.2068,
-        0.0858
-      ],
       "serbia|spain": [
         0.0483,
         0.0969,
         0.8548
+      ],
+      "serbia|vietnam": [
+        0.7073,
+        0.2068,
+        0.0858
       ],
       "serbia|lebanon": [
         0.7737,
@@ -132590,15 +132590,15 @@
         0.2609,
         0.2312
       ],
-      "gabon|vietnam": [
-        0.4438,
-        0.2907,
-        0.2654
-      ],
       "gabon|spain": [
         0.0334,
         0.0535,
         0.9131
+      ],
+      "gabon|vietnam": [
+        0.4438,
+        0.2907,
+        0.2654
       ],
       "gabon|lebanon": [
         0.5071,
@@ -133645,15 +133645,15 @@
         0.0875,
         0.0401
       ],
-      "colombia|vietnam": [
-        0.8618,
-        0.0921,
-        0.0461
-      ],
       "colombia|spain": [
         0.1542,
         0.2439,
         0.6018
+      ],
+      "colombia|vietnam": [
+        0.8618,
+        0.0921,
+        0.0461
       ],
       "colombia|lebanon": [
         0.8721,
@@ -134700,15 +134700,15 @@
         0.2584,
         0.2145
       ],
-      "china|vietnam": [
-        0.5125,
-        0.2618,
-        0.2257
-      ],
       "china|spain": [
         0.0321,
         0.0536,
         0.9143
+      ],
+      "china|vietnam": [
+        0.5125,
+        0.2618,
+        0.2257
       ],
       "china|lebanon": [
         0.5461,
@@ -135755,15 +135755,15 @@
         0.2602,
         0.1888
       ],
-      "suriname|vietnam": [
-        0.5183,
-        0.271,
-        0.2107
-      ],
       "suriname|spain": [
         0.0366,
         0.0651,
         0.8983
+      ],
+      "suriname|vietnam": [
+        0.5183,
+        0.271,
+        0.2107
       ],
       "suriname|lebanon": [
         0.5498,
@@ -136810,15 +136810,15 @@
         0.2485,
         0.5155
       ],
-      "moldova|vietnam": [
-        0.19,
-        0.2259,
-        0.5841
-      ],
       "moldova|spain": [
         0.0204,
         0.0287,
         0.9508
+      ],
+      "moldova|vietnam": [
+        0.19,
+        0.2259,
+        0.5841
       ],
       "moldova|lebanon": [
         0.2321,
@@ -137865,15 +137865,15 @@
         0.0926,
         0.0424
       ],
-      "belgium|vietnam": [
-        0.8637,
-        0.0942,
-        0.0421
-      ],
       "belgium|spain": [
         0.0987,
         0.2027,
         0.6987
+      ],
+      "belgium|vietnam": [
+        0.8637,
+        0.0942,
+        0.0421
       ],
       "belgium|lebanon": [
         0.8661,
@@ -138920,15 +138920,15 @@
         0.0682,
         0.0341
       ],
-      "argentina|vietnam": [
-        0.8956,
-        0.0707,
-        0.0338
-      ],
       "argentina|spain": [
         0.313,
         0.2906,
         0.3964
+      ],
+      "argentina|vietnam": [
+        0.8956,
+        0.0707,
+        0.0338
       ],
       "argentina|lebanon": [
         0.8977,
@@ -139975,15 +139975,15 @@
         0.1119,
         0.0492
       ],
-      "croatia|vietnam": [
-        0.8276,
-        0.1194,
-        0.053
-      ],
       "croatia|spain": [
         0.0716,
         0.1451,
         0.7833
+      ],
+      "croatia|vietnam": [
+        0.8276,
+        0.1194,
+        0.053
       ],
       "croatia|lebanon": [
         0.8381,
@@ -141030,15 +141030,15 @@
         0.1302,
         0.0557
       ],
-      "canada|vietnam": [
-        0.7957,
-        0.1472,
-        0.0571
-      ],
       "canada|spain": [
         0.0738,
         0.1259,
         0.8003
+      ],
+      "canada|vietnam": [
+        0.7957,
+        0.1472,
+        0.0571
       ],
       "canada|lebanon": [
         0.812,
@@ -142085,15 +142085,15 @@
         0.1939,
         0.089
       ],
-      "costa rica|vietnam": [
-        0.6976,
-        0.2101,
-        0.0922
-      ],
       "costa rica|spain": [
         0.0322,
         0.0696,
         0.8982
+      ],
+      "costa rica|vietnam": [
+        0.6976,
+        0.2101,
+        0.0922
       ],
       "costa rica|lebanon": [
         0.7168,
@@ -143140,15 +143140,15 @@
         0.2982,
         0.387
       ],
-      "lesotho|vietnam": [
-        0.2913,
-        0.2824,
-        0.4263
-      ],
       "lesotho|spain": [
         0.0293,
         0.0451,
         0.9256
+      ],
+      "lesotho|vietnam": [
+        0.2913,
+        0.2824,
+        0.4263
       ],
       "lesotho|lebanon": [
         0.3085,
@@ -144195,15 +144195,15 @@
         0.2073,
         0.0921
       ],
-      "hungary|vietnam": [
-        0.682,
-        0.2191,
-        0.099
-      ],
       "hungary|spain": [
         0.0371,
         0.0809,
         0.8821
+      ],
+      "hungary|vietnam": [
+        0.682,
+        0.2191,
+        0.099
       ],
       "hungary|lebanon": [
         0.6951,
@@ -145250,15 +145250,15 @@
         0.2695,
         0.2393
       ],
-      "guadeloupe|vietnam": [
-        0.4472,
-        0.2917,
-        0.2611
-      ],
       "guadeloupe|spain": [
         0.0341,
         0.0561,
         0.9098
+      ],
+      "guadeloupe|vietnam": [
+        0.4472,
+        0.2917,
+        0.2611
       ],
       "guadeloupe|lebanon": [
         0.4941,
@@ -146305,15 +146305,15 @@
         0.1097,
         0.0487
       ],
-      "austria|vietnam": [
-        0.8303,
-        0.1169,
-        0.0528
-      ],
       "austria|spain": [
         0.0691,
         0.1465,
         0.7845
+      ],
+      "austria|vietnam": [
+        0.8303,
+        0.1169,
+        0.0528
       ],
       "austria|lebanon": [
         0.8417,
@@ -147360,15 +147360,15 @@
         0.1515,
         0.0672
       ],
-      "greece|vietnam": [
-        0.7136,
-        0.2019,
-        0.0845
-      ],
       "greece|spain": [
         0.0525,
         0.098,
         0.8495
+      ],
+      "greece|vietnam": [
+        0.7136,
+        0.2019,
+        0.0845
       ],
       "greece|lebanon": [
         0.7807,
@@ -148415,15 +148415,15 @@
         0.1505,
         0.0609
       ],
-      "panama|vietnam": [
-        0.7378,
-        0.193,
-        0.0692
-      ],
       "panama|spain": [
         0.0713,
         0.114,
         0.8147
+      ],
+      "panama|vietnam": [
+        0.7378,
+        0.193,
+        0.0692
       ],
       "panama|lebanon": [
         0.7888,
@@ -149470,15 +149470,15 @@
         0.1112,
         0.8225
       ],
-      "united states virgin islands|vietnam": [
-        0.0572,
-        0.1008,
-        0.842
-      ],
       "united states virgin islands|spain": [
         0.0275,
         0.0332,
         0.9393
+      ],
+      "united states virgin islands|vietnam": [
+        0.0572,
+        0.1008,
+        0.842
       ],
       "united states virgin islands|lebanon": [
         0.0651,
@@ -150525,15 +150525,15 @@
         0.1126,
         0.0488
       ],
-      "denmark|vietnam": [
-        0.8258,
-        0.1189,
-        0.0553
-      ],
       "denmark|spain": [
         0.0813,
         0.1581,
         0.7606
+      ],
+      "denmark|vietnam": [
+        0.8258,
+        0.1189,
+        0.0553
       ],
       "denmark|lebanon": [
         0.8363,
@@ -151580,15 +151580,15 @@
         0.1203,
         0.0569
       ],
-      "turkey|vietnam": [
-        0.7882,
-        0.1405,
-        0.0713
-      ],
       "turkey|spain": [
         0.0563,
         0.111,
         0.8327
+      ],
+      "turkey|vietnam": [
+        0.7882,
+        0.1405,
+        0.0713
       ],
       "turkey|lebanon": [
         0.8196,
@@ -152635,15 +152635,15 @@
         0.2653,
         0.1954
       ],
-      "angola|vietnam": [
-        0.5237,
-        0.2748,
-        0.2015
-      ],
       "angola|spain": [
         0.0399,
         0.0694,
         0.8906
+      ],
+      "angola|vietnam": [
+        0.5237,
+        0.2748,
+        0.2015
       ],
       "angola|lebanon": [
         0.5385,
@@ -153690,15 +153690,15 @@
         0.2938,
         0.4418
       ],
-      "latvia|vietnam": [
-        0.2247,
-        0.2612,
-        0.5142
-      ],
       "latvia|spain": [
         0.0241,
         0.039,
         0.9368
+      ],
+      "latvia|vietnam": [
+        0.2247,
+        0.2612,
+        0.5142
       ],
       "latvia|lebanon": [
         0.2504,
@@ -154745,15 +154745,15 @@
         0.2127,
         0.0969
       ],
-      "romania|vietnam": [
-        0.6561,
-        0.2403,
-        0.1036
-      ],
       "romania|spain": [
         0.0397,
         0.0766,
         0.8837
+      ],
+      "romania|vietnam": [
+        0.6561,
+        0.2403,
+        0.1036
       ],
       "romania|lebanon": [
         0.6905,
@@ -155800,15 +155800,15 @@
         0.3055,
         0.3917
       ],
-      "ethiopia|vietnam": [
-        0.2782,
-        0.2881,
-        0.4337
-      ],
       "ethiopia|spain": [
         0.0294,
         0.0444,
         0.9262
+      ],
+      "ethiopia|vietnam": [
+        0.2782,
+        0.2881,
+        0.4337
       ],
       "ethiopia|lebanon": [
         0.2966,
@@ -156855,15 +156855,15 @@
         0.2856,
         0.4568
       ],
-      "lithuania|vietnam": [
-        0.2275,
-        0.2585,
-        0.5139
-      ],
       "lithuania|spain": [
         0.0248,
         0.0386,
         0.9366
+      ],
+      "lithuania|vietnam": [
+        0.2275,
+        0.2585,
+        0.5139
       ],
       "lithuania|lebanon": [
         0.2543,
@@ -157910,15 +157910,15 @@
         0.1044,
         0.0389
       ],
-      "germany|vietnam": [
-        0.8485,
-        0.1105,
-        0.0411
-      ],
       "germany|spain": [
         0.0993,
         0.223,
         0.6777
+      ],
+      "germany|vietnam": [
+        0.8485,
+        0.1105,
+        0.0411
       ],
       "germany|lebanon": [
         0.8554,
@@ -158965,15 +158965,15 @@
         0.1154,
         0.0466
       ],
-      "uruguay|vietnam": [
-        0.8265,
-        0.1204,
-        0.0531
-      ],
       "uruguay|spain": [
         0.0988,
         0.2041,
         0.6971
+      ],
+      "uruguay|vietnam": [
+        0.8265,
+        0.1204,
+        0.0531
       ],
       "uruguay|lebanon": [
         0.8351,
@@ -160020,15 +160020,15 @@
         0.1523,
         0.7721
       ],
-      "myanmar|vietnam": [
-        0.0673,
-        0.15,
-        0.7827
-      ],
       "myanmar|spain": [
         0.0192,
         0.024,
         0.9568
+      ],
+      "myanmar|vietnam": [
+        0.0673,
+        0.15,
+        0.7827
       ],
       "myanmar|lebanon": [
         0.0833,
@@ -161075,15 +161075,15 @@
         0.0811,
         0.0381
       ],
-      "france|vietnam": [
-        0.8747,
-        0.0846,
-        0.0407
-      ],
       "france|spain": [
         0.162,
         0.2387,
         0.5992
+      ],
+      "france|vietnam": [
+        0.8747,
+        0.0846,
+        0.0407
       ],
       "france|lebanon": [
         0.8825,
@@ -162130,15 +162130,15 @@
         0.3181,
         0.328
       ],
-      "liberia|vietnam": [
-        0.307,
-        0.2987,
-        0.3943
-      ],
       "liberia|spain": [
         0.0303,
         0.048,
         0.9217
+      ],
+      "liberia|vietnam": [
+        0.307,
+        0.2987,
+        0.3943
       ],
       "liberia|lebanon": [
         0.3299,
@@ -163185,15 +163185,15 @@
         0.1294,
         0.0602
       ],
-      "senegal|vietnam": [
-        0.7893,
-        0.1474,
-        0.0633
-      ],
       "senegal|spain": [
         0.0681,
         0.115,
         0.817
+      ],
+      "senegal|vietnam": [
+        0.7893,
+        0.1474,
+        0.0633
       ],
       "senegal|lebanon": [
         0.8106,
@@ -164240,15 +164240,15 @@
         0.1387,
         0.0592
       ],
-      "south korea|vietnam": [
-        0.8335,
-        0.1229,
-        0.0436
-      ],
       "south korea|spain": [
         0.0631,
         0.1191,
         0.8179
+      ],
+      "south korea|vietnam": [
+        0.8335,
+        0.1229,
+        0.0436
       ],
       "south korea|lebanon": [
         0.8169,
@@ -165295,15 +165295,15 @@
         0.2378,
         0.1337
       ],
-      "tunisia|vietnam": [
-        0.547,
-        0.2594,
-        0.1936
-      ],
       "tunisia|spain": [
         0.0301,
         0.0568,
         0.9131
+      ],
+      "tunisia|vietnam": [
+        0.547,
+        0.2594,
+        0.1936
       ],
       "tunisia|lebanon": [
         0.6254,
@@ -166350,15 +166350,15 @@
         0.1652,
         0.0771
       ],
-      "chile|vietnam": [
-        0.7026,
-        0.2047,
-        0.0927
-      ],
       "chile|spain": [
         0.0485,
         0.0938,
         0.8576
+      ],
+      "chile|vietnam": [
+        0.7026,
+        0.2047,
+        0.0927
       ],
       "chile|lebanon": [
         0.7526,
@@ -167405,15 +167405,15 @@
         0.3144,
         0.3217
       ],
-      "equatorial guinea|vietnam": [
-        0.3066,
-        0.3093,
-        0.3841
-      ],
       "equatorial guinea|spain": [
         0.0299,
         0.0487,
         0.9214
+      ],
+      "equatorial guinea|vietnam": [
+        0.3066,
+        0.3093,
+        0.3841
       ],
       "equatorial guinea|lebanon": [
         0.35,
@@ -168460,15 +168460,15 @@
         0.1169,
         0.0481
       ],
-      "ecuador|vietnam": [
-        0.8266,
-        0.1222,
-        0.0512
-      ],
       "ecuador|spain": [
         0.1132,
         0.1767,
         0.7101
+      ],
+      "ecuador|vietnam": [
+        0.8266,
+        0.1222,
+        0.0512
       ],
       "ecuador|lebanon": [
         0.8339,
@@ -169515,15 +169515,15 @@
         0.0709,
         0.8987
       ],
-      "guam|vietnam": [
-        0.034,
-        0.0794,
-        0.8866
-      ],
       "guam|spain": [
         0.0188,
         0.0228,
         0.9585
+      ],
+      "guam|vietnam": [
+        0.034,
+        0.0794,
+        0.8866
       ],
       "guam|lebanon": [
         0.0591,
@@ -170570,15 +170570,15 @@
         0.0845,
         0.8627
       ],
-      "seychelles|vietnam": [
-        0.04,
-        0.0772,
-        0.8828
-      ],
       "seychelles|spain": [
         0.0184,
         0.0223,
         0.9593
+      ],
+      "seychelles|vietnam": [
+        0.04,
+        0.0772,
+        0.8828
       ],
       "seychelles|lebanon": [
         0.0515,
@@ -171625,15 +171625,15 @@
         0.1408,
         0.066
       ],
-      "ukraine|vietnam": [
-        0.7545,
-        0.1702,
-        0.0753
-      ],
       "ukraine|spain": [
         0.0507,
         0.1032,
         0.846
+      ],
+      "ukraine|vietnam": [
+        0.7545,
+        0.1702,
+        0.0753
       ],
       "ukraine|lebanon": [
         0.7916,
@@ -172680,15 +172680,15 @@
         0.254,
         0.531
       ],
-      "grenada|vietnam": [
-        0.1888,
-        0.2384,
-        0.5728
-      ],
       "grenada|spain": [
         0.0285,
         0.0389,
         0.9327
+      ],
+      "grenada|vietnam": [
+        0.1888,
+        0.2384,
+        0.5728
       ],
       "grenada|lebanon": [
         0.2107,
@@ -173735,15 +173735,15 @@
         0.25,
         0.5244
       ],
-      "belize|vietnam": [
-        0.1897,
-        0.2487,
-        0.5616
-      ],
       "belize|spain": [
         0.0284,
         0.0398,
         0.9318
+      ],
+      "belize|vietnam": [
+        0.1897,
+        0.2487,
+        0.5616
       ],
       "belize|lebanon": [
         0.214,
@@ -174790,15 +174790,15 @@
         0.3175,
         0.3193
       ],
-      "luxembourg|vietnam": [
-        0.3066,
-        0.3,
-        0.3934
-      ],
       "luxembourg|spain": [
         0.0245,
         0.0432,
         0.9323
+      ],
+      "luxembourg|vietnam": [
+        0.3066,
+        0.3,
+        0.3934
       ],
       "luxembourg|lebanon": [
         0.3539,
@@ -175845,15 +175845,15 @@
         0.205,
         0.0947
       ],
-      "czech republic|vietnam": [
-        0.6641,
-        0.229,
-        0.1069
-      ],
       "czech republic|spain": [
         0.0363,
         0.0737,
         0.89
+      ],
+      "czech republic|vietnam": [
+        0.6641,
+        0.229,
+        0.1069
       ],
       "czech republic|lebanon": [
         0.6981,
@@ -176900,15 +176900,15 @@
         0.3259,
         0.3209
       ],
-      "malawi|vietnam": [
-        0.306,
-        0.3144,
-        0.3796
-      ],
       "malawi|spain": [
         0.0317,
         0.0519,
         0.9163
+      ],
+      "malawi|vietnam": [
+        0.306,
+        0.3144,
+        0.3796
       ],
       "malawi|lebanon": [
         0.3355,
@@ -177955,15 +177955,15 @@
         0.3155,
         0.3597
       ],
-      "tanzania|vietnam": [
-        0.2985,
-        0.3139,
-        0.3876
-      ],
       "tanzania|spain": [
         0.0309,
         0.0524,
         0.9166
+      ],
+      "tanzania|vietnam": [
+        0.2985,
+        0.3139,
+        0.3876
       ],
       "tanzania|lebanon": [
         0.3247,
@@ -179010,15 +179010,15 @@
         0.1025,
         0.0449
       ],
-      "netherlands|vietnam": [
-        0.8446,
-        0.1095,
-        0.0459
-      ],
       "netherlands|spain": [
         0.1235,
         0.2149,
         0.6617
+      ],
+      "netherlands|vietnam": [
+        0.8446,
+        0.1095,
+        0.0459
       ],
       "netherlands|lebanon": [
         0.8534,
@@ -180065,15 +180065,15 @@
         0.0806,
         0.0304
       ],
-      "iran|vietnam": [
-        0.8441,
-        0.1131,
-        0.0429
-      ],
       "iran|spain": [
         0.0653,
         0.1257,
         0.809
+      ],
+      "iran|vietnam": [
+        0.8441,
+        0.1131,
+        0.0429
       ],
       "iran|lebanon": [
         0.8837,
@@ -181120,15 +181120,15 @@
         0.0918,
         0.041
       ],
-      "brazil|vietnam": [
-        0.8547,
-        0.0976,
-        0.0477
-      ],
       "brazil|spain": [
         0.1833,
         0.2441,
         0.5726
+      ],
+      "brazil|vietnam": [
+        0.8547,
+        0.0976,
+        0.0477
       ],
       "brazil|lebanon": [
         0.8669,
@@ -182175,15 +182175,15 @@
         0.0939,
         0.0417
       ],
-      "portugal|vietnam": [
-        0.8554,
-        0.1014,
-        0.0433
-      ],
       "portugal|spain": [
         0.1201,
         0.2303,
         0.6496
+      ],
+      "portugal|vietnam": [
+        0.8554,
+        0.1014,
+        0.0433
       ],
       "portugal|lebanon": [
         0.8677,
@@ -183230,15 +183230,15 @@
         0.2826,
         0.2669
       ],
-      "north korea|vietnam": [
-        0.3961,
-        0.3021,
-        0.3017
-      ],
       "north korea|spain": [
         0.032,
         0.05,
         0.9179
+      ],
+      "north korea|vietnam": [
+        0.3961,
+        0.3021,
+        0.3017
       ],
       "north korea|lebanon": [
         0.3691,
@@ -184285,15 +184285,15 @@
         0.1829,
         0.7339
       ],
-      "cambodia|vietnam": [
-        0.0682,
-        0.147,
-        0.7848
-      ],
       "cambodia|spain": [
         0.0293,
         0.0362,
         0.9345
+      ],
+      "cambodia|vietnam": [
+        0.0682,
+        0.147,
+        0.7848
       ],
       "cambodia|lebanon": [
         0.0747,
@@ -185340,15 +185340,15 @@
         0.3068,
         0.3883
       ],
-      "guinea-bissau|vietnam": [
-        0.2735,
-        0.3026,
-        0.4239
-      ],
       "guinea-bissau|spain": [
         0.0305,
         0.0497,
         0.9198
+      ],
+      "guinea-bissau|vietnam": [
+        0.2735,
+        0.3026,
+        0.4239
       ],
       "guinea-bissau|lebanon": [
         0.3036,
@@ -186395,15 +186395,15 @@
         0.0763,
         0.8807
       ],
-      "anguilla|vietnam": [
-        0.0379,
-        0.0727,
-        0.8894
-      ],
       "anguilla|spain": [
         0.0183,
         0.021,
         0.9608
+      ],
+      "anguilla|vietnam": [
+        0.0379,
+        0.0727,
+        0.8894
       ],
       "anguilla|lebanon": [
         0.0422,
@@ -187450,15 +187450,15 @@
         0.2146,
         0.1054
       ],
-      "georgia|vietnam": [
-        0.6255,
-        0.2517,
-        0.1228
-      ],
       "georgia|spain": [
         0.0304,
         0.0632,
         0.9065
+      ],
+      "georgia|vietnam": [
+        0.6255,
+        0.2517,
+        0.1228
       ],
       "georgia|lebanon": [
         0.6788,
@@ -188505,15 +188505,15 @@
         0.2979,
         0.396
       ],
-      "botswana|vietnam": [
-        0.2787,
-        0.2827,
-        0.4386
-      ],
       "botswana|spain": [
         0.0292,
         0.0458,
         0.925
+      ],
+      "botswana|vietnam": [
+        0.2787,
+        0.2827,
+        0.4386
       ],
       "botswana|lebanon": [
         0.3024,
@@ -189560,15 +189560,15 @@
         0.2653,
         0.4875
       ],
-      "eswatini|vietnam": [
-        0.2028,
-        0.2494,
-        0.5478
-      ],
       "eswatini|spain": [
         0.0271,
         0.0381,
         0.9348
+      ],
+      "eswatini|vietnam": [
+        0.2028,
+        0.2494,
+        0.5478
       ],
       "eswatini|lebanon": [
         0.2459,
@@ -190615,15 +190615,15 @@
         0.2271,
         0.5867
       ],
-      "saint kitts and nevis|vietnam": [
-        0.1646,
-        0.2182,
-        0.6172
-      ],
       "saint kitts and nevis|spain": [
         0.0212,
         0.0282,
         0.9506
+      ],
+      "saint kitts and nevis|vietnam": [
+        0.1646,
+        0.2182,
+        0.6172
       ],
       "saint kitts and nevis|lebanon": [
         0.1842,
@@ -191670,15 +191670,15 @@
         0.2466,
         0.5754
       ],
-      "mauritius|vietnam": [
-        0.1394,
-        0.2287,
-        0.6319
-      ],
       "mauritius|spain": [
         0.0278,
         0.0379,
         0.9343
+      ],
+      "mauritius|vietnam": [
+        0.1394,
+        0.2287,
+        0.6319
       ],
       "mauritius|lebanon": [
         0.1754,
@@ -192725,15 +192725,15 @@
         0.3109,
         0.2771
       ],
-      "comoros|vietnam": [
-        0.3467,
-        0.3185,
-        0.3347
-      ],
       "comoros|spain": [
         0.0307,
         0.0517,
         0.9176
+      ],
+      "comoros|vietnam": [
+        0.3467,
+        0.3185,
+        0.3347
       ],
       "comoros|lebanon": [
         0.4046,
@@ -193780,15 +193780,15 @@
         0.2734,
         0.4574
       ],
-      "central african republic|vietnam": [
-        0.2512,
-        0.2742,
-        0.4746
-      ],
       "central african republic|spain": [
         0.0279,
         0.0408,
         0.9313
+      ],
+      "central african republic|vietnam": [
+        0.2512,
+        0.2742,
+        0.4746
       ],
       "central african republic|lebanon": [
         0.2712,
@@ -194835,15 +194835,15 @@
         0.2407,
         0.6579
       ],
-      "afghanistan|vietnam": [
-        0.1244,
-        0.2373,
-        0.6383
-      ],
       "afghanistan|spain": [
         0.0281,
         0.0393,
         0.9326
+      ],
+      "afghanistan|vietnam": [
+        0.1244,
+        0.2373,
+        0.6383
       ],
       "afghanistan|lebanon": [
         0.1365,
@@ -195890,15 +195890,15 @@
         0.1903,
         0.6915
       ],
-      "barbados|vietnam": [
-        0.098,
-        0.1823,
-        0.7197
-      ],
       "barbados|spain": [
         0.0211,
         0.0258,
         0.953
+      ],
+      "barbados|vietnam": [
+        0.098,
+        0.1823,
+        0.7197
       ],
       "barbados|lebanon": [
         0.1106,
@@ -196945,15 +196945,15 @@
         0.1817,
         0.6701
       ],
-      "samoa|vietnam": [
-        0.1473,
-        0.1941,
-        0.6586
-      ],
       "samoa|spain": [
         0.0196,
         0.0266,
         0.9538
+      ],
+      "samoa|vietnam": [
+        0.1473,
+        0.1941,
+        0.6586
       ],
       "samoa|lebanon": [
         0.1512,
@@ -198000,15 +198000,15 @@
         0.2009,
         0.7014
       ],
-      "bangladesh|vietnam": [
-        0.0856,
-        0.1919,
-        0.7225
-      ],
       "bangladesh|spain": [
         0.0262,
         0.0337,
         0.9401
+      ],
+      "bangladesh|vietnam": [
+        0.0856,
+        0.1919,
+        0.7225
       ],
       "bangladesh|lebanon": [
         0.1011,
@@ -199055,15 +199055,15 @@
         0.2503,
         0.5478
       ],
-      "south sudan|vietnam": [
-        0.1737,
-        0.2329,
-        0.5934
-      ],
       "south sudan|spain": [
         0.0266,
         0.0361,
         0.9372
+      ],
+      "south sudan|vietnam": [
+        0.1737,
+        0.2329,
+        0.5934
       ],
       "south sudan|lebanon": [
         0.1994,
@@ -200110,15 +200110,15 @@
         0.2199,
         0.6515
       ],
-      "bonaire|vietnam": [
-        0.1044,
-        0.2027,
-        0.6929
-      ],
       "bonaire|spain": [
         0.0292,
         0.0367,
         0.934
+      ],
+      "bonaire|vietnam": [
+        0.1044,
+        0.2027,
+        0.6929
       ],
       "bonaire|lebanon": [
         0.1189,
@@ -201165,15 +201165,15 @@
         0.2061,
         0.6698
       ],
-      "dominica|vietnam": [
-        0.109,
-        0.2008,
-        0.6902
-      ],
       "dominica|spain": [
         0.0195,
         0.0254,
         0.9551
+      ],
+      "dominica|vietnam": [
+        0.109,
+        0.2008,
+        0.6902
       ],
       "dominica|lebanon": [
         0.1224,
@@ -202220,15 +202220,15 @@
         0.2389,
         0.5848
       ],
-      "montserrat|vietnam": [
-        0.148,
-        0.2244,
-        0.6276
-      ],
       "montserrat|spain": [
         0.0266,
         0.0366,
         0.9368
+      ],
+      "montserrat|vietnam": [
+        0.148,
+        0.2244,
+        0.6276
       ],
       "montserrat|lebanon": [
         0.174,
@@ -203275,15 +203275,15 @@
         0.0508,
         0.9264
       ],
-      "brunei|vietnam": [
-        0.0279,
-        0.055,
-        0.917
-      ],
       "brunei|spain": [
         0.0182,
         0.0206,
         0.9611
+      ],
+      "brunei|vietnam": [
+        0.0279,
+        0.055,
+        0.917
       ],
       "brunei|lebanon": [
         0.0225,
@@ -204330,15 +204330,15 @@
         0.2801,
         0.4281
       ],
-      "fiji|vietnam": [
-        0.2761,
-        0.2728,
-        0.4512
-      ],
       "fiji|spain": [
         0.0271,
         0.0394,
         0.9335
+      ],
+      "fiji|vietnam": [
+        0.2761,
+        0.2728,
+        0.4512
       ],
       "fiji|lebanon": [
         0.2888,
@@ -205385,15 +205385,15 @@
         0.1278,
         0.8088
       ],
-      "sri lanka|vietnam": [
-        0.0675,
-        0.1161,
-        0.8164
-      ],
       "sri lanka|spain": [
         0.0272,
         0.0345,
         0.9383
+      ],
+      "sri lanka|vietnam": [
+        0.0675,
+        0.1161,
+        0.8164
       ],
       "sri lanka|lebanon": [
         0.0617,
@@ -206440,15 +206440,15 @@
         0.234,
         0.5229
       ],
-      "bermuda|vietnam": [
-        0.2188,
-        0.2262,
-        0.555
-      ],
       "bermuda|spain": [
         0.0201,
         0.0272,
         0.9526
+      ],
+      "bermuda|vietnam": [
+        0.2188,
+        0.2262,
+        0.555
       ],
       "bermuda|lebanon": [
         0.2418,
@@ -207495,15 +207495,15 @@
         0.2175,
         0.6413
       ],
-      "sao tome and principe|vietnam": [
-        0.1168,
-        0.2046,
-        0.6786
-      ],
       "sao tome and principe|spain": [
         0.0253,
         0.032,
         0.9427
+      ],
+      "sao tome and principe|vietnam": [
+        0.1168,
+        0.2046,
+        0.6786
       ],
       "sao tome and principe|lebanon": [
         0.1329,
@@ -208550,15 +208550,15 @@
         0.3093,
         0.2715
       ],
-      "martinique|vietnam": [
-        0.3465,
-        0.3271,
-        0.3263
-      ],
       "martinique|spain": [
         0.0306,
         0.0523,
         0.9171
+      ],
+      "martinique|vietnam": [
+        0.3465,
+        0.3271,
+        0.3263
       ],
       "martinique|lebanon": [
         0.4072,
@@ -209605,15 +209605,15 @@
         0.2574,
         0.556
       ],
-      "chad|vietnam": [
-        0.1699,
-        0.242,
-        0.5881
-      ],
       "chad|spain": [
         0.0282,
         0.0392,
         0.9327
+      ],
+      "chad|vietnam": [
+        0.1699,
+        0.242,
+        0.5881
       ],
       "chad|lebanon": [
         0.1819,
@@ -210660,15 +210660,15 @@
         0.2683,
         0.471
       ],
-      "solomon islands|vietnam": [
-        0.2403,
-        0.2668,
-        0.4929
-      ],
       "solomon islands|spain": [
         0.0203,
         0.0307,
         0.949
+      ],
+      "solomon islands|vietnam": [
+        0.2403,
+        0.2668,
+        0.4929
       ],
       "solomon islands|lebanon": [
         0.261,
@@ -211715,15 +211715,15 @@
         0.2997,
         0.3795
       ],
-      "french guiana|vietnam": [
-        0.293,
-        0.3051,
-        0.4019
-      ],
       "french guiana|spain": [
         0.0312,
         0.0494,
         0.9195
+      ],
+      "french guiana|vietnam": [
+        0.293,
+        0.3051,
+        0.4019
       ],
       "french guiana|lebanon": [
         0.3217,
@@ -212770,15 +212770,15 @@
         0.1941,
         0.6918
       ],
-      "gibraltar|vietnam": [
-        0.098,
-        0.1897,
-        0.7123
-      ],
       "gibraltar|spain": [
         0.0186,
         0.0243,
         0.9571
+      ],
+      "gibraltar|vietnam": [
+        0.098,
+        0.1897,
+        0.7123
       ],
       "gibraltar|lebanon": [
         0.1121,
@@ -213825,15 +213825,15 @@
         0.2209,
         0.6178
       ],
-      "saint lucia|vietnam": [
-        0.1353,
-        0.2108,
-        0.654
-      ],
       "saint lucia|spain": [
         0.0204,
         0.0271,
         0.9525
+      ],
+      "saint lucia|vietnam": [
+        0.1353,
+        0.2108,
+        0.654
       ],
       "saint lucia|lebanon": [
         0.1605,
@@ -214880,15 +214880,15 @@
         0.2049,
         0.6883
       ],
-      "antigua and barbuda|vietnam": [
-        0.092,
-        0.1766,
-        0.7314
-      ],
       "antigua and barbuda|spain": [
         0.0258,
         0.0324,
         0.9417
+      ],
+      "antigua and barbuda|vietnam": [
+        0.092,
+        0.1766,
+        0.7314
       ],
       "antigua and barbuda|lebanon": [
         0.104,
@@ -215935,15 +215935,15 @@
         0.3063,
         0.3832
       ],
-      "burundi|vietnam": [
-        0.2802,
-        0.3093,
-        0.4104
-      ],
       "burundi|spain": [
         0.0294,
         0.0472,
         0.9234
+      ],
+      "burundi|vietnam": [
+        0.2802,
+        0.3093,
+        0.4104
       ],
       "burundi|lebanon": [
         0.299,
@@ -216990,15 +216990,15 @@
         0.1788,
         0.7239
       ],
-      "somalia|vietnam": [
-        0.0831,
-        0.1474,
-        0.7695
-      ],
       "somalia|spain": [
         0.0259,
         0.0324,
         0.9417
+      ],
+      "somalia|vietnam": [
+        0.0831,
+        0.1474,
+        0.7695
       ],
       "somalia|lebanon": [
         0.0677,
@@ -218045,15 +218045,15 @@
         0.0746,
         0.8839
       ],
-      "bahamas|vietnam": [
-        0.0339,
-        0.0699,
-        0.8962
-      ],
       "bahamas|spain": [
         0.0192,
         0.0225,
         0.9584
+      ],
+      "bahamas|vietnam": [
+        0.0339,
+        0.0699,
+        0.8962
       ],
       "bahamas|lebanon": [
         0.0399,
@@ -219100,15 +219100,15 @@
         0.1743,
         0.7297
       ],
-      "djibouti|vietnam": [
-        0.0795,
-        0.1396,
-        0.7808
-      ],
       "djibouti|spain": [
         0.0196,
         0.0248,
         0.9556
+      ],
+      "djibouti|vietnam": [
+        0.0795,
+        0.1396,
+        0.7808
       ],
       "djibouti|lebanon": [
         0.0816,
@@ -220155,15 +220155,15 @@
         0.0895,
         0.8564
       ],
-      "laos|vietnam": [
-        0.0358,
-        0.0761,
-        0.8881
-      ],
       "laos|spain": [
         0.0264,
         0.0301,
         0.9435
+      ],
+      "laos|vietnam": [
+        0.0358,
+        0.0761,
+        0.8881
       ],
       "laos|lebanon": [
         0.0387,
@@ -221210,15 +221210,15 @@
         0.074,
         0.8904
       ],
-      "timor-leste|vietnam": [
-        0.0376,
-        0.0712,
-        0.8912
-      ],
       "timor-leste|spain": [
         0.0183,
         0.021,
         0.9606
+      ],
+      "timor-leste|vietnam": [
+        0.0376,
+        0.0712,
+        0.8912
       ],
       "timor-leste|lebanon": [
         0.0457,
@@ -222265,15 +222265,15 @@
         0.1171,
         0.8262
       ],
-      "maldives|vietnam": [
-        0.056,
-        0.111,
-        0.833
-      ],
       "maldives|spain": [
         0.0277,
         0.0343,
         0.9381
+      ],
+      "maldives|vietnam": [
+        0.056,
+        0.111,
+        0.833
       ],
       "maldives|lebanon": [
         0.0527,
@@ -223320,15 +223320,15 @@
         0.0625,
         0.9079
       ],
-      "macau|vietnam": [
-        0.0256,
-        0.0547,
-        0.9197
-      ],
       "macau|spain": [
         0.0196,
         0.0225,
         0.9579
+      ],
+      "macau|vietnam": [
+        0.0256,
+        0.0547,
+        0.9197
       ],
       "macau|lebanon": [
         0.0376,
@@ -224375,15 +224375,15 @@
         0.054,
         0.9213
       ],
-      "bhutan|vietnam": [
-        0.0315,
-        0.0605,
-        0.908
-      ],
       "bhutan|spain": [
         0.0183,
         0.0217,
         0.9599
+      ],
+      "bhutan|vietnam": [
+        0.0315,
+        0.0605,
+        0.908
       ],
       "bhutan|lebanon": [
         0.0243,
@@ -225430,15 +225430,15 @@
         0.1986,
         0.714
       ],
-      "nepal|vietnam": [
-        0.0736,
-        0.1707,
-        0.7557
-      ],
       "nepal|spain": [
         0.0263,
         0.0342,
         0.9395
+      ],
+      "nepal|vietnam": [
+        0.0736,
+        0.1707,
+        0.7557
       ],
       "nepal|lebanon": [
         0.1074,
@@ -226485,15 +226485,15 @@
         0.1667,
         0.7434
       ],
-      "taiwan|vietnam": [
-        0.0669,
-        0.1309,
-        0.8022
-      ],
       "taiwan|spain": [
         0.0272,
         0.0328,
         0.9401
+      ],
+      "taiwan|vietnam": [
+        0.0669,
+        0.1309,
+        0.8022
       ],
       "taiwan|lebanon": [
         0.0898,
