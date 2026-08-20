@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T10:37:34+00:00",
+  "generated_at": "2026-08-20T18:49:51+00:00",
   "as_of": "2026-07-19",
   "simulations": 10000,
   "locked": {
@@ -242,7 +242,7 @@
       "gd": 2,
       "status": "qualified",
       "reach_r32": 1.0,
-      "reach_r16": 0.5459,
+      "reach_r16": 0.546,
       "reach_qf": 0.1252,
       "reach_sf": 0.0445,
       "reach_final": 0.0134,
@@ -274,22 +274,22 @@
       "reach_r32": 1.0,
       "reach_r16": 0.4788,
       "reach_qf": 0.1037,
-      "reach_sf": 0.0361,
+      "reach_sf": 0.0362,
       "reach_final": 0.0075,
       "win": 0.0019
     },
     {
       "team": "Scotland",
       "group": "C",
-      "elo": 1746,
+      "elo": 1745,
       "played": 1,
       "points": 3,
       "gd": 1,
       "status": "active",
       "reach_r32": 0.9678,
-      "reach_r16": 0.3423,
-      "reach_qf": 0.1254,
-      "reach_sf": 0.0304,
+      "reach_r16": 0.3422,
+      "reach_qf": 0.1253,
+      "reach_sf": 0.0303,
       "reach_final": 0.0064,
       "win": 0.0014
     },
@@ -363,7 +363,7 @@
       "status": "qualified",
       "reach_r32": 0.9999,
       "reach_r16": 0.3391,
-      "reach_qf": 0.1053,
+      "reach_qf": 0.1054,
       "reach_sf": 0.0235,
       "reach_final": 0.0049,
       "win": 0.0006
