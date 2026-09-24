@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T21:22:45+00:00",
+  "generated_at": "2026-09-24T07:29:50+00:00",
   "as_of": "2026-07-19",
   "simulations": 10000,
   "locked": {
@@ -362,8 +362,8 @@
       "gd": 4,
       "status": "qualified",
       "reach_r32": 0.9999,
-      "reach_r16": 0.3403,
-      "reach_qf": 0.106,
+      "reach_r16": 0.3402,
+      "reach_qf": 0.1059,
       "reach_sf": 0.0235,
       "reach_final": 0.0049,
       "win": 0.0006
@@ -656,14 +656,14 @@
     {
       "team": "Saudi Arabia",
       "group": "H",
-      "elo": 1596,
+      "elo": 1600,
       "played": 2,
       "points": 2,
       "gd": 0,
       "status": "active",
       "reach_r32": 0.1493,
-      "reach_r16": 0.0284,
-      "reach_qf": 0.007,
+      "reach_r16": 0.0285,
+      "reach_qf": 0.0071,
       "reach_sf": 0.001,
       "reach_final": 0.0,
       "win": 0.0
@@ -671,7 +671,7 @@
     {
       "team": "Iraq",
       "group": "I",
-      "elo": 1561,
+      "elo": 1556,
       "played": 1,
       "points": 0,
       "gd": -3,
