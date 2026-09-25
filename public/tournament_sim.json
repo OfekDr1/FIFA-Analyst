@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T15:06:44+00:00",
+  "generated_at": "2026-09-25T21:24:23+00:00",
   "as_of": "2026-07-19",
   "simulations": 10000,
   "locked": {
@@ -716,7 +716,7 @@
     {
       "team": "Panama",
       "group": "L",
-      "elo": 1658,
+      "elo": 1650,
       "played": 1,
       "points": 0,
       "gd": -1,
