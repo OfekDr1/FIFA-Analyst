@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T09:09:24+00:00",
+  "generated_at": "2026-11-06T17:18:12+00:00",
   "window": {
     "from": "2024-06-01",
     "to": "2026-07-19"
@@ -354,7 +354,7 @@
       "avg_goals_conceded": 1.0,
       "win_rate": 84.2,
       "avg_goal_difference": 2.37,
-      "elo": 1900,
+      "elo": 1901,
       "xG_per_90": 3.59,
       "xGA_per_90": 0.94,
       "momentum_score": 60.7,
@@ -2720,6 +2720,24 @@
       "rank": 150
     },
     {
+      "team": "Senegal",
+      "matches_played": 24,
+      "points": 52,
+      "wins": 16,
+      "draws": 4,
+      "losses": 4,
+      "avg_goals_scored": 1.88,
+      "avg_goals_conceded": 0.75,
+      "win_rate": 66.7,
+      "avg_goal_difference": 1.12,
+      "elo": 1805,
+      "xG_per_90": 1.88,
+      "xGA_per_90": 0.75,
+      "momentum_score": 44.6,
+      "gd_form": -6.0,
+      "rank": 151
+    },
+    {
       "team": "Ecuador",
       "matches_played": 19,
       "points": 27,
@@ -2735,24 +2753,6 @@
       "xGA_per_90": 0.47,
       "momentum_score": 44.5,
       "gd_form": -2.0,
-      "rank": 151
-    },
-    {
-      "team": "Senegal",
-      "matches_played": 24,
-      "points": 52,
-      "wins": 16,
-      "draws": 4,
-      "losses": 4,
-      "avg_goals_scored": 1.88,
-      "avg_goals_conceded": 0.75,
-      "win_rate": 66.7,
-      "avg_goal_difference": 1.12,
-      "elo": 1805,
-      "xG_per_90": 1.88,
-      "xGA_per_90": 0.75,
-      "momentum_score": 44.5,
-      "gd_form": -6.0,
       "rank": 152
     },
     {
@@ -4610,15 +4610,15 @@
         0.1552,
         0.7428
       ],
-      "malaysia|ecuador": [
-        0.1044,
-        0.1714,
-        0.7241
-      ],
       "malaysia|senegal": [
         0.1632,
         0.2402,
         0.5966
+      ],
+      "malaysia|ecuador": [
+        0.1044,
+        0.1714,
+        0.7241
       ],
       "malaysia|liberia": [
         0.5199,
@@ -5665,15 +5665,15 @@
         0.1003,
         0.8414
       ],
-      "turkmenistan|ecuador": [
-        0.0669,
-        0.1137,
-        0.8194
-      ],
       "turkmenistan|senegal": [
         0.0764,
         0.1442,
         0.7793
+      ],
+      "turkmenistan|ecuador": [
+        0.0669,
+        0.1137,
+        0.8194
       ],
       "turkmenistan|liberia": [
         0.3198,
@@ -6720,15 +6720,15 @@
         0.1293,
         0.7831
       ],
-      "vietnam|ecuador": [
-        0.0932,
-        0.1477,
-        0.7591
-      ],
       "vietnam|senegal": [
         0.1379,
         0.2183,
         0.6438
+      ],
+      "vietnam|ecuador": [
+        0.0932,
+        0.1477,
+        0.7591
       ],
       "vietnam|liberia": [
         0.4092,
@@ -7775,15 +7775,15 @@
         0.1453,
         0.764
       ],
-      "tajikistan|ecuador": [
-        0.0918,
-        0.1567,
-        0.7515
-      ],
       "tajikistan|senegal": [
         0.1203,
         0.1991,
         0.6807
+      ],
+      "tajikistan|ecuador": [
+        0.0918,
+        0.1567,
+        0.7515
       ],
       "tajikistan|liberia": [
         0.3489,
@@ -8830,15 +8830,15 @@
         0.1444,
         0.0528
       ],
-      "spain|ecuador": [
-        0.7956,
-        0.1494,
-        0.055
-      ],
       "spain|senegal": [
         0.8557,
         0.1056,
         0.0387
+      ],
+      "spain|ecuador": [
+        0.7956,
+        0.1494,
+        0.055
       ],
       "spain|liberia": [
         0.9209,
@@ -9885,15 +9885,15 @@
         0.1398,
         0.77
       ],
-      "lebanon|ecuador": [
-        0.0936,
-        0.1543,
-        0.7521
-      ],
       "lebanon|senegal": [
         0.1206,
         0.1941,
         0.6853
+      ],
+      "lebanon|ecuador": [
+        0.0936,
+        0.1543,
+        0.7521
       ],
       "lebanon|liberia": [
         0.3708,
@@ -10940,15 +10940,15 @@
         0.1156,
         0.8098
       ],
-      "cuba|ecuador": [
-        0.0798,
-        0.129,
-        0.7911
-      ],
       "cuba|senegal": [
         0.0956,
         0.1582,
         0.7462
+      ],
+      "cuba|ecuador": [
+        0.0798,
+        0.129,
+        0.7911
       ],
       "cuba|liberia": [
         0.3396,
@@ -11995,15 +11995,15 @@
         0.1467,
         0.7581
       ],
-      "guyana|ecuador": [
-        0.1011,
-        0.1586,
-        0.7403
-      ],
       "guyana|senegal": [
         0.1178,
         0.2161,
         0.6661
+      ],
+      "guyana|ecuador": [
+        0.1011,
+        0.1586,
+        0.7403
       ],
       "guyana|liberia": [
         0.452,
@@ -13050,15 +13050,15 @@
         0.1805,
         0.7035
       ],
-      "thailand|ecuador": [
-        0.1167,
-        0.2154,
-        0.6679
-      ],
       "thailand|senegal": [
         0.1599,
         0.2522,
         0.5879
+      ],
+      "thailand|ecuador": [
+        0.1167,
+        0.2154,
+        0.6679
       ],
       "thailand|liberia": [
         0.558,
@@ -14105,15 +14105,15 @@
         0.1018,
         0.8291
       ],
-      "philippines|ecuador": [
-        0.0674,
-        0.1082,
-        0.8244
-      ],
       "philippines|senegal": [
         0.0955,
         0.1392,
         0.7653
+      ],
+      "philippines|ecuador": [
+        0.0674,
+        0.1082,
+        0.8244
       ],
       "philippines|liberia": [
         0.3081,
@@ -15160,15 +15160,15 @@
         0.1729,
         0.7172
       ],
-      "benin|ecuador": [
-        0.1177,
-        0.2068,
-        0.6755
-      ],
       "benin|senegal": [
         0.1199,
         0.2375,
         0.6427
+      ],
+      "benin|ecuador": [
+        0.1177,
+        0.2068,
+        0.6755
       ],
       "benin|liberia": [
         0.5303,
@@ -16215,15 +16215,15 @@
         0.2556,
         0.5514
       ],
-      "isle of man|ecuador": [
-        0.192,
-        0.2634,
-        0.5446
-      ],
       "isle of man|senegal": [
         0.2706,
         0.2736,
         0.4558
+      ],
+      "isle of man|ecuador": [
+        0.192,
+        0.2634,
+        0.5446
       ],
       "isle of man|liberia": [
         0.7442,
@@ -17270,15 +17270,15 @@
         0.2268,
         0.6412
       ],
-      "syria|ecuador": [
-        0.1399,
-        0.2529,
-        0.6072
-      ],
       "syria|senegal": [
         0.2036,
         0.2677,
         0.5288
+      ],
+      "syria|ecuador": [
+        0.1399,
+        0.2529,
+        0.6072
       ],
       "syria|liberia": [
         0.5746,
@@ -18325,15 +18325,15 @@
         0.3068,
         0.4604
       ],
-      "scotland|ecuador": [
-        0.3408,
-        0.314,
-        0.3452
-      ],
       "scotland|senegal": [
         0.4559,
         0.3105,
         0.2336
+      ],
+      "scotland|ecuador": [
+        0.3408,
+        0.314,
+        0.3452
       ],
       "scotland|liberia": [
         0.8319,
@@ -19380,15 +19380,15 @@
         0.2455,
         0.6197
       ],
-      "ghana|ecuador": [
-        0.1807,
-        0.2738,
-        0.5455
-      ],
       "ghana|senegal": [
         0.2582,
         0.2855,
         0.4563
+      ],
+      "ghana|ecuador": [
+        0.1807,
+        0.2738,
+        0.5455
       ],
       "ghana|liberia": [
         0.6677,
@@ -20435,15 +20435,15 @@
         0.2629,
         0.5179
       ],
-      "kosovo|ecuador": [
-        0.2379,
-        0.2887,
-        0.4734
-      ],
       "kosovo|senegal": [
         0.3328,
         0.3008,
         0.3664
+      ],
+      "kosovo|ecuador": [
+        0.2379,
+        0.2887,
+        0.4734
       ],
       "kosovo|liberia": [
         0.7408,
@@ -21490,15 +21490,15 @@
         0.1443,
         0.7597
       ],
-      "madagascar|ecuador": [
-        0.1059,
-        0.1697,
-        0.7244
-      ],
       "madagascar|senegal": [
         0.1106,
         0.2332,
         0.6562
+      ],
+      "madagascar|ecuador": [
+        0.1059,
+        0.1697,
+        0.7244
       ],
       "madagascar|liberia": [
         0.5267,
@@ -22545,15 +22545,15 @@
         0.1228,
         0.7959
       ],
-      "papua new guinea|ecuador": [
-        0.0831,
-        0.132,
-        0.785
-      ],
       "papua new guinea|senegal": [
         0.1017,
         0.1801,
         0.7182
+      ],
+      "papua new guinea|ecuador": [
+        0.0831,
+        0.132,
+        0.785
       ],
       "papua new guinea|liberia": [
         0.4144,
@@ -23600,15 +23600,15 @@
         0.2538,
         0.2369
       ],
-      "norway|ecuador": [
-        0.517,
-        0.271,
-        0.2119
-      ],
       "norway|senegal": [
         0.6768,
         0.2107,
         0.1125
+      ],
+      "norway|ecuador": [
+        0.517,
+        0.271,
+        0.2119
       ],
       "norway|liberia": [
         0.8997,
@@ -24655,15 +24655,15 @@
         0.205,
         0.6775
       ],
-      "zambia|ecuador": [
-        0.0935,
-        0.2085,
-        0.6981
-      ],
       "zambia|senegal": [
         0.1408,
         0.2549,
         0.6042
+      ],
+      "zambia|ecuador": [
+        0.0935,
+        0.2085,
+        0.6981
       ],
       "zambia|liberia": [
         0.6551,
@@ -25710,15 +25710,15 @@
         0.1427,
         0.7665
       ],
-      "kenya|ecuador": [
-        0.0945,
-        0.1557,
-        0.7498
-      ],
       "kenya|senegal": [
         0.089,
         0.2077,
         0.7033
+      ],
+      "kenya|ecuador": [
+        0.0945,
+        0.1557,
+        0.7498
       ],
       "kenya|liberia": [
         0.4484,
@@ -26765,15 +26765,15 @@
         0.3041,
         0.4336
       ],
-      "nigeria|ecuador": [
-        0.2949,
-        0.3143,
-        0.3909
-      ],
       "nigeria|senegal": [
         0.3937,
         0.3053,
         0.301
+      ],
+      "nigeria|ecuador": [
+        0.2949,
+        0.3143,
+        0.3909
       ],
       "nigeria|liberia": [
         0.8589,
@@ -27820,15 +27820,15 @@
         0.0888,
         0.8505
       ],
-      "puerto rico|ecuador": [
-        0.0664,
-        0.1036,
-        0.83
-      ],
       "puerto rico|senegal": [
         0.093,
         0.1342,
         0.7729
+      ],
+      "puerto rico|ecuador": [
+        0.0664,
+        0.1036,
+        0.83
       ],
       "puerto rico|liberia": [
         0.3029,
@@ -28875,15 +28875,15 @@
         0.267,
         0.2059
       ],
-      "mexico|ecuador": [
-        0.5407,
-        0.2828,
-        0.1765
-      ],
       "mexico|senegal": [
         0.6613,
         0.2334,
         0.1053
+      ],
+      "mexico|ecuador": [
+        0.5407,
+        0.2828,
+        0.1765
       ],
       "mexico|liberia": [
         0.8789,
@@ -29930,15 +29930,15 @@
         0.1266,
         0.7908
       ],
-      "faroe islands|ecuador": [
-        0.0918,
-        0.1455,
-        0.7627
-      ],
       "faroe islands|senegal": [
         0.1089,
         0.1841,
         0.707
+      ],
+      "faroe islands|ecuador": [
+        0.0918,
+        0.1455,
+        0.7627
       ],
       "faroe islands|liberia": [
         0.3534,
@@ -30985,15 +30985,15 @@
         0.1576,
         0.7421
       ],
-      "bulgaria|ecuador": [
-        0.1135,
-        0.1948,
-        0.6917
-      ],
       "bulgaria|senegal": [
         0.1271,
         0.2318,
         0.6411
+      ],
+      "bulgaria|ecuador": [
+        0.1135,
+        0.1948,
+        0.6917
       ],
       "bulgaria|liberia": [
         0.5162,
@@ -32040,15 +32040,15 @@
         0.2509,
         0.5968
       ],
-      "burkina faso|ecuador": [
-        0.171,
-        0.2679,
-        0.5612
-      ],
       "burkina faso|senegal": [
         0.2182,
         0.2843,
         0.4975
+      ],
+      "burkina faso|ecuador": [
+        0.171,
+        0.2679,
+        0.5612
       ],
       "burkina faso|liberia": [
         0.6851,
@@ -33095,15 +33095,15 @@
         0.1551,
         0.7461
       ],
-      "trinidad and tobago|ecuador": [
-        0.1079,
-        0.1851,
-        0.707
-      ],
       "trinidad and tobago|senegal": [
         0.1262,
         0.2276,
         0.6462
+      ],
+      "trinidad and tobago|ecuador": [
+        0.1079,
+        0.1851,
+        0.707
       ],
       "trinidad and tobago|liberia": [
         0.5032,
@@ -34150,15 +34150,15 @@
         0.1396,
         0.7724
       ],
-      "togo|ecuador": [
-        0.1018,
-        0.1616,
-        0.7366
-      ],
       "togo|senegal": [
         0.1064,
         0.2295,
         0.6641
+      ],
+      "togo|ecuador": [
+        0.1018,
+        0.1616,
+        0.7366
       ],
       "togo|liberia": [
         0.4515,
@@ -35205,15 +35205,15 @@
         0.1471,
         0.7582
       ],
-      "kazakhstan|ecuador": [
-        0.1045,
-        0.1718,
-        0.7237
-      ],
       "kazakhstan|senegal": [
         0.1209,
         0.2371,
         0.642
+      ],
+      "kazakhstan|ecuador": [
+        0.1045,
+        0.1718,
+        0.7237
       ],
       "kazakhstan|liberia": [
         0.4522,
@@ -36260,15 +36260,15 @@
         0.0753,
         0.8762
       ],
-      "sint maarten|ecuador": [
-        0.0531,
-        0.0832,
-        0.8637
-      ],
       "sint maarten|senegal": [
         0.0505,
         0.0952,
         0.8543
+      ],
+      "sint maarten|ecuador": [
+        0.0531,
+        0.0832,
+        0.8637
       ],
       "sint maarten|liberia": [
         0.2403,
@@ -37315,15 +37315,15 @@
         0.1001,
         0.8357
       ],
-      "yemen|ecuador": [
-        0.0655,
-        0.1057,
-        0.8288
-      ],
       "yemen|senegal": [
         0.0757,
         0.1211,
         0.8032
+      ],
+      "yemen|ecuador": [
+        0.0655,
+        0.1057,
+        0.8288
       ],
       "yemen|liberia": [
         0.2846,
@@ -38370,15 +38370,15 @@
         0.305,
         0.4136
       ],
-      "egypt|ecuador": [
-        0.3251,
-        0.3174,
-        0.3576
-      ],
       "egypt|senegal": [
         0.4353,
         0.3212,
         0.2435
+      ],
+      "egypt|ecuador": [
+        0.3251,
+        0.3174,
+        0.3576
       ],
       "egypt|liberia": [
         0.8511,
@@ -39425,15 +39425,15 @@
         0.0881,
         0.8633
       ],
-      "azerbaijan|ecuador": [
-        0.0461,
-        0.0895,
-        0.8644
-      ],
       "azerbaijan|senegal": [
         0.07,
         0.1282,
         0.8019
+      ],
+      "azerbaijan|ecuador": [
+        0.0461,
+        0.0895,
+        0.8644
       ],
       "azerbaijan|liberia": [
         0.3094,
@@ -40480,15 +40480,15 @@
         0.1247,
         0.7932
       ],
-      "kyrgyzstan|ecuador": [
-        0.0821,
-        0.1277,
-        0.7902
-      ],
       "kyrgyzstan|senegal": [
         0.1036,
         0.1764,
         0.72
+      ],
+      "kyrgyzstan|ecuador": [
+        0.0821,
+        0.1277,
+        0.7902
       ],
       "kyrgyzstan|liberia": [
         0.3835,
@@ -41535,15 +41535,15 @@
         0.2658,
         0.5229
       ],
-      "republic of ireland|ecuador": [
-        0.2548,
-        0.278,
-        0.4673
-      ],
       "republic of ireland|senegal": [
         0.2915,
         0.3061,
         0.4024
+      ],
+      "republic of ireland|ecuador": [
+        0.2548,
+        0.278,
+        0.4673
       ],
       "republic of ireland|liberia": [
         0.7253,
@@ -42590,15 +42590,15 @@
         0.1727,
         0.719
       ],
-      "bahrain|ecuador": [
-        0.1147,
-        0.2012,
-        0.6841
-      ],
       "bahrain|senegal": [
         0.1341,
         0.2436,
         0.6224
+      ],
+      "bahrain|ecuador": [
+        0.1147,
+        0.2012,
+        0.6841
       ],
       "bahrain|liberia": [
         0.5079,
@@ -43645,15 +43645,15 @@
         0.3057,
         0.3835
       ],
-      "australia|ecuador": [
-        0.3332,
-        0.3299,
-        0.3369
-      ],
       "australia|senegal": [
         0.5083,
         0.2884,
         0.2034
+      ],
+      "australia|ecuador": [
+        0.3332,
+        0.3299,
+        0.3369
       ],
       "australia|liberia": [
         0.8472,
@@ -44700,15 +44700,15 @@
         0.0907,
         0.8448
       ],
-      "saint martin|ecuador": [
-        0.0636,
-        0.0992,
-        0.8372
-      ],
       "saint martin|senegal": [
         0.0797,
         0.118,
         0.8024
+      ],
+      "saint martin|ecuador": [
+        0.0636,
+        0.0992,
+        0.8372
       ],
       "saint martin|liberia": [
         0.2831,
@@ -45755,15 +45755,15 @@
         0.2808,
         0.2274
       ],
-      "morocco|ecuador": [
-        0.5135,
-        0.2925,
-        0.194
-      ],
       "morocco|senegal": [
         0.6538,
         0.2296,
         0.1167
+      ],
+      "morocco|ecuador": [
+        0.5135,
+        0.2925,
+        0.194
       ],
       "morocco|liberia": [
         0.9204,
@@ -46810,15 +46810,15 @@
         0.2139,
         0.664
       ],
-      "oman|ecuador": [
-        0.1257,
-        0.2395,
-        0.6348
-      ],
       "oman|senegal": [
         0.158,
         0.2671,
         0.5749
+      ],
+      "oman|ecuador": [
+        0.1257,
+        0.2395,
+        0.6348
       ],
       "oman|liberia": [
         0.5318,
@@ -47865,15 +47865,15 @@
         0.2471,
         0.5976
       ],
-      "cape verde|ecuador": [
-        0.17,
-        0.2562,
-        0.5738
-      ],
       "cape verde|senegal": [
         0.2114,
         0.2766,
         0.5121
+      ],
+      "cape verde|ecuador": [
+        0.17,
+        0.2562,
+        0.5738
       ],
       "cape verde|liberia": [
         0.6807,
@@ -48920,15 +48920,15 @@
         0.0772,
         0.878
       ],
-      "malta|ecuador": [
-        0.0441,
-        0.0811,
-        0.8749
-      ],
       "malta|senegal": [
         0.0585,
         0.105,
         0.8364
+      ],
+      "malta|ecuador": [
+        0.0441,
+        0.0811,
+        0.8749
       ],
       "malta|liberia": [
         0.2734,
@@ -49975,15 +49975,15 @@
         0.1375,
         0.7725
       ],
-      "nicaragua|ecuador": [
-        0.098,
-        0.1553,
-        0.7467
-      ],
       "nicaragua|senegal": [
         0.1155,
         0.2212,
         0.6633
+      ],
+      "nicaragua|ecuador": [
+        0.098,
+        0.1553,
+        0.7467
       ],
       "nicaragua|liberia": [
         0.4392,
@@ -51030,15 +51030,15 @@
         0.1356,
         0.7773
       ],
-      "el salvador|ecuador": [
-        0.0971,
-        0.1526,
-        0.7503
-      ],
       "el salvador|senegal": [
         0.1152,
         0.2217,
         0.6631
+      ],
+      "el salvador|ecuador": [
+        0.0971,
+        0.1526,
+        0.7503
       ],
       "el salvador|liberia": [
         0.4339,
@@ -52085,15 +52085,15 @@
         0.2751,
         0.4952
       ],
-      "uzbekistan|ecuador": [
-        0.2569,
-        0.2927,
-        0.4504
-      ],
       "uzbekistan|senegal": [
         0.3317,
         0.3056,
         0.3627
+      ],
+      "uzbekistan|ecuador": [
+        0.2569,
+        0.2927,
+        0.4504
       ],
       "uzbekistan|liberia": [
         0.7733,
@@ -53140,15 +53140,15 @@
         0.2598,
         0.5432
       ],
-      "iraq|ecuador": [
-        0.1991,
-        0.2691,
-        0.5318
-      ],
       "iraq|senegal": [
         0.273,
         0.2954,
         0.4316
+      ],
+      "iraq|ecuador": [
+        0.1991,
+        0.2691,
+        0.5318
       ],
       "iraq|liberia": [
         0.6951,
@@ -54195,15 +54195,15 @@
         0.2409,
         0.6155
       ],
-      "north macedonia|ecuador": [
-        0.1509,
-        0.2536,
-        0.5955
-      ],
       "north macedonia|senegal": [
         0.2181,
         0.2621,
         0.5198
+      ],
+      "north macedonia|ecuador": [
+        0.1509,
+        0.2536,
+        0.5955
       ],
       "north macedonia|liberia": [
         0.6259,
@@ -55250,15 +55250,15 @@
         0.2335,
         0.1197
       ],
-      "england|ecuador": [
-        0.7106,
-        0.2066,
-        0.0828
-      ],
       "england|senegal": [
         0.8743,
         0.0935,
         0.0322
+      ],
+      "england|ecuador": [
+        0.7106,
+        0.2066,
+        0.0828
       ],
       "england|liberia": [
         0.9152,
@@ -56305,15 +56305,15 @@
         0.2622,
         0.5412
       ],
-      "cameroon|ecuador": [
-        0.2105,
-        0.2819,
-        0.5075
-      ],
       "cameroon|senegal": [
         0.2681,
         0.3064,
         0.4254
+      ],
+      "cameroon|ecuador": [
+        0.2105,
+        0.2819,
+        0.5075
       ],
       "cameroon|liberia": [
         0.7326,
@@ -57360,15 +57360,15 @@
         0.1168,
         0.8137
       ],
-      "namibia|ecuador": [
-        0.0767,
-        0.1341,
-        0.7892
-      ],
       "namibia|senegal": [
         0.0763,
         0.1616,
         0.7621
+      ],
+      "namibia|ecuador": [
+        0.0767,
+        0.1341,
+        0.7892
       ],
       "namibia|liberia": [
         0.3098,
@@ -58415,15 +58415,15 @@
         0.1391,
         0.7704
       ],
-      "mozambique|ecuador": [
-        0.0947,
-        0.1479,
-        0.7574
-      ],
       "mozambique|senegal": [
         0.0976,
         0.2126,
         0.6899
+      ],
+      "mozambique|ecuador": [
+        0.0947,
+        0.1479,
+        0.7574
       ],
       "mozambique|liberia": [
         0.4392,
@@ -59470,15 +59470,15 @@
         0.0936,
         0.8418
       ],
-      "hong kong|ecuador": [
-        0.0644,
-        0.103,
-        0.8326
-      ],
       "hong kong|senegal": [
         0.0823,
         0.1236,
         0.7941
+      ],
+      "hong kong|ecuador": [
+        0.0644,
+        0.103,
+        0.8326
       ],
       "hong kong|liberia": [
         0.2837,
@@ -60525,15 +60525,15 @@
         0.1736,
         0.7168
       ],
-      "libya|ecuador": [
-        0.1141,
-        0.1903,
-        0.6956
-      ],
       "libya|senegal": [
         0.147,
         0.255,
         0.598
+      ],
+      "libya|ecuador": [
+        0.1141,
+        0.1903,
+        0.6956
       ],
       "libya|liberia": [
         0.5072,
@@ -61580,15 +61580,15 @@
         0.2637,
         0.5281
       ],
-      "dr congo|ecuador": [
-        0.2236,
-        0.2775,
-        0.499
-      ],
       "dr congo|senegal": [
         0.2899,
         0.3087,
         0.4014
+      ],
+      "dr congo|ecuador": [
+        0.2236,
+        0.2775,
+        0.499
       ],
       "dr congo|liberia": [
         0.7369,
@@ -62635,15 +62635,15 @@
         0.2668,
         0.5281
       ],
-      "wales|ecuador": [
-        0.2133,
-        0.2887,
-        0.498
-      ],
       "wales|senegal": [
         0.3099,
         0.3106,
         0.3795
+      ],
+      "wales|ecuador": [
+        0.2133,
+        0.2887,
+        0.498
       ],
       "wales|liberia": [
         0.7242,
@@ -63690,15 +63690,15 @@
         0.0884,
         0.857
       ],
-      "cyprus|ecuador": [
-        0.0587,
-        0.0978,
-        0.8435
-      ],
       "cyprus|senegal": [
         0.0699,
         0.1274,
         0.8026
+      ],
+      "cyprus|ecuador": [
+        0.0587,
+        0.0978,
+        0.8435
       ],
       "cyprus|liberia": [
         0.3045,
@@ -64745,15 +64745,15 @@
         0.2699,
         0.5171
       ],
-      "poland|ecuador": [
-        0.1904,
-        0.2803,
-        0.5293
-      ],
       "poland|senegal": [
         0.2628,
         0.3088,
         0.4284
+      ],
+      "poland|ecuador": [
+        0.1904,
+        0.2803,
+        0.5293
       ],
       "poland|liberia": [
         0.7263,
@@ -65800,15 +65800,15 @@
         0.1357,
         0.7765
       ],
-      "indonesia|ecuador": [
-        0.095,
-        0.1546,
-        0.7503
-      ],
       "indonesia|senegal": [
         0.1128,
         0.2185,
         0.6688
+      ],
+      "indonesia|ecuador": [
+        0.095,
+        0.1546,
+        0.7503
       ],
       "indonesia|liberia": [
         0.3902,
@@ -66855,15 +66855,15 @@
         0.0569,
         0.9073
       ],
-      "pakistan|ecuador": [
-        0.0301,
-        0.0504,
-        0.9196
-      ],
       "pakistan|senegal": [
         0.0371,
         0.0655,
         0.8974
+      ],
+      "pakistan|ecuador": [
+        0.0301,
+        0.0504,
+        0.9196
       ],
       "pakistan|liberia": [
         0.1273,
@@ -67910,15 +67910,15 @@
         0.2137,
         0.6599
       ],
-      "israel|ecuador": [
-        0.157,
-        0.2052,
-        0.6378
-      ],
       "israel|senegal": [
         0.2177,
         0.2528,
         0.5295
+      ],
+      "israel|ecuador": [
+        0.157,
+        0.2052,
+        0.6378
       ],
       "israel|liberia": [
         0.6778,
@@ -68965,15 +68965,15 @@
         0.2946,
         0.4173
       ],
-      "ivory coast|ecuador": [
-        0.3257,
-        0.3124,
-        0.3619
-      ],
       "ivory coast|senegal": [
         0.4319,
         0.3141,
         0.2539
+      ],
+      "ivory coast|ecuador": [
+        0.3257,
+        0.3124,
+        0.3619
       ],
       "ivory coast|liberia": [
         0.8514,
@@ -70020,15 +70020,15 @@
         0.2403,
         0.6018
       ],
-      "bolivia|ecuador": [
-        0.1559,
-        0.2459,
-        0.5982
-      ],
       "bolivia|senegal": [
         0.2502,
         0.2795,
         0.4704
+      ],
+      "bolivia|ecuador": [
+        0.1559,
+        0.2459,
+        0.5982
       ],
       "bolivia|liberia": [
         0.6875,
@@ -71075,15 +71075,15 @@
         0.1394,
         0.7728
       ],
-      "zimbabwe|ecuador": [
-        0.0995,
-        0.159,
-        0.7415
-      ],
       "zimbabwe|senegal": [
         0.0958,
         0.2113,
         0.6929
+      ],
+      "zimbabwe|ecuador": [
+        0.0995,
+        0.159,
+        0.7415
       ],
       "zimbabwe|liberia": [
         0.4642,
@@ -72130,15 +72130,15 @@
         0.3083,
         0.2921
       ],
-      "switzerland|ecuador": [
-        0.537,
-        0.2748,
-        0.1882
-      ],
       "switzerland|senegal": [
         0.6013,
         0.2566,
         0.1421
+      ],
+      "switzerland|ecuador": [
+        0.537,
+        0.2748,
+        0.1882
       ],
       "switzerland|liberia": [
         0.8724,
@@ -73185,15 +73185,15 @@
         0.131,
         0.7849
       ],
-      "rwanda|ecuador": [
-        0.0929,
-        0.1496,
-        0.7574
-      ],
       "rwanda|senegal": [
         0.1019,
         0.1906,
         0.7075
+      ],
+      "rwanda|ecuador": [
+        0.0929,
+        0.1496,
+        0.7574
       ],
       "rwanda|liberia": [
         0.4105,
@@ -74240,15 +74240,15 @@
         0.1625,
         0.7318
       ],
-      "uganda|ecuador": [
-        0.1106,
-        0.179,
-        0.7104
-      ],
       "uganda|senegal": [
         0.1173,
         0.2267,
         0.656
+      ],
+      "uganda|ecuador": [
+        0.1106,
+        0.179,
+        0.7104
       ],
       "uganda|liberia": [
         0.4725,
@@ -75295,15 +75295,15 @@
         0.1397,
         0.7707
       ],
-      "sierra leone|ecuador": [
-        0.0932,
-        0.1497,
-        0.7571
-      ],
       "sierra leone|senegal": [
         0.1186,
         0.2126,
         0.6688
+      ],
+      "sierra leone|ecuador": [
+        0.0932,
+        0.1497,
+        0.7571
       ],
       "sierra leone|liberia": [
         0.3931,
@@ -76350,15 +76350,15 @@
         0.106,
         0.8275
       ],
-      "estonia|ecuador": [
-        0.0711,
-        0.1159,
-        0.813
-      ],
       "estonia|senegal": [
         0.0884,
         0.1517,
         0.76
+      ],
+      "estonia|ecuador": [
+        0.0711,
+        0.1159,
+        0.813
       ],
       "estonia|liberia": [
         0.3284,
@@ -77405,15 +77405,15 @@
         0.0792,
         0.8769
       ],
-      "congo|ecuador": [
-        0.0419,
-        0.079,
-        0.8792
-      ],
       "congo|senegal": [
         0.0472,
         0.101,
         0.8518
+      ],
+      "congo|ecuador": [
+        0.0419,
+        0.079,
+        0.8792
       ],
       "congo|liberia": [
         0.2861,
@@ -78460,15 +78460,15 @@
         0.1824,
         0.7037
       ],
-      "gambia|ecuador": [
-        0.1217,
-        0.2163,
-        0.662
-      ],
       "gambia|senegal": [
         0.1283,
         0.2427,
         0.629
+      ],
+      "gambia|ecuador": [
+        0.1217,
+        0.2163,
+        0.662
       ],
       "gambia|liberia": [
         0.51,
@@ -79515,15 +79515,15 @@
         0.0674,
         0.8853
       ],
-      "aruba|ecuador": [
-        0.0486,
-        0.0717,
-        0.8796
-      ],
       "aruba|senegal": [
         0.0438,
         0.0801,
         0.8761
+      ],
+      "aruba|ecuador": [
+        0.0486,
+        0.0717,
+        0.8796
       ],
       "aruba|liberia": [
         0.2041,
@@ -80570,15 +80570,15 @@
         0.09,
         0.8505
       ],
-      "saint vincent and the grenadines|ecuador": [
-        0.057,
-        0.0926,
-        0.8504
-      ],
       "saint vincent and the grenadines|senegal": [
         0.0699,
         0.1208,
         0.8093
+      ],
+      "saint vincent and the grenadines|ecuador": [
+        0.057,
+        0.0926,
+        0.8504
       ],
       "saint vincent and the grenadines|liberia": [
         0.2929,
@@ -81625,15 +81625,15 @@
         0.2984,
         0.4532
       ],
-      "united states|ecuador": [
-        0.2838,
-        0.3208,
-        0.3955
-      ],
       "united states|senegal": [
         0.4064,
         0.3227,
         0.271
+      ],
+      "united states|ecuador": [
+        0.2838,
+        0.3208,
+        0.3955
       ],
       "united states|liberia": [
         0.8291,
@@ -82680,15 +82680,15 @@
         0.2455,
         0.611
       ],
-      "guatemala|ecuador": [
-        0.158,
-        0.2558,
-        0.5862
-      ],
       "guatemala|senegal": [
         0.2028,
         0.2714,
         0.5257
+      ],
+      "guatemala|ecuador": [
+        0.158,
+        0.2558,
+        0.5862
       ],
       "guatemala|liberia": [
         0.6259,
@@ -83735,15 +83735,15 @@
         0.0313,
         0.9492
       ],
-      "liechtenstein|ecuador": [
-        0.0198,
-        0.0328,
-        0.9474
-      ],
       "liechtenstein|senegal": [
         0.0279,
         0.0432,
         0.9289
+      ],
+      "liechtenstein|ecuador": [
+        0.0198,
+        0.0328,
+        0.9474
       ],
       "liechtenstein|liberia": [
         0.065,
@@ -84790,15 +84790,15 @@
         0.1243,
         0.7971
       ],
-      "kuwait|ecuador": [
-        0.0809,
-        0.1296,
-        0.7895
-      ],
       "kuwait|senegal": [
         0.1039,
         0.1947,
         0.7013
+      ],
+      "kuwait|ecuador": [
+        0.0809,
+        0.1296,
+        0.7895
       ],
       "kuwait|liberia": [
         0.4204,
@@ -85845,15 +85845,15 @@
         0.2405,
         0.6364
       ],
-      "south africa|ecuador": [
-        0.1743,
-        0.2611,
-        0.5645
-      ],
       "south africa|senegal": [
         0.2263,
         0.283,
         0.4907
+      ],
+      "south africa|ecuador": [
+        0.1743,
+        0.2611,
+        0.5645
       ],
       "south africa|liberia": [
         0.6809,
@@ -86900,15 +86900,15 @@
         0.2898,
         0.4148
       ],
-      "turkey|ecuador": [
-        0.3066,
-        0.2933,
-        0.4
-      ],
       "turkey|senegal": [
         0.4592,
         0.2958,
         0.245
+      ],
+      "turkey|ecuador": [
+        0.3066,
+        0.2933,
+        0.4
       ],
       "turkey|liberia": [
         0.825,
@@ -87955,15 +87955,15 @@
         0.2136,
         0.6624
       ],
-      "palestine|ecuador": [
-        0.1287,
-        0.2403,
-        0.631
-      ],
       "palestine|senegal": [
         0.1617,
         0.2625,
         0.5758
+      ],
+      "palestine|ecuador": [
+        0.1287,
+        0.2403,
+        0.631
       ],
       "palestine|liberia": [
         0.548,
@@ -89010,15 +89010,15 @@
         0.2677,
         0.5287
       ],
-      "honduras|ecuador": [
-        0.1809,
-        0.2872,
-        0.5319
-      ],
       "honduras|senegal": [
         0.2842,
         0.3014,
         0.4144
+      ],
+      "honduras|ecuador": [
+        0.1809,
+        0.2872,
+        0.5319
       ],
       "honduras|liberia": [
         0.6984,
@@ -90065,15 +90065,15 @@
         0.2908,
         0.4004
       ],
-      "sweden|ecuador": [
-        0.2952,
-        0.3017,
-        0.4031
-      ],
       "sweden|senegal": [
         0.3186,
         0.3248,
         0.3567
+      ],
+      "sweden|ecuador": [
+        0.2952,
+        0.3017,
+        0.4031
       ],
       "sweden|liberia": [
         0.8153,
@@ -91120,15 +91120,15 @@
         0.0677,
         0.8804
       ],
-      "british virgin islands|ecuador": [
-        0.0477,
-        0.0641,
-        0.8883
-      ],
       "british virgin islands|senegal": [
         0.0379,
         0.0666,
         0.8955
+      ],
+      "british virgin islands|ecuador": [
+        0.0477,
+        0.0641,
+        0.8883
       ],
       "british virgin islands|liberia": [
         0.1236,
@@ -92175,15 +92175,15 @@
         0.2894,
         0.4276
       ],
-      "algeria|ecuador": [
-        0.2915,
-        0.3005,
-        0.408
-      ],
       "algeria|senegal": [
         0.4048,
         0.3022,
         0.2931
+      ],
+      "algeria|ecuador": [
+        0.2915,
+        0.3005,
+        0.408
       ],
       "algeria|liberia": [
         0.8511,
@@ -93230,15 +93230,15 @@
         0.0921,
         0.855
       ],
-      "armenia|ecuador": [
-        0.0518,
-        0.0935,
-        0.8547
-      ],
       "armenia|senegal": [
         0.0778,
         0.139,
         0.7832
+      ],
+      "armenia|ecuador": [
+        0.0518,
+        0.0935,
+        0.8547
       ],
       "armenia|liberia": [
         0.3109,
@@ -94285,15 +94285,15 @@
         0.0274,
         0.9522
       ],
-      "san marino|ecuador": [
-        0.0206,
-        0.0283,
-        0.9511
-      ],
       "san marino|senegal": [
         0.0198,
         0.0285,
         0.9517
+      ],
+      "san marino|ecuador": [
+        0.0206,
+        0.0283,
+        0.9511
       ],
       "san marino|liberia": [
         0.0453,
@@ -95340,15 +95340,15 @@
         0.2172,
         0.6583
       ],
-      "new caledonia|ecuador": [
-        0.1272,
-        0.2305,
-        0.6423
-      ],
       "new caledonia|senegal": [
         0.1978,
         0.2595,
         0.5427
+      ],
+      "new caledonia|ecuador": [
+        0.1272,
+        0.2305,
+        0.6423
       ],
       "new caledonia|liberia": [
         0.573,
@@ -96395,15 +96395,15 @@
         0.1229,
         0.8024
       ],
-      "mauritania|ecuador": [
-        0.0769,
-        0.1363,
-        0.7867
-      ],
       "mauritania|senegal": [
         0.0829,
         0.1714,
         0.7456
+      ],
+      "mauritania|ecuador": [
+        0.0769,
+        0.1363,
+        0.7867
       ],
       "mauritania|liberia": [
         0.3428,
@@ -97450,15 +97450,15 @@
         0.2342,
         0.6142
       ],
-      "new zealand|ecuador": [
-        0.1655,
-        0.2362,
-        0.5983
-      ],
       "new zealand|senegal": [
         0.2399,
         0.2651,
         0.495
+      ],
+      "new zealand|ecuador": [
+        0.1655,
+        0.2362,
+        0.5983
       ],
       "new zealand|liberia": [
         0.6734,
@@ -98505,15 +98505,15 @@
         0.1255,
         0.8171
       ],
-      "tahiti|ecuador": [
-        0.107,
-        0.1739,
-        0.7191
-      ],
       "tahiti|senegal": [
         0.1273,
         0.2423,
         0.6305
+      ],
+      "tahiti|ecuador": [
+        0.107,
+        0.1739,
+        0.7191
       ],
       "tahiti|liberia": [
         0.4541,
@@ -99560,15 +99560,15 @@
         0.2977,
         0.3922
       ],
-      "paraguay|ecuador": [
-        0.3238,
-        0.297,
-        0.3792
-      ],
       "paraguay|senegal": [
         0.4401,
         0.3105,
         0.2493
+      ],
+      "paraguay|ecuador": [
+        0.3238,
+        0.297,
+        0.3792
       ],
       "paraguay|liberia": [
         0.8297,
@@ -100615,15 +100615,15 @@
         0.2584,
         0.5717
       ],
-      "saudi arabia|ecuador": [
-        0.1977,
-        0.2702,
-        0.5321
-      ],
       "saudi arabia|senegal": [
         0.2771,
         0.2911,
         0.4318
+      ],
+      "saudi arabia|ecuador": [
+        0.1977,
+        0.2702,
+        0.5321
       ],
       "saudi arabia|liberia": [
         0.6974,
@@ -101670,15 +101670,15 @@
         0.0625,
         0.902
       ],
-      "andorra|ecuador": [
-        0.0403,
-        0.0636,
-        0.8961
-      ],
       "andorra|senegal": [
         0.0365,
         0.0675,
         0.896
+      ],
+      "andorra|ecuador": [
+        0.0403,
+        0.0636,
+        0.8961
       ],
       "andorra|liberia": [
         0.1322,
@@ -102725,15 +102725,15 @@
         0.2248,
         0.6526
       ],
-      "finland|ecuador": [
-        0.1284,
-        0.2266,
-        0.645
-      ],
       "finland|senegal": [
         0.165,
         0.2539,
         0.5812
+      ],
+      "finland|ecuador": [
+        0.1284,
+        0.2266,
+        0.645
       ],
       "finland|liberia": [
         0.5453,
@@ -103780,15 +103780,15 @@
         0.2326,
         0.6394
       ],
-      "jordan|ecuador": [
-        0.1884,
-        0.2534,
-        0.5583
-      ],
       "jordan|senegal": [
         0.2327,
         0.2699,
         0.4974
+      ],
+      "jordan|ecuador": [
+        0.1884,
+        0.2534,
+        0.5583
       ],
       "jordan|liberia": [
         0.6864,
@@ -104835,15 +104835,15 @@
         0.1437,
         0.7647
       ],
-      "niger|ecuador": [
-        0.1126,
-        0.1766,
-        0.7108
-      ],
       "niger|senegal": [
         0.1104,
         0.2339,
         0.6556
+      ],
+      "niger|ecuador": [
+        0.1126,
+        0.1766,
+        0.7108
       ],
       "niger|liberia": [
         0.4041,
@@ -105890,15 +105890,15 @@
         0.139,
         0.7679
       ],
-      "montenegro|ecuador": [
-        0.0992,
-        0.1595,
-        0.7413
-      ],
       "montenegro|senegal": [
         0.1136,
         0.2148,
         0.6717
+      ],
+      "montenegro|ecuador": [
+        0.0992,
+        0.1595,
+        0.7413
       ],
       "montenegro|liberia": [
         0.4604,
@@ -106945,15 +106945,15 @@
         0.1991,
         0.6848
       ],
-      "belarus|ecuador": [
-        0.1213,
-        0.2162,
-        0.6625
-      ],
       "belarus|senegal": [
         0.1454,
         0.239,
         0.6156
+      ],
+      "belarus|ecuador": [
+        0.1213,
+        0.2162,
+        0.6625
       ],
       "belarus|liberia": [
         0.535,
@@ -108000,15 +108000,15 @@
         0.332,
         0.2715
       ],
-      "japan|ecuador": [
-        0.4636,
-        0.3148,
-        0.2216
-      ],
       "japan|senegal": [
         0.5794,
         0.2611,
         0.1595
+      ],
+      "japan|ecuador": [
+        0.4636,
+        0.3148,
+        0.2216
       ],
       "japan|liberia": [
         0.8623,
@@ -109055,15 +109055,15 @@
         0.1044,
         0.8351
       ],
-      "vanuatu|ecuador": [
-        0.0576,
-        0.105,
-        0.8374
-      ],
       "vanuatu|senegal": [
         0.0896,
         0.1602,
         0.7503
+      ],
+      "vanuatu|ecuador": [
+        0.0576,
+        0.105,
+        0.8374
       ],
       "vanuatu|liberia": [
         0.3539,
@@ -110110,15 +110110,15 @@
         0.1962,
         0.6893
       ],
-      "curacao|ecuador": [
-        0.1175,
-        0.2031,
-        0.6793
-      ],
       "curacao|senegal": [
         0.1451,
         0.2227,
         0.6322
+      ],
+      "curacao|ecuador": [
+        0.1175,
+        0.2031,
+        0.6793
       ],
       "curacao|liberia": [
         0.5409,
@@ -111165,15 +111165,15 @@
         0.0524,
         0.9064
       ],
-      "turks and caicos islands|ecuador": [
-        0.0397,
-        0.0507,
-        0.9096
-      ],
       "turks and caicos islands|senegal": [
         0.0336,
         0.0549,
         0.9114
+      ],
+      "turks and caicos islands|ecuador": [
+        0.0397,
+        0.0507,
+        0.9096
       ],
       "turks and caicos islands|liberia": [
         0.0914,
@@ -112220,15 +112220,15 @@
         0.2381,
         0.6414
       ],
-      "romania|ecuador": [
-        0.1968,
-        0.2789,
-        0.5242
-      ],
       "romania|senegal": [
         0.2619,
         0.2911,
         0.447
+      ],
+      "romania|ecuador": [
+        0.1968,
+        0.2789,
+        0.5242
       ],
       "romania|liberia": [
         0.6981,
@@ -113275,15 +113275,15 @@
         0.0739,
         0.8778
       ],
-      "singapore|ecuador": [
-        0.0533,
-        0.082,
-        0.8647
-      ],
       "singapore|senegal": [
         0.0505,
         0.0949,
         0.8547
+      ],
+      "singapore|ecuador": [
+        0.0533,
+        0.082,
+        0.8647
       ],
       "singapore|liberia": [
         0.2389,
@@ -114330,15 +114330,15 @@
         0.2863,
         0.5238
       ],
-      "peru|ecuador": [
-        0.2231,
-        0.2977,
-        0.4792
-      ],
       "peru|senegal": [
         0.2952,
         0.3083,
         0.3965
+      ],
+      "peru|ecuador": [
+        0.2231,
+        0.2977,
+        0.4792
       ],
       "peru|liberia": [
         0.7072,
@@ -115385,15 +115385,15 @@
         0.1914,
         0.6947
       ],
-      "qatar|ecuador": [
-        0.0929,
-        0.2026,
-        0.7045
-      ],
       "qatar|senegal": [
         0.11,
         0.2224,
         0.6676
+      ],
+      "qatar|ecuador": [
+        0.0929,
+        0.2026,
+        0.7045
       ],
       "qatar|liberia": [
         0.5269,
@@ -116440,15 +116440,15 @@
         0.1308,
         0.7909
       ],
-      "sudan|ecuador": [
-        0.085,
-        0.1456,
-        0.7694
-      ],
       "sudan|senegal": [
         0.0886,
         0.1971,
         0.7143
+      ],
+      "sudan|ecuador": [
+        0.085,
+        0.1456,
+        0.7694
       ],
       "sudan|liberia": [
         0.4179,
@@ -117495,15 +117495,15 @@
         0.2688,
         0.5292
       ],
-      "slovenia|ecuador": [
-        0.2079,
-        0.2817,
-        0.5105
-      ],
       "slovenia|senegal": [
         0.2767,
         0.3035,
         0.4198
+      ],
+      "slovenia|ecuador": [
+        0.2079,
+        0.2817,
+        0.5105
       ],
       "slovenia|liberia": [
         0.6975,
@@ -118550,15 +118550,15 @@
         0.2203,
         0.6553
       ],
-      "guinea|ecuador": [
-        0.1279,
-        0.2474,
-        0.6247
-      ],
       "guinea|senegal": [
         0.1463,
         0.2721,
         0.5817
+      ],
+      "guinea|ecuador": [
+        0.1279,
+        0.2474,
+        0.6247
       ],
       "guinea|liberia": [
         0.5833,
@@ -119605,15 +119605,15 @@
         0.2809,
         0.484
       ],
-      "serbia|ecuador": [
-        0.264,
-        0.2994,
-        0.4366
-      ],
       "serbia|senegal": [
         0.3153,
         0.3092,
         0.3756
+      ],
+      "serbia|ecuador": [
+        0.264,
+        0.2994,
+        0.4366
       ],
       "serbia|liberia": [
         0.7738,
@@ -120660,15 +120660,15 @@
         0.0716,
         0.8949
       ],
-      "india|ecuador": [
-        0.0453,
-        0.0822,
-        0.8725
-      ],
       "india|senegal": [
         0.0438,
         0.0907,
         0.8654
+      ],
+      "india|ecuador": [
+        0.0453,
+        0.0822,
+        0.8725
       ],
       "india|liberia": [
         0.1973,
@@ -121715,15 +121715,15 @@
         0.0564,
         0.9002
       ],
-      "cayman islands|ecuador": [
-        0.0453,
-        0.061,
-        0.8937
-      ],
       "cayman islands|senegal": [
         0.0362,
         0.0623,
         0.9015
+      ],
+      "cayman islands|ecuador": [
+        0.0453,
+        0.061,
+        0.8937
       ],
       "cayman islands|liberia": [
         0.1076,
@@ -122770,15 +122770,15 @@
         0.2399,
         0.6476
       ],
-      "jamaica|ecuador": [
-        0.1218,
-        0.2532,
-        0.625
-      ],
       "jamaica|senegal": [
         0.2308,
         0.2831,
         0.4861
+      ],
+      "jamaica|ecuador": [
+        0.1218,
+        0.2532,
+        0.625
       ],
       "jamaica|liberia": [
         0.6462,
@@ -123825,15 +123825,15 @@
         0.2249,
         0.641
       ],
-      "bosnia and herzegovina|ecuador": [
-        0.1372,
-        0.2255,
-        0.6373
-      ],
       "bosnia and herzegovina|senegal": [
         0.1877,
         0.2506,
         0.5617
+      ],
+      "bosnia and herzegovina|ecuador": [
+        0.1372,
+        0.2255,
+        0.6373
       ],
       "bosnia and herzegovina|liberia": [
         0.6172,
@@ -124880,15 +124880,15 @@
         0.3018,
         0.3833
       ],
-      "croatia|ecuador": [
-        0.2952,
-        0.3326,
-        0.3722
-      ],
       "croatia|senegal": [
         0.4749,
         0.3049,
         0.2202
+      ],
+      "croatia|ecuador": [
+        0.2952,
+        0.3326,
+        0.3722
       ],
       "croatia|liberia": [
         0.839,
@@ -125935,15 +125935,15 @@
         0.2748,
         0.2055
       ],
-      "colombia|ecuador": [
-        0.4956,
-        0.3086,
-        0.1957
-      ],
       "colombia|senegal": [
         0.6829,
         0.2279,
         0.0891
+      ],
+      "colombia|ecuador": [
+        0.4956,
+        0.3086,
+        0.1957
       ],
       "colombia|liberia": [
         0.8787,
@@ -126990,15 +126990,15 @@
         0.2572,
         0.547
       ],
-      "slovakia|ecuador": [
-        0.1994,
-        0.2676,
-        0.533
-      ],
       "slovakia|senegal": [
         0.2672,
         0.2923,
         0.4405
+      ],
+      "slovakia|ecuador": [
+        0.1994,
+        0.2676,
+        0.533
       ],
       "slovakia|liberia": [
         0.6979,
@@ -128045,15 +128045,15 @@
         0.2653,
         0.5743
       ],
-      "albania|ecuador": [
-        0.1753,
-        0.2736,
-        0.5511
-      ],
       "albania|senegal": [
         0.2327,
         0.2941,
         0.4732
+      ],
+      "albania|ecuador": [
+        0.1753,
+        0.2736,
+        0.5511
       ],
       "albania|liberia": [
         0.6555,
@@ -129100,15 +129100,15 @@
         0.3018,
         0.4473
       ],
-      "canada|ecuador": [
-        0.2502,
-        0.3275,
-        0.4223
-      ],
       "canada|senegal": [
         0.3883,
         0.3334,
         0.2783
+      ],
+      "canada|ecuador": [
+        0.2502,
+        0.3275,
+        0.4223
       ],
       "canada|liberia": [
         0.8146,
@@ -130155,15 +130155,15 @@
         0.2764,
         0.4941
       ],
-      "venezuela|ecuador": [
-        0.2769,
-        0.285,
-        0.4381
-      ],
       "venezuela|senegal": [
         0.3129,
         0.2998,
         0.3873
+      ],
+      "venezuela|ecuador": [
+        0.2769,
+        0.285,
+        0.4381
       ],
       "venezuela|liberia": [
         0.7836,
@@ -131210,15 +131210,15 @@
         0.127,
         0.7844
       ],
-      "dominican republic|ecuador": [
-        0.092,
-        0.1418,
-        0.7662
-      ],
       "dominican republic|senegal": [
         0.1398,
         0.2128,
         0.6474
+      ],
+      "dominican republic|ecuador": [
+        0.092,
+        0.1418,
+        0.7662
       ],
       "dominican republic|liberia": [
         0.4716,
@@ -132265,15 +132265,15 @@
         0.2125,
         0.6575
       ],
-      "iceland|ecuador": [
-        0.1333,
-        0.2213,
-        0.6454
-      ],
       "iceland|senegal": [
         0.1815,
         0.2464,
         0.5721
+      ],
+      "iceland|ecuador": [
+        0.1333,
+        0.2213,
+        0.6454
       ],
       "iceland|liberia": [
         0.574,
@@ -133320,15 +133320,15 @@
         0.2551,
         0.5442
       ],
-      "costa rica|ecuador": [
-        0.1727,
-        0.2724,
-        0.5549
-      ],
       "costa rica|senegal": [
         0.3078,
         0.2991,
         0.3931
+      ],
+      "costa rica|ecuador": [
+        0.1727,
+        0.2724,
+        0.5549
       ],
       "costa rica|liberia": [
         0.7369,
@@ -134375,15 +134375,15 @@
         0.2422,
         0.6423
       ],
-      "united arab emirates|ecuador": [
-        0.1605,
-        0.2548,
-        0.5848
-      ],
       "united arab emirates|senegal": [
         0.1737,
         0.2725,
         0.5538
+      ],
+      "united arab emirates|ecuador": [
+        0.1605,
+        0.2548,
+        0.5848
       ],
       "united arab emirates|liberia": [
         0.6402,
@@ -135430,15 +135430,15 @@
         0.1045,
         0.8298
       ],
-      "lesotho|ecuador": [
-        0.0687,
-        0.1106,
-        0.8207
-      ],
       "lesotho|senegal": [
         0.0651,
         0.1312,
         0.8037
+      ],
+      "lesotho|ecuador": [
+        0.0687,
+        0.1106,
+        0.8207
       ],
       "lesotho|liberia": [
         0.3364,
@@ -136485,15 +136485,15 @@
         0.2473,
         0.6033
       ],
-      "northern ireland|ecuador": [
-        0.1552,
-        0.2594,
-        0.5855
-      ],
       "northern ireland|senegal": [
         0.2306,
         0.2767,
         0.4928
+      ],
+      "northern ireland|ecuador": [
+        0.1552,
+        0.2594,
+        0.5855
       ],
       "northern ireland|liberia": [
         0.6512,
@@ -137540,15 +137540,15 @@
         0.2962,
         0.43
       ],
-      "ukraine|ecuador": [
-        0.2816,
-        0.2926,
-        0.4258
-      ],
       "ukraine|senegal": [
         0.327,
         0.3216,
         0.3514
+      ],
+      "ukraine|ecuador": [
+        0.2816,
+        0.2926,
+        0.4258
       ],
       "ukraine|liberia": [
         0.7991,
@@ -138595,15 +138595,15 @@
         0.2333,
         0.6418
       ],
-      "suriname|ecuador": [
-        0.1343,
-        0.2521,
-        0.6136
-      ],
       "suriname|senegal": [
         0.1689,
         0.2668,
         0.5643
+      ],
+      "suriname|ecuador": [
+        0.1343,
+        0.2521,
+        0.6136
       ],
       "suriname|liberia": [
         0.5511,
@@ -139650,15 +139650,15 @@
         0.1917,
         0.0758
       ],
-      "argentina|ecuador": [
-        0.7221,
-        0.206,
-        0.072
-      ],
       "argentina|senegal": [
         0.8231,
         0.1308,
         0.0461
+      ],
+      "argentina|ecuador": [
+        0.7221,
+        0.206,
+        0.072
       ],
       "argentina|liberia": [
         0.9029,
@@ -140705,15 +140705,15 @@
         0.166,
         0.7472
       ],
-      "china|ecuador": [
-        0.1135,
-        0.1987,
-        0.6878
-      ],
       "china|senegal": [
         0.1361,
         0.2423,
         0.6216
+      ],
+      "china|ecuador": [
+        0.1135,
+        0.1987,
+        0.6878
       ],
       "china|liberia": [
         0.515,
@@ -141760,15 +141760,15 @@
         0.0648,
         0.8965
       ],
-      "moldova|ecuador": [
-        0.0339,
-        0.062,
-        0.9041
-      ],
       "moldova|senegal": [
         0.0496,
         0.0889,
         0.8615
+      ],
+      "moldova|ecuador": [
+        0.0339,
+        0.062,
+        0.9041
       ],
       "moldova|liberia": [
         0.2466,
@@ -142815,15 +142815,15 @@
         0.0848,
         0.863
       ],
-      "latvia|ecuador": [
-        0.0501,
-        0.0876,
-        0.8622
-      ],
       "latvia|senegal": [
         0.0566,
         0.1064,
         0.837
+      ],
+      "latvia|ecuador": [
+        0.0501,
+        0.0876,
+        0.8622
       ],
       "latvia|liberia": [
         0.2695,
@@ -143870,15 +143870,15 @@
         0.2707,
         0.2085
       ],
-      "belgium|ecuador": [
-        0.4921,
-        0.2853,
-        0.2226
-      ],
       "belgium|senegal": [
         0.6279,
         0.2345,
         0.1377
+      ],
+      "belgium|ecuador": [
+        0.4921,
+        0.2853,
+        0.2226
       ],
       "belgium|liberia": [
         0.8865,
@@ -144925,15 +144925,15 @@
         0.2311,
         0.6322
       ],
-      "tunisia|ecuador": [
-        0.1446,
-        0.2347,
-        0.6207
-      ],
       "tunisia|senegal": [
         0.1812,
         0.2555,
         0.5633
+      ],
+      "tunisia|ecuador": [
+        0.1446,
+        0.2347,
+        0.6207
       ],
       "tunisia|liberia": [
         0.6521,
@@ -145980,15 +145980,15 @@
         0.3179,
         0.2409
       ],
-      "germany|ecuador": [
-        0.5513,
-        0.2714,
-        0.1773
-      ],
       "germany|senegal": [
         0.5633,
         0.2673,
         0.1694
+      ],
+      "germany|ecuador": [
+        0.5513,
+        0.2714,
+        0.1773
       ],
       "germany|liberia": [
         0.8759,
@@ -147035,15 +147035,15 @@
         0.2748,
         0.2964
       ],
-      "denmark|ecuador": [
-        0.3524,
-        0.3456,
-        0.302
-      ],
       "denmark|senegal": [
         0.5127,
         0.2858,
         0.2015
+      ],
+      "denmark|ecuador": [
+        0.3524,
+        0.3456,
+        0.302
       ],
       "denmark|liberia": [
         0.8441,
@@ -148090,15 +148090,15 @@
         0.1659,
         0.728
       ],
-      "gabon|ecuador": [
-        0.1081,
-        0.1898,
-        0.702
-      ],
       "gabon|senegal": [
         0.1224,
         0.2274,
         0.6501
+      ],
+      "gabon|ecuador": [
+        0.1081,
+        0.1898,
+        0.702
       ],
       "gabon|liberia": [
         0.4656,
@@ -149145,15 +149145,15 @@
         0.3075,
         0.3828
       ],
-      "italy|ecuador": [
-        0.4091,
-        0.319,
-        0.272
-      ],
       "italy|senegal": [
         0.508,
         0.284,
         0.208
+      ],
+      "italy|ecuador": [
+        0.4091,
+        0.319,
+        0.272
       ],
       "italy|liberia": [
         0.8432,
@@ -150200,15 +150200,15 @@
         0.2494,
         0.6016
       ],
-      "haiti|ecuador": [
-        0.1315,
-        0.2528,
-        0.6156
-      ],
       "haiti|senegal": [
         0.211,
         0.2713,
         0.5176
+      ],
+      "haiti|ecuador": [
+        0.1315,
+        0.2528,
+        0.6156
       ],
       "haiti|liberia": [
         0.6465,
@@ -151255,15 +151255,15 @@
         0.122,
         0.8021
       ],
-      "luxembourg|ecuador": [
-        0.0776,
-        0.1296,
-        0.7928
-      ],
       "luxembourg|senegal": [
         0.0978,
         0.1873,
         0.7149
+      ],
+      "luxembourg|ecuador": [
+        0.0776,
+        0.1296,
+        0.7928
       ],
       "luxembourg|liberia": [
         0.3709,
@@ -152310,15 +152310,15 @@
         0.2621,
         0.5359
       ],
-      "mali|ecuador": [
-        0.2035,
-        0.2762,
-        0.5202
-      ],
       "mali|senegal": [
         0.2768,
         0.3031,
         0.4201
+      ],
+      "mali|ecuador": [
+        0.2035,
+        0.2762,
+        0.5202
       ],
       "mali|liberia": [
         0.7174,
@@ -153365,15 +153365,15 @@
         0.0489,
         0.9114
       ],
-      "united states virgin islands|ecuador": [
-        0.0392,
-        0.0482,
-        0.9126
-      ],
       "united states virgin islands|senegal": [
         0.0349,
         0.0533,
         0.9119
+      ],
+      "united states virgin islands|ecuador": [
+        0.0392,
+        0.0482,
+        0.9126
       ],
       "united states virgin islands|liberia": [
         0.091,
@@ -154420,15 +154420,15 @@
         0.1506,
         0.7471
       ],
-      "guadeloupe|ecuador": [
-        0.1096,
-        0.1755,
-        0.7149
-      ],
       "guadeloupe|senegal": [
         0.1449,
         0.2369,
         0.6183
+      ],
+      "guadeloupe|ecuador": [
+        0.1096,
+        0.1755,
+        0.7149
       ],
       "guadeloupe|liberia": [
         0.495,
@@ -155475,15 +155475,15 @@
         0.2804,
         0.5365
       ],
-      "panama|ecuador": [
-        0.2665,
-        0.3174,
-        0.416
-      ],
       "panama|senegal": [
         0.3475,
         0.3191,
         0.3334
+      ],
+      "panama|ecuador": [
+        0.2665,
+        0.3174,
+        0.416
       ],
       "panama|liberia": [
         0.7888,
@@ -156530,15 +156530,15 @@
         0.2634,
         0.4761
       ],
-      "hungary|ecuador": [
-        0.2293,
-        0.2796,
-        0.4911
-      ],
       "hungary|senegal": [
         0.2864,
         0.3088,
         0.4049
+      ],
+      "hungary|ecuador": [
+        0.2293,
+        0.2796,
+        0.4911
       ],
       "hungary|liberia": [
         0.7148,
@@ -157585,15 +157585,15 @@
         0.2886,
         0.3337
       ],
-      "austria|ecuador": [
-        0.3261,
-        0.3216,
-        0.3522
-      ],
       "austria|senegal": [
         0.5007,
         0.2873,
         0.212
+      ],
+      "austria|ecuador": [
+        0.3261,
+        0.3216,
+        0.3522
       ],
       "austria|liberia": [
         0.8409,
@@ -158640,15 +158640,15 @@
         0.0821,
         0.8658
       ],
-      "lithuania|ecuador": [
-        0.052,
-        0.0861,
-        0.8619
-      ],
       "lithuania|senegal": [
         0.0572,
         0.1063,
         0.8366
+      ],
+      "lithuania|ecuador": [
+        0.052,
+        0.0861,
+        0.8619
       ],
       "lithuania|liberia": [
         0.2752,
@@ -159695,15 +159695,15 @@
         0.0982,
         0.8439
       ],
-      "ethiopia|ecuador": [
-        0.0659,
-        0.1108,
-        0.8232
-      ],
       "ethiopia|senegal": [
         0.0587,
         0.13,
         0.8113
+      ],
+      "ethiopia|ecuador": [
+        0.0659,
+        0.1108,
+        0.8232
       ],
       "ethiopia|liberia": [
         0.3155,
@@ -160750,15 +160750,15 @@
         0.0395,
         0.9373
       ],
-      "myanmar|ecuador": [
-        0.0238,
-        0.0422,
-        0.934
-      ],
       "myanmar|senegal": [
         0.0254,
         0.0487,
         0.9258
+      ],
+      "myanmar|ecuador": [
+        0.0238,
+        0.0422,
+        0.934
       ],
       "myanmar|liberia": [
         0.124,
@@ -161805,15 +161805,15 @@
         0.0684,
         0.0261
       ],
-      "uruguay|ecuador": [
-        0.3902,
-        0.3511,
-        0.2587
-      ],
       "uruguay|senegal": [
         0.5331,
         0.2874,
         0.1795
+      ],
+      "uruguay|ecuador": [
+        0.3902,
+        0.3511,
+        0.2587
       ],
       "uruguay|liberia": [
         0.8386,
@@ -162114,1061 +162114,6 @@
         0.9044,
         0.0678,
         0.0277
-      ],
-      "ecuador|malaysia": [
-        0.8237,
-        0.124,
-        0.0524
-      ],
-      "ecuador|turkmenistan": [
-        0.8501,
-        0.1078,
-        0.042
-      ],
-      "ecuador|vietnam": [
-        0.8266,
-        0.1222,
-        0.0512
-      ],
-      "ecuador|tajikistan": [
-        0.835,
-        0.1169,
-        0.0481
-      ],
-      "ecuador|spain": [
-        0.1132,
-        0.1767,
-        0.7101
-      ],
-      "ecuador|lebanon": [
-        0.8339,
-        0.1181,
-        0.048
-      ],
-      "ecuador|cuba": [
-        0.8381,
-        0.1169,
-        0.0451
-      ],
-      "ecuador|guyana": [
-        0.8217,
-        0.1259,
-        0.0523
-      ],
-      "ecuador|thailand": [
-        0.8089,
-        0.1339,
-        0.0571
-      ],
-      "ecuador|philippines": [
-        0.8589,
-        0.0992,
-        0.0419
-      ],
-      "ecuador|benin": [
-        0.7758,
-        0.1694,
-        0.0548
-      ],
-      "ecuador|isle of man": [
-        0.6809,
-        0.2119,
-        0.1072
-      ],
-      "ecuador|syria": [
-        0.7176,
-        0.2069,
-        0.0754
-      ],
-      "ecuador|scotland": [
-        0.3803,
-        0.3466,
-        0.2732
-      ],
-      "ecuador|ghana": [
-        0.6515,
-        0.2526,
-        0.0959
-      ],
-      "ecuador|kosovo": [
-        0.5394,
-        0.2858,
-        0.1749
-      ],
-      "ecuador|madagascar": [
-        0.8024,
-        0.1469,
-        0.0507
-      ],
-      "ecuador|papua new guinea": [
-        0.8265,
-        0.127,
-        0.0465
-      ],
-      "ecuador|norway": [
-        0.3021,
-        0.282,
-        0.4159
-      ],
-      "ecuador|zambia": [
-        0.8181,
-        0.1401,
-        0.0418
-      ],
-      "ecuador|kenya": [
-        0.8225,
-        0.1275,
-        0.05
-      ],
-      "ecuador|nigeria": [
-        0.4887,
-        0.2907,
-        0.2206
-      ],
-      "ecuador|puerto rico": [
-        0.8588,
-        0.0993,
-        0.0419
-      ],
-      "ecuador|mexico": [
-        0.2461,
-        0.3038,
-        0.4501
-      ],
-      "ecuador|faroe islands": [
-        0.8239,
-        0.1286,
-        0.0475
-      ],
-      "ecuador|bulgaria": [
-        0.7922,
-        0.1547,
-        0.0531
-      ],
-      "ecuador|burkina faso": [
-        0.6853,
-        0.228,
-        0.0867
-      ],
-      "ecuador|trinidad and tobago": [
-        0.7994,
-        0.1503,
-        0.0503
-      ],
-      "ecuador|togo": [
-        0.8047,
-        0.1438,
-        0.0514
-      ],
-      "ecuador|kazakhstan": [
-        0.7997,
-        0.1477,
-        0.0526
-      ],
-      "ecuador|sint maarten": [
-        0.8699,
-        0.0927,
-        0.0374
-      ],
-      "ecuador|yemen": [
-        0.8661,
-        0.0932,
-        0.0408
-      ],
-      "ecuador|egypt": [
-        0.3824,
-        0.3451,
-        0.2725
-      ],
-      "ecuador|azerbaijan": [
-        0.8568,
-        0.1061,
-        0.0371
-      ],
-      "ecuador|kyrgyzstan": [
-        0.8266,
-        0.1277,
-        0.0456
-      ],
-      "ecuador|republic of ireland": [
-        0.5125,
-        0.299,
-        0.1886
-      ],
-      "ecuador|bahrain": [
-        0.7887,
-        0.1582,
-        0.0532
-      ],
-      "ecuador|australia": [
-        0.3654,
-        0.3374,
-        0.2971
-      ],
-      "ecuador|saint martin": [
-        0.8669,
-        0.0922,
-        0.0409
-      ],
-      "ecuador|morocco": [
-        0.2904,
-        0.3146,
-        0.395
-      ],
-      "ecuador|oman": [
-        0.7639,
-        0.1773,
-        0.0587
-      ],
-      "ecuador|cape verde": [
-        0.6611,
-        0.2497,
-        0.0892
-      ],
-      "ecuador|malta": [
-        0.8439,
-        0.1189,
-        0.0372
-      ],
-      "ecuador|nicaragua": [
-        0.8067,
-        0.1482,
-        0.0451
-      ],
-      "ecuador|el salvador": [
-        0.8102,
-        0.1446,
-        0.0452
-      ],
-      "ecuador|uzbekistan": [
-        0.5356,
-        0.2824,
-        0.182
-      ],
-      "ecuador|iraq": [
-        0.6172,
-        0.2617,
-        0.1211
-      ],
-      "ecuador|north macedonia": [
-        0.7013,
-        0.2237,
-        0.075
-      ],
-      "ecuador|england": [
-        0.1415,
-        0.247,
-        0.6115
-      ],
-      "ecuador|cameroon": [
-        0.6175,
-        0.262,
-        0.1205
-      ],
-      "ecuador|namibia": [
-        0.8238,
-        0.1297,
-        0.0465
-      ],
-      "ecuador|mozambique": [
-        0.8158,
-        0.1358,
-        0.0485
-      ],
-      "ecuador|hong kong": [
-        0.8684,
-        0.0908,
-        0.0408
-      ],
-      "ecuador|libya": [
-        0.7919,
-        0.1538,
-        0.0542
-      ],
-      "ecuador|dr congo": [
-        0.5564,
-        0.2849,
-        0.1587
-      ],
-      "ecuador|wales": [
-        0.587,
-        0.2564,
-        0.1566
-      ],
-      "ecuador|cyprus": [
-        0.8527,
-        0.1071,
-        0.0402
-      ],
-      "ecuador|poland": [
-        0.6454,
-        0.2245,
-        0.1301
-      ],
-      "ecuador|indonesia": [
-        0.816,
-        0.1397,
-        0.0443
-      ],
-      "ecuador|pakistan": [
-        0.8944,
-        0.0734,
-        0.0322
-      ],
-      "ecuador|israel": [
-        0.6788,
-        0.2325,
-        0.0887
-      ],
-      "ecuador|ivory coast": [
-        0.4054,
-        0.3319,
-        0.2626
-      ],
-      "ecuador|bolivia": [
-        0.6893,
-        0.2246,
-        0.0861
-      ],
-      "ecuador|zimbabwe": [
-        0.8173,
-        0.1331,
-        0.0496
-      ],
-      "ecuador|switzerland": [
-        0.2651,
-        0.3068,
-        0.4281
-      ],
-      "ecuador|rwanda": [
-        0.8207,
-        0.1312,
-        0.0481
-      ],
-      "ecuador|uganda": [
-        0.7984,
-        0.1494,
-        0.0522
-      ],
-      "ecuador|sierra leone": [
-        0.8204,
-        0.1302,
-        0.0494
-      ],
-      "ecuador|estonia": [
-        0.8347,
-        0.1233,
-        0.042
-      ],
-      "ecuador|congo": [
-        0.873,
-        0.0951,
-        0.0319
-      ],
-      "ecuador|gambia": [
-        0.7983,
-        0.1448,
-        0.0569
-      ],
-      "ecuador|aruba": [
-        0.8871,
-        0.0776,
-        0.0353
-      ],
-      "ecuador|saint vincent and the grenadines": [
-        0.8605,
-        0.1001,
-        0.0393
-      ],
-      "ecuador|united states": [
-        0.4643,
-        0.3031,
-        0.2325
-      ],
-      "ecuador|guatemala": [
-        0.6951,
-        0.2221,
-        0.0828
-      ],
-      "ecuador|liechtenstein": [
-        0.9036,
-        0.0683,
-        0.0281
-      ],
-      "ecuador|kuwait": [
-        0.8267,
-        0.1318,
-        0.0415
-      ],
-      "ecuador|south africa": [
-        0.655,
-        0.2519,
-        0.0931
-      ],
-      "ecuador|turkey": [
-        0.452,
-        0.3152,
-        0.2327
-      ],
-      "ecuador|palestine": [
-        0.716,
-        0.2143,
-        0.0697
-      ],
-      "ecuador|honduras": [
-        0.6494,
-        0.2393,
-        0.1113
-      ],
-      "ecuador|sweden": [
-        0.4878,
-        0.2855,
-        0.2267
-      ],
-      "ecuador|british virgin islands": [
-        0.894,
-        0.0707,
-        0.0353
-      ],
-      "ecuador|algeria": [
-        0.4646,
-        0.3282,
-        0.2072
-      ],
-      "ecuador|armenia": [
-        0.8454,
-        0.1195,
-        0.035
-      ],
-      "ecuador|san marino": [
-        0.9166,
-        0.058,
-        0.0254
-      ],
-      "ecuador|new caledonia": [
-        0.7333,
-        0.1935,
-        0.0732
-      ],
-      "ecuador|mauritania": [
-        0.8147,
-        0.1365,
-        0.0488
-      ],
-      "ecuador|new zealand": [
-        0.693,
-        0.2188,
-        0.0882
-      ],
-      "ecuador|tahiti": [
-        0.8078,
-        0.1416,
-        0.0505
-      ],
-      "ecuador|paraguay": [
-        0.3747,
-        0.3511,
-        0.2742
-      ],
-      "ecuador|saudi arabia": [
-        0.6291,
-        0.2666,
-        0.1043
-      ],
-      "ecuador|andorra": [
-        0.8806,
-        0.0863,
-        0.0331
-      ],
-      "ecuador|finland": [
-        0.7215,
-        0.2075,
-        0.0711
-      ],
-      "ecuador|jordan": [
-        0.6567,
-        0.2564,
-        0.0869
-      ],
-      "ecuador|niger": [
-        0.8037,
-        0.1435,
-        0.0528
-      ],
-      "ecuador|montenegro": [
-        0.8045,
-        0.151,
-        0.0445
-      ],
-      "ecuador|belarus": [
-        0.7253,
-        0.2136,
-        0.061
-      ],
-      "ecuador|japan": [
-        0.2858,
-        0.3012,
-        0.413
-      ],
-      "ecuador|vanuatu": [
-        0.8414,
-        0.1169,
-        0.0417
-      ],
-      "ecuador|curacao": [
-        0.7315,
-        0.2091,
-        0.0595
-      ],
-      "ecuador|turks and caicos islands": [
-        0.9072,
-        0.0645,
-        0.0283
-      ],
-      "ecuador|romania": [
-        0.6599,
-        0.238,
-        0.1021
-      ],
-      "ecuador|singapore": [
-        0.8694,
-        0.0931,
-        0.0375
-      ],
-      "ecuador|peru": [
-        0.5174,
-        0.3113,
-        0.1713
-      ],
-      "ecuador|qatar": [
-        0.803,
-        0.1569,
-        0.0401
-      ],
-      "ecuador|sudan": [
-        0.8047,
-        0.1485,
-        0.0467
-      ],
-      "ecuador|slovenia": [
-        0.5693,
-        0.2879,
-        0.1428
-      ],
-      "ecuador|guinea": [
-        0.7586,
-        0.1795,
-        0.062
-      ],
-      "ecuador|serbia": [
-        0.5391,
-        0.2895,
-        0.1714
-      ],
-      "ecuador|india": [
-        0.8718,
-        0.0929,
-        0.0352
-      ],
-      "ecuador|cayman islands": [
-        0.8988,
-        0.0675,
-        0.0338
-      ],
-      "ecuador|jamaica": [
-        0.7514,
-        0.1866,
-        0.0619
-      ],
-      "ecuador|bosnia and herzegovina": [
-        0.7039,
-        0.2244,
-        0.0717
-      ],
-      "ecuador|croatia": [
-        0.4073,
-        0.3087,
-        0.284
-      ],
-      "ecuador|colombia": [
-        0.2771,
-        0.2787,
-        0.4442
-      ],
-      "ecuador|slovakia": [
-        0.6264,
-        0.2624,
-        0.1112
-      ],
-      "ecuador|albania": [
-        0.6537,
-        0.2532,
-        0.0931
-      ],
-      "ecuador|canada": [
-        0.5338,
-        0.2761,
-        0.1901
-      ],
-      "ecuador|venezuela": [
-        0.5311,
-        0.2881,
-        0.1808
-      ],
-      "ecuador|dominican republic": [
-        0.8328,
-        0.1166,
-        0.0505
-      ],
-      "ecuador|iceland": [
-        0.7243,
-        0.2035,
-        0.0722
-      ],
-      "ecuador|costa rica": [
-        0.6783,
-        0.2048,
-        0.117
-      ],
-      "ecuador|united arab emirates": [
-        0.6838,
-        0.2319,
-        0.0843
-      ],
-      "ecuador|lesotho": [
-        0.8328,
-        0.1291,
-        0.0381
-      ],
-      "ecuador|northern ireland": [
-        0.6866,
-        0.2292,
-        0.0842
-      ],
-      "ecuador|ukraine": [
-        0.511,
-        0.2832,
-        0.2059
-      ],
-      "ecuador|suriname": [
-        0.7235,
-        0.2033,
-        0.0732
-      ],
-      "ecuador|argentina": [
-        0.1215,
-        0.2419,
-        0.6366
-      ],
-      "ecuador|china": [
-        0.7825,
-        0.1639,
-        0.0536
-      ],
-      "ecuador|moldova": [
-        0.8719,
-        0.0981,
-        0.0299
-      ],
-      "ecuador|latvia": [
-        0.8563,
-        0.1079,
-        0.0358
-      ],
-      "ecuador|belgium": [
-        0.3181,
-        0.2839,
-        0.3979
-      ],
-      "ecuador|tunisia": [
-        0.7125,
-        0.2172,
-        0.0703
-      ],
-      "ecuador|germany": [
-        0.2643,
-        0.2784,
-        0.4573
-      ],
-      "ecuador|denmark": [
-        0.3543,
-        0.3179,
-        0.3278
-      ],
-      "ecuador|gabon": [
-        0.7999,
-        0.1516,
-        0.0484
-      ],
-      "ecuador|italy": [
-        0.302,
-        0.3163,
-        0.3817
-      ],
-      "ecuador|haiti": [
-        0.7106,
-        0.2133,
-        0.0761
-      ],
-      "ecuador|luxembourg": [
-        0.821,
-        0.1366,
-        0.0424
-      ],
-      "ecuador|mali": [
-        0.6184,
-        0.256,
-        0.1256
-      ],
-      "ecuador|united states virgin islands": [
-        0.9072,
-        0.0611,
-        0.0317
-      ],
-      "ecuador|guadeloupe": [
-        0.8058,
-        0.1432,
-        0.051
-      ],
-      "ecuador|panama": [
-        0.5363,
-        0.2699,
-        0.1938
-      ],
-      "ecuador|hungary": [
-        0.5655,
-        0.2653,
-        0.1692
-      ],
-      "ecuador|austria": [
-        0.3748,
-        0.3286,
-        0.2966
-      ],
-      "ecuador|lithuania": [
-        0.8629,
-        0.1036,
-        0.0336
-      ],
-      "ecuador|ethiopia": [
-        0.8451,
-        0.1143,
-        0.0406
-      ],
-      "ecuador|myanmar": [
-        0.9014,
-        0.0716,
-        0.0271
-      ],
-      "ecuador|uruguay": [
-        0.3069,
-        0.3292,
-        0.3638
-      ],
-      "ecuador|senegal": [
-        0.4655,
-        0.314,
-        0.2206
-      ],
-      "ecuador|liberia": [
-        0.8325,
-        0.1229,
-        0.0445
-      ],
-      "ecuador|angola": [
-        0.7331,
-        0.1996,
-        0.0673
-      ],
-      "ecuador|seychelles": [
-        0.904,
-        0.0679,
-        0.0281
-      ],
-      "ecuador|czech republic": [
-        0.604,
-        0.2622,
-        0.1338
-      ],
-      "ecuador|guam": [
-        0.9153,
-        0.0594,
-        0.0254
-      ],
-      "ecuador|france": [
-        0.2264,
-        0.2663,
-        0.5073
-      ],
-      "ecuador|grenada": [
-        0.8775,
-        0.0879,
-        0.0347
-      ],
-      "ecuador|chile": [
-        0.5421,
-        0.291,
-        0.1669
-      ],
-      "ecuador|belize": [
-        0.879,
-        0.0858,
-        0.0352
-      ],
-      "ecuador|south korea": [
-        0.5127,
-        0.2822,
-        0.2052
-      ],
-      "ecuador|equatorial guinea": [
-        0.834,
-        0.1257,
-        0.0403
-      ],
-      "ecuador|iran": [
-        0.45,
-        0.3148,
-        0.2352
-      ],
-      "ecuador|greece": [
-        0.549,
-        0.2832,
-        0.1678
-      ],
-      "ecuador|tanzania": [
-        0.8399,
-        0.1152,
-        0.0449
-      ],
-      "ecuador|north korea": [
-        0.8229,
-        0.1342,
-        0.0428
-      ],
-      "ecuador|malawi": [
-        0.833,
-        0.1207,
-        0.0463
-      ],
-      "ecuador|netherlands": [
-        0.34,
-        0.2892,
-        0.3708
-      ],
-      "ecuador|cambodia": [
-        0.895,
-        0.0711,
-        0.0339
-      ],
-      "ecuador|guinea-bissau": [
-        0.8491,
-        0.11,
-        0.0409
-      ],
-      "ecuador|botswana": [
-        0.844,
-        0.1193,
-        0.0367
-      ],
-      "ecuador|brazil": [
-        0.2335,
-        0.2912,
-        0.4753
-      ],
-      "ecuador|anguilla": [
-        0.9135,
-        0.0597,
-        0.0268
-      ],
-      "ecuador|georgia": [
-        0.6576,
-        0.2508,
-        0.0916
-      ],
-      "ecuador|eswatini": [
-        0.8678,
-        0.0999,
-        0.0323
-      ],
-      "ecuador|saint kitts and nevis": [
-        0.8889,
-        0.0825,
-        0.0286
-      ],
-      "ecuador|comoros": [
-        0.8201,
-        0.1332,
-        0.0467
-      ],
-      "ecuador|portugal": [
-        0.2278,
-        0.2869,
-        0.4853
-      ],
-      "ecuador|afghanistan": [
-        0.879,
-        0.0836,
-        0.0375
-      ],
-      "ecuador|mauritius": [
-        0.884,
-        0.0855,
-        0.0306
-      ],
-      "ecuador|samoa": [
-        0.8915,
-        0.0803,
-        0.0282
-      ],
-      "ecuador|central african republic": [
-        0.8665,
-        0.1015,
-        0.032
-      ],
-      "ecuador|barbados": [
-        0.9093,
-        0.0637,
-        0.0269
-      ],
-      "ecuador|bangladesh": [
-        0.8924,
-        0.0753,
-        0.0323
-      ],
-      "ecuador|south sudan": [
-        0.8663,
-        0.1,
-        0.0337
-      ],
-      "ecuador|bonaire": [
-        0.8978,
-        0.0728,
-        0.0294
-      ],
-      "ecuador|dominica": [
-        0.9012,
-        0.0723,
-        0.0266
-      ],
-      "ecuador|brunei": [
-        0.9172,
-        0.0574,
-        0.0254
-      ],
-      "ecuador|montserrat": [
-        0.8864,
-        0.0831,
-        0.0305
-      ],
-      "ecuador|fiji": [
-        0.8531,
-        0.1136,
-        0.0333
-      ],
-      "ecuador|sri lanka": [
-        0.9005,
-        0.0703,
-        0.0291
-      ],
-      "ecuador|bermuda": [
-        0.8758,
-        0.0942,
-        0.03
-      ],
-      "ecuador|sao tome and principe": [
-        0.8844,
-        0.0857,
-        0.0299
-      ],
-      "ecuador|martinique": [
-        0.8218,
-        0.1309,
-        0.0473
-      ],
-      "ecuador|chad": [
-        0.8693,
-        0.0956,
-        0.0351
-      ],
-      "ecuador|saint lucia": [
-        0.8949,
-        0.0779,
-        0.0272
-      ],
-      "ecuador|solomon islands": [
-        0.8707,
-        0.098,
-        0.0313
-      ],
-      "ecuador|gibraltar": [
-        0.8941,
-        0.0767,
-        0.0292
-      ],
-      "ecuador|somalia": [
-        0.8882,
-        0.0799,
-        0.0319
-      ],
-      "ecuador|burundi": [
-        0.8479,
-        0.111,
-        0.0411
-      ],
-      "ecuador|antigua and barbuda": [
-        0.8991,
-        0.0718,
-        0.0291
-      ],
-      "ecuador|bahamas": [
-        0.9182,
-        0.0566,
-        0.0252
-      ],
-      "ecuador|french guiana": [
-        0.8447,
-        0.113,
-        0.0423
-      ],
-      "ecuador|laos": [
-        0.9166,
-        0.0582,
-        0.0252
-      ],
-      "ecuador|timor-leste": [
-        0.9172,
-        0.0574,
-        0.0254
-      ],
-      "ecuador|maldives": [
-        0.905,
-        0.067,
-        0.028
-      ],
-      "ecuador|djibouti": [
-        0.9062,
-        0.0676,
-        0.0262
-      ],
-      "ecuador|macau": [
-        0.9205,
-        0.0544,
-        0.0251
-      ],
-      "ecuador|bhutan": [
-        0.9127,
-        0.0595,
-        0.0278
-      ],
-      "ecuador|nepal": [
-        0.8908,
-        0.0775,
-        0.0317
-      ],
-      "ecuador|taiwan": [
-        0.9112,
-        0.0634,
-        0.0255
       ],
       "senegal|malaysia": [
         0.7513,
@@ -164225,6 +163170,1061 @@
         0.0584,
         0.0247
       ],
+      "ecuador|malaysia": [
+        0.8237,
+        0.124,
+        0.0524
+      ],
+      "ecuador|turkmenistan": [
+        0.8501,
+        0.1078,
+        0.042
+      ],
+      "ecuador|vietnam": [
+        0.8266,
+        0.1222,
+        0.0512
+      ],
+      "ecuador|tajikistan": [
+        0.835,
+        0.1169,
+        0.0481
+      ],
+      "ecuador|spain": [
+        0.1132,
+        0.1767,
+        0.7101
+      ],
+      "ecuador|lebanon": [
+        0.8339,
+        0.1181,
+        0.048
+      ],
+      "ecuador|cuba": [
+        0.8381,
+        0.1169,
+        0.0451
+      ],
+      "ecuador|guyana": [
+        0.8217,
+        0.1259,
+        0.0523
+      ],
+      "ecuador|thailand": [
+        0.8089,
+        0.1339,
+        0.0571
+      ],
+      "ecuador|philippines": [
+        0.8589,
+        0.0992,
+        0.0419
+      ],
+      "ecuador|benin": [
+        0.7758,
+        0.1694,
+        0.0548
+      ],
+      "ecuador|isle of man": [
+        0.6809,
+        0.2119,
+        0.1072
+      ],
+      "ecuador|syria": [
+        0.7176,
+        0.2069,
+        0.0754
+      ],
+      "ecuador|scotland": [
+        0.3803,
+        0.3466,
+        0.2732
+      ],
+      "ecuador|ghana": [
+        0.6515,
+        0.2526,
+        0.0959
+      ],
+      "ecuador|kosovo": [
+        0.5394,
+        0.2858,
+        0.1749
+      ],
+      "ecuador|madagascar": [
+        0.8024,
+        0.1469,
+        0.0507
+      ],
+      "ecuador|papua new guinea": [
+        0.8265,
+        0.127,
+        0.0465
+      ],
+      "ecuador|norway": [
+        0.3021,
+        0.282,
+        0.4159
+      ],
+      "ecuador|zambia": [
+        0.8181,
+        0.1401,
+        0.0418
+      ],
+      "ecuador|kenya": [
+        0.8225,
+        0.1275,
+        0.05
+      ],
+      "ecuador|nigeria": [
+        0.4887,
+        0.2907,
+        0.2206
+      ],
+      "ecuador|puerto rico": [
+        0.8588,
+        0.0993,
+        0.0419
+      ],
+      "ecuador|mexico": [
+        0.2461,
+        0.3038,
+        0.4501
+      ],
+      "ecuador|faroe islands": [
+        0.8239,
+        0.1286,
+        0.0475
+      ],
+      "ecuador|bulgaria": [
+        0.7922,
+        0.1547,
+        0.0531
+      ],
+      "ecuador|burkina faso": [
+        0.6853,
+        0.228,
+        0.0867
+      ],
+      "ecuador|trinidad and tobago": [
+        0.7994,
+        0.1503,
+        0.0503
+      ],
+      "ecuador|togo": [
+        0.8047,
+        0.1438,
+        0.0514
+      ],
+      "ecuador|kazakhstan": [
+        0.7997,
+        0.1477,
+        0.0526
+      ],
+      "ecuador|sint maarten": [
+        0.8699,
+        0.0927,
+        0.0374
+      ],
+      "ecuador|yemen": [
+        0.8661,
+        0.0932,
+        0.0408
+      ],
+      "ecuador|egypt": [
+        0.3824,
+        0.3451,
+        0.2725
+      ],
+      "ecuador|azerbaijan": [
+        0.8568,
+        0.1061,
+        0.0371
+      ],
+      "ecuador|kyrgyzstan": [
+        0.8266,
+        0.1277,
+        0.0456
+      ],
+      "ecuador|republic of ireland": [
+        0.5125,
+        0.299,
+        0.1886
+      ],
+      "ecuador|bahrain": [
+        0.7887,
+        0.1582,
+        0.0532
+      ],
+      "ecuador|australia": [
+        0.3654,
+        0.3374,
+        0.2971
+      ],
+      "ecuador|saint martin": [
+        0.8669,
+        0.0922,
+        0.0409
+      ],
+      "ecuador|morocco": [
+        0.2904,
+        0.3146,
+        0.395
+      ],
+      "ecuador|oman": [
+        0.7639,
+        0.1773,
+        0.0587
+      ],
+      "ecuador|cape verde": [
+        0.6611,
+        0.2497,
+        0.0892
+      ],
+      "ecuador|malta": [
+        0.8439,
+        0.1189,
+        0.0372
+      ],
+      "ecuador|nicaragua": [
+        0.8067,
+        0.1482,
+        0.0451
+      ],
+      "ecuador|el salvador": [
+        0.8102,
+        0.1446,
+        0.0452
+      ],
+      "ecuador|uzbekistan": [
+        0.5356,
+        0.2824,
+        0.182
+      ],
+      "ecuador|iraq": [
+        0.6172,
+        0.2617,
+        0.1211
+      ],
+      "ecuador|north macedonia": [
+        0.7013,
+        0.2237,
+        0.075
+      ],
+      "ecuador|england": [
+        0.1415,
+        0.247,
+        0.6115
+      ],
+      "ecuador|cameroon": [
+        0.6175,
+        0.262,
+        0.1205
+      ],
+      "ecuador|namibia": [
+        0.8238,
+        0.1297,
+        0.0465
+      ],
+      "ecuador|mozambique": [
+        0.8158,
+        0.1358,
+        0.0485
+      ],
+      "ecuador|hong kong": [
+        0.8684,
+        0.0908,
+        0.0408
+      ],
+      "ecuador|libya": [
+        0.7919,
+        0.1538,
+        0.0542
+      ],
+      "ecuador|dr congo": [
+        0.5564,
+        0.2849,
+        0.1587
+      ],
+      "ecuador|wales": [
+        0.587,
+        0.2564,
+        0.1566
+      ],
+      "ecuador|cyprus": [
+        0.8527,
+        0.1071,
+        0.0402
+      ],
+      "ecuador|poland": [
+        0.6454,
+        0.2245,
+        0.1301
+      ],
+      "ecuador|indonesia": [
+        0.816,
+        0.1397,
+        0.0443
+      ],
+      "ecuador|pakistan": [
+        0.8944,
+        0.0734,
+        0.0322
+      ],
+      "ecuador|israel": [
+        0.6788,
+        0.2325,
+        0.0887
+      ],
+      "ecuador|ivory coast": [
+        0.4054,
+        0.3319,
+        0.2626
+      ],
+      "ecuador|bolivia": [
+        0.6893,
+        0.2246,
+        0.0861
+      ],
+      "ecuador|zimbabwe": [
+        0.8173,
+        0.1331,
+        0.0496
+      ],
+      "ecuador|switzerland": [
+        0.2651,
+        0.3068,
+        0.4281
+      ],
+      "ecuador|rwanda": [
+        0.8207,
+        0.1312,
+        0.0481
+      ],
+      "ecuador|uganda": [
+        0.7984,
+        0.1494,
+        0.0522
+      ],
+      "ecuador|sierra leone": [
+        0.8204,
+        0.1302,
+        0.0494
+      ],
+      "ecuador|estonia": [
+        0.8347,
+        0.1233,
+        0.042
+      ],
+      "ecuador|congo": [
+        0.873,
+        0.0951,
+        0.0319
+      ],
+      "ecuador|gambia": [
+        0.7983,
+        0.1448,
+        0.0569
+      ],
+      "ecuador|aruba": [
+        0.8871,
+        0.0776,
+        0.0353
+      ],
+      "ecuador|saint vincent and the grenadines": [
+        0.8605,
+        0.1001,
+        0.0393
+      ],
+      "ecuador|united states": [
+        0.4643,
+        0.3031,
+        0.2325
+      ],
+      "ecuador|guatemala": [
+        0.6951,
+        0.2221,
+        0.0828
+      ],
+      "ecuador|liechtenstein": [
+        0.9036,
+        0.0683,
+        0.0281
+      ],
+      "ecuador|kuwait": [
+        0.8267,
+        0.1318,
+        0.0415
+      ],
+      "ecuador|south africa": [
+        0.655,
+        0.2519,
+        0.0931
+      ],
+      "ecuador|turkey": [
+        0.452,
+        0.3152,
+        0.2327
+      ],
+      "ecuador|palestine": [
+        0.716,
+        0.2143,
+        0.0697
+      ],
+      "ecuador|honduras": [
+        0.6494,
+        0.2393,
+        0.1113
+      ],
+      "ecuador|sweden": [
+        0.4878,
+        0.2855,
+        0.2267
+      ],
+      "ecuador|british virgin islands": [
+        0.894,
+        0.0707,
+        0.0353
+      ],
+      "ecuador|algeria": [
+        0.4646,
+        0.3282,
+        0.2072
+      ],
+      "ecuador|armenia": [
+        0.8454,
+        0.1195,
+        0.035
+      ],
+      "ecuador|san marino": [
+        0.9166,
+        0.058,
+        0.0254
+      ],
+      "ecuador|new caledonia": [
+        0.7333,
+        0.1935,
+        0.0732
+      ],
+      "ecuador|mauritania": [
+        0.8147,
+        0.1365,
+        0.0488
+      ],
+      "ecuador|new zealand": [
+        0.693,
+        0.2188,
+        0.0882
+      ],
+      "ecuador|tahiti": [
+        0.8078,
+        0.1416,
+        0.0505
+      ],
+      "ecuador|paraguay": [
+        0.3747,
+        0.3511,
+        0.2742
+      ],
+      "ecuador|saudi arabia": [
+        0.6291,
+        0.2666,
+        0.1043
+      ],
+      "ecuador|andorra": [
+        0.8806,
+        0.0863,
+        0.0331
+      ],
+      "ecuador|finland": [
+        0.7215,
+        0.2075,
+        0.0711
+      ],
+      "ecuador|jordan": [
+        0.6567,
+        0.2564,
+        0.0869
+      ],
+      "ecuador|niger": [
+        0.8037,
+        0.1435,
+        0.0528
+      ],
+      "ecuador|montenegro": [
+        0.8045,
+        0.151,
+        0.0445
+      ],
+      "ecuador|belarus": [
+        0.7253,
+        0.2136,
+        0.061
+      ],
+      "ecuador|japan": [
+        0.2858,
+        0.3012,
+        0.413
+      ],
+      "ecuador|vanuatu": [
+        0.8414,
+        0.1169,
+        0.0417
+      ],
+      "ecuador|curacao": [
+        0.7315,
+        0.2091,
+        0.0595
+      ],
+      "ecuador|turks and caicos islands": [
+        0.9072,
+        0.0645,
+        0.0283
+      ],
+      "ecuador|romania": [
+        0.6599,
+        0.238,
+        0.1021
+      ],
+      "ecuador|singapore": [
+        0.8694,
+        0.0931,
+        0.0375
+      ],
+      "ecuador|peru": [
+        0.5174,
+        0.3113,
+        0.1713
+      ],
+      "ecuador|qatar": [
+        0.803,
+        0.1569,
+        0.0401
+      ],
+      "ecuador|sudan": [
+        0.8047,
+        0.1485,
+        0.0467
+      ],
+      "ecuador|slovenia": [
+        0.5693,
+        0.2879,
+        0.1428
+      ],
+      "ecuador|guinea": [
+        0.7586,
+        0.1795,
+        0.062
+      ],
+      "ecuador|serbia": [
+        0.5391,
+        0.2895,
+        0.1714
+      ],
+      "ecuador|india": [
+        0.8718,
+        0.0929,
+        0.0352
+      ],
+      "ecuador|cayman islands": [
+        0.8988,
+        0.0675,
+        0.0338
+      ],
+      "ecuador|jamaica": [
+        0.7514,
+        0.1866,
+        0.0619
+      ],
+      "ecuador|bosnia and herzegovina": [
+        0.7039,
+        0.2244,
+        0.0717
+      ],
+      "ecuador|croatia": [
+        0.4073,
+        0.3087,
+        0.284
+      ],
+      "ecuador|colombia": [
+        0.2771,
+        0.2787,
+        0.4442
+      ],
+      "ecuador|slovakia": [
+        0.6264,
+        0.2624,
+        0.1112
+      ],
+      "ecuador|albania": [
+        0.6537,
+        0.2532,
+        0.0931
+      ],
+      "ecuador|canada": [
+        0.5338,
+        0.2761,
+        0.1901
+      ],
+      "ecuador|venezuela": [
+        0.5311,
+        0.2881,
+        0.1808
+      ],
+      "ecuador|dominican republic": [
+        0.8328,
+        0.1166,
+        0.0505
+      ],
+      "ecuador|iceland": [
+        0.7243,
+        0.2035,
+        0.0722
+      ],
+      "ecuador|costa rica": [
+        0.6783,
+        0.2048,
+        0.117
+      ],
+      "ecuador|united arab emirates": [
+        0.6838,
+        0.2319,
+        0.0843
+      ],
+      "ecuador|lesotho": [
+        0.8328,
+        0.1291,
+        0.0381
+      ],
+      "ecuador|northern ireland": [
+        0.6866,
+        0.2292,
+        0.0842
+      ],
+      "ecuador|ukraine": [
+        0.511,
+        0.2832,
+        0.2059
+      ],
+      "ecuador|suriname": [
+        0.7235,
+        0.2033,
+        0.0732
+      ],
+      "ecuador|argentina": [
+        0.1215,
+        0.2419,
+        0.6366
+      ],
+      "ecuador|china": [
+        0.7825,
+        0.1639,
+        0.0536
+      ],
+      "ecuador|moldova": [
+        0.8719,
+        0.0981,
+        0.0299
+      ],
+      "ecuador|latvia": [
+        0.8563,
+        0.1079,
+        0.0358
+      ],
+      "ecuador|belgium": [
+        0.3181,
+        0.2839,
+        0.3979
+      ],
+      "ecuador|tunisia": [
+        0.7125,
+        0.2172,
+        0.0703
+      ],
+      "ecuador|germany": [
+        0.2643,
+        0.2784,
+        0.4573
+      ],
+      "ecuador|denmark": [
+        0.3543,
+        0.3179,
+        0.3278
+      ],
+      "ecuador|gabon": [
+        0.7999,
+        0.1516,
+        0.0484
+      ],
+      "ecuador|italy": [
+        0.302,
+        0.3163,
+        0.3817
+      ],
+      "ecuador|haiti": [
+        0.7106,
+        0.2133,
+        0.0761
+      ],
+      "ecuador|luxembourg": [
+        0.821,
+        0.1366,
+        0.0424
+      ],
+      "ecuador|mali": [
+        0.6184,
+        0.256,
+        0.1256
+      ],
+      "ecuador|united states virgin islands": [
+        0.9072,
+        0.0611,
+        0.0317
+      ],
+      "ecuador|guadeloupe": [
+        0.8058,
+        0.1432,
+        0.051
+      ],
+      "ecuador|panama": [
+        0.5363,
+        0.2699,
+        0.1938
+      ],
+      "ecuador|hungary": [
+        0.5655,
+        0.2653,
+        0.1692
+      ],
+      "ecuador|austria": [
+        0.3748,
+        0.3286,
+        0.2966
+      ],
+      "ecuador|lithuania": [
+        0.8629,
+        0.1036,
+        0.0336
+      ],
+      "ecuador|ethiopia": [
+        0.8451,
+        0.1143,
+        0.0406
+      ],
+      "ecuador|myanmar": [
+        0.9014,
+        0.0716,
+        0.0271
+      ],
+      "ecuador|uruguay": [
+        0.3069,
+        0.3292,
+        0.3638
+      ],
+      "ecuador|senegal": [
+        0.4655,
+        0.314,
+        0.2206
+      ],
+      "ecuador|liberia": [
+        0.8325,
+        0.1229,
+        0.0445
+      ],
+      "ecuador|angola": [
+        0.7331,
+        0.1996,
+        0.0673
+      ],
+      "ecuador|seychelles": [
+        0.904,
+        0.0679,
+        0.0281
+      ],
+      "ecuador|czech republic": [
+        0.604,
+        0.2622,
+        0.1338
+      ],
+      "ecuador|guam": [
+        0.9153,
+        0.0594,
+        0.0254
+      ],
+      "ecuador|france": [
+        0.2264,
+        0.2663,
+        0.5073
+      ],
+      "ecuador|grenada": [
+        0.8775,
+        0.0879,
+        0.0347
+      ],
+      "ecuador|chile": [
+        0.5421,
+        0.291,
+        0.1669
+      ],
+      "ecuador|belize": [
+        0.879,
+        0.0858,
+        0.0352
+      ],
+      "ecuador|south korea": [
+        0.5127,
+        0.2822,
+        0.2052
+      ],
+      "ecuador|equatorial guinea": [
+        0.834,
+        0.1257,
+        0.0403
+      ],
+      "ecuador|iran": [
+        0.45,
+        0.3148,
+        0.2352
+      ],
+      "ecuador|greece": [
+        0.549,
+        0.2832,
+        0.1678
+      ],
+      "ecuador|tanzania": [
+        0.8399,
+        0.1152,
+        0.0449
+      ],
+      "ecuador|north korea": [
+        0.8229,
+        0.1342,
+        0.0428
+      ],
+      "ecuador|malawi": [
+        0.833,
+        0.1207,
+        0.0463
+      ],
+      "ecuador|netherlands": [
+        0.34,
+        0.2892,
+        0.3708
+      ],
+      "ecuador|cambodia": [
+        0.895,
+        0.0711,
+        0.0339
+      ],
+      "ecuador|guinea-bissau": [
+        0.8491,
+        0.11,
+        0.0409
+      ],
+      "ecuador|botswana": [
+        0.844,
+        0.1193,
+        0.0367
+      ],
+      "ecuador|brazil": [
+        0.2335,
+        0.2912,
+        0.4753
+      ],
+      "ecuador|anguilla": [
+        0.9135,
+        0.0597,
+        0.0268
+      ],
+      "ecuador|georgia": [
+        0.6576,
+        0.2508,
+        0.0916
+      ],
+      "ecuador|eswatini": [
+        0.8678,
+        0.0999,
+        0.0323
+      ],
+      "ecuador|saint kitts and nevis": [
+        0.8889,
+        0.0825,
+        0.0286
+      ],
+      "ecuador|comoros": [
+        0.8201,
+        0.1332,
+        0.0467
+      ],
+      "ecuador|portugal": [
+        0.2278,
+        0.2869,
+        0.4853
+      ],
+      "ecuador|afghanistan": [
+        0.879,
+        0.0836,
+        0.0375
+      ],
+      "ecuador|mauritius": [
+        0.884,
+        0.0855,
+        0.0306
+      ],
+      "ecuador|samoa": [
+        0.8915,
+        0.0803,
+        0.0282
+      ],
+      "ecuador|central african republic": [
+        0.8665,
+        0.1015,
+        0.032
+      ],
+      "ecuador|barbados": [
+        0.9093,
+        0.0637,
+        0.0269
+      ],
+      "ecuador|bangladesh": [
+        0.8924,
+        0.0753,
+        0.0323
+      ],
+      "ecuador|south sudan": [
+        0.8663,
+        0.1,
+        0.0337
+      ],
+      "ecuador|bonaire": [
+        0.8978,
+        0.0728,
+        0.0294
+      ],
+      "ecuador|dominica": [
+        0.9012,
+        0.0723,
+        0.0266
+      ],
+      "ecuador|brunei": [
+        0.9172,
+        0.0574,
+        0.0254
+      ],
+      "ecuador|montserrat": [
+        0.8864,
+        0.0831,
+        0.0305
+      ],
+      "ecuador|fiji": [
+        0.8531,
+        0.1136,
+        0.0333
+      ],
+      "ecuador|sri lanka": [
+        0.9005,
+        0.0703,
+        0.0291
+      ],
+      "ecuador|bermuda": [
+        0.8758,
+        0.0942,
+        0.03
+      ],
+      "ecuador|sao tome and principe": [
+        0.8844,
+        0.0857,
+        0.0299
+      ],
+      "ecuador|martinique": [
+        0.8218,
+        0.1309,
+        0.0473
+      ],
+      "ecuador|chad": [
+        0.8693,
+        0.0956,
+        0.0351
+      ],
+      "ecuador|saint lucia": [
+        0.8949,
+        0.0779,
+        0.0272
+      ],
+      "ecuador|solomon islands": [
+        0.8707,
+        0.098,
+        0.0313
+      ],
+      "ecuador|gibraltar": [
+        0.8941,
+        0.0767,
+        0.0292
+      ],
+      "ecuador|somalia": [
+        0.8882,
+        0.0799,
+        0.0319
+      ],
+      "ecuador|burundi": [
+        0.8479,
+        0.111,
+        0.0411
+      ],
+      "ecuador|antigua and barbuda": [
+        0.8991,
+        0.0718,
+        0.0291
+      ],
+      "ecuador|bahamas": [
+        0.9182,
+        0.0566,
+        0.0252
+      ],
+      "ecuador|french guiana": [
+        0.8447,
+        0.113,
+        0.0423
+      ],
+      "ecuador|laos": [
+        0.9166,
+        0.0582,
+        0.0252
+      ],
+      "ecuador|timor-leste": [
+        0.9172,
+        0.0574,
+        0.0254
+      ],
+      "ecuador|maldives": [
+        0.905,
+        0.067,
+        0.028
+      ],
+      "ecuador|djibouti": [
+        0.9062,
+        0.0676,
+        0.0262
+      ],
+      "ecuador|macau": [
+        0.9205,
+        0.0544,
+        0.0251
+      ],
+      "ecuador|bhutan": [
+        0.9127,
+        0.0595,
+        0.0278
+      ],
+      "ecuador|nepal": [
+        0.8908,
+        0.0775,
+        0.0317
+      ],
+      "ecuador|taiwan": [
+        0.9112,
+        0.0634,
+        0.0255
+      ],
       "liberia|malaysia": [
         0.245,
         0.296,
@@ -164975,15 +164975,15 @@
         0.116,
         0.813
       ],
-      "liberia|ecuador": [
-        0.0806,
-        0.1291,
-        0.7904
-      ],
       "liberia|senegal": [
         0.0777,
         0.1674,
         0.7549
+      ],
+      "liberia|ecuador": [
+        0.0806,
+        0.1291,
+        0.7904
       ],
       "liberia|angola": [
         0.2008,
@@ -166030,15 +166030,15 @@
         0.22,
         0.6548
       ],
-      "angola|ecuador": [
-        0.1297,
-        0.249,
-        0.6213
-      ],
       "angola|senegal": [
         0.1801,
         0.2744,
         0.5455
+      ],
+      "angola|ecuador": [
+        0.1297,
+        0.249,
+        0.6213
       ],
       "angola|liberia": [
         0.5864,
@@ -167085,15 +167085,15 @@
         0.0286,
         0.9525
       ],
-      "seychelles|ecuador": [
-        0.0198,
-        0.0317,
-        0.9485
-      ],
       "seychelles|senegal": [
         0.0202,
         0.0333,
         0.9465
+      ],
+      "seychelles|ecuador": [
+        0.0198,
+        0.0317,
+        0.9485
       ],
       "seychelles|liberia": [
         0.0545,
@@ -168140,15 +168140,15 @@
         0.253,
         0.5539
       ],
-      "czech republic|ecuador": [
-        0.1966,
-        0.2584,
-        0.545
-      ],
       "czech republic|senegal": [
         0.269,
         0.291,
         0.4401
+      ],
+      "czech republic|ecuador": [
+        0.1966,
+        0.2584,
+        0.545
       ],
       "czech republic|liberia": [
         0.6994,
@@ -169195,15 +169195,15 @@
         0.0321,
         0.9466
       ],
-      "guam|ecuador": [
-        0.024,
-        0.0367,
-        0.9392
-      ],
       "guam|senegal": [
         0.0301,
         0.046,
         0.9239
+      ],
+      "guam|ecuador": [
+        0.024,
+        0.0367,
+        0.9392
       ],
       "guam|liberia": [
         0.0706,
@@ -170250,15 +170250,15 @@
         0.2581,
         0.1727
       ],
-      "france|ecuador": [
-        0.5981,
-        0.2635,
-        0.1383
-      ],
       "france|senegal": [
         0.6939,
         0.2202,
         0.0859
+      ],
+      "france|ecuador": [
+        0.5981,
+        0.2635,
+        0.1383
       ],
       "france|liberia": [
         0.8827,
@@ -171305,15 +171305,15 @@
         0.072,
         0.881
       ],
-      "grenada|ecuador": [
-        0.0481,
-        0.0752,
-        0.8767
-      ],
       "grenada|senegal": [
         0.0483,
         0.0891,
         0.8625
+      ],
+      "grenada|ecuador": [
+        0.0481,
+        0.0752,
+        0.8767
       ],
       "grenada|liberia": [
         0.2298,
@@ -172360,15 +172360,15 @@
         0.2783,
         0.5176
       ],
-      "chile|ecuador": [
-        0.242,
-        0.2879,
-        0.4701
-      ],
       "chile|senegal": [
         0.3032,
         0.304,
         0.3928
+      ],
+      "chile|ecuador": [
+        0.242,
+        0.2879,
+        0.4701
       ],
       "chile|liberia": [
         0.7665,
@@ -173415,15 +173415,15 @@
         0.0747,
         0.8753
       ],
-      "belize|ecuador": [
-        0.0482,
-        0.0757,
-        0.8761
-      ],
       "belize|senegal": [
         0.0505,
         0.0948,
         0.8548
+      ],
+      "belize|ecuador": [
+        0.0482,
+        0.0757,
+        0.8761
       ],
       "belize|liberia": [
         0.2355,
@@ -174470,15 +174470,15 @@
         0.3036,
         0.4475
       ],
-      "south korea|ecuador": [
-        0.2814,
-        0.3116,
-        0.407
-      ],
       "south korea|senegal": [
         0.3114,
         0.3356,
         0.3531
+      ],
+      "south korea|ecuador": [
+        0.2814,
+        0.3116,
+        0.407
       ],
       "south korea|liberia": [
         0.8014,
@@ -175525,15 +175525,15 @@
         0.1234,
         0.8
       ],
-      "equatorial guinea|ecuador": [
-        0.078,
-        0.1288,
-        0.7932
-      ],
       "equatorial guinea|senegal": [
         0.0812,
         0.1685,
         0.7503
+      ],
+      "equatorial guinea|ecuador": [
+        0.078,
+        0.1288,
+        0.7932
       ],
       "equatorial guinea|liberia": [
         0.3469,
@@ -176580,15 +176580,15 @@
         0.3041,
         0.4038
       ],
-      "iran|ecuador": [
-        0.3,
-        0.3158,
-        0.3842
-      ],
       "iran|senegal": [
         0.41,
         0.3282,
         0.2617
+      ],
+      "iran|ecuador": [
+        0.3,
+        0.3158,
+        0.3842
       ],
       "iran|liberia": [
         0.818,
@@ -177635,15 +177635,15 @@
         0.2716,
         0.4947
       ],
-      "greece|ecuador": [
-        0.2579,
-        0.291,
-        0.4512
-      ],
       "greece|senegal": [
         0.3314,
         0.2989,
         0.3697
+      ],
+      "greece|ecuador": [
+        0.2579,
+        0.291,
+        0.4512
       ],
       "greece|liberia": [
         0.7826,
@@ -178690,15 +178690,15 @@
         0.1243,
         0.801
       ],
-      "tanzania|ecuador": [
-        0.0794,
-        0.1369,
-        0.7837
-      ],
       "tanzania|senegal": [
         0.0753,
         0.1599,
         0.7648
+      ],
+      "tanzania|ecuador": [
+        0.0794,
+        0.1369,
+        0.7837
       ],
       "tanzania|liberia": [
         0.3083,
@@ -179745,15 +179745,15 @@
         0.1289,
         0.7881
       ],
-      "north korea|ecuador": [
-        0.0882,
-        0.1382,
-        0.7735
-      ],
       "north korea|senegal": [
         0.107,
         0.2139,
         0.6791
+      ],
+      "north korea|ecuador": [
+        0.0882,
+        0.1382,
+        0.7735
       ],
       "north korea|liberia": [
         0.4267,
@@ -180800,15 +180800,15 @@
         0.1256,
         0.7965
       ],
-      "malawi|ecuador": [
-        0.0859,
-        0.1384,
-        0.7756
-      ],
       "malawi|senegal": [
         0.0877,
         0.178,
         0.7344
+      ],
+      "malawi|ecuador": [
+        0.0859,
+        0.1384,
+        0.7756
       ],
       "malawi|liberia": [
         0.3371,
@@ -181855,15 +181855,15 @@
         0.3177,
         0.2711
       ],
-      "netherlands|ecuador": [
-        0.4237,
-        0.3254,
-        0.2509
-      ],
       "netherlands|senegal": [
         0.6395,
         0.2278,
         0.1327
+      ],
+      "netherlands|ecuador": [
+        0.4237,
+        0.3254,
+        0.2509
       ],
       "netherlands|liberia": [
         0.8745,
@@ -182910,15 +182910,15 @@
         0.0593,
         0.8946
       ],
-      "cambodia|ecuador": [
-        0.0417,
-        0.0573,
-        0.901
-      ],
       "cambodia|senegal": [
         0.0389,
         0.0664,
         0.8947
+      ],
+      "cambodia|ecuador": [
+        0.0417,
+        0.0573,
+        0.901
       ],
       "cambodia|liberia": [
         0.1275,
@@ -183965,15 +183965,15 @@
         0.1021,
         0.8377
       ],
-      "guinea-bissau|ecuador": [
-        0.0628,
-        0.1108,
-        0.8264
-      ],
       "guinea-bissau|senegal": [
         0.0671,
         0.1382,
         0.7947
+      ],
+      "guinea-bissau|ecuador": [
+        0.0628,
+        0.1108,
+        0.8264
       ],
       "guinea-bissau|liberia": [
         0.2744,
@@ -185020,15 +185020,15 @@
         0.0993,
         0.8386
       ],
-      "botswana|ecuador": [
-        0.067,
-        0.1085,
-        0.8245
-      ],
       "botswana|senegal": [
         0.0553,
         0.1235,
         0.8211
+      ],
+      "botswana|ecuador": [
+        0.067,
+        0.1085,
+        0.8245
       ],
       "botswana|liberia": [
         0.3152,
@@ -186075,15 +186075,15 @@
         0.2751,
         0.201
       ],
-      "brazil|ecuador": [
-        0.5397,
-        0.2828,
-        0.1775
-      ],
       "brazil|senegal": [
         0.6478,
         0.252,
         0.1003
+      ],
+      "brazil|ecuador": [
+        0.5397,
+        0.2828,
+        0.1775
       ],
       "brazil|liberia": [
         0.8671,
@@ -187130,15 +187130,15 @@
         0.0353,
         0.9389
       ],
-      "anguilla|ecuador": [
-        0.0221,
-        0.0335,
-        0.9444
-      ],
       "anguilla|senegal": [
         0.0284,
         0.0421,
         0.9295
+      ],
+      "anguilla|ecuador": [
+        0.0221,
+        0.0335,
+        0.9444
       ],
       "anguilla|liberia": [
         0.0462,
@@ -188185,15 +188185,15 @@
         0.2492,
         0.5677
       ],
-      "georgia|ecuador": [
-        0.1837,
-        0.2456,
-        0.5707
-      ],
       "georgia|senegal": [
         0.2396,
         0.2768,
         0.4836
+      ],
+      "georgia|ecuador": [
+        0.1837,
+        0.2456,
+        0.5707
       ],
       "georgia|liberia": [
         0.6811,
@@ -189240,15 +189240,15 @@
         0.0753,
         0.8815
       ],
-      "eswatini|ecuador": [
-        0.0459,
-        0.0797,
-        0.8744
-      ],
       "eswatini|senegal": [
         0.0473,
         0.0976,
         0.8551
+      ],
+      "eswatini|ecuador": [
+        0.0459,
+        0.0797,
+        0.8744
       ],
       "eswatini|liberia": [
         0.2555,
@@ -190295,15 +190295,15 @@
         0.0635,
         0.8922
       ],
-      "saint kitts and nevis|ecuador": [
-        0.0314,
-        0.0564,
-        0.9122
-      ],
       "saint kitts and nevis|senegal": [
         0.0417,
         0.0755,
         0.8828
+      ],
+      "saint kitts and nevis|ecuador": [
+        0.0314,
+        0.0564,
+        0.9122
       ],
       "saint kitts and nevis|liberia": [
         0.2116,
@@ -191350,15 +191350,15 @@
         0.1322,
         0.7873
       ],
-      "comoros|ecuador": [
-        0.0876,
-        0.1432,
-        0.7692
-      ],
       "comoros|senegal": [
         0.1106,
         0.2108,
         0.6786
+      ],
+      "comoros|ecuador": [
+        0.0876,
+        0.1432,
+        0.7692
       ],
       "comoros|liberia": [
         0.4203,
@@ -192405,15 +192405,15 @@
         0.2757,
         0.2255
       ],
-      "portugal|ecuador": [
-        0.6403,
-        0.2223,
-        0.1374
-      ],
       "portugal|senegal": [
         0.5976,
         0.2611,
         0.1413
+      ],
+      "portugal|ecuador": [
+        0.6403,
+        0.2223,
+        0.1374
       ],
       "portugal|liberia": [
         0.8707,
@@ -193460,15 +193460,15 @@
         0.0692,
         0.8859
       ],
-      "afghanistan|ecuador": [
-        0.0433,
-        0.0723,
-        0.8844
-      ],
       "afghanistan|senegal": [
         0.0406,
         0.079,
         0.8804
+      ],
+      "afghanistan|ecuador": [
+        0.0433,
+        0.0723,
+        0.8844
       ],
       "afghanistan|liberia": [
         0.1536,
@@ -194515,15 +194515,15 @@
         0.0681,
         0.8861
       ],
-      "mauritius|ecuador": [
-        0.0469,
-        0.0707,
-        0.8824
-      ],
       "mauritius|senegal": [
         0.03,
         0.069,
         0.901
+      ],
+      "mauritius|ecuador": [
+        0.0469,
+        0.0707,
+        0.8824
       ],
       "mauritius|liberia": [
         0.145,
@@ -195570,15 +195570,15 @@
         0.0483,
         0.9232
       ],
-      "samoa|ecuador": [
-        0.0293,
-        0.052,
-        0.9187
-      ],
       "samoa|senegal": [
         0.0351,
         0.0637,
         0.9012
+      ],
+      "samoa|ecuador": [
+        0.0293,
+        0.052,
+        0.9187
       ],
       "samoa|liberia": [
         0.1965,
@@ -196625,15 +196625,15 @@
         0.0815,
         0.8718
       ],
-      "central african republic|ecuador": [
-        0.0479,
-        0.0819,
-        0.8703
-      ],
       "central african republic|senegal": [
         0.0639,
         0.1139,
         0.8222
+      ],
+      "central african republic|ecuador": [
+        0.0479,
+        0.0819,
+        0.8703
       ],
       "central african republic|liberia": [
         0.2578,
@@ -197680,15 +197680,15 @@
         0.0545,
         0.9032
       ],
-      "barbados|ecuador": [
-        0.0295,
-        0.0439,
-        0.9267
-      ],
       "barbados|senegal": [
         0.0344,
         0.0566,
         0.909
+      ],
+      "barbados|ecuador": [
+        0.0295,
+        0.0439,
+        0.9267
       ],
       "barbados|liberia": [
         0.1341,
@@ -198735,15 +198735,15 @@
         0.0573,
         0.9056
       ],
-      "bangladesh|ecuador": [
-        0.0425,
-        0.0598,
-        0.8977
-      ],
       "bangladesh|senegal": [
         0.0395,
         0.0699,
         0.8905
+      ],
+      "bangladesh|ecuador": [
+        0.0425,
+        0.0598,
+        0.8977
       ],
       "bangladesh|liberia": [
         0.1391,
@@ -199790,15 +199790,15 @@
         0.0698,
         0.8884
       ],
-      "south sudan|ecuador": [
-        0.0451,
-        0.0734,
-        0.8815
-      ],
       "south sudan|senegal": [
         0.0297,
         0.0717,
         0.8986
+      ],
+      "south sudan|ecuador": [
+        0.0451,
+        0.0734,
+        0.8815
       ],
       "south sudan|liberia": [
         0.2198,
@@ -200845,15 +200845,15 @@
         0.0615,
         0.8939
       ],
-      "bonaire|ecuador": [
-        0.0424,
-        0.06,
-        0.8975
-      ],
       "bonaire|senegal": [
         0.0373,
         0.0666,
         0.8961
+      ],
+      "bonaire|ecuador": [
+        0.0424,
+        0.06,
+        0.8975
       ],
       "bonaire|liberia": [
         0.1369,
@@ -201900,15 +201900,15 @@
         0.0518,
         0.916
       ],
-      "dominica|ecuador": [
-        0.0274,
-        0.0482,
-        0.9243
-      ],
       "dominica|senegal": [
         0.0349,
         0.0633,
         0.9018
+      ],
+      "dominica|ecuador": [
+        0.0274,
+        0.0482,
+        0.9243
       ],
       "dominica|liberia": [
         0.1431,
@@ -202955,15 +202955,15 @@
         0.028,
         0.9515
       ],
-      "brunei|ecuador": [
-        0.0206,
-        0.0291,
-        0.9504
-      ],
       "brunei|senegal": [
         0.0198,
         0.0296,
         0.9506
+      ],
+      "brunei|ecuador": [
+        0.0206,
+        0.0291,
+        0.9504
       ],
       "brunei|liberia": [
         0.042,
@@ -204010,15 +204010,15 @@
         0.0666,
         0.8943
       ],
-      "montserrat|ecuador": [
-        0.0406,
-        0.0687,
-        0.8907
-      ],
       "montserrat|senegal": [
         0.0417,
         0.0793,
         0.8791
+      ],
+      "montserrat|ecuador": [
+        0.0406,
+        0.0687,
+        0.8907
       ],
       "montserrat|liberia": [
         0.1943,
@@ -205065,15 +205065,15 @@
         0.0951,
         0.8508
       ],
-      "fiji|ecuador": [
-        0.0497,
-        0.0912,
-        0.8591
-      ],
       "fiji|senegal": [
         0.0764,
         0.1322,
         0.7914
+      ],
+      "fiji|ecuador": [
+        0.0497,
+        0.0912,
+        0.8591
       ],
       "fiji|liberia": [
         0.3116,
@@ -206120,15 +206120,15 @@
         0.0541,
         0.9046
       ],
-      "sri lanka|ecuador": [
-        0.0421,
-        0.0548,
-        0.9031
-      ],
       "sri lanka|senegal": [
         0.0327,
         0.0543,
         0.913
+      ],
+      "sri lanka|ecuador": [
+        0.0421,
+        0.0548,
+        0.9031
       ],
       "sri lanka|liberia": [
         0.1028,
@@ -207175,15 +207175,15 @@
         0.0557,
         0.908
       ],
-      "bermuda|ecuador": [
-        0.0332,
-        0.0598,
-        0.907
-      ],
       "bermuda|senegal": [
         0.0502,
         0.0841,
         0.8657
+      ],
+      "bermuda|ecuador": [
+        0.0332,
+        0.0598,
+        0.907
       ],
       "bermuda|liberia": [
         0.2753,
@@ -208230,15 +208230,15 @@
         0.0542,
         0.9144
       ],
-      "sao tome and principe|ecuador": [
-        0.0263,
-        0.0504,
-        0.9234
-      ],
       "sao tome and principe|senegal": [
         0.035,
         0.0653,
         0.8998
+      ],
+      "sao tome and principe|ecuador": [
+        0.0263,
+        0.0504,
+        0.9234
       ],
       "sao tome and principe|liberia": [
         0.123,
@@ -209285,15 +209285,15 @@
         0.134,
         0.7864
       ],
-      "martinique|ecuador": [
-        0.0849,
-        0.1435,
-        0.7716
-      ],
       "martinique|senegal": [
         0.1086,
         0.2151,
         0.6763
+      ],
+      "martinique|ecuador": [
+        0.0849,
+        0.1435,
+        0.7716
       ],
       "martinique|liberia": [
         0.4115,
@@ -210340,15 +210340,15 @@
         0.0721,
         0.8862
       ],
-      "chad|ecuador": [
-        0.0442,
-        0.0757,
-        0.8801
-      ],
       "chad|senegal": [
         0.0425,
         0.0839,
         0.8736
+      ],
+      "chad|ecuador": [
+        0.0442,
+        0.0757,
+        0.8801
       ],
       "chad|liberia": [
         0.1804,
@@ -211395,15 +211395,15 @@
         0.0592,
         0.9045
       ],
-      "saint lucia|ecuador": [
-        0.0287,
-        0.0523,
-        0.919
-      ],
       "saint lucia|senegal": [
         0.0369,
         0.0688,
         0.8943
+      ],
+      "saint lucia|ecuador": [
+        0.0287,
+        0.0523,
+        0.919
       ],
       "saint lucia|liberia": [
         0.183,
@@ -212450,15 +212450,15 @@
         0.0755,
         0.8836
       ],
-      "solomon islands|ecuador": [
-        0.0367,
-        0.0744,
-        0.8889
-      ],
       "solomon islands|senegal": [
         0.0589,
         0.1116,
         0.8295
+      ],
+      "solomon islands|ecuador": [
+        0.0367,
+        0.0744,
+        0.8889
       ],
       "solomon islands|liberia": [
         0.2843,
@@ -213505,15 +213505,15 @@
         0.0464,
         0.9252
       ],
-      "gibraltar|ecuador": [
-        0.0247,
-        0.0462,
-        0.9291
-      ],
       "gibraltar|senegal": [
         0.0325,
         0.0596,
         0.9079
+      ],
+      "gibraltar|ecuador": [
+        0.0247,
+        0.0462,
+        0.9291
       ],
       "gibraltar|liberia": [
         0.1192,
@@ -214560,15 +214560,15 @@
         0.0523,
         0.9151
       ],
-      "somalia|ecuador": [
-        0.0323,
-        0.0526,
-        0.9152
-      ],
       "somalia|senegal": [
         0.0322,
         0.0562,
         0.9116
+      ],
+      "somalia|ecuador": [
+        0.0323,
+        0.0526,
+        0.9152
       ],
       "somalia|liberia": [
         0.1039,
@@ -215615,15 +215615,15 @@
         0.1015,
         0.8397
       ],
-      "burundi|ecuador": [
-        0.0672,
-        0.1156,
-        0.8172
-      ],
       "burundi|senegal": [
         0.0652,
         0.1404,
         0.7944
+      ],
+      "burundi|ecuador": [
+        0.0672,
+        0.1156,
+        0.8172
       ],
       "burundi|liberia": [
         0.3115,
@@ -216670,15 +216670,15 @@
         0.0521,
         0.9161
       ],
-      "antigua and barbuda|ecuador": [
-        0.0247,
-        0.046,
-        0.9293
-      ],
       "antigua and barbuda|senegal": [
         0.0326,
         0.0593,
         0.9081
+      ],
+      "antigua and barbuda|ecuador": [
+        0.0247,
+        0.046,
+        0.9293
       ],
       "antigua and barbuda|liberia": [
         0.1114,
@@ -217725,15 +217725,15 @@
         0.0306,
         0.9487
       ],
-      "bahamas|ecuador": [
-        0.0206,
-        0.0318,
-        0.9476
-      ],
       "bahamas|senegal": [
         0.0203,
         0.0335,
         0.9462
+      ],
+      "bahamas|ecuador": [
+        0.0206,
+        0.0318,
+        0.9476
       ],
       "bahamas|liberia": [
         0.0445,
@@ -218780,15 +218780,15 @@
         0.1136,
         0.8159
       ],
-      "french guiana|ecuador": [
-        0.0742,
-        0.1214,
-        0.8044
-      ],
       "french guiana|senegal": [
         0.0886,
         0.1539,
         0.7575
+      ],
+      "french guiana|ecuador": [
+        0.0742,
+        0.1214,
+        0.8044
       ],
       "french guiana|liberia": [
         0.3261,
@@ -219835,15 +219835,15 @@
         0.0434,
         0.9238
       ],
-      "laos|ecuador": [
-        0.0236,
-        0.0337,
-        0.9427
-      ],
       "laos|senegal": [
         0.0295,
         0.0436,
         0.9268
+      ],
+      "laos|ecuador": [
+        0.0236,
+        0.0337,
+        0.9427
       ],
       "laos|liberia": [
         0.0699,
@@ -220890,15 +220890,15 @@
         0.0295,
         0.9499
       ],
-      "timor-leste|ecuador": [
-        0.0232,
-        0.0334,
-        0.9434
-      ],
       "timor-leste|senegal": [
         0.0285,
         0.0415,
         0.93
+      ],
+      "timor-leste|ecuador": [
+        0.0232,
+        0.0334,
+        0.9434
       ],
       "timor-leste|liberia": [
         0.0505,
@@ -221945,15 +221945,15 @@
         0.0528,
         0.9056
       ],
-      "maldives|ecuador": [
-        0.04,
-        0.0526,
-        0.9074
-      ],
       "maldives|senegal": [
         0.0308,
         0.0523,
         0.9169
+      ],
+      "maldives|ecuador": [
+        0.04,
+        0.0526,
+        0.9074
       ],
       "maldives|liberia": [
         0.0882,
@@ -223000,15 +223000,15 @@
         0.0453,
         0.9248
       ],
-      "djibouti|ecuador": [
-        0.0256,
-        0.0413,
-        0.9331
-      ],
       "djibouti|senegal": [
         0.0319,
         0.0538,
         0.9143
+      ],
+      "djibouti|ecuador": [
+        0.0256,
+        0.0413,
+        0.9331
       ],
       "djibouti|liberia": [
         0.0823,
@@ -224055,15 +224055,15 @@
         0.0389,
         0.9318
       ],
-      "macau|ecuador": [
-        0.0232,
-        0.0317,
-        0.9451
-      ],
       "macau|senegal": [
         0.0282,
         0.0404,
         0.9314
+      ],
+      "macau|ecuador": [
+        0.0232,
+        0.0317,
+        0.9451
       ],
       "macau|liberia": [
         0.0456,
@@ -225110,15 +225110,15 @@
         0.0282,
         0.9514
       ],
-      "bhutan|ecuador": [
-        0.0191,
-        0.0291,
-        0.9518
-      ],
       "bhutan|senegal": [
         0.0239,
         0.0343,
         0.9419
+      ],
+      "bhutan|ecuador": [
+        0.0191,
+        0.0291,
+        0.9518
       ],
       "bhutan|liberia": [
         0.0411,
@@ -226165,15 +226165,15 @@
         0.0565,
         0.9086
       ],
-      "nepal|ecuador": [
-        0.0328,
-        0.0569,
-        0.9103
-      ],
       "nepal|senegal": [
         0.0339,
         0.0615,
         0.9046
+      ],
+      "nepal|ecuador": [
+        0.0328,
+        0.0569,
+        0.9103
       ],
       "nepal|liberia": [
         0.1126,
@@ -227220,15 +227220,15 @@
         0.0505,
         0.9108
       ],
-      "taiwan|ecuador": [
-        0.0263,
-        0.0399,
-        0.9337
-      ],
       "taiwan|senegal": [
         0.0313,
         0.052,
         0.9166
+      ],
+      "taiwan|ecuador": [
+        0.0263,
+        0.0399,
+        0.9337
       ],
       "taiwan|liberia": [
         0.1116,
