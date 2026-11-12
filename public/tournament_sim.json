@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T09:36:10+00:00",
+  "generated_at": "2026-11-12T18:03:39+00:00",
   "as_of": "2026-07-19",
   "simulations": 10000,
   "locked": {
@@ -62,9 +62,9 @@
       "gd": 3,
       "status": "qualified",
       "reach_r32": 1.0,
-      "reach_r16": 0.7541,
-      "reach_qf": 0.4869,
-      "reach_sf": 0.2937,
+      "reach_r16": 0.7542,
+      "reach_qf": 0.487,
+      "reach_sf": 0.2938,
       "reach_final": 0.1211,
       "win": 0.0463
     },
@@ -93,7 +93,7 @@
       "status": "active",
       "reach_r32": 0.9715,
       "reach_r16": 0.699,
-      "reach_qf": 0.454,
+      "reach_qf": 0.4541,
       "reach_sf": 0.1905,
       "reach_final": 0.066,
       "win": 0.023
@@ -183,7 +183,7 @@
       "status": "qualified",
       "reach_r32": 1.0,
       "reach_r16": 0.6663,
-      "reach_qf": 0.3426,
+      "reach_qf": 0.3425,
       "reach_sf": 0.1541,
       "reach_final": 0.0635,
       "win": 0.01
@@ -198,7 +198,7 @@
       "status": "active",
       "reach_r32": 0.9437,
       "reach_r16": 0.5273,
-      "reach_qf": 0.2492,
+      "reach_qf": 0.2493,
       "reach_sf": 0.1001,
       "reach_final": 0.037,
       "win": 0.0098
@@ -213,8 +213,8 @@
       "status": "qualified",
       "reach_r32": 1.0,
       "reach_r16": 0.6537,
-      "reach_qf": 0.3032,
-      "reach_sf": 0.1052,
+      "reach_qf": 0.3031,
+      "reach_sf": 0.1051,
       "reach_final": 0.0368,
       "win": 0.0097
     },
@@ -236,14 +236,14 @@
     {
       "team": "Australia",
       "group": "D",
-      "elo": 1787,
+      "elo": 1786,
       "played": 2,
       "points": 4,
       "gd": 2,
       "status": "qualified",
       "reach_r32": 1.0,
-      "reach_r16": 0.5523,
-      "reach_qf": 0.1171,
+      "reach_r16": 0.5521,
+      "reach_qf": 0.117,
       "reach_sf": 0.0378,
       "reach_final": 0.0108,
       "win": 0.0022
@@ -288,7 +288,7 @@
       "status": "qualified",
       "reach_r32": 1.0,
       "reach_r16": 0.3161,
-      "reach_qf": 0.1482,
+      "reach_qf": 0.1481,
       "reach_sf": 0.0425,
       "reach_final": 0.012,
       "win": 0.0014
@@ -423,7 +423,7 @@
       "status": "active",
       "reach_r32": 0.2823,
       "reach_r16": 0.0312,
-      "reach_qf": 0.0107,
+      "reach_qf": 0.0108,
       "reach_sf": 0.0018,
       "reach_final": 0.0003,
       "win": 0.0002
@@ -602,7 +602,7 @@
       "gd": 0,
       "status": "active",
       "reach_r32": 0.4819,
-      "reach_r16": 0.1254,
+      "reach_r16": 0.1255,
       "reach_qf": 0.0282,
       "reach_sf": 0.0068,
       "reach_final": 0.0014,
@@ -611,7 +611,7 @@
     {
       "team": "New Zealand",
       "group": "G",
-      "elo": 1559,
+      "elo": 1561,
       "played": 3,
       "points": 1,
       "gd": -6,
